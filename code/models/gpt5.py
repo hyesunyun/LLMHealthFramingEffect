@@ -22,7 +22,7 @@ class GPT5(Model):
     def get_context_length(self) -> int:
         return 400,000
     
-    def generate_output(self, input: str, max_new_tokens: int, reasoning: str = "none", verbosity: str = "medium", temperature: float = 1.0) -> tuple[str, str]:
+    def generate_output(self, input: str, max_new_tokens: int, reasoning: str = "medium", verbosity: str = "medium", temperature: float = 1.0) -> tuple[str, str]:
         """
         This method generates the output given the input
 
@@ -34,7 +34,7 @@ class GPT5(Model):
 
         :return output of the model
         """
-        completion = None
+        response = None
         try:
             if reasoning == "none":
                 response = self.client.responses.create(
@@ -75,7 +75,7 @@ class GPT5(Model):
         except Exception as e:
             logging.error(e)
         
-        if completion is None:
-            return "{'error': 'Error: OpenAI GPT API call failed.'}", ""
+        if response is None:
+            return '{"error": "OpenAI GPT API call failed."}', ""
         else:
             return response.output_text, "" # No separate reasoning content returned

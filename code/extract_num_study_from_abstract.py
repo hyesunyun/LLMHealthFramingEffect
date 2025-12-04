@@ -144,13 +144,20 @@ class Extractor:
             
             # convert response from json to dict
             response_dict = json.loads(response)
-            num_studies_output = response_dict["num_studies"].strip()
-            num_studies_result = re.search(r'\b(\d+)\b', num_studies_output)
-            if num_studies_result:
-                num_studies = int(num_studies_result.group(1))
-            else:
-                num_studies = 0  # or some default value (None?)
-            example["LLMExtractedNumStudies"] = num_studies
+
+            if "error" in response_dict:
+                print(f"[ERROR] Model returned an error: {response_dict['error']}")
+                example["LLMExtractedNumStudies"] = None
+                results.append(example)
+                continue
+
+            num_studies_output = response_dict["NumStudies"]
+            # num_studies_result = re.search(r'\b(\d+)\b', num_studies_output)
+            # if num_studies_result:
+            #     num_studies = int(num_studies_result.group(1))
+            # else:
+            #     num_studies = 0  # or some default value (None?)
+            example["LLMExtractedNumStudies"] = num_studies_output
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 # add some default time gap to avoid rate limiting
