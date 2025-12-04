@@ -20,7 +20,7 @@ import json
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
 REQ_TIME_GAP = 5 # seconds to wait between requests to avoid rate limiting
-DEFAULT_MAX_NEW_TOKENS = 2,500 # arbitrary number for default max tokens
+DEFAULT_MAX_NEW_TOKENS = 2500 # arbitrary number for default max tokens
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet"]
 REASONING_MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "deepseek_distill-qwen32B", "deepseek_distill-llama70B", "qwen3_thinking-4B", "qwen3_thinking-30B"]
 
