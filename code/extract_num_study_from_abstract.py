@@ -142,9 +142,12 @@ class Extractor:
                 response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
             print(f"Model Response: {response}")
             
+            # some cleaning may be needed
+            response = response.replace("```", "").replace("json", "")
             # convert response from json to dict
-            response_dict = json.loads(response).replace("```", "").replace("json", "")
+            response_dict = json.loads(response)
 
+            # in case of error, skip to next example
             if "error" in response_dict:
                 print(f"[ERROR] Model returned an error: {response_dict['error']}")
                 example["LLMExtractedNumStudies"] = None
@@ -152,6 +155,7 @@ class Extractor:
                 continue
 
             num_studies_output = response_dict["NumStudies"]
+            # TODO: the commented code below can be used if needed but shouldn't be needed and can be removed
             # num_studies_result = re.search(r'\b(\d+)\b', num_studies_output)
             # if num_studies_result:
             #     num_studies = int(num_studies_result.group(1))
