@@ -54,7 +54,7 @@ class Extractor:
             dataset = load_json_file(self.input_path)
 
         if self.is_debug:
-            dataset = dataset[:10] # use only first 10 examples for debugging
+            dataset = dataset[:5] # use only first 5 examples for debugging
 
         self.dataset = dataset
 
