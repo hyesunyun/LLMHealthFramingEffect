@@ -136,10 +136,10 @@ class Extractor:
 
             extracted_num_studies_prompt = render_prompt("extract_num_studies", template_dir="./prompts", review_abstract=formatted_abstract)
             if self.is_reasoning_model:
-                response, thinking_context = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens).strip()
+                response, thinking_context = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
                 print(f"Thinking Context: {thinking_context}")
             else:
-                response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens).strip()
+                response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
             print(f"Model Response: {response}")
             
             # convert response from json to dict
