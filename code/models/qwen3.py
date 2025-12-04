@@ -2,7 +2,7 @@ from .model import Model
 from transformers import set_seed, AutoModelForCausalLM, AutoTokenizer
 import torch
 import logging
-from model_utils import set_global_seed
+from models.model_utils import set_global_seed
 
 SEED = 42
 

@@ -4,7 +4,7 @@ import torch
 import logging
 from dotenv import load_dotenv
 import os
-from model_utils import set_global_seed
+from models.model_utils import set_global_seed
 
 SEED = 42
 
