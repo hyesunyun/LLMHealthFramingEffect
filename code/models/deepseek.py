@@ -76,4 +76,4 @@ class DeepSeek(Model):
             return response, thinking_content
         except Exception as e:
             logging.error("[ERROR] %s", e)
-            return {"error": f"Error: {e}"}, ""
+            return "{'error': f'Error: {e}'}", ""

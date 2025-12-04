@@ -76,6 +76,6 @@ class GPT5(Model):
             logging.error(e)
         
         if completion is None:
-            return {"error": "Error: OpenAI GPT API call failed."}, ""
+            return "{'error': 'Error: OpenAI GPT API call failed.'}", ""
         else:
             return response.output_text, "" # No separate reasoning content returned

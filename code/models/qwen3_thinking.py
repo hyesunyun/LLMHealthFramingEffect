@@ -83,5 +83,5 @@ class Qwen3Thinking(Model):
             
         except Exception as e:
             logging.error("[ERROR] %s", e)
-            return {"error": f"Error: {e}"}, ""
+            return "{'error': f'Error: {e}'}", ""
 
