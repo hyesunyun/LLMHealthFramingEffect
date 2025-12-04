@@ -61,7 +61,7 @@ class Qwen3(Model):
 
             with torch.no_grad():
                 result = self.model.generate(
-                    **model_inputs, 
+                    model_inputs, 
                     max_new_tokens=max_new_tokens, 
                     do_sample=do_sample,
                     temperature=temperature,

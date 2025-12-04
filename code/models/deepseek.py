@@ -61,7 +61,7 @@ class DeepSeek(Model):
 
             do_sample=True if temperature > 0 else False
             with torch.no_grad():
-                result = self.model.generate(**model_inputs, max_new_tokens=max_new_tokens, pad_token_id=self.tokenizer.eos_token_id, do_sample=do_sample, temperature=temperature, top_p=top_p)
+                result = self.model.generate(model_inputs, max_new_tokens=max_new_tokens, pad_token_id=self.tokenizer.eos_token_id, do_sample=do_sample, temperature=temperature, top_p=top_p)
             response = self.tokenizer.decode(result[0, model_inputs.shape[1]:], skip_special_tokens=True)
             
             # Need to remove the reasoning part from the response

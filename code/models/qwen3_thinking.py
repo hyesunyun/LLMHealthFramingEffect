@@ -55,7 +55,8 @@ class Qwen3Thinking(Model):
             message = [
                 {"role": "user", "content": input},
             ]
-            model_inputs = self.tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True, return_tensors="pt").to(self.model.device)
+            text = self.tokenizer.apply_chat_template(message, tokenize=False, add_generation_prompt=True)
+            model_inputs = self.tokenizer([text], return_tensors="pt").to(self.model.device)
             
             do_sample = True if temperature > 0 else False
 
