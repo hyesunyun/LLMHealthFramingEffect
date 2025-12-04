@@ -12,7 +12,6 @@ from utils import load_json_file, load_jsonl_file, save_dataset_to_json, render_
 from tqdm import tqdm
 import time
 import torch, gc
-import re
 import matplotlib.pyplot as plt
 import json
 
@@ -137,10 +136,13 @@ class Extractor:
             extracted_num_studies_prompt = render_prompt("extract_num_studies", template_dir="./prompts", review_abstract=formatted_abstract)
             if self.is_reasoning_model:
                 response, thinking_context = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
-                print(f"Thinking Context: {thinking_context}")
+                # print(f"Thinking Context: {thinking_context}")
             else:
                 response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
-            print(f"Model Response: {response}")
+            # print(f"Model Response: {response}")
+
+            example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
+            example["LLMRawResponse"] = response
             
             # some cleaning may be needed
             response = response.replace("```", "").replace("json", "")
@@ -153,14 +155,11 @@ class Extractor:
                 example["LLMExtractedNumStudies"] = None
                 results.append(example)
                 continue
-
-            num_studies_output = response_dict["NumStudies"]
-            # TODO: the commented code below can be used if needed but shouldn't be needed and can be removed
-            # num_studies_result = re.search(r'\b(\d+)\b', num_studies_output)
-            # if num_studies_result:
-            #     num_studies = int(num_studies_result.group(1))
-            # else:
-            #     num_studies = 0  # or some default value (None?)
+            
+            if "NumStudies" not in response_dict:
+                num_studies_output = None
+            else:
+                num_studies_output = response_dict["NumStudies"]
             example["LLMExtractedNumStudies"] = num_studies_output
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:

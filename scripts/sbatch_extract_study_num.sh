@@ -29,35 +29,35 @@ python3 ../code/extract_num_study_from_abstract.py \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_gpt.json \
  --plot_path ../outputs/extract_num_studies/300_sample_abs_diff_histogram_gpt.pdf \
- --debug
+#  --debug
 
  python3 ../code/extract_num_study_from_abstract.py \
  --model deepseek_distill-qwen32B \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_qwen32B.json \
  --plot_path ../outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_qwen32B.pdf \
- --debug
+#  --debug
 
  python3 ../code/extract_num_study_from_abstract.py \
  --model deepseek_distill-llama70B \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_llama70B.json \
  --plot_path ../outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_llama70B.pdf \
- --debug
+#  --debug
  
  python3 ../code/extract_num_study_from_abstract.py \
  --model qwen3_thinking-4B \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_4B.json \
  --plot_path ../outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_4B.pdf \
- --debug
+#  --debug
 
  python3 ../code/extract_num_study_from_abstract.py \
  --model qwen3_thinking-30B \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_30B.json \
  --plot_path ../outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_30B.pdf \
- --debug
+#  --debug
 
 # python3 ../code/extract_num_study_from_abstract.py \
 #  --model llama3.3_instruct_70B \
