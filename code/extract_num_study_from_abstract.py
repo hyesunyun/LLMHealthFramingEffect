@@ -143,7 +143,7 @@ class Extractor:
             print(f"Model Response: {response}")
             
             # convert response from json to dict
-            response_dict = json.loads(response)
+            response_dict = json.loads(response).replace("```", "").replace("json", "")
 
             if "error" in response_dict:
                 print(f"[ERROR] Model returned an error: {response_dict['error']}")
