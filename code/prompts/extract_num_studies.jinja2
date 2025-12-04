@@ -1,0 +1,28 @@
+Task: Extract Total Number of Included Studies from Abstracts of Systematic Reviews
+
+Instruction to Model:
+You are given the abstract of a systematic review. Your task is to extract the total number of studies included in the review.
+
+Output Requirements:
+- Output must be a single integer (e.g., 10).
+- Do not output words (e.g., not "ten") or strings (e.g., not "10").
+- If the review is an update, you must include both studies from the previous version and any newly added studies.
+- If multiple numbers are mentioned, select the total number of included studies, not just the number contributing data, participants, or outcomes.
+- If the abstract states that no new studies were added in the update, keep the total from the previous review.
+
+Hints:
+- The most salient section of the abstract is often the "Main results".
+- Look for phrases like: "were included", "bringing the total to", "we included X trials/studies"
+
+Examples:
+- "Twenty-five trials (3663 children) were eligible for inclusion." Answer: 25
+- "For this update we identified one new trial ... bringing the total to 19 trials." Answer: 19
+- "Seven trials were included, but only six contributed data." Answer: 7
+- "We included eight studies (358 participants)..." Answer: 8
+- "We included 32 trials (N = 4746), six of them new..." Answer: 32
+
+Final Output Format:
+Only return the integer, e.g.: 25
+
+Review Abstract: {{ review_abstract }}  
+Extracted Number of Included Studies:

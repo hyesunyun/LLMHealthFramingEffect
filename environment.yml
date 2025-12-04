@@ -1,0 +1,17 @@
+name: llm_health_framing_effect
+channels:
+  - defaults
+dependencies:
+  - python=3.12.4
+  - jupyterlab
+  - matplotlib
+  - jinja2==3.1.6
+  - conda-forge::anthropic
+  - conda-forge::openai
+  - conda-forge::python-dotenv
+  - pip:
+    - torch
+    - torchvision
+    - accelerate
+    - transformers
+    - biopython
