@@ -7,14 +7,14 @@ from models.model_utils import set_global_seed
 SEED = 42
 
 class Qwen3Thinking(Model):
-    def __init__(self, model_size: str = "4B") -> None:
+    def __init__(self, model_type: str = "4B") -> None:
         super().__init__()
         set_seed(SEED)
         set_global_seed(SEED)
         
-        if model_size == "4B":
+        if model_type == "4B":
             self.model_name = "Qwen/Qwen3-4B-Thinking-2507"
-        elif model_size == "30B":
+        elif model_type == "30B":
             self.model_name = "Qwen/Qwen3-30B-A3B-Thinking-2507"
         logging.basicConfig(level=logging.ERROR)
         self.model = self.__load_model()
