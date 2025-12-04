@@ -27,7 +27,7 @@ class Llama3(Model):
         
     def __load_model(self, access_token: str = None):
         model = AutoModelForCausalLM.from_pretrained(
-            self.model_name, device_map="auto", torch_dtype=torch.bfloat16, token=access_token,
+            self.model_name, device_map="auto", dtype=torch.bfloat16, token=access_token,
         ) # bfloat16 based on config.json
 
         # print model's dtype and device

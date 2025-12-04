@@ -25,7 +25,7 @@ class Qwen3(Model):
         
     def __load_model(self):
         model = AutoModelForCausalLM.from_pretrained(
-            self.model_name, device_map="auto", torch_dtype="auto"
+            self.model_name, device_map="auto", dtype="auto"
         ) # bfloat16 based on config.json
 
         # print model's dtype and device

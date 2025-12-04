@@ -25,7 +25,7 @@ class DeepSeek(Model):
         
     def __load_model(self):
         model = AutoModelForCausalLM.from_pretrained(
-            self.model_name, device_map="auto", torch_dtype=torch.bfloat16
+            self.model_name, device_map="auto", dtype=torch.bfloat16
         ) # bfloat16 based on config.json
 
         # print model's dtype and device
