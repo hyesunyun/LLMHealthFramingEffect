@@ -1,11 +1,8 @@
-Task: Extract Total Number of Included Studies from Abstracts of Systematic Reviews
+You are given the abstract of a medical systematic review. Your task is to first identify specific sentences that include number of studies included in the review.
+Then, extract the total number of studies included in the review based on these specific sentences.
 
-Instruction to Model:
-You are given the abstract of a systematic review. Your task is to extract the total number of studies included in the review.
-
-Output Requirements:
-- Output must be a single integer (e.g., 10).
-- Do not output words (e.g., not "ten") or strings (e.g., not "10").
+Instructions:
+- Make sure to consider the whole sentence or the paragraph. There will be some abstracts where there are several mentions of included number of studies.
 - If the review is an update, you must include both studies from the previous version and any newly added studies.
 - If multiple numbers are mentioned, select the total number of included studies, not just the number contributing data, participants, or outcomes.
 - If the abstract states that no new studies were added in the update, keep the total from the previous review.
@@ -20,9 +17,18 @@ Examples:
 - "Seven trials were included, but only six contributed data." Answer: 7
 - "We included eight studies (358 participants)..." Answer: 8
 - "We included 32 trials (N = 4746), six of them new..." Answer: 32
+- “Five randomized controlled trials and one alternate assignment study had sufficiently detailed data to allow interpretation.” Answer: 6
+- “Of 35 studies considered potentially relevant, 14 studies enrolling 1025 subjects met the entry criteria.” Answer: 14
 
-Final Output Format:
-Only return the integer, e.g.: 25
+Output Requirements:
+The output should be in json format.
+{
+  "ExtractedSentences": "<sentences_with_numbers>",
+  "NumStudies": <extracted_integer>
+}
+Where:
+- <sentences_with_numbers> is a string containing the specific sentences from the abstract that mention the number of studies.
+- <extracted_integer> is the total number of studies included in the review as an integer. e.g., 10 and not "ten" or "10".
 
 Review Abstract: {{ review_abstract }}  
-Extracted Number of Included Studies:
+Answer:

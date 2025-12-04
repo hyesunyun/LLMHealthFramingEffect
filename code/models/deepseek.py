@@ -41,7 +41,7 @@ class DeepSeek(Model):
         tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
 
-    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.95) -> dict[str, str]:
+    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.95) -> tuple[str, str]:
         """
         This method generates the output given the input. Uses chat template for input.
 
@@ -73,7 +73,7 @@ class DeepSeek(Model):
             else:
                 logging.warning("[WARNING] '</think>' token not found in response.")
 
-            return {"response": response, "thinking_content": thinking_content}
+            return response, thinking_content
         except Exception as e:
             logging.error("[ERROR] %s", e)
-            return {"response": f"Error: {e}", "thinking_content": ""}
+            return f"Error: {e}", ""

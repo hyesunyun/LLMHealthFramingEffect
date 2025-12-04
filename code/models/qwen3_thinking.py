@@ -40,7 +40,7 @@ class Qwen3Thinking(Model):
         tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         return tokenizer
 
-    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.95) -> dict[str, str]:
+    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.95) -> tuple[str, str]:
         """
         This method generates the output given the input. Uses chat template for input.
 
@@ -79,15 +79,9 @@ class Qwen3Thinking(Model):
             thinking_content = self.tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
             content = self.tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
             
-            return {
-                "thinking": thinking_content,
-                "response": content
-            }
+            return content, thinking_content
             
         except Exception as e:
             logging.error("[ERROR] %s", e)
-            return {
-                "thinking": "",
-                "response": f"Error: {e}"
-            }
+            return f"Error: {e}", ""
 

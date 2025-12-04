@@ -14,6 +14,7 @@ import time
 import torch, gc
 import re
 import matplotlib.pyplot as plt
+import json
 
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
@@ -21,6 +22,7 @@ DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "dat
 REQ_TIME_GAP = 5 # seconds to wait between requests to avoid rate limiting
 DEFAULT_MAX_NEW_TOKENS = 5 # arbitrary number for default max tokens
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet"]
+REASONING_MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "deepseek_distill-qwen32B", "deepseek_distill-llama70B", "qwen3_thinking-4B", "qwen3_thinking-30B"]
 
 class Extractor:
     
@@ -37,6 +39,7 @@ class Extractor:
 
         self.__load_dataset()
         self.__load_model()
+        self.is_reasoning_model = self.model_name in REASONING_MODELS
 
     def __load_dataset(self) -> None:
         """
@@ -123,15 +126,25 @@ class Extractor:
         This method extracts number of studies from the review abstract using the loaded model.
 
         :return None
-        """# run the task using specified model
+        """
+        # run the task using specified model
         results = []
         pbar = tqdm(self.dataset, desc="Running model extract number of studies on the dataset")
         for _, example in enumerate(pbar):
             review_abstract_sections = example["ReviewAbstract"]
             formatted_abstract = format_review_abstract(review_abstract_sections)
 
-            extracted_num_studies = render_prompt("extract_num_studies", template_dir="./prompts", review_abstract=formatted_abstract)
-            num_studies_output = self.model.generate_output(extracted_num_studies, max_new_tokens=self.max_new_tokens)["response"].strip()
+            extracted_num_studies_prompt = render_prompt("extract_num_studies", template_dir="./prompts", review_abstract=formatted_abstract)
+            if self.is_reasoning_model:
+                response, thinking_context = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)["response"].strip()
+                print(f"Thinking Context: {thinking_context}")
+            else:
+                response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)["response"].strip()
+            print(f"Model Response: {response}")
+            
+            # convert response from json to dict
+            response_dict = json.loads(response)
+            num_studies_output = response_dict["num_studies"].strip()
             num_studies_result = re.search(r'\b(\d+)\b', num_studies_output)
             if num_studies_result:
                 num_studies = int(num_studies_result.group(1))
