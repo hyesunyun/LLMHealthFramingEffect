@@ -24,11 +24,11 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-python3 ../code/extract_num_study_from_abstract.py \
- --model gpt-5.1 \
- --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
- --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_gpt.json \
- --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_gpt.pdf \
+# python3 ../code/extract_num_study_from_abstract.py \
+#  --model gpt-5.1 \
+#  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
+#  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_gpt.json \
+#  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_gpt.pdf \
 #  --debug
 
  python3 ../code/extract_num_study_from_abstract.py \

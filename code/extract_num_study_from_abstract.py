@@ -19,7 +19,7 @@ import json
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
 REQ_TIME_GAP = 5 # seconds to wait between requests to avoid rate limiting
-DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens
+DEFAULT_MAX_NEW_TOKENS = 20000 # arbitrary number for default max tokens
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet"]
 REASONING_MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "deepseek_distill-qwen32B", "deepseek_distill-llama70B", "qwen3_thinking-4B", "qwen3_thinking-30B"]
 
@@ -136,10 +136,10 @@ class Extractor:
             extracted_num_studies_prompt = render_prompt("extract_num_studies", template_dir="./prompts", review_abstract=formatted_abstract)
             if self.is_reasoning_model:
                 response, thinking_context = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
-                # print(f"Thinking Context: {thinking_context}")
+                print(f"[{example["ReviewID"]}] Thinking Context: {thinking_context}")
             else:
                 response = self.model.generate_output(extracted_num_studies_prompt, max_new_tokens=self.max_new_tokens)
-            # print(f"Model Response: {response}")
+            print(f"[{example["ReviewID"]}] Model Response: {response}")
 
             example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
             example["LLMRawResponse"] = response
