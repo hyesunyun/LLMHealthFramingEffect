@@ -139,3 +139,27 @@ def extract_json_string(text: str) -> Optional[str]:
     else:
         return None
     
+def extract_yes_or_no(text: str) -> str | None:
+    """
+    Scans a string and returns 'yes' or 'no' if found, ignoring case.
+
+    Args:
+        text: The input string to search.
+
+    Returns:
+        'yes' or 'no' (lowercase) if found, otherwise None.
+    """
+    # Use re.search to find the first occurrence of 'yes' or 'no'.
+    # The pattern is:
+    # 1. (yes|no): A capturing group matching either 'yes' or 'no'.
+    # 2. re.IGNORECASE: Makes the search case-insensitive (e.g., 'Yes', 'NO', 'yEs').
+    
+    match = re.search(r'(yes|no)', text, re.IGNORECASE)
+
+    if match:
+        # Return the matched string, converted to lowercase for consistency
+        return match.group(1).lower()
+    else:
+        # Return None if neither 'yes' nor 'no' is found
+        return None
+    

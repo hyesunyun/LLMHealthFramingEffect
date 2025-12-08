@@ -24,42 +24,42 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-# python3 ../code/extract_num_study_from_abstract.py \
+# python3 ../code/extract_num_studies_from_abstract.py \
 #  --model gpt-5.1 \
 #  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
 #  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_gpt.json \
 #  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_gpt.pdf \
 #  --debug
 
-#  python3 ../code/extract_num_study_from_abstract.py \
+#  python3 ../code/extract_num_studies_from_abstract.py \
 #  --model deepseek_distill-qwen32B \
 #  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
 #  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_qwen32B.json \
 #  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_qwen32B.pdf \
 #  --debug
 
- python3 ../code/extract_num_study_from_abstract.py \
+ python3 ../code/extract_num_studies_from_abstract.py \
  --model deepseek_distill-llama70B \
  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_llama70B.json \
  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_llama70B.pdf \
 #  --debug
  
-#  python3 ../code/extract_num_study_from_abstract.py \
+#  python3 ../code/extract_num_studies_from_abstract.py \
 #  --model qwen3_thinking-4B \
 #  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
 #  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_4B.json \
 #  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_4B.pdf \
 #  --debug
 
-#  python3 ../code/extract_num_study_from_abstract.py \
+#  python3 ../code/extract_num_studies_from_abstract.py \
 #  --model qwen3_thinking-30B \
 #  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
 #  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_30B.json \
 #  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_30B.pdf \
 #  --debug
 
-# python3 ../code/extract_num_study_from_abstract.py \
+# python3 ../code/extract_num_studies_from_abstract.py \
 #  --model llama3.3_instruct_70B \
 #  --input_path ../data/cochrane_review_data.jsonl \
 #  --output_path ../data/cochrane_review_data_with_num_study_llama3.jsonl
