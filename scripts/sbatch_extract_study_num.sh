@@ -31,11 +31,11 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 #  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_gpt.pdf \
 #  --debug
 
- python3 ../code/extract_num_study_from_abstract.py \
- --model deepseek_distill-qwen32B \
- --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
- --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_qwen32B.json \
- --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_qwen32B.pdf \
+#  python3 ../code/extract_num_study_from_abstract.py \
+#  --model deepseek_distill-qwen32B \
+#  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
+#  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_deepseek_qwen32B.json \
+#  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_qwen32B.pdf \
 #  --debug
 
  python3 ../code/extract_num_study_from_abstract.py \

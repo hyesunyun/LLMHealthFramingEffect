@@ -101,7 +101,8 @@ class Extractor:
         '''
         assert len(preds) == len(labels)
         total = len(preds)
-        absolute_errors = [abs(p - l) for p, l in zip(preds, labels)]
+        # remove None values from preds which can happen if model fails to extract a number
+        absolute_errors = [abs(p - l) for p, l in zip(preds, labels) if p is not None]
         mae = sum(absolute_errors) / total if total > 0 else 0 
 
         return {"mae": mae, "total": total}
@@ -111,7 +112,8 @@ class Extractor:
         Plot histogram of absolute differences between predictions and labels.
         '''
         assert len(preds) == len(labels)
-        absolute_errors = [abs(p - l) for p, l in zip(preds, labels)]
+        # remove None values from preds which can happen if model fails to extract a number
+        absolute_errors = [abs(p - l) for p, l in zip(preds, labels) if p is not None]
 
         plt.hist(absolute_errors, bins=20, edgecolor='black')
         plt.xlabel('Absolute Difference')
@@ -177,8 +179,11 @@ class Extractor:
         # calculate and print accuracy and mean absolute error
         accuracy_results = self.__calculate_accuracy(preds, labels)
         mae_results = self.__calculate_mean_absolute_error(preds, labels)
+        print("Evaluation Results:")
         print(f"Accuracy: {accuracy_results['accuracy']:.4f} ({accuracy_results['correct']}/{accuracy_results['total']})")
         print(f"Mean Absolute Error: {mae_results['mae']:.4f}")
+        print(f"Number of 'None'/'null' predictions: {preds.count(None)} out of {len(preds)}")
+        print()
 
         # histogram of absolute differences
         if self.plot_path is not None:
