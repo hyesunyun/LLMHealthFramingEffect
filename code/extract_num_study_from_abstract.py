@@ -8,7 +8,7 @@ from models.deepseek import DeepSeek
 from models.qwen3 import Qwen3
 from models.qwen3_thinking import Qwen3Thinking
 
-from utils import load_json_file, load_jsonl_file, save_dataset_to_json, render_prompt, format_review_abstract
+from utils import load_json_file, load_jsonl_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string
 from tqdm import tqdm
 import time
 import torch, gc
@@ -145,18 +145,19 @@ class Extractor:
             example["LLMRawResponse"] = response
             
             # some cleaning may be needed
-            response = response.replace("```", "").replace("json", "")
-            # convert response from json to dict
-            response_dict = json.loads(response)
+            response = extract_json_string(response)
+
+            try:
+                # convert response from json to dict
+                response_dict = json.loads(response)
+            except json.JSONDecodeError as e:
+                response_dict = {"error": f"JSON decode error: {e}"}
 
             # in case of error, skip to next example
             if "error" in response_dict:
                 print(f"[ERROR] Model returned an error: {response_dict['error']}")
-                example["LLMExtractedNumStudies"] = None
-                results.append(example)
-                continue
-            
-            if "NumStudies" not in response_dict:
+                num_studies_output = None
+            elif "NumStudies" not in response_dict:
                 num_studies_output = None
             else:
                 num_studies_output = response_dict["NumStudies"]

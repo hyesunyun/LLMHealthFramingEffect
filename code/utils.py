@@ -3,6 +3,8 @@ import csv
 import json
 from jinja2 import Environment, FileSystemLoader
 import os
+import re
+from typing import Optional
 
 def load_csv_file(file_path: str) -> list[dict]:
     """
@@ -111,4 +113,29 @@ def format_review_abstract(review_abstract_sections: list) -> str:
             text = section["text"]
             formatted_abstract += f"{heading}: {text}\n"
         return formatted_abstract.strip()
+
+def extract_json_string(text: str) -> Optional[str]:
+    """
+    Extracts a bare JSON-like string content (enclosed in { and }) 
+    from a larger text block, assuming the JSON block is the largest 
+    contiguous block of curly braces.
+
+    Args:
+        text: The input string potentially containing a bare JSON block.
+
+    Returns:
+        The extracted JSON-like string, or None if no matching block is found.
+    """
+    # Regex pattern to find content between the first { and the last }
+    # This pattern is greedy (*), matching the largest possible block.
+    # The 's' flag (re.DOTALL) allows '.' to match newlines.
+    pattern = r"\{.*\}"
+    
+    match = re.search(pattern, text, re.DOTALL)
+
+    if match:
+        # The entire match is the extracted JSON string
+        return match.group(0).strip()
+    else:
+        return None
     

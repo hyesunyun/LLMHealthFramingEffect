@@ -45,18 +45,18 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_deepseek_llama70B.pdf \
 #  --debug
  
- python3 ../code/extract_num_study_from_abstract.py \
- --model qwen3_thinking-4B \
- --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
- --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_4B.json \
- --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_4B.pdf \
+#  python3 ../code/extract_num_study_from_abstract.py \
+#  --model qwen3_thinking-4B \
+#  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
+#  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_4B.json \
+#  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_4B.pdf \
 #  --debug
 
- python3 ../code/extract_num_study_from_abstract.py \
- --model qwen3_thinking-30B \
- --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
- --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_30B.json \
- --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_30B.pdf \
+#  python3 ../code/extract_num_study_from_abstract.py \
+#  --model qwen3_thinking-30B \
+#  --input_path ../data/cochrane_review_data_300_samples_hl_annotated.json \
+#  --output_path ../code/outputs/extract_num_studies/cochrane_review_data_300_samples_hl_annotated_qwen3_thinking_30B.json \
+#  --plot_path ../code/outputs/extract_num_studies/300_sample_abs_diff_histogram_qwen3_thinking_30B.pdf \
 #  --debug
 
 # python3 ../code/extract_num_study_from_abstract.py \
