@@ -26,8 +26,6 @@ class WebScraper:
     def __load_dataset(self) -> None:
         """
         This method loads the dataset based on input path.
-
-        :return dataset as a list of dictionaries
         """
         print("Loading the dataset...")
         if self.input_path.endswith(".jsonl"):
@@ -41,6 +39,11 @@ class WebScraper:
         self.dataset = dataset
 
     def __init_session(self) -> None:
+        """
+        Initialize session with headers to mimic a real browser.
+        
+        :return: None
+        """
         # Initialize a Session
         s = requests.Session()
 
@@ -51,6 +54,11 @@ class WebScraper:
         self.session = s
 
     def find_num_studies(self) -> None:
+        """
+        Use Web Scraping to find the number of included studies for each review in the dataset.
+
+        :return: None
+        """
         results = []
         print("Starting to scrape number of included studies...")
         for example in tqdm(self.dataset):
