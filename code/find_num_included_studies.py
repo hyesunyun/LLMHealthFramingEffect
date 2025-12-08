@@ -55,7 +55,8 @@ class WebScraper:
         print("Starting to scrape number of included studies...")
         for example in tqdm(self.dataset):
             doi = example["DOI"]
-            url = f"https://www.cochranelibrary.com/cdsr/reviews/{doi}/references"
+            url = f"https://www.cochranelibrary.com/cdsr/doi/{doi}/references"
+            print(url)
             response = self.session.get(url)
 
             if response.status_code != 200:
