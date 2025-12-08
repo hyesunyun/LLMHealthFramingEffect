@@ -6,11 +6,10 @@ from bs4 import BeautifulSoup
 
 from utils import load_json_file, load_jsonl_file, save_dataset_to_json
 from tqdm import tqdm
-import json
 import time
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
-DELAY_BETWEEN_REQUESTS = 1  # seconds to wait between requests to be polite to the server
+DELAY_BETWEEN_REQUESTS = 3  # seconds to wait between requests to be polite to the server
 
 class WebScraper:
 
