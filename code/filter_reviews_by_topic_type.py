@@ -13,6 +13,7 @@ from tqdm import tqdm
 import time
 import torch, gc
 
+OUTPUT_FOLDER_PATH = os.path.join(os.path.dirname(__file__), "outputs")
 REQ_TIME_GAP = 5 # seconds to wait between requests to avoid rate limiting
 DEFAULT_MAX_NEW_TOKENS = 20000 # arbitrary number for default max tokens
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet"]
@@ -131,7 +132,8 @@ class Filter:
         # end of loop through the dataset
 
         # save the intermediary data file
-        self.__save_data(results, f"./outputs/filtering_data/{self.input_path.split(".")[0]}_with_topic_type.json")
+        temp_output_path = os.path.join(OUTPUT_FOLDER_PATH, f"filtering_data/{self.input_path.split("/")[-1].split('.')[0]}_with_topic_type.json")
+        self.__save_data(results, temp_output_path)
 
         # filter out ones that are None or no for IsSimpleGenericTopic
         filtered_data = []
