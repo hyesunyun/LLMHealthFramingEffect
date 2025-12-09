@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
-#SBATCH --partition=frink
+#SBATCH --partition=177huntington
 #SBATCH --gres=gpu:2
 #SBATCH -o output_%j.txt  # Standard output file
 #SBATCH -e error_%j.txt  # Standard error file
