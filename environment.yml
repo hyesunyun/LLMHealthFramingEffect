@@ -9,6 +9,7 @@ dependencies:
   - conda-forge::anthropic
   - conda-forge::openai
   - conda-forge::python-dotenv
+  - conda-forge::pandas
   - pip:
     - torch
     - torchvision

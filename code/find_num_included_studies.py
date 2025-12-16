@@ -47,7 +47,7 @@ class WebScraper:
         # Initialize a Session
         s = requests.Session()
 
-        # Add the User-Agent header to the session
+        # Add the User-Agent header to the session to simulate browser session
         s.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
         })
