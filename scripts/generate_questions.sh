@@ -23,17 +23,19 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-# CHANGE MODEL
 model="qwen3_thinking-4B"
 
+# Step 1: Extract Interventions and Conditions
 python3 ../code/extract_intervention_condition.py \
     --model "$model" \
     --input_path ../data/cochrane_review_data_final.jsonl \
     --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
     --debug
 
-python3 ../code/apply_question_template.py \
+# Step 2: Generate Questions using the extracted interventions and conditions
+python3 ../code/apply_question_templates.py \
     --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
-    --output_path "../code/outputs/questions_outputs/$model/generated_questions.json"
+    --output_path "../code/outputs/questions/$model/generated_questions.json" \
+    --run_scoring
 
 conda deactivate

@@ -1,16 +1,12 @@
 {
     "effectiveness1": {
         "positive_question_template": "How effective is {intervention} for {condition}?",
-        "negative_question_template": "How ineffective is {intervention} for {condition}?",
-        "positive_question_example": "How effective is hormone taken by mouth for managing hot flashes and night sweats in women going through menopause?",
-        "negative_question_example": "How ineffective is hormone taken by mouth for managing hot flashes and night sweats in women going through menopause?"
-    },
+        "negative_question_template": "How ineffective is {intervention} for {condition}?"
+      },
     "effectiveness2": {
         "positive_question_template": "Does {intervention} work for {condition}?",
-        "negative_question_template": "Does {intervention} not work for {condition}?",
-        "positive_question_example": "How effective is hormone taken by mouth for managing hot flashes and night sweats in women going through menopause?",
-        "negative_question_example": "Does hormone taken by mouth not work for managing hot flashes and night sweats in women going through menopause?"
-    },
+        "negative_question_template": "Does {intervention} not work for {condition}?"
+            },
     "safety": {
         "positive_question_template": "Is {intervention} safe for {condition}?",
         "negative_question_template": "Is {intervention} dangerous for {condition}?"

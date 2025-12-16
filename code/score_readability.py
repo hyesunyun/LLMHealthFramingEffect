@@ -2,42 +2,26 @@ import argparse
 import os
 from tqdm import tqdm
 import torch, gc
+import random
 
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
 
-from utils import load_json_file, save_dataset_to_json
+from utils import load_jsonl_file, load_json_file, save_dataset_to_json
+from constants import SEED
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
 class ReadabilityScorer:
+    """
+    Based on https://github.com/chaojiang06/medreadme/tree/main
+    This class loads the model and tokenizer to score the readability of a given text.
+    The model predicts the CEFR score of the input text.
+    """
     
-    def __init__(self, input_path: str, field_name: str, output_path: str, is_debug: bool = False) -> None:
-        self.input_path = input_path
-        self.fied_name = field_name
-        self.output_path = output_path
-        self.is_debug = is_debug
-
-        self.dataset = None
+    def __init__(self) -> None:
         self.model = None
         self.tokenizer = None
-        
-        self.__load_dataset()
         self.__load_model_tokenizer()
-
-    def __load_dataset(self) -> None:
-        """
-        This method loads the dataset
-
-        :return dataset as a list of dictionaries
-        """
-        print("Loading the dataset...")
-        dataset = load_json_file(self.input_path)
-        if self.is_debug:
-            if len(dataset) > 10:
-                dataset = dataset[:10] # use only first 10 examples for debugging
-            print(f"Debug mode is ON. Using only {len(dataset)} examples for testing.")
-
-        self.dataset = dataset
 
     def __load_model_tokenizer(self) -> None:
         """
@@ -54,7 +38,7 @@ class ReadabilityScorer:
         # Load the tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    def __score(self, text: str) -> float:
+    def score(self, text: str) -> float:
         """
         This method scores the text using the model that predicts the CEFR score
 
@@ -67,69 +51,81 @@ class ReadabilityScorer:
         score = outputs.logits. squeeze().item()  # Get the score as a float
         return score
 
-    def score_questions(self) -> None:
-        """
-        This method scores the questions for their readability
 
-        :return None
-        """
-        results = []
-        pbar = tqdm(self.dataset, desc="Running generation on the dataset")
-        for _, item in enumerate(pbar):
-            if self.field_name not in item:
-                print(f"Skipping example with ReviewID {item['ReviewID']} as there is no {self.field_name}.")
-                continue
-            questions = item[self.field_name]
-            # check if questions are null
-            if questions["positive"] is None and questions["negative"] is None:
-                item[f"{self.field_name}_MedReadMeScore"] = {
-                    "positive": None,
-                    "negative": None
-                }
-                print(f"Skipping example with ReviewID {item['ReviewID']} as it has no Questions.")
-                continue
-            positive_question = questions["positive"]
-            negative_question = questions["negative"]
+# Methods outside class for running the scoring for a given input dataset and saving the outputs
+def load_dataset(input_path: str, is_debug: bool = False) -> None:
+    """
+    This method loads the dataset
+
+    :param input_path: path to the input dataset
+    :param is_debug: flag to indicate if debug mode is on
+
+    :return dataset as a list of dictionaries
+    """
+    print("Loading the dataset...")
+    if input_path.endswith(".jsonl"):
+        dataset = load_jsonl_file(input_path)
+    elif input_path.endswith(".json"):
+        dataset = load_json_file(input_path)
+
+    # only load random 10 samples if in debug mode
+    if is_debug:
+        random.seed(SEED)
+        dataset = random.sample(dataset, 10)
+
+    return dataset
+
+def score_questions(dataset: list[dict], scorer: ReadabilityScorer, output_path: str) -> None:
+    """
+    This method scores the questions for their readability
+
+    :param dataset: list of dictionaries containing the dataset
+    :param scorer: ReadabilityScorer object
+    :param output_path: path to the output file
+
+    :return None
+    """
+    results = []
+    pbar = tqdm(dataset, desc="Running generation on the dataset")
+    for _, item in enumerate(pbar):
+        questions = item["Questions"]
+        item["MedReadMeScores"] = {}
+        for key, value in questions.items():
+            positive_question = value["positive"]
+            negative_question = value["negative"]
+            positive_question_score = scorer.score(positive_question)
+            negative_question_score = scorer.score(negative_question)
             
-            positive_question_score = self.__score(positive_question)
-            negative_question_score = self.__score(negative_question)
-            item[f"{self.field_name}_MedReadMeScore"] = {
+            item["MedReadMeScores"][key] = {
                 "positive": positive_question_score,
                 "negative": negative_question_score
             }
-            results.append(item)
-        # end of loop through the dataset
+        results.append(item)
+    # end of loop through the dataset
 
-        # saving outputs to file
-        print("Saving outputs from Readability model")
-
-        # file name
-        file_name = self.input_path.split("/")[-1].split(".")[0]
-        output_file_name = f"{file_name}_with_readability_scores"
-
-        # convert into json
-        json_file_path = f"{self.output_path}/{output_file_name}.json"
-        save_dataset_to_json(results, json_file_path)
+    # saving outputs to file
+    print(f"Saving outputs")
+    if output_path.endswith(".jsonl"):
+        save_dataset_to_json(results, output_path, jsonl=True)
+    elif output_path.endswith(".json"):
+        save_dataset_to_json(results, output_path)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Running Scoring of Readability")
+    parser = argparse.ArgumentParser(description="Running Scoring of Readability of Questions")
 
     parser.add_argument("--input_path", default="./outputs", help="directory and name of file of where the model genrated questions are saved.", required=True)
-    parser.add_argument("--field_name", default="./outputs", help="name of field in the json file that contains the questions to be scored.")
     parser.add_argument("--output_path", default="./outputs", help="directory of where the outputs/results should be saved.")
     # do --no-debug for explicit False
-    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run 50 randomly sampled data.")
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run 10 randomly sampled data.")
     
     args = parser.parse_args()
 
     input_path = args.input_path
-    field_name = args.field_name
     output_path = args.output_path
     is_debug = args.debug
 
     print("Arguments Provided for Reliability Scorer:")
     print(f"Input Path:  {input_path}")
-    print(f"Field Name:  {field_name}")
     print(f"Output Path: {output_path}")
     print(f"Is Debug:    {is_debug}")
     print()
@@ -138,7 +134,9 @@ if __name__ == '__main__':
         os.makedirs(output_path)
         print("Output path did not exist. Directory was created.")
     
-    scorer = ReadabilityScorer(input_path, field_name, output_path, is_debug)
-    scorer.score_questions()
+    scorer = ReadabilityScorer()
+    dataset = load_dataset(input_path, is_debug)
+
+    score_questions(dataset, scorer, output_path)
     gc.collect()
     torch.cuda.empty_cache()

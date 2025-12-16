@@ -1,16 +1,8 @@
 import argparse
 import os
 
-from models.gpt5 import GPT5
-from models.claude import Claude
-from models.llama3 import Llama3
-from models.deepseek import DeepSeek
-from models.qwen3 import Qwen3
-from models.qwen3_thinking import Qwen3Thinking
-
 from tqdm import tqdm
 import time
-import json
 import torch, gc
 
 from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string
@@ -27,6 +19,8 @@ class Extractor:
         self.input_path = input_path
         self.output_path = output_path
         self.is_debug = is_debug
+
+        self.is_reasoning_model = model_name in REASONING_MODELS
 
         self.dataset = None
         self.model = None

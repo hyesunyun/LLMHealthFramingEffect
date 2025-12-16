@@ -1,4 +1,10 @@
 # constants.py
+from models.gpt5 import GPT5
+from models.claude import Claude
+from models.llama3 import Llama3
+from models.deepseek import DeepSeek
+from models.qwen3 import Qwen3
+from models.qwen3_thinking import Qwen3Thinking
 
 SEED = 42
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet"]
