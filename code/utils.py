@@ -162,4 +162,22 @@ def extract_yes_or_no(text: str) -> str | None:
     else:
         # Return None if neither 'yes' nor 'no' is found
         return None
+
+def remove_columns(data: list[dict], columns_to_drop: list[str]) -> list[dict]:
+    """
+    Removes columns or fields within each dict in a list. This is to remove unnecessary columns from a dataset.
+
+    Args:
+        data: A list of dict
+        columns_to_drop: A list of string names of columns to remove/drop
+
+    Returns:
+        a copy of the dataset provided without columns specified
+    """
+    # using list comprehensionß
+    new_data = [
+        {k: v for k, v in d.items() if k not in columns_to_remove}
+        for d in data
+    ]
+    return new_data
     

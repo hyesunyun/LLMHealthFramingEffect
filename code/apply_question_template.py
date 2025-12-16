@@ -6,7 +6,7 @@ import time
 import json
 import random
 
-from utils import load_json_file, load_jsonl_file, save_dataset_to_json
+from utils import load_json_file, load_jsonl_file, save_dataset_to_json, remove_columns
 from constants import SEED
 
 class Templater:
@@ -88,12 +88,15 @@ class Templater:
             results.append(example)
         # end of loop through the dataset
 
+        # cleaning up
+        cleaned_data = remove_columns(results, ["LLMThinkingContext", "LLMRawResponse"])
+
         # saving outputs to file
         print(f"Saving outputs")
         if self.output_path.endswith(".jsonl"):
-            save_dataset_to_json(data, self.output_path, jsonl=True)
+            save_dataset_to_json(cleaned_data, self.output_path, jsonl=True)
         elif self.output_path.endswith(".json"):
-            save_dataset_to_json(data, self.output_path)
+            save_dataset_to_json(cleaned_data, self.output_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Running Apply Template for Question Creation")

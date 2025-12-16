@@ -102,9 +102,9 @@ class Extractor:
         # saving outputs to file
         print(f"Saving outputs from model - {self.model_name}")
         if self.output_path.endswith(".jsonl"):
-            save_dataset_to_json(data, self.output_path, jsonl=True)
+            save_dataset_to_json(results, self.output_path, jsonl=True)
         elif self.output_path.endswith(".json"):
-            save_dataset_to_json(data, self.output_path)
+            save_dataset_to_json(results, self.output_path)
         
 
 if __name__ == '__main__':

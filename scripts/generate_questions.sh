@@ -24,7 +24,7 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 # CHANGE MODEL
-model="llama3.3_instruct_70B"
+model="qwen3_thinking-4B"
 
 python3 ../code/extract_intervention_condition.py \
     --model "$model" \
