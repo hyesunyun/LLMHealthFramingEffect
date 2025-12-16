@@ -117,12 +117,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     model_name = args.model
+    input_path = args.input_path
     output_path = args.output_path
     max_new_tokens = args.max_new_tokens
     is_debug = args.debug
 
     print("Arguments Provided for Extractor:")
     print(f"Model:             {model_name}")
+    print(f"Input Path:        {input_path}")
     print(f"Output Path:       {output_path}")
     print(f"Max Output Tokens: {max_new_tokens}")
     print(f"Is Debug:          {is_debug}")
