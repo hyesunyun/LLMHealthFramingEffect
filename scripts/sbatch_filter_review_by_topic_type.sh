@@ -24,10 +24,10 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
- python3 ../code/filter_reviews_by_topic_type.py \
- --model qwen3_thinking-30B \
- --input_path ../data/cochrane_review_data_filtered_mismatched_studies.jsonl \
- --output_path ../code/outputs/filtering_data/cochrane_review_data_filtered_topic_type_qwen3thinking_30B.jsonl
+# python3 ../code/filter_reviews_by_topic_type.py \
+#  --model qwen3_thinking-30B \
+#  --input_path ../data/cochrane_review_data_filtered_mismatched_studies.jsonl \
+#  --output_path ../code/outputs/filtering_data/cochrane_review_data_filtered_topic_type_qwen3thinking_30B.jsonl
 
 python3 ../code/filter_reviews_by_topic_type.py \
  --model qwen3_thinking-4B \
