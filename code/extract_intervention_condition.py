@@ -4,12 +4,13 @@ import os
 from tqdm import tqdm
 import time
 import torch, gc
+import json
 
 from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
-DEFAULT_MAX_NEW_TOKENS = 250 # arbitrary number for default max tokens
+DEFAULT_MAX_NEW_TOKENS = 5000 # arbitrary number for default max tokens
 PROMPT_TEMPLATE_NAME = "intervention_condition_extraction"
 
 class Extractor:
@@ -65,7 +66,7 @@ class Extractor:
         This method extracts the intervention and coniditon of the review in plain language for question generation.
 
         :return None
-        """# run the task using specified model
+        """
         results = []
         pbar = tqdm(self.dataset, desc="Running extraction on the dataset")
         for _, example in enumerate(pbar):
@@ -84,7 +85,7 @@ class Extractor:
             example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
             example["LLMRawResponse"] = response
             # ExtractedText are in JSON format
-            example["ExtractedText"] = extract_json_string(response)
+            example["ExtractedText"] = json.loads(extract_json_string(response))
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 # add some default time gap to avoid rate limiting
@@ -130,9 +131,11 @@ if __name__ == '__main__':
     print(f"Is Debug:          {is_debug}")
     print()
 
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-        print("Output path did not exist. Directory was created.")
+    # Get the directory name
+    directory_path = os.path.dirname(output_path)
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+        print("Output directory path did not exist. Directory was created.")
     
     extractor = Extractor(model_name, input_path, output_path, max_new_tokens, is_debug)
     extractor.extract_intervention_condition()

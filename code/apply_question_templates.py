@@ -70,10 +70,18 @@ class Templater:
                 continue
             
             extracted_text = example["ExtractedText"]
-            if "intervention" in extracted_text and "condition" in extracted_text:
+            if isinstance(extracted_text, str):
+                print(f"[{example["ReviewID"]}]: LLM extracted text is not in the correct format.")
+                continue
+            elif isinstance(extracted_text, dict) and "intervention" in extracted_text and "condition" in extracted_text:
                 intervention = extracted_text["intervention"]
                 condition = extracted_text["condition"]
+
+                if intervention is None or condition is None:
+                    print(f"[{example["ReviewID"]}]: intervention or condition is None.")
+                    continue
             else:
+                print(f"[{example["ReviewID"]}]: error with LLM extracted text.")
                 continue
 
             # loop through each key value pair in the template
@@ -107,14 +115,14 @@ class Templater:
         # end of loop through the dataset
 
         # cleaning up
-        cleaned_data = remove_columns(results, ["LLMThinkingContext", "LLMRawResponse"])
+        columns_to_drop = ["LLMThinkingContext", "LLMRawResponse"]
 
         # saving outputs to file
         print(f"Saving outputs")
         if self.output_path.endswith(".jsonl"):
-            save_dataset_to_json(cleaned_data, self.output_path, jsonl=True)
+            save_dataset_to_json(results, self.output_path, jsonl=True, columns_to_drop=columns_to_drop)
         elif self.output_path.endswith(".json"):
-            save_dataset_to_json(cleaned_data, self.output_path)
+            save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=columns_to_drop)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Running Apply Template for Question Creation")
@@ -141,9 +149,11 @@ if __name__ == '__main__':
     print(f"Is Debug:                {is_debug}")
     print()
 
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-        print("Output path did not exist. Directory was created.")
+    # Get the directory name
+    directory_path = os.path.dirname(output_path)
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+        print("Output directory path did not exist. Directory was created.")
     
     templater = Templater(input_path, output_path, run_scoring, is_debug)
     templater.apply_template()

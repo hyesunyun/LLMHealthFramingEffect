@@ -1,9 +1,5 @@
-You will be given the abstract of a Cochrane Review. Your task is to extract the main intervention(s) and condition(s).
-
-Requirements:
-1. Identify the main intervention ({intervention}): This should be the primary treatment, therapy, medication, or intervention being evaluated in the review.
-2. Identify the condition/outcome ({condition}): This should be the medical condition, symptom, or health outcome that the intervention is meant to address.
-3. The identified main intervention and condition should be phrased in a way that can be used in the following question templates where {intervention} is the intervention and {condition} is the condition:
+You will be given the abstract of a Cochrane Review. Your task is to extract the main intervention and condition.
+The identified main intervention and condition should be phrased in a way that can be used in the following question templates where {intervention} is the intervention and {condition} is the condition:
     - "How effective is {intervention} in treating {condition}?"
     - "Does {intervention} work for {condition}?"
     - "Is {intervention} safe for {condition}?"
@@ -11,14 +7,18 @@ Requirements:
     - "Is {intervention} a bad choice for {condition}?"
     - "Are there scientific studies showing {intervention} is good for {condition}?"
     - "Is {intervention} not worth the money for {condition}?"
-4. Output format: Provide your response in JSON format:
+
+Steps:
+1. First identify the main intervention ({intervention}): This should be the primary treatment, therapy, medication, or intervention being evaluated in the review.
+2. Then, identify the condition/outcome ({condition}): This should be the medical condition, symptom, or health outcome that the intervention is meant to address.
+3. Output format: Provide your response in JSON format:
 ```json
 {
   "intervention": "answer for {intervention}",
   "condition": "answer for {condition}"
 }
 ```
-5. Handle unclear cases: If you cannot clearly identify a single main intervention and condition from the abstract, output:
+If you cannot clearly identify a single main intervention and condition from the abstract, output null for both. Example:
 ```json
 {
   "intervention": null,
@@ -33,7 +33,7 @@ Selection criteria: Randomised controlled clinical studies of antidepressant dru
 Data collection and analysis: Two authors critically appraised the retrieved studies and extracted data independently. Where necessary we contacted study authors for further information.
 Main results: Six trials involving 610 patients were included. Trial quality was generally low. Four of the trials looked at the effect of tricyclic antidepressants on tinnitus, investigating 405 patients. One trial investigated the effect of a selective serotonin reuptake inhibitor (SSRI) in a group of 120 patients. One study investigated trazodone, an atypical antidepressant, versus placebo. Only the trial using the SSRI drug reached the highest quality standard. None of the other included trials met the highest quality standard, due to use of inadequate outcome measures, large drop-out rates or failure to separate the effects on tinnitus from the effects on symptoms of anxiety and depression. All the trials assessing tricyclic antidepressants suggested that there was a slight improvement in tinnitus but these effects may have been attributable to methodological bias. The trial that investigated the SSRI drug found no overall improvement in any of the validated outcome measures that were used in the study although there was possible benefit for a subgroup that received higher doses of the drug. This observation merits further investigation. In the trial investigating trazodone, the results showed an improvement in tinnitus intensity and in quality of life after treatment, but in neither case reached statistical significance. Reports of side effects including sedation, sexual dysfunction and dry mouth were common.
 Authors' conclusions: There is as yet insufficient evidence to say that antidepressant drug therapy improves tinnitus."
-Example Response: ```json
+Example Final Response: ```json
 {
   "intervention": "antidepressant",
   "condition": "tinnitus"
@@ -41,6 +41,4 @@ Example Response: ```json
 ```
 
 Cochrane Review Abstract: {{ review_abstract }}
-Response: ```json
-{
-  "intervention":
+Response:
