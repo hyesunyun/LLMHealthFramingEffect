@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class Model(ABC):
     @abstractmethod
-    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 1.0) -> str:
+    def generate_output(self, messages: list[dict], max_new_tokens: int, temperature: float = 1.0) -> str:
         """
         This method must be overridden
 

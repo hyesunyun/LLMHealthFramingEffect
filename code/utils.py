@@ -180,4 +180,29 @@ def remove_columns(data: list[dict], columns_to_drop: list[str]) -> list[dict]:
         for d in data
     ]
     return new_data
+
+def format_messages(model_name: str, user_input: str) -> list[dict]:
+    """
+    Formats user messages for a given model
+
+    Args:
+        model_name: string name of the model being used
+        user_input: string of the user input
+
+    Returns:
+        a formatted messages for model input
+    """
+    # Define formatting strategies
+    formats = {
+        "gpt-5": lambda x: [{"role": "user", "content": [{"type": "input_text", "text": x}]}],
+        "deepseek": lambda x: [{"role": "user", "content": f"{x}\n<think>\n"}],
+    }
+
+    # Find a match or use a default fallback
+    for key, formatter in formats.items():
+        if key in model_name:
+            return formatter(user_input)
+
+    # Default case
+    return [{"role": "user", "content": user_input}]
     

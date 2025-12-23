@@ -16,11 +16,11 @@ class Claude(Model):
     def get_context_length(self) -> int:
         return 200000
 
-    def generate_output(self, input: str, max_new_tokens: int) -> str:
+    def generate_output(self, messages: list[dict], max_new_tokens: int) -> str:
         """
         This method generates the output given the input
 
-        :param input: input to the model
+        :param messages: messages with input for the model
         :param max_new_tokens: maximum number of tokens to generate
 
         :return output of the model
@@ -30,9 +30,7 @@ class Claude(Model):
             completion = self.client.messages.create(
                 model=self.model_name, # 200,000 tokens (https://docs.anthropic.com/en/docs/about-claude/models/overview)
                 max_tokens=max_new_tokens,
-                messages=[
-                    {"role": "user", "content": input}
-                ],
+                messages=messages,
             )
         except Exception as e:
             logging.error(e)
