@@ -1,8 +1,8 @@
 import argparse
 import os
 from tqdm import tqdm
-import torch, gc
 import random
+import torch
 
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, AutoConfig
 
@@ -138,5 +138,3 @@ if __name__ == '__main__':
     dataset = load_dataset(input_path, is_debug)
 
     score_questions(dataset, scorer, output_path)
-    gc.collect()
-    torch.cuda.empty_cache()

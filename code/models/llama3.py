@@ -43,11 +43,11 @@ class Llama3(Model):
         tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
 
-    def generate_output(self, input: str, max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.9) -> str:
+    def generate_output(self, messages: list[dict], max_new_tokens: int, temperature: float = 0.6, top_p: float = 0.9) -> str:
         """
         This method generates the output given the input. Uses chat template for input.
 
-        :param input: input to the model
+        :param messages: messages with input for the model
         :param max_new_tokens: maximum number of tokens to generate
         :param temperature: temperature for generation. default to 0.6 which are the recommended value from Meta
         :param top_p: top_p for generation. default to 0.9 which are the recommended value from Meta
@@ -55,10 +55,7 @@ class Llama3(Model):
         :return output of the model
         """
         try:
-            message = [
-                {"role": "user", "content": input},
-            ]
-            model_inputs = self.tokenizer.apply_chat_template(message, tokenize=True, add_generation_prompt=True, return_tensors="pt").to(self.model.device)
+            model_inputs = self.tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_tensors="pt").to(self.model.device)
             
             do_sample = True if temperature > 0 else False
 

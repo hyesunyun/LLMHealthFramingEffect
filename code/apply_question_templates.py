@@ -3,7 +3,6 @@ import os
 
 from tqdm import tqdm
 import random
-import torch, gc
 
 from score_readability import ReadabilityScorer
 
@@ -70,18 +69,19 @@ class Templater:
                 continue
             
             extracted_text = example["ExtractedText"]
+
             if isinstance(extracted_text, str):
-                print(f"[{example["ReviewID"]}]: LLM extracted text is not in the correct format.")
+                print(f"[{example['ReviewID']}]: LLM extracted text is not in the correct format.")
                 continue
             elif isinstance(extracted_text, dict) and "intervention" in extracted_text and "condition" in extracted_text:
                 intervention = extracted_text["intervention"]
                 condition = extracted_text["condition"]
 
                 if intervention is None or condition is None:
-                    print(f"[{example["ReviewID"]}]: intervention or condition is None.")
+                    print(f"[{example['ReviewID']}]: intervention or condition is None.")
                     continue
             else:
-                print(f"[{example["ReviewID"]}]: error with LLM extracted text.")
+                print(f"[{example['ReviewID']}]: error with LLM extracted text.")
                 continue
 
             # loop through each key value pair in the template
@@ -157,5 +157,3 @@ if __name__ == '__main__':
     
     templater = Templater(input_path, output_path, run_scoring, is_debug)
     templater.apply_template()
-    gc.collect()
-    torch.cuda.empty_cache()

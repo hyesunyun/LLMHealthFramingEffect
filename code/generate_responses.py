@@ -3,13 +3,12 @@ import os
 
 from tqdm import tqdm
 import time
-import torch, gc
 
-from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string
+from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string, format_messages
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
-DEFAULT_MAX_NEW_TOKENS = 500 # arbitrary number for default max tokens
+DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens
 PROMPT_TEMPLATE_NAME = "question_answering"
 
 class Generator:
@@ -101,13 +100,67 @@ class Generator:
         :return: response from the model and reasoning trace if model is reasoning model, else None
         """
         input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts", question=question, abstracts=rct_inputs)
+        messages = format_messages(input)
 
         if self.is_reasoning_model:
-            response, thinking_context = self.model.generate_output(input, max_new_tokens=self.max_new_tokens)
+            response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
         else:
-            response = self.model.generate_output(input, max_new_tokens=self.max_new_tokens)
+            response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
 
         return response, thinking_context if self.is_reasoning_model else None
+
+    def run_4_turn_conversation(model_id="HuggingFaceH4/zephyr-7b-beta"):
+        # 1. Load the model and tokenizer
+        # Using device_map="auto" to automatically use GPU if available
+        tokenizer = AutoTokenizer.from_pretrained(model_id)
+        model = AutoModelForCausalLM.from_pretrained(
+            model_id, 
+            torch_dtype=torch.bfloat16, 
+            device_map="auto"
+        )
+
+        # 2. Initialize conversation with a system message
+        messages = [
+            {"role": "system", "content": "You are a helpful and concise AI assistant."}
+        ]
+
+        print(f"--- Starting a 4-turn conversation with {model_id} ---")
+
+        for turn in range(1, 5):
+            # Get user input
+            user_input = input(f"\n[Turn {turn}] User: ")
+            messages.append({"role": "user", "content": user_input})
+
+            # 3. Apply Chat Template
+            # This converts the list of dicts into a single string formatted for the model
+            tokenized_chat = tokenizer.apply_chat_template(
+                messages, 
+                tokenize=True, 
+                add_generation_prompt=True, 
+                return_tensors="pt"
+            ).to(model.device)
+
+            # 4. Generate Response
+            outputs = model.generate(
+                tokenized_chat, 
+                max_new_tokens=256, 
+                do_sample=True, 
+                temperature=0.7,
+                top_p=0.9,
+                pad_token_id=tokenizer.eos_token_id
+            )
+            
+            # Decode only the NEW tokens (the assistant's response)
+            # We slice the output to skip the input tokens
+            new_tokens = outputs[0][len(tokenized_chat[0]):]
+            assistant_response = tokenizer.decode(new_tokens, skip_special_tokens=True)
+
+            print(f"Assistant: {assistant_response}")
+
+            # 5. Append assistant response to history for the next turn
+            messages.append({"role": "assistant", "content": assistant_response})
+
+        print("\n--- Conversation Ended ---")
 
     def generate_answers(self) -> None:
         """
@@ -129,11 +182,6 @@ class Generator:
                 for question in [positive_question, negative_question]:
                     if i != "multiturn":                        
                         response, thinking_context = self.__get_answer(question, rct_inputs)
-                        # TODO: remove after debugging
-                        print("Thinking Context:")
-                        print(thinking_context) 
-                        print("Model Response:")
-                        print(response)
                         questions[i]["model_answer"] = response.strip()
                     else:
                         multiturn_questions = self.__split_multiturn_question(question)
@@ -149,16 +197,15 @@ class Generator:
                         time.sleep(REQ_TIME_GAP)
 
             example["ModelGeneratedAnswersWithQuestions"] = questions
-            del example["Questions"]  # remove the original questions from the example
             results.append(example)
         # end of loop through the dataset
 
         # saving outputs to file
         print(f"Saving outputs from model - {self.model_name}")
         if self.output_path.endswith(".jsonl"):
-            save_dataset_to_json(results, self.output_path, jsonl=True)
+            save_dataset_to_json(results, self.output_path, jsonl=True, columns_to_drop=["Questions"])
         elif self.output_path.endswith(".json"):
-            save_dataset_to_json(results, self.output_path)
+            save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=["Questions"])
         
 
 if __name__ == '__main__':
@@ -199,5 +246,3 @@ if __name__ == '__main__':
 
     generator = Generator(model_name, input_path, output_path, max_new_tokens, is_debug)
     generator.generate_answers()
-    gc.collect()
-    torch.cuda.empty_cache()

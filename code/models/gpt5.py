@@ -22,11 +22,11 @@ class GPT5(Model):
     def get_context_length(self) -> int:
         return 400,000
     
-    def generate_output(self, input: str, max_new_tokens: int, reasoning: str = "medium", verbosity: str = "medium", temperature: float = 1.0) -> tuple[str, str]:
+    def generate_output(self, messages: list[dict], max_new_tokens: int, reasoning: str = "medium", verbosity: str = "medium", temperature: float = 1.0) -> tuple[str, str]:
         """
         This method generates the output given the input
 
-        :param input: input to the model
+        :param messages: messages with input for the model
         :param max_new_tokens: maximum number of tokens to generate
         :param reasoning: controls how many reasoning tokens the model generates before producing a response. default to "none".
         :param verbosity: verbosity level for generation. default to "low".
@@ -39,17 +39,7 @@ class GPT5(Model):
             if reasoning == "none":
                 response = self.client.responses.create(
                     model=self.model_name,
-                    input=[
-                        {
-                        "role": "user",
-                        "content": [
-                            {
-                            "type": "input_text",
-                            "text": input
-                            }
-                        ]
-                        }
-                    ],
+                    input=messages,
                     reasoning={ "effort": reasoning },
                     temperature=temperature,
                     max_output_tokens=max_new_tokens,
@@ -57,17 +47,7 @@ class GPT5(Model):
             else:
                 response = self.client.responses.create(
                     model=self.model_name,
-                    input=[
-                        {
-                        "role": "user",
-                        "content": [
-                            {
-                            "type": "input_text",
-                            "text": input
-                            }
-                        ]
-                        }
-                    ],
+                    input=messages,
                     reasoning={ "effort": reasoning },
                     text={ "verbosity": verbosity },
                 )

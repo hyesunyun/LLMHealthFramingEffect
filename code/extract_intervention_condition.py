@@ -3,10 +3,9 @@ import os
 
 from tqdm import tqdm
 import time
-import torch, gc
 import json
 
-from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string
+from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string, format_messages
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
@@ -75,17 +74,23 @@ class Extractor:
             input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
                                   review_abstract=formatted_abstract)
 
+            # format messages
+            messages = format_messages(self.model_name, input)
+
             if self.is_reasoning_model:
-                response, thinking_context = self.model.generate_output(input, max_new_tokens=self.max_new_tokens)
-                print(f"[{example["ReviewID"]}] Thinking Context: {thinking_context}")
+                response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+                # print(f"[{example['ReviewID']}] Thinking Context: {thinking_context}")
             else:
-                response = self.model.generate_output(input, max_new_tokens=self.max_new_tokens)
-            print(f"[{example["ReviewID"]}] Model Response: {response}")
+                response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+            # print(f"[{example['ReviewID']}] Model Response: {response}")
 
             example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
             example["LLMRawResponse"] = response
             # ExtractedText are in JSON format
-            example["ExtractedText"] = json.loads(extract_json_string(response))
+            try:
+                example["ExtractedText"] = json.loads(extract_json_string(response))
+            except:
+                example["ExtractedText"] = {"intervention": None, "condition": None}
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 # add some default time gap to avoid rate limiting
@@ -139,5 +144,3 @@ if __name__ == '__main__':
     
     extractor = Extractor(model_name, input_path, output_path, max_new_tokens, is_debug)
     extractor.extract_intervention_condition()
-    gc.collect()
-    torch.cuda.empty_cache()
