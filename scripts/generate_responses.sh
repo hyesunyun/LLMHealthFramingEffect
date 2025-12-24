@@ -1,0 +1,48 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --time=07-00:00:00
+#SBATCH --job-name=response
+#SBATCH --cpus-per-task=8
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=120G
+#SBATCH --partition=177huntington
+#SBATCH --gres=gpu:2
+#SBATCH -o output_%j.txt                     # Standard output file
+#SBATCH -e error_%j.txt                      # Standard error file
+
+module purge
+module load explorer anaconda3/2024.06
+
+source activate base
+source activate llm_health_framing_effect
+conda activate llm_health_framing_effect
+
+conda info
+
+export HF_HOME="/scratch/yun.hy/.cache"
+export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
+export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
+
+models=(
+#   "gpt-5.1"
+#   "gpt5-mini"
+#   "gpt5-nano"
+#   "claude_4.5_sonnet"
+  "llama3.3_instruct_70B"
+  "deepseek_distill-qwen32B"
+  "deepseek_distill-llama70B"
+  "qwen3-4B"
+  "qwen3-30B"
+  "qwen3_thinking-4B"
+  "qwen3_thinking-30B"
+)
+
+echo "Running LLM response generation"
+for model in "${models[@]}"; do
+    python3 ../code/generate_responses.py \
+        --model "$model" \
+        --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
+        --output_path "../code/outputs/responses/$model/question_responses.json"
+done
+
+conda deactivate

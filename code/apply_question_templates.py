@@ -95,8 +95,8 @@ class Templater:
                 if "Questions" not in example:
                     example["Questions"] = {}
                 example["Questions"][question_type] = {
-                    "positive": positive_question,
-                    "negative": negative_question
+                    "positive_question": positive_question,
+                    "negative_question": negative_question
                 }
 
                 # add readability (MedReadMe) scoring if specified
@@ -107,8 +107,8 @@ class Templater:
                     if "MedReadMeScores" not in example:
                         example["MedReadMeScores"] = {}
                     example["MedReadMeScores"][question_type] = {
-                        "positive": positive_question_score,
-                        "negative": negative_question_score
+                        "positive_question": positive_question_score,
+                        "negative_question": negative_question_score
                     }
             
             results.append(example)

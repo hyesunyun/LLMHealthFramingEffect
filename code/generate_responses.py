@@ -3,6 +3,7 @@ import os
 
 from tqdm import tqdm
 import time
+import torch, gc
 
 from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string, format_messages
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
@@ -41,7 +42,7 @@ class Generator:
             dataset = load_json_file(self.input_path)
 
         if self.is_debug:
-            dataset = dataset[:10] # use only first 10 examples for debugging
+            dataset = dataset[:3] # use only first 3 examples for debugging
 
         self.dataset = dataset
 
@@ -100,7 +101,7 @@ class Generator:
         :return: response from the model and reasoning trace if model is reasoning model, else None
         """
         input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts", question=question, abstracts=rct_inputs)
-        messages = format_messages(input)
+        messages = format_messages(self.model_name, input)
 
         if self.is_reasoning_model:
             response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
@@ -109,58 +110,39 @@ class Generator:
 
         return response, thinking_context if self.is_reasoning_model else None
 
-    def run_4_turn_conversation(model_id="HuggingFaceH4/zephyr-7b-beta"):
-        # 1. Load the model and tokenizer
-        # Using device_map="auto" to automatically use GPU if available
-        tokenizer = AutoTokenizer.from_pretrained(model_id)
-        model = AutoModelForCausalLM.from_pretrained(
-            model_id, 
-            torch_dtype=torch.bfloat16, 
-            device_map="auto"
-        )
+    def __run_multiturn_conversation(self, questions: list[str], rct_inputs: str) -> list[str]:
+        """
+        Simulates a multiturn conversation by running 4 questions
 
-        # 2. Initialize conversation with a system message
-        messages = [
-            {"role": "system", "content": "You are a helpful and concise AI assistant."}
-        ]
+        :param questions: list of questions
 
-        print(f"--- Starting a 4-turn conversation with {model_id} ---")
+        :return: list of responses in order
+        """
+        print("Run multiturn conversation generation")
+        responses = []
+        for index, q in enumerate(questions):
+            if index == 0:
+                input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts", question=q, abstracts=rct_inputs)
+                messages = format_messages(self.model_name, input)
+            else:
+                messages.append(format_messages(self.model_name, q)[0])
 
-        for turn in range(1, 5):
-            # Get user input
-            user_input = input(f"\n[Turn {turn}] User: ")
-            messages.append({"role": "user", "content": user_input})
+            print(f"User: {messages[-1]}")
 
-            # 3. Apply Chat Template
-            # This converts the list of dicts into a single string formatted for the model
-            tokenized_chat = tokenizer.apply_chat_template(
-                messages, 
-                tokenize=True, 
-                add_generation_prompt=True, 
-                return_tensors="pt"
-            ).to(model.device)
+            if self.is_reasoning_model:
+                model_response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+            else:
+                model_response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+            print(f"Assistant: {model_response}")
 
-            # 4. Generate Response
-            outputs = model.generate(
-                tokenized_chat, 
-                max_new_tokens=256, 
-                do_sample=True, 
-                temperature=0.7,
-                top_p=0.9,
-                pad_token_id=tokenizer.eos_token_id
-            )
-            
-            # Decode only the NEW tokens (the assistant's response)
-            # We slice the output to skip the input tokens
-            new_tokens = outputs[0][len(tokenized_chat[0]):]
-            assistant_response = tokenizer.decode(new_tokens, skip_special_tokens=True)
-
-            print(f"Assistant: {assistant_response}")
+            responses.append(model_response)
 
             # 5. Append assistant response to history for the next turn
-            messages.append({"role": "assistant", "content": assistant_response})
+            if "gpt-5" not in self.model_name:
+                messages.append({"role": "assistant", "content": model_response})
 
-        print("\n--- Conversation Ended ---")
+        print(messages)
+        return responses
 
     def generate_answers(self) -> None:
         """
@@ -175,26 +157,27 @@ class Generator:
             rct_inputs = self.__format_rct_inputs(example["Inputs"])
             # For manual questions:
             questions = example["Questions"]
-            for i, questions_dict in enumerate(questions):
-                positive_question = questions_dict["positive"]
-                negative_question = questions_dict["negative"]
+            for key, questions_dict in questions.items():
+                print(key)
+                positive_question = questions_dict["positive_question"]
+                negative_question = questions_dict["negative_question"]
 
-                for question in [positive_question, negative_question]:
-                    if i != "multiturn":                        
+                for index, question in enumerate([positive_question, negative_question]):
+                    q_type = "positive" if index == 0 else "negative"
+                    if key != "multiturn":                        
                         response, thinking_context = self.__get_answer(question, rct_inputs)
-                        questions[i]["model_answer"] = response.strip()
+                        questions[key][f"{q_type}_answer"] = response.strip()
                     else:
                         multiturn_questions = self.__split_multiturn_question(question)
+                        questions[key][f"{q_type}_question"] = multiturn_questions
 
-                        # TODO: need to simulate multi-turn interaction here
-                        # input to next turn includes previous Q&As
-                        for j, q in enumerate(multiturn_questions):
-                            print(f"Multiturn Question {j+1}: {q}")
-                            response, thinking_context = self.__get_answer(q, rct_inputs)
+                        response = self.__run_multiturn_conversation(multiturn_questions, rct_inputs)
+                        questions[key][f"{q_type}_answer"] = response
 
                     if self.model_name in MODELS_WITH_RATE_LIMIT:
                         # add some default time gap to avoid rate limiting
                         time.sleep(REQ_TIME_GAP)
+            print(questions)
 
             example["ModelGeneratedAnswersWithQuestions"] = questions
             results.append(example)
@@ -246,3 +229,5 @@ if __name__ == '__main__':
 
     generator = Generator(model_name, input_path, output_path, max_new_tokens, is_debug)
     generator.generate_answers()
+    gc.collect()
+    torch.cuda.empty_cache()
