@@ -118,7 +118,7 @@ class Generator:
 
         :return: list of responses in order
         """
-        print("Run multiturn conversation generation")
+        # print("Run multiturn conversation generation")
         responses = []
         for index, q in enumerate(questions):
             if index == 0:
@@ -127,13 +127,13 @@ class Generator:
             else:
                 messages.append(format_messages(self.model_name, q)[0])
 
-            print(f"User: {messages[-1]}")
+            # print(f"User: {messages[-1]}")
 
             if self.is_reasoning_model:
                 model_response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
             else:
                 model_response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
-            print(f"Assistant: {model_response}")
+            # print(f"Assistant: {model_response}")
 
             responses.append(model_response)
 
@@ -141,7 +141,7 @@ class Generator:
             if "gpt-5" not in self.model_name:
                 messages.append({"role": "assistant", "content": model_response})
 
-        print(messages)
+        # print(messages)
         return responses
 
     def generate_answers(self) -> None:
@@ -158,7 +158,6 @@ class Generator:
             # For manual questions:
             questions = example["Questions"]
             for key, questions_dict in questions.items():
-                print(key)
                 positive_question = questions_dict["positive_question"]
                 negative_question = questions_dict["negative_question"]
 
@@ -177,7 +176,6 @@ class Generator:
                     if self.model_name in MODELS_WITH_RATE_LIMIT:
                         # add some default time gap to avoid rate limiting
                         time.sleep(REQ_TIME_GAP)
-            print(questions)
 
             example["ModelGeneratedAnswersWithQuestions"] = questions
             results.append(example)
@@ -212,6 +210,7 @@ if __name__ == '__main__':
     max_new_tokens = args.max_new_tokens
     is_debug = args.debug
 
+    print()
     print("Arguments Provided for Answer Generation:")
     print(f"Model:             {model_name}")
     print(f"Input Path:        {input_path}")
@@ -223,9 +222,11 @@ if __name__ == '__main__':
     # check if input and output paths exist
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Input path {input_path} does not exist. Please provide a valid path to the dataset file.")
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-        print("Output path did not exist. Directory was created.")
+    # Get the directory name
+    directory_path = os.path.dirname(output_path)
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+        print("Output directory path did not exist. Directory was created.")
 
     generator = Generator(model_name, input_path, output_path, max_new_tokens, is_debug)
     generator.generate_answers()

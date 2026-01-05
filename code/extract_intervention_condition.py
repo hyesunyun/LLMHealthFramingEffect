@@ -69,10 +69,11 @@ class Extractor:
         results = []
         pbar = tqdm(self.dataset, desc="Running extraction on the dataset")
         for _, example in enumerate(pbar):
+            review_title = example["ReviewTitle"]
             review_abstract_sections = example["ReviewAbstract"]
             formatted_abstract = format_review_abstract(review_abstract_sections)
             input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
-                                  review_abstract=formatted_abstract)
+                                  review_title=review_title, review_abstract=formatted_abstract)
 
             # format messages
             messages = format_messages(self.model_name, input)

@@ -195,7 +195,7 @@ def format_messages(model_name: str, user_input: str) -> list[dict]:
     # Define formatting strategies
     formats = {
         "gpt-5": lambda x: [{"role": "user", "content": [{"type": "input_text", "text": x}]}],
-        "deepseek": lambda x: [{"role": "user", "content": f"{x}\n<think>\n"}],
+        "deepseek": lambda x: [{"role": "user", "content": f"{x}"}, {"role": "assistant", "content": "<think>\n"}],
     }
 
     # Find a match or use a default fallback

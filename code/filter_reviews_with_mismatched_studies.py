@@ -57,6 +57,11 @@ def filter_reviews(input_path: str, output_path: str) -> None:
             print(f"Skipping example with missing NumInputs or NumIncludedStudies: {example['ReviewID']}")
             continue
         
+        # also exclude reviews that have any input abstracts to be None (empty)
+        inputs = example["Inputs"]
+        if any(input["Abstract"] is None for input in inputs):
+            continue
+
         # only include if the numbers match
         if num_inputs == num_included_studies:
             filtered_data.append(example)

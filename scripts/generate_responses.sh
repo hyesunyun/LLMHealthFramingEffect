@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=07-00:00:00
+#SBATCH --time=12-00:00:00
 #SBATCH --job-name=response
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=16
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=120G
 #SBATCH --partition=177huntington
@@ -29,19 +29,19 @@ models=(
 #   "gpt5-nano"
 #   "claude_4.5_sonnet"
   "llama3.3_instruct_70B"
-  "deepseek_distill-qwen32B"
-  "deepseek_distill-llama70B"
+  # "deepseek_distill-qwen32B"
+  # "deepseek_distill-llama70B"
   "qwen3-4B"
-  "qwen3-30B"
   "qwen3_thinking-4B"
-  "qwen3_thinking-30B"
+  # "qwen3-30B"
+  # "qwen3_thinking-30B"
 )
 
 echo "Running LLM response generation"
 for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
-        --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/responses/$model/question_responses.json"
 done
 

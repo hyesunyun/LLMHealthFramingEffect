@@ -56,16 +56,17 @@ class Llama3(Model):
         """
         try:
             model_inputs = self.tokenizer.apply_chat_template(messages, tokenize=True, add_generation_prompt=True, return_tensors="pt").to(self.model.device)
-            
+
             do_sample = True if temperature > 0 else False
 
             with torch.no_grad():
                 result = self.model.generate(
-                    model_inputs, 
+                    model_inputs,
                     max_new_tokens=max_new_tokens,
                     temperature=temperature,
                     top_p=top_p,
                     do_sample=do_sample,
+                    pad_token_id=tokenizer.eos_token_id
                 ) # do_sample = False and unset temperature and top_p (None) if we want deterministic outputs
                 
             response = self.tokenizer.decode(result[0, model_inputs.shape[1]:], skip_special_tokens=True)

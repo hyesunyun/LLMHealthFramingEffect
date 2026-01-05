@@ -5,6 +5,7 @@ dependencies:
   - python=3.12.4
   - jupyterlab
   - matplotlib
+  - seaborn
   - jinja2==3.1.6
   - conda-forge::anthropic
   - conda-forge::openai
