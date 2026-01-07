@@ -143,6 +143,19 @@ class Generator:
 
         # print(messages)
         return responses
+    
+    def __save_outputs(self, results: list[dict]) -> None:
+        """
+        This method saves the outputs to the specified output path.
+
+        :param results: list of dictionaries containing the results to be saved
+
+        :return None
+        """
+        if self.output_path.endswith(".jsonl"):
+            save_dataset_to_json(results, self.output_path, jsonl=True, columns_to_drop=["Questions"])
+        elif self.output_path.endswith(".json"):
+            save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=["Questions"])
 
     def generate_answers(self) -> None:
         """
@@ -153,10 +166,11 @@ class Generator:
         # run the task using specified model
         results = []
         pbar = tqdm(self.dataset, desc="Running generation on the dataset")
-        for _, example in enumerate(pbar):
+        for i, example in enumerate(pbar):
             rct_inputs = self.__format_rct_inputs(example["Inputs"])
             # For manual questions:
             questions = example["Questions"]
+
             for key, questions_dict in questions.items():
                 positive_question = questions_dict["positive_question"]
                 negative_question = questions_dict["negative_question"]
@@ -179,15 +193,16 @@ class Generator:
 
             example["ModelGeneratedAnswersWithQuestions"] = questions
             results.append(example)
+            # for every 100 questions, save intermediate progress
+            if (i + 1) % 100 == 0:
+                print(f"Saving intermediate outputs at instance {i + 1} from model - {self.model_name}")
+                self.__save_outputs(results)
         # end of loop through the dataset
 
-        # saving outputs to file
+        # saving final outputs to file
         print(f"Saving outputs from model - {self.model_name}")
-        if self.output_path.endswith(".jsonl"):
-            save_dataset_to_json(results, self.output_path, jsonl=True, columns_to_drop=["Questions"])
-        elif self.output_path.endswith(".json"):
-            save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=["Questions"])
-        
+        self.__save_outputs(results)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Running Generation of Answers to Questions from RCTs Using LLMs")
