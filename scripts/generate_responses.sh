@@ -2,9 +2,9 @@
 #SBATCH --nodes=1
 #SBATCH --time=12-00:00:00
 #SBATCH --job-name=response
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=120G
+#SBATCH --mem=180G
 #SBATCH --partition=177huntington
 #SBATCH --gres=gpu:2
 #SBATCH -o output_%j.txt                     # Standard output file
@@ -24,25 +24,25 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-#   "gpt-5.1"
-#   "gpt5-mini"
-#   "gpt5-nano"
-#   "claude_4.5_sonnet"
-  "llama3.3_instruct_70B"
+  # "gpt-5.1"
+  # "gpt5-mini"
+  # "gpt5-nano"
+  # "claude_4.5_sonnet"
   # "deepseek_distill-qwen32B"
   # "deepseek_distill-llama70B"
   "qwen3-4B"
   "qwen3_thinking-4B"
   # "qwen3-30B"
   # "qwen3_thinking-30B"
+  # "llama3.3_instruct_70B"
 )
 
 echo "Running LLM response generation"
 for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/responses/$model/question_responses.json"
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions_new.json \
+        --output_path "../code/outputs/responses/$model/question_responses_new.json"
 done
 
 conda deactivate

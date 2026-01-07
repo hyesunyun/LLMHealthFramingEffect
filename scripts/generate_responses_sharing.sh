@@ -27,7 +27,7 @@ model="qwen3_thinking-4B"
 
 python3 ../code/generate_responses.py \
     --model "$model" \
-    --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
+    --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions_new.json" \
     --output_path "../code/outputs/responses/$model/question_responses.json" \
     --debug
 

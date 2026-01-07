@@ -28,7 +28,7 @@ model="qwen3_thinking-4B"
 # Step 1: Extract Interventions and Conditions
 python3 ../code/extract_intervention_condition.py \
     --model "$model" \
-    --input_path ../data/cochrane_review_data_final.jsonl \
+    --input_path ../data/cochrane_review_data_cleaned.jsonl \
     --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions_new.json"
     # --debug
 

@@ -26,6 +26,6 @@ python3 ../code/find_num_included_studies.py \
 echo "Filter reviews with mismatched studies"
 python ../code/filter_reviews_with_mismatched_studies.py \
  --input_path ../code/outputs/find_num_studies/cochrane_review_data_webscraping.json \
- --output_path ../data/cochrane_review_data_final.jsonl
+ --output_path ../data/cochrane_review_data_cleaned.jsonl
 
 conda deactivate

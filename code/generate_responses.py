@@ -157,6 +157,19 @@ class Generator:
         elif self.output_path.endswith(".json"):
             save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=["Questions"])
 
+    def __save_outputs(self, results: list[dict]) -> None:
+        """
+        This method saves the outputs to the specified output path.
+
+        :param results: list of dictionaries containing the results to be saved
+
+        :return None
+        """
+        if self.output_path.endswith(".jsonl"):
+            save_dataset_to_json(results, self.output_path, jsonl=True, columns_to_drop=["Questions"])
+        elif self.output_path.endswith(".json"):
+            save_dataset_to_json(results, self.output_path, jsonl=False, columns_to_drop=["Questions"])
+
     def generate_answers(self) -> None:
         """
         This method generates answers to the questions and provided RCT inputs using the specified model.
@@ -202,6 +215,7 @@ class Generator:
         # saving final outputs to file
         print(f"Saving outputs from model - {self.model_name}")
         self.__save_outputs(results)
+
 
 
 if __name__ == '__main__':
