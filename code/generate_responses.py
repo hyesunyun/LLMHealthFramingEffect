@@ -195,7 +195,8 @@ class Generator:
                         messages = format_messages(self.model_name, input)     
                         inputs[f"{review_id}_{key}_{q_type}"] = messages
         # end of loop through the dataset
-        self.model.submit_batch(inputs, self.max_new_tokens)
+        batch_id = self.model.submit_batch(inputs, self.max_new_tokens)
+        print(f"Submitted batch job with batch ID: {batch_id}")
 
     def __run_multiturn_only(self, rct_inputs: str, questions: dict[str, dict[str, str]]) -> dict[str, dict[str, str]]:
         """

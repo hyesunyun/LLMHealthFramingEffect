@@ -6,6 +6,7 @@ import logging
 from dotenv import load_dotenv
 import json
 from datetime import datetime
+from pathlib import Path
 
 class Gemini(Model):
     def __init__(self, model_type: str = "2.5") -> None:
@@ -76,14 +77,18 @@ class Gemini(Model):
         try:
             # Timestamped filename for record keeping
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            jsonl_path = f"outputs/batch_requests/{self.model_name}_batch_{timestamp}.jsonl"
+
+            current_file = Path(__file__).resolve()
+            target_dir = current_file.parent.parent / "outputs" / "batch_requests"
+            target_dir.mkdir(parents=True, exist_ok=True)
+            jsonl_path = target_dir / f"{self.model_name}_batch_{timestamp}.jsonl"
 
             # Write JSONL file locally
             with open(jsonl_path, "w", encoding="utf-8") as f:
                 for req in batch_requests:
                     f.write(json.dumps(req) + "\n")
 
-            meta_path = f"outputs/batch_requests/{self.model_name}_batch_{timestamp}_meta.json"
+            meta_path = target_dir / f"{self.model_name}_batch_{timestamp}_meta.json"
 
             metadata = {
                 "model": self.model_name,
