@@ -11,6 +11,7 @@ dependencies:
   - conda-forge::openai
   - conda-forge::python-dotenv
   - conda-forge::pandas
+  - conda-forge::google-genai
   - pip:
     - torch
     - torchvision

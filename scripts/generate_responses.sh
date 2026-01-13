@@ -25,8 +25,6 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
   # "gpt-5.1"
-  # "gpt5-mini"
-  # "gpt5-nano"
   # "claude_4.5_sonnet"
   # "deepseek_distill-qwen32B"
   # "deepseek_distill-llama70B"
@@ -35,6 +33,9 @@ models=(
   # "qwen3-30B"
   # "qwen3_thinking-30B"
   # "llama3.3_instruct_70B"
+  # "huatuo-7B"
+  # "huatuo-8B"
+  # "huatuo-70B"
 )
 
 echo "Running LLM response generation"
