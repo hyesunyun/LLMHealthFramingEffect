@@ -10,7 +10,7 @@ from models.huatuo import Huatuo
 
 SEED = 42
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet", "gemini-2.5", "gemini-3"]
-REQ_TIME_GAP = 5
+REQ_TIME_GAP = 1
 MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "claude_4.5_sonnet", 
           "llama3.3_instruct_70B", "deepseek_distill-qwen32B", "deepseek_distill-llama70B", 
           "qwen3-4B", "qwen3-30B", "qwen3_thinking-4B", "qwen3_thinking-30B", "gemini-2.5", "gemini-3",
