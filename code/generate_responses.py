@@ -256,9 +256,9 @@ class Generator:
 
         :return None
         """
-        if self.model_name in API_MODELS:
-            print(f"Submitting batch job for model - {self.model_name}")
-            self._submit_batch() # only non multiturn questions are supported in batch mode
+        # if self.model_name in API_MODELS:
+        #     print(f"Submitting batch job for model - {self.model_name}")
+        #     self._submit_batch() # only non multiturn questions are supported in batch mode
 
         results = []
         pbar = tqdm(self.dataset, desc="Running generation of answers")

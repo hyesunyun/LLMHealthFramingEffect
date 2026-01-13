@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=99:00:00
+#SBATCH --time=24:00:00
 #SBATCH --job-name=batch_response
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=10G
-#SBATCH --partition=177huntington
+#SBATCH --partition=short
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -23,7 +23,7 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-  "gpt-5.1"
+  # "gpt-5.1"
   "claude_4.5_sonnet"
 )
 
