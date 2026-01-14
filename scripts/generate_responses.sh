@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=12-00:00:00
+#SBATCH --time=70:00:00
 #SBATCH --job-name=response
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
@@ -28,7 +28,7 @@ models=(
   # "claude_4.5_sonnet"
   # "deepseek_distill-qwen32B"
   # "deepseek_distill-llama70B"
-  "qwen3-4B"
+  # "qwen3-4B"
   "qwen3_thinking-4B"
   # "qwen3-30B"
   # "qwen3_thinking-30B"
@@ -43,7 +43,7 @@ for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions_new.json \
-        --output_path "../code/outputs/responses/$model/question_responses_new.json"
+        --output_path "../code/outputs/responses/$model/question_responses.json"
 done
 
 conda deactivate

@@ -44,7 +44,7 @@ class Generator:
         if self.is_debug:
             dataset = dataset[:3] # use only first 3 examples for debugging
 
-        self.dataset = dataset
+        self.dataset = dataset[200:]
 
     def __load_model(self) -> None:
         """
@@ -272,8 +272,8 @@ class Generator:
                 questions = self.__run_all_questions(rct_inputs, questions)
             example["ModelGeneratedAnswersWithQuestions"] = questions
             results.append(example)
-            # for every 100 questions, save intermediate progress
-            if (i + 1) % 100 == 0:
+            # for every 50 questions, save intermediate progress
+            if (i + 1) % 50 == 0:
                 print(f"Saving intermediate outputs at instance {i + 1} from model - {self.model_name}")
                 self.__save_outputs(results)
         # end of loop through the dataset
