@@ -18,3 +18,6 @@ dependencies:
     - accelerate
     - transformers
     - biopython
+    - sentence-transformers
+    - textstat
+    - spacy
