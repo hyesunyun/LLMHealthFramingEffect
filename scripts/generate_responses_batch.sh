@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=24:00:00
+#SBATCH --time=48:00:00
 #SBATCH --job-name=batch_response
 #SBATCH --cpus-per-task=4
 #SBATCH --ntasks-per-node=1
@@ -31,7 +31,7 @@ echo "Running LLM response generation"
 for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions_new.json \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/responses/$model/question_responses.json"
 done
 

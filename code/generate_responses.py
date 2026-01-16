@@ -44,7 +44,7 @@ class Generator:
         if self.is_debug:
             dataset = dataset[:3] # use only first 3 examples for debugging
 
-        self.dataset = dataset[200:]
+        self.dataset = dataset
 
     def __load_model(self) -> None:
         """

@@ -29,13 +29,13 @@ model="qwen3_thinking-4B"
 python3 ../code/extract_intervention_condition.py \
     --model "$model" \
     --input_path ../data/cochrane_review_data_cleaned.jsonl \
-    --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions_new.json"
+    --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json"
     # --debug
 
 # Step 2: Generate Questions using the extracted interventions and conditions
 python3 ../code/apply_question_templates.py \
-    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions_new.json" \
-    --output_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions_new.json" \
+    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
+    --output_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
     --run_scoring
 
 conda deactivate

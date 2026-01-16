@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=70:00:00
+#SBATCH --time=90:00:00
 #SBATCH --job-name=response
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -34,7 +34,7 @@ models=(
   # "qwen3_thinking-30B"
   # "llama3.3_instruct_70B"
   # "huatuo-7B"
-  # "huatuo-8B"
+  "huatuo-8B"
   # "huatuo-70B"
 )
 
@@ -42,7 +42,7 @@ echo "Running LLM response generation"
 for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions_new.json \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/responses/$model/question_responses.json"
 done
 

@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --time=6:00:00
+#SBATCH --time=8:00:00
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
-#SBATCH --gres=gpu:h200:1
+#SBATCH --gres=gpu:1
 #SBATCH --job-name=eval
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
@@ -27,8 +27,12 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 #     --file_path ../code/outputs/responses/gpt-5.1/batch_question_responses.jsonl \
 #     --output_path ../code/outputs/analysis/gpt-5.1_analysis_results.json
 
-python3 ../code/run_lexical_analysis.py \
-    --file_path ../code/outputs/responses/claude_4.5_sonnet/batch_question_responses.jsonl \
-    --output_path ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
+# python3 ../code/run_lexical_analysis.py \
+#     --file_path ../code/outputs/responses/claude_4.5_sonnet/batch_question_responses.jsonl \
+#     --output_path ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
+
+# python3 ../code/run_lexical_analysis.py \
+#     --file_path ../code/outputs/responses/qwen3-4B/question_responses.json \
+#     --output_path ../code/outputs/analysis/qwen3-4B_analysis_results.json
 
 conda deactivate

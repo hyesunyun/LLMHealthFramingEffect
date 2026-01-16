@@ -75,15 +75,16 @@ class Evaluator:
                 "entity_overlap": f"{ne_overlap:.2%}",
                 "common_entities": list(intersection)
             },
-            "response_a_metrics": get_stats(text_a),
-            "response_b_metrics": get_stats(text_b)
+            "response_positive_metrics": get_stats(text_a),
+            "response_negative_metrics": get_stats(text_b)
         }
 
     # TODO: would need to change the code to fit the actual things we need
     def process_batch(self, input_data):
         results = {}
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
-            if uid == "multiturn":
+            category = uid.split("_")[1]
+            if category == "multiturn":
                 continue
             # print(f"Analyzing {uid}...")
             results[uid] = self.evaluate_pair(pairs['positive_answer'], pairs['negative_answer'])
@@ -115,6 +116,22 @@ def format_outputs(raw_data):
             
     return grouped
 
+def format_outputs2(raw_data):
+    grouped = {}
+    
+    for item in raw_data:
+        review_id = item["ReviewID"]
+        q_and_a = item["ModelGeneratedAnswersWithQuestions"]
+
+        for k, v in q_and_a.items():
+            pair_key = f"{review_id}_{k}"
+            if pair_key not in grouped:
+                grouped[pair_key] = {}
+            grouped[pair_key]["positive_answer"] = v["positive_answer"]
+            grouped[pair_key]["negative_answer"] = v["negative_answer"]
+            
+    return grouped
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Running Lexical Analysis")
 
@@ -132,10 +149,11 @@ if __name__ == '__main__':
     print(f"Output Path:       {output_path}")
     print()
 
-    data = load_jsonl_file(file_path)
-
-    formatted_data = format_outputs(data)
-    print(f"entries: {len(formatted_data.keys())}")
+    # data = load_jsonl_file(file_path)
+    data = load_json_file(file_path)
+    # formatted_data = format_outputs(data)
+    # print(f"entries: {len(formatted_data.keys())}")
+    formatted_data = format_outputs2(data)
 
     # Run
     evaluator = Evaluator()

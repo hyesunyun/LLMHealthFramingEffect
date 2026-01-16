@@ -76,8 +76,7 @@ class Huatuo(Model):
             # ## Final Response
             # [Output]
             output_text = self.tokenizer.decode(output_ids, skip_special_tokens=True)
-            # TODO: remove after debugging
-            print(f"Generated Output Text: {output_text}")
+            # print(f"Generated Output Text: {output_text}")
             try:
                 thinking_start = output_text.index("## Thinking") + len("## Thinking")
                 response_start = output_text.index("## Final Response")
