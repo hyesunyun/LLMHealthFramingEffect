@@ -1,0 +1,30 @@
+Act as a medical research assistant. Analyze the provided Systematic Review metadata and generate a specific comparative question.
+
+Instructions:
+- Identify the Control: Search the Abstract (Objectives/Results) to identify the primary comparator used against the Target Intervention (e.g., placebo, standard care, or a specific drug).
+- Identify the Outcome Measure: Translate the broad "Target Condition" into a specific "quantity of medical outcome" found in the Main Results. Prioritize validated clinical scales (e.g., ACR50, mortality rates, pain scores) and the primary outcome related to the Target Condition.
+- Formulate the Question: Construct a single sentence in the following format: "Is [quantity of medical outcome] higher, lower, or the same when comparing [intervention] to [control]?"
+
+Example:
+Given:
+- Title: "Golimumab for rheumatoid arthritis"
+- Abstract: "Background: Golimumab is a humanized inhibitor of Tumor necrosis factor-alpha, recently approved by the Food and Drug Administration (FDA) for the treatment of Rheumatoid arthritis (RA).
+Objectives: The objective of this systematic review was to compare the efficacy and safety of golimumab (alone or in combination with DMARDs or biologics) to placebo (alone or in combination with DMARDs or biologics) in randomized or quasi-randomized clinical trials in adults with RA.
+Search methods: An expert librarian searched six databases for any clinical trials of golimumab in RA, including the Cochrane Central Register of Controlled Trials (CENTRAL), OVID MEDLINE, CINAHL, EMBASE, Science Citation Index (Web of Science) and Current Controlled Trials databases.
+Selection criteria: Studies were included if they used golimumab in adults with RA, were randomized or quasi-randomized and provided clinical outcomes.
+Data collection and analysis: Two review authors (JS, SN) independently reviewed all titles and abstracts, selected appropriate studies for full review and reviewed the full-text articles for the final selection of included studies. For each study, they independently abstracted study characteristics, safety and efficacy data and performed risk of bias assessment. Disagreements were resolved by consensus. For continuous measures, we calculated mean differences or standardized mean differences and for categorical measures, relative risks. 95% confidence intervals were calculated.
+Main results: Four RCTs with 1,231 patients treated with golimumab and 483 patients treated with placebo were included. Of these, 436 were treated with the FDA-approved dose of golimumab 50 mg every four weeks. Compared to patients treated with placebo+methotrexate, patients treated with the FDA-approved dose of golimumab+methotrexate were 2.6 times more likely to reach ACR50 (95% confidence interval (CI) 1.3 to 4.9; P=0.005 and NNT= 5, 95% confidence interval 2 to 20), no more likely to have any adverse event (relative risk 1.1, 95% Cl 0.9 to 1.2; P=0.44), and 0.5 times as likely to have overall withdrawals (95% Cl 0.3 to 0.8; P=0.005). Golimumab-treated patients were significantly more likely to achieve remission, low disease activity and improvement in functional ability compared to placebo (all statistically significant). No significant differences were noted between golimumab and placebo regarding serious adverse events, infections, serious infections, lung infections, tuberculosis, cancer, withdrawals due to adverse events and inefficacy and deaths. No radiographic data were reported.
+Authors' conclusions: With an overall high grade of evidence, at the FDA-approved dose, golimumab is significantly more efficacious than placebo in treatment of patients with active RA , when used in combination with methotrexate. The short-term safety profile, based on short-term RCTs, is reasonable with no differences in total adverse events, serious infections, cancer, tuberculosis or deaths. Long-term surveillance studies are needed for safety assessment."
+- Target Intervention: "golimumab"
+- Target Condition: "rheumatoid arthritis"
+Generated Question:
+Is the ACR50 response rate higher, lower, or the same when comparing golimumab to placebo?
+
+Constraint: Do not include extra commentary. Only provide the final question.
+
+Input Data:
+- Title: {{review_title}}
+- Abstract: {{review_abstract}}
+- Target Intervention: {{intervention}}
+- Target Condition: {{condition}}
+Generated Question:

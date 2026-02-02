@@ -3,16 +3,15 @@ import os
 
 from tqdm import tqdm
 import time
-import json
 
-from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string, format_messages
+from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, format_messages
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
-DEFAULT_MAX_NEW_TOKENS = 5000 # arbitrary number for default max tokens
-PROMPT_TEMPLATE_NAME = "extract_intervention_condition"
+DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens, higher due to some models being reasoning models
+PROMPT_TEMPLATE_NAME = "generate_evidence_direction_question"
 
-class Extractor:
+class Generator:
     
     def __init__(self, model_name: str, input_path: str, output_path: str, max_new_tokens: int, is_debug: bool = False) -> None:
         self.model_name = model_name
@@ -60,38 +59,37 @@ class Extractor:
         else:
             self.model = model_class()
 
-    def extract_intervention_condition(self) -> None:
+    def generate_evidence_direction_questions(self) -> None:
         """
-        This method extracts the intervention and coniditon of the review in plain language for question generation.
+        This method takes in the treatment and condition information as well as the review abstract to generate evidence direction questions.
+        The question formatting is the same as what was used in 
+        Polzak, Christopher, et al. "Can Large Language Models Match the Conclusions of Systematic Reviews?." arXiv preprint arXiv:2505.22787 (2025).
 
         :return None
         """
         results = []
-        pbar = tqdm(self.dataset, desc="Running extraction on the dataset")
+        pbar = tqdm(self.dataset, desc="Running eval question generation on the dataset")
         for _, example in enumerate(pbar):
             review_title = example["ReviewTitle"]
             review_abstract_sections = example["ReviewAbstract"]
             formatted_abstract = format_review_abstract(review_abstract_sections)
+            extracted_info = example["ExtractedText"]
+            intervention = extracted_info["intervention"]
+            condition = extracted_info["condition"]
             input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
-                                  review_title=review_title, review_abstract=formatted_abstract)
+                                  review_title=review_title, review_abstract=formatted_abstract,
+                                  intervention=intervention, condition=condition)
 
             # format messages
             messages = format_messages(self.model_name, input)
 
             if self.is_reasoning_model:
                 response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
-                # print(f"[{example['ReviewID']}] Thinking Context: {thinking_context}")
             else:
                 response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
-            # print(f"[{example['ReviewID']}] Model Response: {response}")
 
             example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
-            example["LLMRawResponse"] = response
-            # ExtractedText are in JSON format
-            try:
-                example["ExtractedText"] = json.loads(extract_json_string(response))
-            except:
-                example["ExtractedText"] = {"intervention": None, "condition": None}
+            example["EvidenceDirectionQuestion"] = response
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 # add some default time gap to avoid rate limiting
@@ -109,15 +107,15 @@ class Extractor:
         
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Running Extraction of Interventions and Conditions from Cochrane Reviews Using LLMs")
+    parser = argparse.ArgumentParser(description="Running Generation of Evidence Direction Questions from Cochrane Reviews Using LLMs")
 
     parser.add_argument("--model", default="llama3.3_instruct_70B", 
                         choices=MODELS, 
                         help="what model to run", 
                         required=True)
-    parser.add_argument("--input_path", default="./outputs", help="path to the input json file containing Cochrane Reviews.")
+    parser.add_argument("--input_path", default="./outputs", help="path to the input json file containing Cochrane Reviews and extracted intervention and condition information.")
     parser.add_argument("--output_path", default="./outputs", help="directory of where the outputs/results should be saved.")
-    parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the key question")
+    parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the key question.")
     # do --no-debug for explicit False
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run first 10 rows of data.")
     
@@ -129,7 +127,7 @@ if __name__ == '__main__':
     max_new_tokens = args.max_new_tokens
     is_debug = args.debug
 
-    print("Arguments Provided for Extractor:")
+    print("Arguments Provided for Generator:")
     print(f"Model:             {model_name}")
     print(f"Input Path:        {input_path}")
     print(f"Output Path:       {output_path}")
@@ -143,5 +141,5 @@ if __name__ == '__main__':
         os.makedirs(directory_path)
         print("Output directory path did not exist. Directory was created.")
     
-    extractor = Extractor(model_name, input_path, output_path, max_new_tokens, is_debug)
-    extractor.extract_intervention_condition()
+    generator = Generator(model_name, input_path, output_path, max_new_tokens, is_debug)
+    generator.generate_evidence_direction_questions()

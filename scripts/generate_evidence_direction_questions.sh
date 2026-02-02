@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --time=60:00:00
+#SBATCH --job-name=eval_q_gen
+#SBATCH --cpus-per-task=16
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=180G
+#SBATCH --partition=177huntington
+#SBATCH --gres=gpu:2
+#SBATCH -o output_%j.txt                     # Standard output file
+#SBATCH -e error_%j.txt                      # Standard error file
+
+module purge
+module load explorer anaconda3/2024.06
+
+source activate base
+source activate llm_health_framing_effect
+conda activate llm_health_framing_effect
+
+conda info
+
+export HF_HOME="/scratch/yun.hy/.cache"
+export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
+export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
+
+model="qwen3_thinking-4B"
+
+python3 ../code/generate_evidence_direction_questions.py \
+    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
+    --output_path "../code/outputs/questions/$model/evidence_direction_questions.json" \
+    --debug
+
+conda deactivate
