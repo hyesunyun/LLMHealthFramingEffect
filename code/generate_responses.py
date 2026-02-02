@@ -6,7 +6,7 @@ import time
 import torch, gc
 
 from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, extract_json_string, format_messages
-from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS, API_MODELS
+from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS, BATCH_MODELS
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens
@@ -248,6 +248,10 @@ class Generator:
 
                     response = self.__run_multiturn_conversation(multiturn_questions, rct_inputs)
                     questions[key][f"{q_type}_answer"] = response
+
+                if self.model_name in MODELS_WITH_RATE_LIMIT:
+                    # add some default time gap to avoid rate limiting
+                    time.sleep(REQ_TIME_GAP)
         return questions
 
     def generate_answers(self) -> None:
@@ -256,9 +260,9 @@ class Generator:
 
         :return None
         """
-        # if self.model_name in API_MODELS:
-        #     print(f"Submitting batch job for model - {self.model_name}")
-        #     self._submit_batch() # only non multiturn questions are supported in batch mode
+        if self.model_name in BATCH_MODELS:
+            print(f"Submitting batch job for model - {self.model_name}")
+            self._submit_batch() # only non multiturn questions are supported in batch mode
 
         results = []
         pbar = tqdm(self.dataset, desc="Running generation of answers")
@@ -266,7 +270,7 @@ class Generator:
             rct_inputs = self.__format_rct_inputs(example["Inputs"])
             # For manual questions:
             questions = example["Questions"]
-            if self.model_name in API_MODELS: # run the multiturn questions in real-time rather than batch
+            if self.model_name in BATCH_MODELS: # run the multiturn questions in real-time rather than batch
                 questions = self.__run_multiturn_only(rct_inputs, questions)
             else:
                 questions = self.__run_all_questions(rct_inputs, questions)

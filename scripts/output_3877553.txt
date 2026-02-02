@@ -1,0 +1,3271 @@
+
+     active environment : llm_health_framing_effect
+    active env location : /home/yun.hy/.conda/envs/llm_health_framing_effect
+            shell level : 2
+       user config file : /home/yun.hy/.condarc
+ populated config files : 
+          conda version : 24.5.0
+    conda-build version : 24.5.1
+         python version : 3.12.4.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=zen2
+                          __conda=24.5.0=0
+                          __cuda=12.8=0
+                          __glibc=2.34=0
+                          __linux=5.14.0=0
+                          __unix=0=0
+       base environment : /shared/EL9/explorer/anaconda3/2024.06  (read only)
+      conda av data dir : /shared/EL9/explorer/anaconda3/2024.06/etc/conda
+  conda av metadata url : None
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /shared/EL9/explorer/anaconda3/2024.06/pkgs
+                          /home/yun.hy/.conda/pkgs
+       envs directories : /home/yun.hy/.conda/envs
+                          /shared/EL9/explorer/anaconda3/2024.06/envs
+               platform : linux-64
+             user-agent : conda/24.5.0 requests/2.32.5 CPython/3.12.4 Linux/5.14.0-362.13.1.el9_3.x86_64 rocky/9.3 glibc/2.34 solver/libmamba conda-libmamba-solver/24.1.0 libmambapy/1.5.8 aau/0.4.4 c/. s/. e/.
+                UID:GID : 1825635949:100
+             netrc file : /home/yun.hy/.netrc
+           offline mode : False
+
+
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/sample_for_analysis_test.json
+Output Path:       ../code/outputs/analysis/sample_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+["cannot", "generally", "mostly", "generally", "safe", "appropriate", "Some", "potential", "some", "many", "depending on", "might", "can", "evalute"]
+Extracted List: ['cannot', 'generally', 'mostly', 'generally', 'safe', 'appropriate', 'Some', 'potential', 'some', 'many', 'depending on', 'might', 'can', 'evalute']
+Count of numericals: 4
+Count of Unique References: 4
+["generally", "significantly", "highly", "mostly", "well-tolerated", "safe", "typical", "usually", "mild", "rare", "uncommon", "possible", "dramatically", "cutting", "reduce", "decrease", "prevent", "evidence-based", "specifically"]
+Extracted List: ['generally', 'significantly', 'highly', 'mostly', 'well-tolerated', 'safe', 'typical', 'usually', 'mild', 'rare', 'uncommon', 'possible', 'dramatically', 'cutting', 'reduce', 'decrease', 'prevent', 'evidence-based', 'specifically']
+Count of numericals: 7
+Count of Unique References: 5
+["effective", "produces significant improvements", "appear", "long-term", "positive", "like", "some", "residual symptoms", "may", "while", "clinically meaningful", "representing", "historically", "difficult-to-treat", "effective", "most specifically", "exposure with response prevention", "like", "some", "though", "appear", "substantial progress", "represent", "like", "some", "though", "historically", "difficult-to-treat", "effective", "appears", "significant", "like", "some", "clinically significant"]
+Extracted List: ['effective', 'produces significant improvements', 'appear', 'long-term', 'positive', 'like', 'some', 'residual symptoms', 'may', 'while', 'clinically meaningful', 'representing', 'historically', 'difficult-to-treat', 'effective', 'most specifically', 'exposure with response prevention', 'like', 'some', 'though', 'appear', 'substantial progress', 'represent', 'like', 'some', 'though', 'historically', 'difficult-to-treat', 'effective', 'appears', 'significant', 'like', 'some', 'clinically significant']
+Count of numericals: 6
+Count of Unique References: 6
+["strongly contradicts", "don't always", "may remain", "don't always", "significantly", "both statistically and clinically meaningful", "Multiple studies", "found", "consistently improved", "maintained", "While some", "may persist", "don't always", "fully resolve", "clearly shows", "particularly", "challenging the outdated belief"]
+Extracted List: ['strongly contradicts', "don't always", 'may remain', "don't always", 'significantly', 'both statistically and clinically meaningful', 'Multiple studies', 'found', 'consistently improved', 'maintained', 'While some', 'may persist', "don't always", 'fully resolve', 'clearly shows', 'particularly', 'challenging the outdated belief']
+Count of numericals: 9
+Count of Unique References: 4
+["mixed", "limited", "some", "small", "promising", "no benefit", "most", "methodological limitations", "appears to depend", "individual circumstances", "what works for one person may not work for another", "various causes", "may not all respond", "inconsistent results", "one study found", "reported that", "provided no therapeutic benefit", "high rates of small babies persisted", "varies significantly", "each pregnancy is unique", "Just because", "guarantee it will work", "Consult your healthcare provider", "appropriate for your specific situation"]
+Extracted List: ['mixed', 'limited', 'some', 'small', 'promising', 'no benefit', 'most', 'methodological limitations', 'appears to depend', 'individual circumstances', 'what works for one person may not work for another', 'various causes', 'may not all respond', 'inconsistent results', 'one study found', 'reported that', 'provided no therapeutic benefit', 'high rates of small babies persisted', 'varies significantly', 'each pregnancy is unique', 'Just because', 'guarantee it will work', 'Consult your healthcare provider', 'appropriate for your specific situation']
+Count of numericals: 3
+Count of Unique References: 3
+["varies significantly", "limited", "more promising", "significant", "approximately", "mixed", "limited", "more", "noteably", "effective", "than", "depends", "individual", "differ", "most appropriate", "your specific situation", "depending on", "may differ"]
+Extracted List: ['varies significantly', 'limited', 'more promising', 'significant', 'approximately', 'mixed', 'limited', 'more', 'noteably', 'effective', 'than', 'depends', 'individual', 'differ', 'most appropriate', 'your specific situation', 'depending on', 'may differ']
+Count of numericals: 5
+Count of Unique References: 3
+["reasonably well", "typically", "may", "does not appear", "slightly", "moderate", "similar", "significantly", "though", "comparable", "non-cross-resistance", "generally manageable"]
+Extracted List: ['reasonably well', 'typically', 'may', 'does not appear', 'slightly', 'moderate', 'similar', 'significantly', 'though', 'comparable', 'non-cross-resistance', 'generally manageable']
+Count of numericals: 17
+Count of Unique References: 4
+["moderate", "not complete", "modest", "comparably", "helps some", "extended", "some", "showing no improvement", "may have", "particularly", "affecting", "showing activity"]
+Extracted List: ['moderate', 'not complete', 'modest', 'comparably', 'helps some', 'extended', 'some', 'showing no improvement', 'may have', 'particularly', 'affecting', 'showing activity']
+Count of numericals: 10
+Count of Unique References: 5
+["partially", "but", "indeed", "not", "but", "doesn't", "for everyone", "many", "often", "temporary", "about", "two-thirds", "most", "some", "alternative", "effective", "adjuvant", "concurrent", "gradual"]
+Extracted List: ['partially', 'but', 'indeed', 'not', 'but', "doesn't", 'for everyone', 'many', 'often', 'temporary', 'about', 'two-thirds', 'most', 'some', 'alternative', 'effective', 'adjuvant', 'concurrent', 'gradual']
+Count of numericals: 3
+Count of Unique References: 2
+["While", "many", "some", "most", "though", "typically", "for everyone", "doesn't work"]
+Extracted List: ['While', 'many', 'some', 'most', 'though', 'typically', 'for everyone', "doesn't work"]
+Count of numericals: 4
+Count of Unique References: 2
+["more", "nuanced", "roughly", "equal", "main", "reduced", "no benefit", "specific", "individual", "misleading", "reasonable", "similar", "safer", "specific", "appropriate"]
+Extracted List: ['more', 'nuanced', 'roughly', 'equal', 'main', 'reduced', 'no benefit', 'specific', 'individual', 'misleading', 'reasonable', 'similar', 'safer', 'specific', 'appropriate']
+Count of numericals: 0
+Count of Unique References: 3
+["understandable", "clear", "while", "can be", "often", "seem", "may", "more likely", "while", "just as effectively", "reduced by nearly", "persisted at", "can be misleading because", "reflect overall effectiveness", "rather than", "particularly for"]
+Extracted List: ['understandable', 'clear', 'while', 'can be', 'often', 'seem', 'may', 'more likely', 'while', 'just as effectively', 'reduced by nearly', 'persisted at', 'can be misleading because', 'reflect overall effectiveness', 'rather than', 'particularly for']
+Count of numericals: 13
+Count of Unique References: 3
+["represent", "comparing", "older", "superior", "significantly", "another", "found", "comparable", "adds", "improves", "providing", "effective", "treatment", "option", "avoid", "potential", "risks", "associated", "animal-derived", "products", "another", "found", "comparable", "in", "safety", "and", "efficacy", "to", "poractant", "alfa", "an", "animal-derived", "surfactant", "adds", "protein-mimicking", "peptides", "to", "synthetic", "surfactants", "improves", "their", "performance", "providing", "an", "effective", "treatment", "option", "that", "avoids", "potential", "risks", "associated", "with", "animal-derived", "products"]
+Extracted List: ['represent', 'comparing', 'older', 'superior', 'significantly', 'another', 'found', 'comparable', 'adds', 'improves', 'providing', 'effective', 'treatment', 'option', 'avoid', 'potential', 'risks', 'associated', 'animal-derived', 'products', 'another', 'found', 'comparable', 'in', 'safety', 'and', 'efficacy', 'to', 'poractant', 'alfa', 'an', 'animal-derived', 'surfactant', 'adds', 'protein-mimicking', 'peptides', 'to', 'synthetic', 'surfactants', 'improves', 'their', 'performance', 'providing', 'an', 'effective', 'treatment', 'option', 'that', 'avoids', 'potential', 'risks', 'associated', 'with', 'animal-derived', 'products']
+Count of numericals: 2
+Count of Unique References: 2
+["do not show", "older synthetic surfactants", "lacking", "However", "demonstrated safety and efficacy comparable", "significantly reduced", "similar safety profiles", "without significant complications", "make", "effective treatment option for", "do", "making", "improves rather than harms", "effective treatment option"]
+Extracted List: ['do not show', 'older synthetic surfactants', 'lacking', 'However', 'demonstrated safety and efficacy comparable', 'significantly reduced', 'similar safety profiles', 'without significant complications', 'make', 'effective treatment option for', 'do', 'making', 'improves rather than harms', 'effective treatment option']
+Count of numericals: 1
+Count of Unique References: 2
+["often", "limited", "may", "did not", "concluding", "not", "routine", "several", "may", "support", "does not", "appeared", "no", "significant", "did not", "may", "help", "though", "these", "occurred", "while", "isn't", "indicated", "when"]
+Extracted List: ['often', 'limited', 'may', 'did not', 'concluding', 'not', 'routine', 'several', 'may', 'support', 'does not', 'appeared', 'no', 'significant', 'did not', 'may', 'help', 'though', 'these', 'occurred', 'while', "isn't", 'indicated', 'when']
+Count of numericals: 0
+Count of Unique References: 3
+["does not appear", "does not recommended", "does", "showed no significant benefit", "routine magnesium administration is not indicated", "does benefit", "improves", "corrects", "does provide meaningful health improvements", "for acute", "over weeks of treatment", "address the magnesium deficiency common in chronic alcoholism"]
+Extracted List: ['does not appear', 'does not recommended', 'does', 'showed no significant benefit', 'routine magnesium administration is not indicated', 'does benefit', 'improves', 'corrects', 'does provide meaningful health improvements', 'for acute', 'over weeks of treatment', 'address the magnesium deficiency common in chronic alcoholism']
+Count of numericals: 0
+Count of Unique References: 4
+["shows", "mixed", "varies", "may", "can", "help", "support", "generally", "though", "maintaining", "what", "may", "not", "guarantee", "what", "may", "not", "depending", "though", "maintaining", "what", "worked", "may", "not", "guarantee", "what", "worked", "may", "depend", "though", "maintaining", "what", "worked", "may", "not", "guarantee", "what", "worked", "may", "not", "guarantee", "what", "worked", "may", "not", "guarantee", "what", "worked", "may", "not", "guarantee"]
+Extracted List: ['shows', 'mixed', 'varies', 'may', 'can', 'help', 'support', 'generally', 'though', 'maintaining', 'what', 'may', 'not', 'guarantee', 'what', 'may', 'not', 'depending', 'though', 'maintaining', 'what', 'worked', 'may', 'not', 'guarantee', 'what', 'worked', 'may', 'depend', 'though', 'maintaining', 'what', 'worked', 'may', 'not', 'guarantee', 'what', 'worked', 'may', 'not', 'guarantee', 'what', 'worked', 'may', 'not', 'guarantee', 'what', 'worked', 'may', 'not', 'guarantee']
+Count of numericals: 2
+Count of Unique References: 4
+["isn't entirely accurate", "some", "may", "can", "can be", "effective", "can", "may", "show", "haven't shown", "can be", "improved", "especially", "especially", "whether", "depends", "key difference", "whether", "how", "can", "will work"]
+Extracted List: ["isn't entirely accurate", 'some', 'may', 'can', 'can be', 'effective', 'can', 'may', 'show', "haven't shown", 'can be', 'improved', 'especially', 'especially', 'whether', 'depends', 'key difference', 'whether', 'how', 'can', 'will work']
+Count of numericals: 2
+Count of Unique References: 4
+["mixed", "doesn't necessarily", "no significant", "sometimes", "approximately", "some", "no significant", "may", "doesn't", "limited", "modest"]
+Extracted List: ['mixed', "doesn't necessarily", 'no significant', 'sometimes', 'approximately', 'some', 'no significant', 'may', "doesn't", 'limited', 'modest']
+Count of numericals: 5
+Count of Unique References: 3
+["may", "some", "doesn't", "consistently", "notable", "some", "although", "limited", "some", "while", "may", "limited", "increased"]
+Extracted List: ['may', 'some', "doesn't", 'consistently', 'notable', 'some', 'although', 'limited', 'some', 'while', 'may', 'limited', 'increased']
+Count of numericals: 3
+Count of Unique References: 3
+["may", "similar or fewer", "just as safe", "equal or fewer", "shorter", "shorter", "lower", "usually reserved"]
+Extracted List: ['may', 'similar or fewer', 'just as safe', 'equal or fewer', 'shorter', 'shorter', 'lower', 'usually reserved']
+Count of numericals: 5
+Count of Unique References: 0
+["function but", "linked to", "more complications", "longer operations", "longer hospital stays", "equal or better", "when", "surgeons are confident", "most", "did not have", "showing the method can work", "effective but", "often unnecessary", "rather than", "many", "so", "reserve them for"]
+Extracted List: ['function but', 'linked to', 'more complications', 'longer operations', 'longer hospital stays', 'equal or better', 'when', 'surgeons are confident', 'most', 'did not have', 'showing the method can work', 'effective but', 'often unnecessary', 'rather than', 'many', 'so', 'reserve them for']
+Count of numericals: 0
+Count of Unique References: 0
+["generally", "similar", "only", "some", "this", "is", "not", "suitable for every", "sometimes", "must be", "discuss options with your"]
+Extracted List: ['generally', 'similar', 'only', 'some', 'this', 'is', 'not', 'suitable for every', 'sometimes', 'must be', 'discuss options with your']
+Count of numericals: 2
+Count of Unique References: 4
+["does not appear", "ineffective", "does not support", "broader", "inherently", "more dangerous", "does not appear", "ineffective", "does not support", "broadly", "individualized", "does not appear", "as good or better", "often", "at least as effective", "rather than being clearly ineffective or unsafe", "varies", "individual", "so", "decisions should be made", "with", "your", "colorectal surgeon", "these controlled studies suggest", "some recovery advantages", "appropriate patients", "with"]
+Extracted List: ['does not appear', 'ineffective', 'does not support', 'broader', 'inherently', 'more dangerous', 'does not appear', 'ineffective', 'does not support', 'broadly', 'individualized', 'does not appear', 'as good or better', 'often', 'at least as effective', 'rather than being clearly ineffective or unsafe', 'varies', 'individual', 'so', 'decisions should be made', 'with', 'your', 'colorectal surgeon', 'these controlled studies suggest', 'some recovery advantages', 'appropriate patients', 'with']
+Count of numericals: 2
+Count of Unique References: 4
+["similar", "even when", "similar", "typically", "usually", "most", "for most stable civilian patients", "when technically safe"]
+Extracted List: ['similar', 'even when', 'similar', 'typically', 'usually', 'most', 'for most stable civilian patients', 'when technically safe']
+Count of numericals: 10
+Count of Unique References: 0
+["generally", "mostly", "same", "or lower", "even", "usually", "usually", "usually", "or re-joining the bowel", "many", "usually", "usually", "generally", "overall", "usually", "or lower", "overall", "usually", "usually"]
+Extracted List: ['generally', 'mostly', 'same', 'or lower', 'even', 'usually', 'usually', 'usually', 'or re-joining the bowel', 'many', 'usually', 'usually', 'generally', 'overall', 'usually', 'or lower', 'overall', 'usually', 'usually']
+Count of numericals: 5
+Count of Unique References: 2
+["meaningfully", "much", "as much", "similar", "roughly", "even though", "normal", "most", "but not all", "especially", "often", "many", "some", "about half", "short-term", "weaker", "overall", "most"]
+Extracted List: ['meaningfully', 'much', 'as much', 'similar', 'roughly', 'even though', 'normal', 'most', 'but not all', 'especially', 'often', 'many', 'some', 'about half', 'short-term', 'weaker', 'overall', 'most']
+Count of numericals: 6
+Count of Unique References: 5
+["substantially", "how much", "effects", "can persist", "one small older study", "limited benefit", "but", "consistently show", "help many—but not all", "especially when", "often appeared", "about half or more", "even when", "continued treatment", "A single high dose", "about half the children", "but this is outweighed", "ICS do not completely prevent", "some people need", "but they clearly help"]
+Extracted List: ['substantially', 'how much', 'effects', 'can persist', 'one small older study', 'limited benefit', 'but', 'consistently show', 'help many—but not all', 'especially when', 'often appeared', 'about half or more', 'even when', 'continued treatment', 'A single high dose', 'about half the children', 'but this is outweighed', 'ICS do not completely prevent', 'some people need', 'but they clearly help']
+Count of numericals: 4
+Count of Unique References: 8
+["more often", "similar", "even after", "more likely", "predicts", "some", "some analyses", "similar", "from a sales perspective", "justifying"]
+Extracted List: ['more often', 'similar', 'even after', 'more likely', 'predicts', 'some', 'some analyses', 'similar', 'from a sales perspective', 'justifying']
+Count of numericals: 26
+Count of Unique References: 1
+["clearly", "even after", "often", "strong", "consistent", "very", "effective", "not a waste of money", "significantly", "more likely", "predicts", "remains", "shows", "directly shape", "clearly works", "why", "public health experts call for"]
+Extracted List: ['clearly', 'even after', 'often', 'strong', 'consistent', 'very', 'effective', 'not a waste of money', 'significantly', 'more likely', 'predicts', 'remains', 'shows', 'directly shape', 'clearly works', 'why', 'public health experts call for']
+Count of numericals: 10
+Count of Unique References: 2
+["appears", "safe", "may", "help", "not proven", "established", "not definitive", "possible", "similar", "time‑sensitive", "consider", "must", "appears", "safe", "similar", "not change", "key", "not definitive"]
+Extracted List: ['appears', 'safe', 'may', 'help', 'not proven', 'established', 'not definitive', 'possible', 'similar', 'time‑sensitive', 'consider', 'must', 'appears', 'safe', 'similar', 'not change', 'key', 'not definitive']
+Count of numericals: 5
+Count of Unique References: 2
+["does not look", "but", "do", "was safe", "tended to lower", "may be helpful", "However", "once", "individualized", "because", "some", "must", "does not appear", "may even help", "but", "be guided by", "suggested", "possible", "indicating", "safe", "If", "some", "need", "Do not", "without", "urgent", "individualized", "your exact situation", "about", "tended to lower", "suggesting"]
+Extracted List: ['does not look', 'but', 'do', 'was safe', 'tended to lower', 'may be helpful', 'However', 'once', 'individualized', 'because', 'some', 'must', 'does not appear', 'may even help', 'but', 'be guided by', 'suggested', 'possible', 'indicating', 'safe', 'If', 'some', 'need', 'Do not', 'without', 'urgent', 'individualized', 'your exact situation', 'about', 'tended to lower', 'suggesting']
+Count of numericals: 2
+Count of Unique References: 2
+["moderately", "appears", "entirely", "clear", "judged", "substantially", "can", "when carefully managed"]
+Extracted List: ['moderately', 'appears', 'entirely', 'clear', 'judged', 'substantially', 'can', 'when carefully managed']
+Count of numericals: 10
+Count of Unique References: 3
+["suggesting", "can be", "when not used", "sometimes", "with added", "meaningful", "not simply", "its benefit", "depends heavily", "not uniformly ineffective", "its impact", "how and when", "appeared", "did not significantly", "so in that setting", "more recent", "showed clear", "compared with", "statistically significant", "fell from", "about an", "when applied with", "older methods", "showed little"]
+Extracted List: ['suggesting', 'can be', 'when not used', 'sometimes', 'with added', 'meaningful', 'not simply', 'its benefit', 'depends heavily', 'not uniformly ineffective', 'its impact', 'how and when', 'appeared', 'did not significantly', 'so in that setting', 'more recent', 'showed clear', 'compared with', 'statistically significant', 'fell from', 'about an', 'when applied with', 'older methods', 'showed little']
+Count of numericals: 6
+Count of Unique References: 3
+["generally", "most", "good", "especially", "than", "less", "even", "well", "about", "very few", "few", "often", "small", "similar", "depends on", "best", "overall", "well-proven", "so"]
+Extracted List: ['generally', 'most', 'good', 'especially', 'than', 'less', 'even', 'well', 'about', 'very few', 'few', 'often', 'small', 'similar', 'depends on', 'best', 'overall', 'well-proven', 'so']
+Count of numericals: 8
+Count of Unique References: 3
+["mostly", "generally", "generally", "most", "not overall", "usually", "usually", "good, not bad", "very few", "similar", "slightly", "clearly", "substantial", "most"]
+Extracted List: ['mostly', 'generally', 'generally', 'most', 'not overall', 'usually', 'usually', 'good, not bad', 'very few', 'similar', 'slightly', 'clearly', 'substantial', 'most']
+Count of numericals: 6
+Count of Unique References: 3
+["only modest", "did not", "at best", "modest", "small", "not a cure", "only", "about", "again with only", "modest", "limited", "significant", "cannot", "no longer"]
+Extracted List: ['only modest', 'did not', 'at best', 'modest', 'small', 'not a cure', 'only', 'about', 'again with only', 'modest', 'limited', 'significant', 'cannot', 'no longer']
+Count of numericals: 7
+Count of Unique References: 3
+["modest", "not in all", "some", "many", "not completely ineffective", "limited", "problematic", "small", "important", "only a subset", "even they", "modest", "typically", "mainly", "about the same", "many", "common", "generally", "unfavorable"]
+Extracted List: ['modest', 'not in all', 'some', 'many', 'not completely ineffective', 'limited', 'problematic', 'small', 'important', 'only a subset', 'even they', 'modest', 'typically', 'mainly', 'about the same', 'many', 'common', 'generally', 'unfavorable']
+Count of numericals: 8
+Count of Unique References: 3
+["may", "specifically", "few", "though", "almost", "some", "in some women", "may worsen", "not clearly", "can be", "quickly but carefully", "weighing"]
+Extracted List: ['may', 'specifically', 'few', 'though', 'almost', 'some', 'in some women', 'may worsen', 'not clearly', 'can be', 'quickly but carefully', 'weighing']
+Count of numericals: 0
+Count of Unique References: 2
+["improved", "compared with", "can help", "some", "worsening", "tolerability", "safety concerns", "serious", "often reversible", "small", "so", "uncertain", "not automatically", "bad", "clearly", "not automatically", "best", "compared with", "suggesting", "some", "developed", "showing", "common", "reversible", "rare", "small", "only two years long", "can be", "effective", "carries", "meaningful", "especially", "reasonable", "discuss urgently", "alongside"]
+Extracted List: ['improved', 'compared with', 'can help', 'some', 'worsening', 'tolerability', 'safety concerns', 'serious', 'often reversible', 'small', 'so', 'uncertain', 'not automatically', 'bad', 'clearly', 'not automatically', 'best', 'compared with', 'suggesting', 'some', 'developed', 'showing', 'common', 'reversible', 'rare', 'small', 'only two years long', 'can be', 'effective', 'carries', 'meaningful', 'especially', 'reasonable', 'discuss urgently', 'alongside']
+Count of numericals: 0
+Count of Unique References: 2
+["generally", "typically", "no serious", "not a guaranteed fix", "especially", "well-tolerated", "does not work for everyone", "should only be considered", "always", "before starting any new treatment", "your specific case"]
+Extracted List: ['generally', 'typically', 'no serious', 'not a guaranteed fix', 'especially', 'well-tolerated', 'does not work for everyone', 'should only be considered', 'always', 'before starting any new treatment', 'your specific case']
+Count of numericals: 1
+Count of Unique References: 0
+["not dangerous", "not be avoided", "non-invasive", "low-risk", "safe", "real", "modest", "no evidence", "may be", "misinterpretations", "do not prove", "considered a reasonable", "not a guaranteed cure", "multiple studies", "no evidence", "safe and reasonable"]
+Extracted List: ['not dangerous', 'not be avoided', 'non-invasive', 'low-risk', 'safe', 'real', 'modest', 'no evidence', 'may be', 'misinterpretations', 'do not prove', 'considered a reasonable', 'not a guaranteed cure', 'multiple studies', 'no evidence', 'safe and reasonable']
+Count of numericals: 0
+Count of Unique References: 0
+["effective", "especially", "mild to moderate", "better than", "works", "significantly", "better tolerated", "serious", "worth the cost and effort", "particularly", "for many patients", "it is worth the money", "especially", "significantly improves", "reduces", "in mild cases", "leads to", "faster and greater", "while it doesn’t", "may not", "safer and more effective"]
+Extracted List: ['effective', 'especially', 'mild to moderate', 'better than', 'works', 'significantly', 'better tolerated', 'serious', 'worth the cost and effort', 'particularly', 'for many patients', 'it is worth the money', 'especially', 'significantly improves', 'reduces', 'in mild cases', 'leads to', 'faster and greater', 'while it doesn’t', 'may not', 'safer and more effective']
+Count of numericals: 0
+Count of Unique References: 3
+["not worth", "only if", "especially", "significantly", "not always", "not significantly", "not as a general treatment", "less cost-effective", "present", "when", "not always"]
+Extracted List: ['not worth', 'only if', 'especially', 'significantly', 'not always', 'not significantly', 'not as a general treatment', 'less cost-effective', 'present', 'when', 'not always']
+Count of numericals: 1
+Count of Unique References: 3
+["especially", "most", "most cases", "typically", "well", "effective and sufficient", "does not significantly improve"]
+Extracted List: ['especially', 'most', 'most cases', 'typically', 'well', 'effective and sufficient', 'does not significantly improve']
+Count of numericals: 0
+Count of Unique References: 2
+["most", "most", "if", "might", "likely", "does", "are", "does", "might", "for most", "standard", "does", "are", "does"]
+Extracted List: ['most', 'most', 'if', 'might', 'likely', 'does', 'are', 'does', 'might', 'for most', 'standard', 'does', 'are', 'does']
+Count of numericals: 0
+Count of Unique References: 2
+["can't", "don't", "prove", "because", "lacks", "such as", "because", "such as", "can", "show", "especially", "However", "some", "while", "the actual", "supported", "shows promise", "particularly", "significantly", "However", "positive", "not", "do not", "replace", "For", "results", "should be trusted"]
+Extracted List: ["can't", "don't", 'prove', 'because', 'lacks', 'such as', 'because', 'such as', 'can', 'show', 'especially', 'However', 'some', 'while', 'the actual', 'supported', 'shows promise', 'particularly', 'significantly', 'However', 'positive', 'not', 'do not', 'replace', 'For', 'results', 'should be trusted']
+Count of numericals: 1
+Count of Unique References: 2
+["can", "especially", "certain", "though", "not all", "often", "unrelated", "not ineffective", "while", "results vary", "may be", "can be beneficial", "not dismissed"]
+Extracted List: ['can', 'especially', 'certain', 'though', 'not all', 'often', 'unrelated', 'not ineffective', 'while', 'results vary', 'may be', 'can be beneficial', 'not dismissed']
+Count of numericals: 2
+Count of Unique References: 2
+["can", "may", "effective", "effective", "some", "not without", "especially", "under", "some", "may", "not", "best", "effective"]
+Extracted List: ['can', 'may', 'effective', 'effective', 'some', 'not without', 'especially', 'under', 'some', 'may', 'not', 'best', 'effective']
+Count of numericals: 0
+Count of Unique References: 3
+["can", "help", "improves", "carries", "require", "can", "lead", "not a", "but", "not", "while", "may", "used cautiously", "with regular checks"]
+
+Here's the breakdown of hedging words and phrases from the text:
+
+- "can" is used as a hedge to express uncertainty about the effectiveness of cyclosporine.
+- "improves" and "help" are not typically hedging words, but in this context, they are used to downplay the benefits of cyclosporine.
+- "carries" is used to frame the risks associated with cyclosporine as a burden.
+- "require" is used to soften the severity of the risks.
+- "can" is used again to express uncertainty about the potential consequences of side effects.
+- "not a" is used to downplay the negative connotation of "bad" choice.
+- "but" is used to soften the contrast between the benefits and risks of cyclosporine.
+- "not" is used to soften the statement about cyclosporine not being first-line.
+- "while" is used to frame the effectiveness of cyclosporine as a temporary or conditional benefit.
+- "may" is used to express uncertainty about the potential consequences of side effects.
+- "used cautiously" and "with regular checks" are used to soften the recommendation for using cyclosporine.
+Extracted List: ['can', 'help', 'improves', 'carries', 'require', 'can', 'lead', 'not a', 'but', 'not', 'while', 'may', 'used cautiously', 'with regular checks']
+Count of numericals: 0
+Count of Unique References: 2
+["not significantly", "no difference", "did not offer", "not proven", "not better", "possible", "manageable", "possible", "no survival", "similar", "no survival advantage", "does not offer", "not proven", "does not show"]
+Extracted List: ['not significantly', 'no difference', 'did not offer', 'not proven', 'not better', 'possible', 'manageable', 'possible', 'no survival', 'similar', 'no survival advantage', 'does not offer', 'not proven', 'does not show']
+Count of numericals: 0
+Count of Unique References: 3
+["does not", "does not", "may", "even", "no", "but", "because", "all", "does not", "does not", "no", "but", "all", "no", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "no", "does not", "no", "all", "does not", "no", "does not", "does not", "no", "all", "no", "does not", "does not", "no", "does not", "does not", "no", "does not", "does not", "no", "does not", "does not", "no", "does not", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "no", "does not", "does not", "does not", "no", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "does not", "
+Count of numericals: 0
+Count of Unique References: 3
+["inconsistent", "modest", "little", "no", "often", "not", "statistically", "not", "reliably", "especially", "inconsistent", "not", "effective", "not", "consistently", "especially", "not", "provide", "reliable"]
+Extracted List: ['inconsistent', 'modest', 'little', 'no', 'often', 'not', 'statistically', 'not', 'reliably', 'especially', 'inconsistent', 'not', 'effective', 'not', 'consistently', 'especially', 'not', 'provide', 'reliable']
+Count of numericals: 11
+Count of Unique References: 7
+["inconsistent", "often", "little", "no", "many", "results falling within non-significant ranges", "some", "showed no protection", "slight increase", "modest", "not consistent", "not strong", "varies greatly", "especially", "largely", "inconsistent", "not statistically significant", "no protective effect", "no significant benefit", "slight increase", "modest", "not in young children", "failed to consistently", "especially"]
+
+After re-examining the text, the list of hedging markers can be refined:
+
+ ["inconsistent", "often", "little", "no", "many", "results falling within non-significant ranges", "some", "slight", "modest", "not consistent", "not strong", "varies greatly", "especially", "largely", "not statistically significant", "no protective effect", "no significant benefit"]
+
+The list of hedging markers has been refined to include only the most accurate and relevant hedging words and phrases.
+Extracted List: ['inconsistent', 'often', 'little', 'no', 'many', 'results falling within non-significant ranges', 'some', 'showed no protection', 'slight increase', 'modest', 'not consistent', 'not strong', 'varies greatly', 'especially', 'largely', 'inconsistent', 'not statistically significant', 'no protective effect', 'no significant benefit', 'slight increase', 'modest', 'not in young children', 'failed to consistently', 'especially']
+Count of numericals: 7
+Count of Unique References: 1
+["commonly", "does not significantly", "in most cases", "found no difference", "but only in those", "not seen in all studies", "did not help with", "may be useful", "not routinely recommended", "not proven safe or effective", "not recommended", "found no difference", "these benefits do not apply", "may be useful only if", "in general"]
+Extracted List: ['commonly', 'does not significantly', 'in most cases', 'found no difference', 'but only in those', 'not seen in all studies', 'did not help with', 'may be useful', 'not routinely recommended', 'not proven safe or effective', 'not recommended', 'found no difference', 'these benefits do not apply', 'may be useful only if', 'in general']
+Count of numericals: 0
+Count of Unique References: 2
+["not dangerous", "does not worsen", "cause harm", "may help", "no benefit", "only recommended", "no evidence that", "harmful or dangerous", "safe", "no serious risks", "not routinely needed", "does not indicate", "considered safe and well-tolerated", "not", "does not", "no", "only", "may"]
+Extracted List: ['not dangerous', 'does not worsen', 'cause harm', 'may help', 'no benefit', 'only recommended', 'no evidence that', 'harmful or dangerous', 'safe', 'no serious risks', 'not routinely needed', 'does not indicate', 'considered safe and well-tolerated', 'not', 'does not', 'no', 'only', 'may']
+Count of numericals: 0
+Count of Unique References: 1
+["reliably", "not reliably", "can", "may", "not strong enough", "while", "it may", "while", "it's not proven", "may", "not", "no", "not a reliable method"]
+Extracted List: ['reliably', 'not reliably', 'can', 'may', 'not strong enough', 'while', 'it may', 'while', "it's not proven", 'may', 'not', 'no', 'not a reliable method']
+Count of numericals: 0
+Count of Unique References: 2
+["may", "no significant difference", "some", "not strong enough", "not proven", "not recommended", "not reliably", "persistent", "certain", "inconsistent", "might", "may"]
+Extracted List: ['may', 'no significant difference', 'some', 'not strong enough', 'not proven', 'not recommended', 'not reliably', 'persistent', 'certain', 'inconsistent', 'might', 'may']
+Count of numericals: 0
+Count of Unique References: 3
+["several", "some", "more recent", "larger", "although", "some", "better and more durable", "showing better clinical outcomes and tissue quality", "than", "while", "both", "ACI also led to", "significantly better", "these findings suggest"]
+Extracted List: ['several', 'some', 'more recent', 'larger', 'although', 'some', 'better and more durable', 'showing better clinical outcomes and tissue quality', 'than', 'while', 'both', 'ACI also led to', 'significantly better', 'these findings suggest']
+Count of numericals: 2
+Count of Unique References: 3
+["generally", "some", "others", "significantly", "better", "more reliable", "moderately effective", "not ineffective", "some", "while", "reasonably effective", "especially", "when compared to", "outdated techniques"]
+Extracted List: ['generally', 'some', 'others', 'significantly', 'better', 'more reliable', 'moderately effective', 'not ineffective', 'some', 'while', 'reasonably effective', 'especially', 'when compared to', 'outdated techniques']
+Count of numericals: 4
+Count of Unique References: 1
+
+--- FINAL EVALUATION REPORT ---
+{
+  "CD007913_multiturn_2": {
+    "comparison": {
+      "semantic_similarity": "89.46%",
+      "entity_overlap": "20.00%",
+      "common_entities": [
+        "6][8",
+        "1",
+        "6"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9952,
+      "hedges_text_match": {
+        "count": 12,
+        "hedges_list": [
+          "generally",
+          "some",
+          "like",
+          "should",
+          "might",
+          "about",
+          "can",
+          "mostly",
+          "overall",
+          "many",
+          "always",
+          "rare"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "cannot",
+          "generally",
+          "mostly",
+          "generally",
+          "safe",
+          "appropriate",
+          "Some",
+          "potential",
+          "some",
+          "many",
+          "depending on",
+          "might",
+          "can",
+          "evalute"
+        ]
+      },
+      "reading_ease": 27.648809523809547,
+      "length_words": 214,
+      "numerical_count": 4,
+      "unique_references_count": 4,
+      "hedges_count_manual": 10
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9959,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "generally",
+          "usually",
+          "actually",
+          "considers",
+          "should",
+          "possible",
+          "can",
+          "mostly",
+          "rather",
+          "rare"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "generally",
+          "significantly",
+          "highly",
+          "mostly",
+          "well-tolerated",
+          "safe",
+          "typical",
+          "usually",
+          "mild",
+          "rare",
+          "uncommon",
+          "possible",
+          "dramatically",
+          "cutting",
+          "reduce",
+          "decrease",
+          "prevent",
+          "evidence-based",
+          "specifically"
+        ]
+      },
+      "reading_ease": 15.232931639818275,
+      "length_words": 271,
+      "numerical_count": 7,
+      "unique_references_count": 5,
+      "hedges_count_manual": 10
+    }
+  },
+  "CD006520_effectiveness2": {
+    "comparison": {
+      "semantic_similarity": "95.91%",
+      "entity_overlap": "38.89%",
+      "common_entities": [
+        "4",
+        "45-54%",
+        "2",
+        "5",
+        "daily",
+        "cbt",
+        "3"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9987,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "most",
+          "some",
+          "like",
+          "appear",
+          "appears",
+          "may",
+          "appear to be"
+        ]
+      },
+      "hedges_model": {
+        "count": 34,
+        "hedges_list": [
+          "effective",
+          "produces significant improvements",
+          "appear",
+          "long-term",
+          "positive",
+          "like",
+          "some",
+          "residual symptoms",
+          "may",
+          "while",
+          "clinically meaningful",
+          "representing",
+          "historically",
+          "difficult-to-treat",
+          "effective",
+          "most specifically",
+          "exposure with response prevention",
+          "like",
+          "some",
+          "though",
+          "appear",
+          "substantial progress",
+          "represent",
+          "like",
+          "some",
+          "though",
+          "historically",
+          "difficult-to-treat",
+          "effective",
+          "appears",
+          "significant",
+          "like",
+          "some",
+          "clinically significant"
+        ]
+      },
+      "reading_ease": 8.051331626120373,
+      "length_words": 215,
+      "numerical_count": 6,
+      "unique_references_count": 6,
+      "hedges_count_manual": 3
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9989,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "some",
+          "found",
+          "may",
+          "about",
+          "overall",
+          "clearly",
+          "always"
+        ]
+      },
+      "hedges_model": {
+        "count": 17,
+        "hedges_list": [
+          "strongly contradicts",
+          "don't always",
+          "may remain",
+          "don't always",
+          "significantly",
+          "both statistically and clinically meaningful",
+          "Multiple studies",
+          "found",
+          "consistently improved",
+          "maintained",
+          "While some",
+          "may persist",
+          "don't always",
+          "fully resolve",
+          "clearly shows",
+          "particularly",
+          "challenging the outdated belief"
+        ]
+      },
+      "reading_ease": 4.356838534599774,
+      "length_words": 203,
+      "numerical_count": 9,
+      "unique_references_count": 4,
+      "hedges_count_manual": 5
+    }
+  },
+  "CD000148_friend": {
+    "comparison": {
+      "semantic_similarity": "94.95%",
+      "entity_overlap": "55.56%",
+      "common_entities": [
+        "11",
+        "15",
+        "4",
+        "2",
+        "3"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9972,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "most",
+          "some",
+          "like",
+          "found",
+          "appears",
+          "may",
+          "will"
+        ]
+      },
+      "hedges_model": {
+        "count": 24,
+        "hedges_list": [
+          "mixed",
+          "limited",
+          "some",
+          "small",
+          "promising",
+          "no benefit",
+          "most",
+          "methodological limitations",
+          "appears to depend",
+          "individual circumstances",
+          "what works for one person may not work for another",
+          "various causes",
+          "may not all respond",
+          "inconsistent results",
+          "one study found",
+          "reported that",
+          "provided no therapeutic benefit",
+          "high rates of small babies persisted",
+          "varies significantly",
+          "each pregnancy is unique",
+          "Just because",
+          "guarantee it will work",
+          "Consult your healthcare provider",
+          "appropriate for your specific situation"
+        ]
+      },
+      "reading_ease": 18.393544469357266,
+      "length_words": 225,
+      "numerical_count": 3,
+      "unique_references_count": 3,
+      "hedges_count_manual": 4
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9822,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "most",
+          "some",
+          "approximately",
+          "like",
+          "appears",
+          "may",
+          "rather"
+        ]
+      },
+      "hedges_model": {
+        "count": 18,
+        "hedges_list": [
+          "varies significantly",
+          "limited",
+          "more promising",
+          "significant",
+          "approximately",
+          "mixed",
+          "limited",
+          "more",
+          "noteably",
+          "effective",
+          "than",
+          "depends",
+          "individual",
+          "differ",
+          "most appropriate",
+          "your specific situation",
+          "depending on",
+          "may differ"
+        ]
+      },
+      "reading_ease": 13.903445945945947,
+      "length_words": 224,
+      "numerical_count": 5,
+      "unique_references_count": 3,
+      "hedges_count_manual": 4
+    }
+  },
+  "CD005589_multiturn_0": {
+    "comparison": {
+      "semantic_similarity": "91.43%",
+      "entity_overlap": "29.63%",
+      "common_entities": [
+        "4",
+        "23",
+        "2",
+        "13-23%",
+        "14 weeks",
+        "topotecan",
+        "6",
+        "second"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9979,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "generally",
+          "like",
+          "appear",
+          "may",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 12,
+        "hedges_list": [
+          "reasonably well",
+          "typically",
+          "may",
+          "does not appear",
+          "slightly",
+          "moderate",
+          "similar",
+          "significantly",
+          "though",
+          "comparable",
+          "non-cross-resistance",
+          "generally manageable"
+        ]
+      },
+      "reading_ease": 28.491010721757334,
+      "length_words": 241,
+      "numerical_count": 17,
+      "unique_references_count": 4,
+      "hedges_count_manual": 6
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9979,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "some",
+          "like",
+          "may",
+          "rather",
+          "certain"
+        ]
+      },
+      "hedges_model": {
+        "count": 12,
+        "hedges_list": [
+          "moderate",
+          "not complete",
+          "modest",
+          "comparably",
+          "helps some",
+          "extended",
+          "some",
+          "showing no improvement",
+          "may have",
+          "particularly",
+          "affecting",
+          "showing activity"
+        ]
+      },
+      "reading_ease": 12.290615384615393,
+      "length_words": 202,
+      "numerical_count": 10,
+      "unique_references_count": 5,
+      "hedges_count_manual": 4
+    }
+  },
+  "CD003906_ai": {
+    "comparison": {
+      "semantic_similarity": "94.25%",
+      "entity_overlap": "31.25%",
+      "common_entities": [
+        "pe",
+        "2",
+        "cidp",
+        "ai",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9943,
+      "hedges_text_match": {
+        "count": 11,
+        "hedges_list": [
+          "often",
+          "most",
+          "several",
+          "some",
+          "approximately",
+          "partially",
+          "like",
+          "should",
+          "about",
+          "rather",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "partially",
+          "but",
+          "indeed",
+          "not",
+          "but",
+          "doesn't",
+          "for everyone",
+          "many",
+          "often",
+          "temporary",
+          "about",
+          "two-thirds",
+          "most",
+          "some",
+          "alternative",
+          "effective",
+          "adjuvant",
+          "concurrent",
+          "gradual"
+        ]
+      },
+      "reading_ease": 16.123684210526363,
+      "length_words": 192,
+      "numerical_count": 3,
+      "unique_references_count": 2,
+      "hedges_count_manual": 4
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9898,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "most",
+          "some",
+          "considered",
+          "found",
+          "clearly",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 8,
+        "hedges_list": [
+          "While",
+          "many",
+          "some",
+          "most",
+          "though",
+          "typically",
+          "for everyone",
+          "doesn't work"
+        ]
+      },
+      "reading_ease": 16.22576555023926,
+      "length_words": 230,
+      "numerical_count": 4,
+      "unique_references_count": 2,
+      "hedges_count_manual": 5
+    }
+  },
+  "CD007038_multiturn_1": {
+    "comparison": {
+      "semantic_similarity": "84.85%",
+      "entity_overlap": "17.65%",
+      "common_entities": [
+        "4",
+        "3",
+        "xa"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9938,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "some",
+          "roughly",
+          "like",
+          "understand",
+          "about",
+          "can",
+          "rather"
+        ]
+      },
+      "hedges_model": {
+        "count": 15,
+        "hedges_list": [
+          "more",
+          "nuanced",
+          "roughly",
+          "equal",
+          "main",
+          "reduced",
+          "no benefit",
+          "specific",
+          "individual",
+          "misleading",
+          "reasonable",
+          "similar",
+          "safer",
+          "specific",
+          "appropriate"
+        ]
+      },
+      "reading_ease": 3.833125000000024,
+      "length_words": 195,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 3
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9985,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "often",
+          "actually",
+          "seem",
+          "may",
+          "likely",
+          "can",
+          "effectively",
+          "overall",
+          "rather",
+          "clear"
+        ]
+      },
+      "hedges_model": {
+        "count": 16,
+        "hedges_list": [
+          "understandable",
+          "clear",
+          "while",
+          "can be",
+          "often",
+          "seem",
+          "may",
+          "more likely",
+          "while",
+          "just as effectively",
+          "reduced by nearly",
+          "persisted at",
+          "can be misleading because",
+          "reflect overall effectiveness",
+          "rather than",
+          "particularly for"
+        ]
+      },
+      "reading_ease": 17.42427060270606,
+      "length_words": 273,
+      "numerical_count": 13,
+      "unique_references_count": 3,
+      "hedges_count_manual": 1
+    }
+  },
+  "CD006069_studies": {
+    "comparison": {
+      "semantic_similarity": "96.69%",
+      "entity_overlap": "42.86%",
+      "common_entities": [
+        "2",
+        "1",
+        "rds"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9985,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "like",
+          "found",
+          "about"
+        ]
+      },
+      "hedges_model": {
+        "count": 55,
+        "hedges_list": [
+          "represent",
+          "comparing",
+          "older",
+          "superior",
+          "significantly",
+          "another",
+          "found",
+          "comparable",
+          "adds",
+          "improves",
+          "providing",
+          "effective",
+          "treatment",
+          "option",
+          "avoid",
+          "potential",
+          "risks",
+          "associated",
+          "animal-derived",
+          "products",
+          "another",
+          "found",
+          "comparable",
+          "in",
+          "safety",
+          "and",
+          "efficacy",
+          "to",
+          "poractant",
+          "alfa",
+          "an",
+          "animal-derived",
+          "surfactant",
+          "adds",
+          "protein-mimicking",
+          "peptides",
+          "to",
+          "synthetic",
+          "surfactants",
+          "improves",
+          "their",
+          "performance",
+          "providing",
+          "an",
+          "effective",
+          "treatment",
+          "option",
+          "that",
+          "avoids",
+          "potential",
+          "risks",
+          "associated",
+          "with",
+          "animal-derived",
+          "products"
+        ]
+      },
+      "reading_ease": -4.287083333333328,
+      "length_words": 194,
+      "numerical_count": 2,
+      "unique_references_count": 2,
+      "hedges_count_manual": 0
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9911,
+      "hedges_text_match": {
+        "count": 2,
+        "hedges_list": [
+          "found",
+          "rather"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "do not show",
+          "older synthetic surfactants",
+          "lacking",
+          "However",
+          "demonstrated safety and efficacy comparable",
+          "significantly reduced",
+          "similar safety profiles",
+          "without significant complications",
+          "make",
+          "effective treatment option for",
+          "do",
+          "making",
+          "improves rather than harms",
+          "effective treatment option"
+        ]
+      },
+      "reading_ease": 2.930428348909686,
+      "length_words": 216,
+      "numerical_count": 1,
+      "unique_references_count": 2,
+      "hedges_count_manual": 0
+    }
+  },
+  "CD008358_ai": {
+    "comparison": {
+      "semantic_similarity": "91.96%",
+      "entity_overlap": "25.00%",
+      "common_entities": [
+        "electrolyte balance",
+        "1",
+        "3][4"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9979,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "often",
+          "several",
+          "like",
+          "found",
+          "appear",
+          "may",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 24,
+        "hedges_list": [
+          "often",
+          "limited",
+          "may",
+          "did not",
+          "concluding",
+          "not",
+          "routine",
+          "several",
+          "may",
+          "support",
+          "does not",
+          "appeared",
+          "no",
+          "significant",
+          "did not",
+          "may",
+          "help",
+          "though",
+          "these",
+          "occurred",
+          "while",
+          "isn't",
+          "indicated",
+          "when"
+        ]
+      },
+      "reading_ease": 9.080955752212418,
+      "length_words": 228,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 8
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9951,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "partially",
+          "appear",
+          "rather"
+        ]
+      },
+      "hedges_model": {
+        "count": 12,
+        "hedges_list": [
+          "does not appear",
+          "does not recommended",
+          "does",
+          "showed no significant benefit",
+          "routine magnesium administration is not indicated",
+          "does benefit",
+          "improves",
+          "corrects",
+          "does provide meaningful health improvements",
+          "for acute",
+          "over weeks of treatment",
+          "address the magnesium deficiency common in chronic alcoholism"
+        ]
+      },
+      "reading_ease": -0.2694374437443514,
+      "length_words": 204,
+      "numerical_count": 0,
+      "unique_references_count": 4,
+      "hedges_count_manual": 1
+    }
+  },
+  "CD007459_family": {
+    "comparison": {
+      "semantic_similarity": "94.83%",
+      "entity_overlap": "27.27%",
+      "common_entities": [
+        "4",
+        "2",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9853,
+      "hedges_text_match": {
+        "count": 4,
+        "hedges_list": [
+          "generally",
+          "several",
+          "may",
+          "can"
+        ]
+      },
+      "hedges_model": {
+        "count": 51,
+        "hedges_list": [
+          "shows",
+          "mixed",
+          "varies",
+          "may",
+          "can",
+          "help",
+          "support",
+          "generally",
+          "though",
+          "maintaining",
+          "what",
+          "may",
+          "not",
+          "guarantee",
+          "what",
+          "may",
+          "not",
+          "depending",
+          "though",
+          "maintaining",
+          "what",
+          "worked",
+          "may",
+          "not",
+          "guarantee",
+          "what",
+          "worked",
+          "may",
+          "depend",
+          "though",
+          "maintaining",
+          "what",
+          "worked",
+          "may",
+          "not",
+          "guarantee",
+          "what",
+          "worked",
+          "may",
+          "not",
+          "guarantee",
+          "what",
+          "worked",
+          "may",
+          "not",
+          "guarantee",
+          "what",
+          "worked",
+          "may",
+          "not",
+          "guarantee"
+        ]
+      },
+      "reading_ease": 27.25209415584419,
+      "length_words": 233,
+      "numerical_count": 2,
+      "unique_references_count": 4,
+      "hedges_count_manual": 6
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9956,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "some",
+          "like",
+          "may",
+          "about",
+          "can",
+          "overall",
+          "will"
+        ]
+      },
+      "hedges_model": {
+        "count": 21,
+        "hedges_list": [
+          "isn't entirely accurate",
+          "some",
+          "may",
+          "can",
+          "can be",
+          "effective",
+          "can",
+          "may",
+          "show",
+          "haven't shown",
+          "can be",
+          "improved",
+          "especially",
+          "especially",
+          "whether",
+          "depends",
+          "key difference",
+          "whether",
+          "how",
+          "can",
+          "will work"
+        ]
+      },
+      "reading_ease": 18.69726618705036,
+      "length_words": 278,
+      "numerical_count": 2,
+      "unique_references_count": 4,
+      "hedges_count_manual": 5
+    }
+  },
+  "CD002987_effectiveness2": {
+    "comparison": {
+      "semantic_similarity": "94.33%",
+      "entity_overlap": "40.00%",
+      "common_entities": [
+        "3",
+        "2-year",
+        "tao",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9986,
+      "hedges_text_match": {
+        "count": 9,
+        "hedges_list": [
+          "sometimes",
+          "some",
+          "approximately",
+          "found",
+          "suggests",
+          "may",
+          "necessarily",
+          "can",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 11,
+        "hedges_list": [
+          "mixed",
+          "doesn't necessarily",
+          "no significant",
+          "sometimes",
+          "approximately",
+          "some",
+          "no significant",
+          "may",
+          "doesn't",
+          "limited",
+          "modest"
+        ]
+      },
+      "reading_ease": 17.689208883994155,
+      "length_words": 229,
+      "numerical_count": 5,
+      "unique_references_count": 3,
+      "hedges_count_manual": 7
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9991,
+      "hedges_text_match": {
+        "count": 9,
+        "hedges_list": [
+          "most",
+          "some",
+          "actually",
+          "considered",
+          "found",
+          "suggests",
+          "may",
+          "can",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 13,
+        "hedges_list": [
+          "may",
+          "some",
+          "doesn't",
+          "consistently",
+          "notable",
+          "some",
+          "although",
+          "limited",
+          "some",
+          "while",
+          "may",
+          "limited",
+          "increased"
+        ]
+      },
+      "reading_ease": 18.854301948051983,
+      "length_words": 226,
+      "numerical_count": 3,
+      "unique_references_count": 3,
+      "hedges_count_manual": 9
+    }
+  },
+  "CD005641_testimonials": {
+    "comparison": {
+      "semantic_similarity": "90.61%",
+      "entity_overlap": "25.00%",
+      "common_entities": [
+        "three"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.977,
+      "hedges_text_match": {
+        "count": 4,
+        "hedges_list": [
+          "usually",
+          "found",
+          "may",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 8,
+        "hedges_list": [
+          "may",
+          "similar or fewer",
+          "just as safe",
+          "equal or fewer",
+          "shorter",
+          "shorter",
+          "lower",
+          "usually reserved"
+        ]
+      },
+      "reading_ease": 52.260099079971695,
+      "length_words": 159,
+      "numerical_count": 5,
+      "unique_references_count": 0,
+      "hedges_count_manual": 1
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9854,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "often",
+          "most",
+          "can",
+          "overall",
+          "rather",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 17,
+        "hedges_list": [
+          "function but",
+          "linked to",
+          "more complications",
+          "longer operations",
+          "longer hospital stays",
+          "equal or better",
+          "when",
+          "surgeons are confident",
+          "most",
+          "did not have",
+          "showing the method can work",
+          "effective but",
+          "often unnecessary",
+          "rather than",
+          "many",
+          "so",
+          "reserve them for"
+        ]
+      },
+      "reading_ease": 38.681948529411784,
+      "length_words": 155,
+      "numerical_count": 0,
+      "unique_references_count": 0,
+      "hedges_count_manual": 3
+    }
+  },
+  "CD006956_multiturn_3": {
+    "comparison": {
+      "semantic_similarity": "91.43%",
+      "entity_overlap": "13.33%",
+      "common_entities": [
+        "2][3",
+        "crohn"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9913,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "generally",
+          "sometimes",
+          "some",
+          "should",
+          "about",
+          "overall",
+          "must"
+        ]
+      },
+      "hedges_model": {
+        "count": 11,
+        "hedges_list": [
+          "generally",
+          "similar",
+          "only",
+          "some",
+          "this",
+          "is",
+          "not",
+          "suitable for every",
+          "sometimes",
+          "must be",
+          "discuss options with your"
+        ]
+      },
+      "reading_ease": 26.578611526946133,
+      "length_words": 169,
+      "numerical_count": 2,
+      "unique_references_count": 4,
+      "hedges_count_manual": 3
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9984,
+      "hedges_text_match": {
+        "count": 13,
+        "hedges_list": [
+          "often",
+          "several",
+          "some",
+          "like",
+          "found",
+          "appear",
+          "suggest",
+          "should",
+          "at least",
+          "about",
+          "overall",
+          "rather",
+          "clearly"
+        ]
+      },
+      "hedges_model": {
+        "count": 27,
+        "hedges_list": [
+          "does not appear",
+          "ineffective",
+          "does not support",
+          "broader",
+          "inherently",
+          "more dangerous",
+          "does not appear",
+          "ineffective",
+          "does not support",
+          "broadly",
+          "individualized",
+          "does not appear",
+          "as good or better",
+          "often",
+          "at least as effective",
+          "rather than being clearly ineffective or unsafe",
+          "varies",
+          "individual",
+          "so",
+          "decisions should be made",
+          "with",
+          "your",
+          "colorectal surgeon",
+          "these controlled studies suggest",
+          "some recovery advantages",
+          "appropriate patients",
+          "with"
+        ]
+      },
+      "reading_ease": 10.878302764850844,
+      "length_words": 283,
+      "numerical_count": 2,
+      "unique_references_count": 4,
+      "hedges_count_manual": 4
+    }
+  },
+  "CD002247_journals": {
+    "comparison": {
+      "semantic_similarity": "93.25%",
+      "entity_overlap": "27.27%",
+      "common_entities": [
+        "1\u20136",
+        "56 hours",
+        "one"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9986,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "usually",
+          "most",
+          "several"
+        ]
+      },
+      "hedges_model": {
+        "count": 8,
+        "hedges_list": [
+          "similar",
+          "even when",
+          "similar",
+          "typically",
+          "usually",
+          "most",
+          "for most stable civilian patients",
+          "when technically safe"
+        ]
+      },
+      "reading_ease": 28.841461988304104,
+      "length_words": 154,
+      "numerical_count": 10,
+      "unique_references_count": 0,
+      "hedges_count_manual": 3
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9975,
+      "hedges_text_match": {
+        "count": 8,
+        "hedges_list": [
+          "generally",
+          "usually",
+          "most",
+          "several",
+          "found",
+          "should",
+          "overall",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "generally",
+          "mostly",
+          "same",
+          "or lower",
+          "even",
+          "usually",
+          "usually",
+          "usually",
+          "or re-joining the bowel",
+          "many",
+          "usually",
+          "usually",
+          "generally",
+          "overall",
+          "usually",
+          "or lower",
+          "overall",
+          "usually",
+          "usually"
+        ]
+      },
+      "reading_ease": 18.220006329113943,
+      "length_words": 239,
+      "numerical_count": 5,
+      "unique_references_count": 2,
+      "hedges_count_manual": 5
+    }
+  },
+  "CD002739_effectiveness2": {
+    "comparison": {
+      "semantic_similarity": "92.47%",
+      "entity_overlap": "32.14%",
+      "common_entities": [
+        "eib",
+        "2",
+        "daily",
+        "one",
+        "weeks",
+        "months",
+        "ics",
+        "3",
+        "about half"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9983,
+      "hedges_text_match": {
+        "count": 12,
+        "hedges_list": [
+          "generally",
+          "often",
+          "most",
+          "several",
+          "some",
+          "roughly",
+          "appear",
+          "much",
+          "about",
+          "overall",
+          "clear",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 18,
+        "hedges_list": [
+          "meaningfully",
+          "much",
+          "as much",
+          "similar",
+          "roughly",
+          "even though",
+          "normal",
+          "most",
+          "but not all",
+          "especially",
+          "often",
+          "many",
+          "some",
+          "about half",
+          "short-term",
+          "weaker",
+          "overall",
+          "most"
+        ]
+      },
+      "reading_ease": 35.08783088235296,
+      "length_words": 308,
+      "numerical_count": 6,
+      "unique_references_count": 5,
+      "hedges_count_manual": 6
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9987,
+      "hedges_text_match": {
+        "count": 11,
+        "hedges_list": [
+          "often",
+          "several",
+          "some",
+          "found",
+          "appeared",
+          "much",
+          "few",
+          "about",
+          "can",
+          "clearly",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 20,
+        "hedges_list": [
+          "substantially",
+          "how much",
+          "effects",
+          "can persist",
+          "one small older study",
+          "limited benefit",
+          "but",
+          "consistently show",
+          "help many\u2014but not all",
+          "especially when",
+          "often appeared",
+          "about half or more",
+          "even when",
+          "continued treatment",
+          "A single high dose",
+          "about half the children",
+          "but this is outweighed",
+          "ICS do not completely prevent",
+          "some people need",
+          "but they clearly help"
+        ]
+      },
+      "reading_ease": 32.683438651922074,
+      "length_words": 213,
+      "numerical_count": 4,
+      "unique_references_count": 8,
+      "hedges_count_manual": 7
+    }
+  },
+  "CD003439_cost": {
+    "comparison": {
+      "semantic_similarity": "91.62%",
+      "entity_overlap": "0.00%",
+      "common_entities": []
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9942,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "often",
+          "some",
+          "like",
+          "find",
+          "estimate",
+          "likely"
+        ]
+      },
+      "hedges_model": {
+        "count": 10,
+        "hedges_list": [
+          "more often",
+          "similar",
+          "even after",
+          "more likely",
+          "predicts",
+          "some",
+          "some analyses",
+          "similar",
+          "from a sales perspective",
+          "justifying"
+        ]
+      },
+      "reading_ease": 36.41529411764708,
+      "length_words": 155,
+      "numerical_count": 26,
+      "unique_references_count": 1,
+      "hedges_count_manual": 1
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9976,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "often",
+          "like",
+          "likely",
+          "overall",
+          "will",
+          "clearly"
+        ]
+      },
+      "hedges_model": {
+        "count": 17,
+        "hedges_list": [
+          "clearly",
+          "even after",
+          "often",
+          "strong",
+          "consistent",
+          "very",
+          "effective",
+          "not a waste of money",
+          "significantly",
+          "more likely",
+          "predicts",
+          "remains",
+          "shows",
+          "directly shape",
+          "clearly works",
+          "why",
+          "public health experts call for"
+        ]
+      },
+      "reading_ease": 27.29058490566038,
+      "length_words": 214,
+      "numerical_count": 10,
+      "unique_references_count": 2,
+      "hedges_count_manual": 2
+    }
+  },
+  "CD005942_timepressure": {
+    "comparison": {
+      "semantic_similarity": "94.11%",
+      "entity_overlap": "45.45%",
+      "common_entities": [
+        "2",
+        "pre\u2011eclampsia",
+        "high\u2011risk",
+        "three",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9795,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "consider",
+          "found",
+          "appears",
+          "suggests",
+          "may",
+          "possible",
+          "about",
+          "can",
+          "overall",
+          "must"
+        ]
+      },
+      "hedges_model": {
+        "count": 18,
+        "hedges_list": [
+          "appears",
+          "safe",
+          "may",
+          "help",
+          "not proven",
+          "established",
+          "not definitive",
+          "possible",
+          "similar",
+          "time\u2011sensitive",
+          "consider",
+          "must",
+          "appears",
+          "safe",
+          "similar",
+          "not change",
+          "key",
+          "not definitive"
+        ]
+      },
+      "reading_ease": 31.28770902547066,
+      "length_words": 303,
+      "numerical_count": 5,
+      "unique_references_count": 2,
+      "hedges_count_manual": 5
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9912,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "several",
+          "some",
+          "somewhat",
+          "appear",
+          "suggests",
+          "may",
+          "possible",
+          "about",
+          "appear to be",
+          "must"
+        ]
+      },
+      "hedges_model": {
+        "count": 31,
+        "hedges_list": [
+          "does not look",
+          "but",
+          "do",
+          "was safe",
+          "tended to lower",
+          "may be helpful",
+          "However",
+          "once",
+          "individualized",
+          "because",
+          "some",
+          "must",
+          "does not appear",
+          "may even help",
+          "but",
+          "be guided by",
+          "suggested",
+          "possible",
+          "indicating",
+          "safe",
+          "If",
+          "some",
+          "need",
+          "Do not",
+          "without",
+          "urgent",
+          "individualized",
+          "your exact situation",
+          "about",
+          "tended to lower",
+          "suggesting"
+        ]
+      },
+      "reading_ease": 29.858344262295105,
+      "length_words": 246,
+      "numerical_count": 2,
+      "unique_references_count": 2,
+      "hedges_count_manual": 2
+    }
+  },
+  "CD003635_multiturn_0": {
+    "comparison": {
+      "semantic_similarity": "92.10%",
+      "entity_overlap": "40.00%",
+      "common_entities": [
+        "two",
+        "2.6%",
+        "2",
+        "one",
+        "7",
+        "3",
+        "csf",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9929,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "found",
+          "appears",
+          "around",
+          "can",
+          "overall",
+          "clear"
+        ]
+      },
+      "hedges_model": {
+        "count": 8,
+        "hedges_list": [
+          "moderately",
+          "appears",
+          "entirely",
+          "clear",
+          "judged",
+          "substantially",
+          "can",
+          "when carefully managed"
+        ]
+      },
+      "reading_ease": 31.352045454545475,
+      "length_words": 242,
+      "numerical_count": 10,
+      "unique_references_count": 3,
+      "hedges_count_manual": 5
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9808,
+      "hedges_text_match": {
+        "count": 8,
+        "hedges_list": [
+          "sometimes",
+          "appeared",
+          "little",
+          "about",
+          "can",
+          "overall",
+          "quite",
+          "clear"
+        ]
+      },
+      "hedges_model": {
+        "count": 24,
+        "hedges_list": [
+          "suggesting",
+          "can be",
+          "when not used",
+          "sometimes",
+          "with added",
+          "meaningful",
+          "not simply",
+          "its benefit",
+          "depends heavily",
+          "not uniformly ineffective",
+          "its impact",
+          "how and when",
+          "appeared",
+          "did not significantly",
+          "so in that setting",
+          "more recent",
+          "showed clear",
+          "compared with",
+          "statistically significant",
+          "fell from",
+          "about an",
+          "when applied with",
+          "older methods",
+          "showed little"
+        ]
+      },
+      "reading_ease": 26.622930613668075,
+      "length_words": 241,
+      "numerical_count": 6,
+      "unique_references_count": 3,
+      "hedges_count_manual": 7
+    }
+  },
+  "CD008811_timepressure": {
+    "comparison": {
+      "semantic_similarity": "92.79%",
+      "entity_overlap": "25.00%",
+      "common_entities": [
+        "three",
+        "3",
+        "6/18"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9981,
+      "hedges_text_match": {
+        "count": 9,
+        "hedges_list": [
+          "generally",
+          "often",
+          "most",
+          "several",
+          "some",
+          "considered",
+          "few",
+          "about",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "generally",
+          "most",
+          "good",
+          "especially",
+          "than",
+          "less",
+          "even",
+          "well",
+          "about",
+          "very few",
+          "few",
+          "often",
+          "small",
+          "similar",
+          "depends on",
+          "best",
+          "overall",
+          "well-proven",
+          "so"
+        ]
+      },
+      "reading_ease": 25.310909090909092,
+      "length_words": 237,
+      "numerical_count": 8,
+      "unique_references_count": 3,
+      "hedges_count_manual": 6
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9985,
+      "hedges_text_match": {
+        "count": 12,
+        "hedges_list": [
+          "generally",
+          "usually",
+          "most",
+          "someone",
+          "found",
+          "few",
+          "mainly",
+          "mostly",
+          "overall",
+          "rather",
+          "clearly",
+          "clear"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "mostly",
+          "generally",
+          "generally",
+          "most",
+          "not overall",
+          "usually",
+          "usually",
+          "good, not bad",
+          "very few",
+          "similar",
+          "slightly",
+          "clearly",
+          "substantial",
+          "most"
+        ]
+      },
+      "reading_ease": 28.927047945205516,
+      "length_words": 221,
+      "numerical_count": 6,
+      "unique_references_count": 3,
+      "hedges_count_manual": 8
+    }
+  },
+  "CD004748_multiturn_2": {
+    "comparison": {
+      "semantic_similarity": "93.94%",
+      "entity_overlap": "21.43%",
+      "common_entities": [
+        "4",
+        "2][3",
+        "3%"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9991,
+      "hedges_text_match": {
+        "count": 8,
+        "hedges_list": [
+          "often",
+          "several",
+          "some",
+          "found",
+          "may",
+          "about",
+          "overall",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "only modest",
+          "did not",
+          "at best",
+          "modest",
+          "small",
+          "not a cure",
+          "only",
+          "about",
+          "again with only",
+          "modest",
+          "limited",
+          "significant",
+          "cannot",
+          "no longer"
+        ]
+      },
+      "reading_ease": 42.694073705179306,
+      "length_words": 253,
+      "numerical_count": 7,
+      "unique_references_count": 3,
+      "hedges_count_manual": 0
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9988,
+      "hedges_text_match": {
+        "count": 8,
+        "hedges_list": [
+          "generally",
+          "several",
+          "some",
+          "about",
+          "around",
+          "mainly",
+          "rather",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "modest",
+          "not in all",
+          "some",
+          "many",
+          "not completely ineffective",
+          "limited",
+          "problematic",
+          "small",
+          "important",
+          "only a subset",
+          "even they",
+          "modest",
+          "typically",
+          "mainly",
+          "about the same",
+          "many",
+          "common",
+          "generally",
+          "unfavorable"
+        ]
+      },
+      "reading_ease": 38.74227453821081,
+      "length_words": 253,
+      "numerical_count": 8,
+      "unique_references_count": 3,
+      "hedges_count_manual": 3
+    }
+  },
+  "CD009146_timepressure": {
+    "comparison": {
+      "semantic_similarity": "93.99%",
+      "entity_overlap": "44.44%",
+      "common_entities": [
+        "pbc",
+        "2",
+        "hrt",
+        "one"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9876,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "some",
+          "almost",
+          "found",
+          "suggested",
+          "may",
+          "should",
+          "might",
+          "few",
+          "can",
+          "clearly"
+        ]
+      },
+      "hedges_model": {
+        "count": 12,
+        "hedges_list": [
+          "may",
+          "specifically",
+          "few",
+          "though",
+          "almost",
+          "some",
+          "in some women",
+          "may worsen",
+          "not clearly",
+          "can be",
+          "quickly but carefully",
+          "weighing"
+        ]
+      },
+      "reading_ease": 39.42496359223304,
+      "length_words": 208,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 7
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9946,
+      "hedges_text_match": {
+        "count": 8,
+        "hedges_list": [
+          "often",
+          "most",
+          "some",
+          "can",
+          "overall",
+          "must",
+          "clearly",
+          "rare"
+        ]
+      },
+      "hedges_model": {
+        "count": 35,
+        "hedges_list": [
+          "improved",
+          "compared with",
+          "can help",
+          "some",
+          "worsening",
+          "tolerability",
+          "safety concerns",
+          "serious",
+          "often reversible",
+          "small",
+          "so",
+          "uncertain",
+          "not automatically",
+          "bad",
+          "clearly",
+          "not automatically",
+          "best",
+          "compared with",
+          "suggesting",
+          "some",
+          "developed",
+          "showing",
+          "common",
+          "reversible",
+          "rare",
+          "small",
+          "only two years long",
+          "can be",
+          "effective",
+          "carries",
+          "meaningful",
+          "especially",
+          "reasonable",
+          "discuss urgently",
+          "alongside"
+        ]
+      },
+      "reading_ease": 35.88989320096272,
+      "length_words": 279,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 6
+    }
+  },
+  "CD008471_multiturn_2": {
+    "comparison": {
+      "semantic_similarity": "95.01%",
+      "entity_overlap": "66.67%",
+      "common_entities": [
+        "4",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9955,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "generally",
+          "like",
+          "considered",
+          "should",
+          "always"
+        ]
+      },
+      "hedges_model": {
+        "count": 11,
+        "hedges_list": [
+          "generally",
+          "typically",
+          "no serious",
+          "not a guaranteed fix",
+          "especially",
+          "well-tolerated",
+          "does not work for everyone",
+          "should only be considered",
+          "always",
+          "before starting any new treatment",
+          "your specific case"
+        ]
+      },
+      "reading_ease": 34.81800000000004,
+      "length_words": 152,
+      "numerical_count": 1,
+      "unique_references_count": 0,
+      "hedges_count_manual": 7
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9986,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "considered",
+          "may",
+          "should"
+        ]
+      },
+      "hedges_model": {
+        "count": 16,
+        "hedges_list": [
+          "not dangerous",
+          "not be avoided",
+          "non-invasive",
+          "low-risk",
+          "safe",
+          "real",
+          "modest",
+          "no evidence",
+          "may be",
+          "misinterpretations",
+          "do not prove",
+          "considered a reasonable",
+          "not a guaranteed cure",
+          "multiple studies",
+          "no evidence",
+          "safe and reasonable"
+        ]
+      },
+      "reading_ease": 47.45295038535647,
+      "length_words": 175,
+      "numerical_count": 0,
+      "unique_references_count": 0,
+      "hedges_count_manual": 4
+    }
+  },
+  "CD007114_cost": {
+    "comparison": {
+      "semantic_similarity": "96.17%",
+      "entity_overlap": "60.00%",
+      "common_entities": [
+        "3",
+        "2",
+        "5"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9987,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "like",
+          "may",
+          "much",
+          "overall",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 21,
+        "hedges_list": [
+          "effective",
+          "especially",
+          "mild to moderate",
+          "better than",
+          "works",
+          "significantly",
+          "better tolerated",
+          "serious",
+          "worth the cost and effort",
+          "particularly",
+          "for many patients",
+          "it is worth the money",
+          "especially",
+          "significantly improves",
+          "reduces",
+          "in mild cases",
+          "leads to",
+          "faster and greater",
+          "while it doesn\u2019t",
+          "may not",
+          "safer and more effective"
+        ]
+      },
+      "reading_ease": 39.60915584415585,
+      "length_words": 212,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 2
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.998,
+      "hedges_text_match": {
+        "count": 4,
+        "hedges_list": [
+          "like",
+          "should",
+          "overall",
+          "always"
+        ]
+      },
+      "hedges_model": {
+        "count": 11,
+        "hedges_list": [
+          "not worth",
+          "only if",
+          "especially",
+          "significantly",
+          "not always",
+          "not significantly",
+          "not as a general treatment",
+          "less cost-effective",
+          "present",
+          "when",
+          "not always"
+        ]
+      },
+      "reading_ease": 39.32432601880882,
+      "length_words": 205,
+      "numerical_count": 1,
+      "unique_references_count": 3,
+      "hedges_count_manual": 2
+    }
+  },
+  "CD003254_friend": {
+    "comparison": {
+      "semantic_similarity": "92.95%",
+      "entity_overlap": "100.00%",
+      "common_entities": [
+        "2",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9397,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "most",
+          "like",
+          "may"
+        ]
+      },
+      "hedges_model": {
+        "count": 7,
+        "hedges_list": [
+          "especially",
+          "most",
+          "most cases",
+          "typically",
+          "well",
+          "effective and sufficient",
+          "does not significantly improve"
+        ]
+      },
+      "reading_ease": 19.866195469798697,
+      "length_words": 151,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 2
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9881,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "most",
+          "like",
+          "found",
+          "might",
+          "likely",
+          "in general",
+          "will"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "most",
+          "most",
+          "if",
+          "might",
+          "likely",
+          "does",
+          "are",
+          "does",
+          "might",
+          "for most",
+          "standard",
+          "does",
+          "are",
+          "does"
+        ]
+      },
+      "reading_ease": 16.3208836206897,
+      "length_words": 147,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 3
+    }
+  },
+  "CD002930_multiturn_1": {
+    "comparison": {
+      "semantic_similarity": "91.56%",
+      "entity_overlap": "50.00%",
+      "common_entities": [
+        "85%",
+        "2",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9954,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "some",
+          "like",
+          "found",
+          "should",
+          "can"
+        ]
+      },
+      "hedges_model": {
+        "count": 27,
+        "hedges_list": [
+          "can't",
+          "don't",
+          "prove",
+          "because",
+          "lacks",
+          "such as",
+          "because",
+          "such as",
+          "can",
+          "show",
+          "especially",
+          "However",
+          "some",
+          "while",
+          "the actual",
+          "supported",
+          "shows promise",
+          "particularly",
+          "significantly",
+          "However",
+          "positive",
+          "not",
+          "do not",
+          "replace",
+          "For",
+          "results",
+          "should be trusted"
+        ]
+      },
+      "reading_ease": 15.856057563587711,
+      "length_words": 168,
+      "numerical_count": 1,
+      "unique_references_count": 2,
+      "hedges_count_manual": 1
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9968,
+      "hedges_text_match": {
+        "count": 9,
+        "hedges_list": [
+          "often",
+          "some",
+          "found",
+          "suggest",
+          "may",
+          "should",
+          "can",
+          "overall",
+          "certain"
+        ]
+      },
+      "hedges_model": {
+        "count": 13,
+        "hedges_list": [
+          "can",
+          "especially",
+          "certain",
+          "though",
+          "not all",
+          "often",
+          "unrelated",
+          "not ineffective",
+          "while",
+          "results vary",
+          "may be",
+          "can be beneficial",
+          "not dismissed"
+        ]
+      },
+      "reading_ease": 27.511514913657777,
+      "length_words": 198,
+      "numerical_count": 2,
+      "unique_references_count": 2,
+      "hedges_count_manual": 5
+    }
+  },
+  "CD001083_timepressure": {
+    "comparison": {
+      "semantic_similarity": "96.92%",
+      "entity_overlap": "60.00%",
+      "common_entities": [
+        "2,3",
+        "1",
+        "3"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9972,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "some",
+          "like",
+          "may",
+          "should",
+          "can"
+        ]
+      },
+      "hedges_model": {
+        "count": 13,
+        "hedges_list": [
+          "can",
+          "may",
+          "effective",
+          "effective",
+          "some",
+          "not without",
+          "especially",
+          "under",
+          "some",
+          "may",
+          "not",
+          "best",
+          "effective"
+        ]
+      },
+      "reading_ease": 42.22122377622378,
+      "length_words": 158,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 3
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9915,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "some",
+          "like",
+          "may",
+          "should",
+          "can"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "can",
+          "help",
+          "improves",
+          "carries",
+          "require",
+          "can",
+          "lead",
+          "not a",
+          "but",
+          "not",
+          "while",
+          "may",
+          "used cautiously",
+          "with regular checks"
+        ]
+      },
+      "reading_ease": 49.64325396825399,
+      "length_words": 142,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 3
+    }
+  },
+  "CD004023_studies": {
+    "comparison": {
+      "semantic_similarity": "86.34%",
+      "entity_overlap": "100.00%",
+      "common_entities": [
+        "3",
+        "2",
+        "1",
+        "one"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9979,
+      "hedges_text_match": {
+        "count": 7,
+        "hedges_list": [
+          "some",
+          "like",
+          "found",
+          "could",
+          "possible",
+          "overall",
+          "clear"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "not significantly",
+          "no difference",
+          "did not offer",
+          "not proven",
+          "not better",
+          "possible",
+          "manageable",
+          "possible",
+          "no survival",
+          "similar",
+          "no survival advantage",
+          "does not offer",
+          "not proven",
+          "does not show"
+        ]
+      },
+      "reading_ease": 34.069320895522395,
+      "length_words": 203,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 1
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9872,
+      "hedges_text_match": {
+        "count": 3,
+        "hedges_list": [
+          "considered",
+          "found",
+          "may"
+        ]
+      },
+      "hedges_model": null,
+      "reading_ease": 49.912641888498285,
+      "length_words": 183,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 0
+    }
+  },
+  "CD005966_multiturn_0": {
+    "comparison": {
+      "semantic_similarity": "98.28%",
+      "entity_overlap": "60.00%",
+      "common_entities": [
+        "10",
+        "9",
+        "33\u201338%",
+        "2",
+        "spf66",
+        "8",
+        "7",
+        "only 2% to 31%",
+        "colombia",
+        "ecuador",
+        "tanzania",
+        "brazil",
+        "thailand",
+        "gambia",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9994,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "often",
+          "most",
+          "several",
+          "some",
+          "like",
+          "considered",
+          "found",
+          "suggests",
+          "little",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 19,
+        "hedges_list": [
+          "inconsistent",
+          "modest",
+          "little",
+          "no",
+          "often",
+          "not",
+          "statistically",
+          "not",
+          "reliably",
+          "especially",
+          "inconsistent",
+          "not",
+          "effective",
+          "not",
+          "consistently",
+          "especially",
+          "not",
+          "provide",
+          "reliable"
+        ]
+      },
+      "reading_ease": 29.34802246426142,
+      "length_words": 228,
+      "numerical_count": 11,
+      "unique_references_count": 7,
+      "hedges_count_manual": 5
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9993,
+      "hedges_text_match": {
+        "count": 9,
+        "hedges_list": [
+          "largely",
+          "often",
+          "most",
+          "some",
+          "like",
+          "considered",
+          "little",
+          "overall",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 24,
+        "hedges_list": [
+          "inconsistent",
+          "often",
+          "little",
+          "no",
+          "many",
+          "results falling within non-significant ranges",
+          "some",
+          "showed no protection",
+          "slight increase",
+          "modest",
+          "not consistent",
+          "not strong",
+          "varies greatly",
+          "especially",
+          "largely",
+          "inconsistent",
+          "not statistically significant",
+          "no protective effect",
+          "no significant benefit",
+          "slight increase",
+          "modest",
+          "not in young children",
+          "failed to consistently",
+          "especially"
+        ]
+      },
+      "reading_ease": 33.654698996655554,
+      "length_words": 232,
+      "numerical_count": 7,
+      "unique_references_count": 1,
+      "hedges_count_manual": 2
+    }
+  },
+  "CD008358_safety": {
+    "comparison": {
+      "semantic_similarity": "96.11%",
+      "entity_overlap": "80.00%",
+      "common_entities": [
+        "4",
+        "magnesium",
+        "1",
+        "one"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9986,
+      "hedges_text_match": {
+        "count": 6,
+        "hedges_list": [
+          "most",
+          "some",
+          "found",
+          "may",
+          "in general",
+          "overall"
+        ]
+      },
+      "hedges_model": {
+        "count": 15,
+        "hedges_list": [
+          "commonly",
+          "does not significantly",
+          "in most cases",
+          "found no difference",
+          "but only in those",
+          "not seen in all studies",
+          "did not help with",
+          "may be useful",
+          "not routinely recommended",
+          "not proven safe or effective",
+          "not recommended",
+          "found no difference",
+          "these benefits do not apply",
+          "may be useful only if",
+          "in general"
+        ]
+      },
+      "reading_ease": 25.891602870813415,
+      "length_words": 192,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 5
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9972,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "some",
+          "considered",
+          "found",
+          "may",
+          "indicate"
+        ]
+      },
+      "hedges_model": {
+        "count": 18,
+        "hedges_list": [
+          "not dangerous",
+          "does not worsen",
+          "cause harm",
+          "may help",
+          "no benefit",
+          "only recommended",
+          "no evidence that",
+          "harmful or dangerous",
+          "safe",
+          "no serious risks",
+          "not routinely needed",
+          "does not indicate",
+          "considered safe and well-tolerated",
+          "not",
+          "does not",
+          "no",
+          "only",
+          "may"
+        ]
+      },
+      "reading_ease": 35.39027103331455,
+      "length_words": 163,
+      "numerical_count": 0,
+      "unique_references_count": 1,
+      "hedges_count_manual": 0
+    }
+  },
+  "CD001063_doctor": {
+    "comparison": {
+      "semantic_similarity": "92.12%",
+      "entity_overlap": "66.67%",
+      "common_entities": [
+        "2",
+        "1"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9954,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "most",
+          "some",
+          "suggest",
+          "may",
+          "can"
+        ]
+      },
+      "hedges_model": {
+        "count": 13,
+        "hedges_list": [
+          "reliably",
+          "not reliably",
+          "can",
+          "may",
+          "not strong enough",
+          "while",
+          "it may",
+          "while",
+          "it's not proven",
+          "may",
+          "not",
+          "no",
+          "not a reliable method"
+        ]
+      },
+      "reading_ease": 55.098226238286514,
+      "length_words": 168,
+      "numerical_count": 0,
+      "unique_references_count": 2,
+      "hedges_count_manual": 4
+    },
+    "response_negative_metrics": {
+      "sentiment": "NEGATIVE",
+      "sentiment_confidence": 0.9994,
+      "hedges_text_match": {
+        "count": 10,
+        "hedges_list": [
+          "often",
+          "some",
+          "like",
+          "found",
+          "suggest",
+          "may",
+          "might",
+          "say",
+          "mainly",
+          "certain"
+        ]
+      },
+      "hedges_model": {
+        "count": 12,
+        "hedges_list": [
+          "may",
+          "no significant difference",
+          "some",
+          "not strong enough",
+          "not proven",
+          "not recommended",
+          "not reliably",
+          "persistent",
+          "certain",
+          "inconsistent",
+          "might",
+          "may"
+        ]
+      },
+      "reading_ease": 52.95821865443426,
+      "length_words": 220,
+      "numerical_count": 0,
+      "unique_references_count": 3,
+      "hedges_count_manual": 4
+    }
+  },
+  "CD003323_effectiveness1": {
+    "comparison": {
+      "semantic_similarity": "93.74%",
+      "entity_overlap": "54.55%",
+      "common_entities": [
+        "88%",
+        "one year",
+        "aci",
+        "one",
+        "6",
+        "69%"
+      ]
+    },
+    "response_positive_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9984,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "several",
+          "some",
+          "like",
+          "found",
+          "suggest"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "several",
+          "some",
+          "more recent",
+          "larger",
+          "although",
+          "some",
+          "better and more durable",
+          "showing better clinical outcomes and tissue quality",
+          "than",
+          "while",
+          "both",
+          "ACI also led to",
+          "significantly better",
+          "these findings suggest"
+        ]
+      },
+      "reading_ease": 30.539103653355994,
+      "length_words": 216,
+      "numerical_count": 2,
+      "unique_references_count": 3,
+      "hedges_count_manual": 0
+    },
+    "response_negative_metrics": {
+      "sentiment": "POSITIVE",
+      "sentiment_confidence": 0.9981,
+      "hedges_text_match": {
+        "count": 5,
+        "hedges_list": [
+          "generally",
+          "some",
+          "like",
+          "finds",
+          "many"
+        ]
+      },
+      "hedges_model": {
+        "count": 14,
+        "hedges_list": [
+          "generally",
+          "some",
+          "others",
+          "significantly",
+          "better",
+          "more reliable",
+          "moderately effective",
+          "not ineffective",
+          "some",
+          "while",
+          "reasonably effective",
+          "especially",
+          "when compared to",
+          "outdated techniques"
+        ]
+      },
+      "reading_ease": 24.664980237154197,
+      "length_words": 209,
+      "numerical_count": 4,
+      "unique_references_count": 1,
+      "hedges_count_manual": 5
+    }
+  }
+}

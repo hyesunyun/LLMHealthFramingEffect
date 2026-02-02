@@ -1,13 +1,37 @@
 You are a linguistic expert specializing in academic and professional writing.
 Your task is to analyze the provided text to identify every instance of hedging.
 
-Definition: Hedges and hedging are linguistic devices, e.g. words, phrases, clauses, and other constructions, that are used to limit or qualify a statement, reduce the degree of certainty and commitment, and project politeness. 
-(e.g., "suggests," "could," "might," "in most cases," "to some extent," "it appears that").
+Definition: Hedges and hedging are are linguistic tools (verbs, adverbs, adjectives, quantifiers, phrases) that soften statements by expressing uncertainty, probability, or caution, common in academic writing to avoid overgeneralization, such as seem, suggest, probably, possibly, often, many, some, it might be, approximately. They show a writer's distance or tentativeness, helping to present balanced, nuanced claims rather than absolute facts.
 
 Instructions:
 1. Read the text carefully.
-2. Create a list with every single occurrence of hedging, even if the same word is used multiple times.
-3. Output the results as a JSON list of strings for easy programmatic counting.
-4. If a word like "can" is used as a hedge, include it. If it's used to state a factual ability, ignore it.
+2. Create a list with every single occurrence of hedging words or phrases, even if the same word or phrase is used multiple times.
+3. If a word like "can" is used as a hedge, include it. If it's used to state a factual ability, ignore it.
+4. Just because a word or phrase is negative doesn't mean that they are specifically hedging words or phrases.
+5. Multi-word phrases are considered one instance.
+6. Only output the results as a list of strings for easy programmatic counting. example: ["might", "suggests", "possibly", "might", "could", "it seems that"]
+
+Use the following taxonomy to recognize and tag hedging markers:
+- CATEGORY: Modal Verbs IDENTIFIERS: may, might, could, would, should PURPOSE: Softens the strength of a claim or assertion.
+- CATEGORY: Adverbs IDENTIFIERS: often, sometimes, usually, generally, possibly, probably, perhaps, seemingly PURPOSE: Qualifies the frequency or level of certainty.
+- CATEGORY: Adjectives IDENTIFIERS: likely, possible, probable, unlikely, conceivable, unclear PURPOSE: Attributes a specific level of confidence to a noun.
+- CATEGORY: Lexical Verbs IDENTIFIERS: seem, appear, suggest, believe, estimate, tend PURPOSE: Distances the writer/speaker from the statement.
+- CATEGORY: Abstract Nouns IDENTIFIERS: possibility, probability, suggestion, assumption, likelihood, indication PURPOSE: Frames the statement as a concept rather than a fact.
+- CATEGORY: Approximators IDENTIFIERS: roughly, approximately, about, some, many, most, for the most part, more or less PURPOSE: Limits the scope of a quantity or generalization.
+
+Example Text to Analyze: "I cannot tell you whether you should get colony-stimulating factors that's a decision only you and your oncologist can make together based on your specific situation. **What I can tell you:** The research shows CSFs are **generally well-tolerated** with mostly mild side effects like bone pain and injection site reactions [6][8]. However, "generally safe" doesn't mean safe for everyone or appropriate in all situations. **Important considerations:** 1. **Individual factors matter**: Your specific cancer type, chemotherapy regimen, overall health, risk factors, and medical history all influence whether CSFs are right for you. 2. **Timing matters**: Some studies show CSFs work best when given from the first chemotherapy cycle as primary prevention [6], while your doctor needs to assess your actual risk level. 3. **Potential downsides**: One study noted increased thrombocytopenia (low platelets) in some patients [2], and rare but serious reactions have occurred [1]. 4. **Not always necessary**: Many patients complete chemotherapy safely without CSFs, depending on their regimen and risk factors. **What you should do:** Talk with your oncologist about: - Your specific risk of febrile neutropenia - Whether your chemotherapy regimen warrants CSF use - Your individual medical history - The timing and type of CSF that might be appropriate Your doctor can evaluate whether the benefits outweigh any risks in **your** particular case."
+Example List of Hedging: [
+    "generally",
+    "mostly",
+    "generally",
+    "Some",
+    "potential",
+    "some",
+    "many",
+    "depending on",
+    "might be",
+    "appropriate"
+]
 
 Text to Analyze: {{ text }}
+List of Hedging: 

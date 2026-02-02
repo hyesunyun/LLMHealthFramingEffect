@@ -40,6 +40,8 @@ class Huatuo(Model):
 
     def __load_tokenizer(self):
         tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        if self.model_name == "FreedomIntelligence/HuatuoGPT-o1-8B" or self.model_name == "FreedomIntelligence/HuatuoGPT-o1-70B":
+            tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
 
     def generate_output(self, messages: list[dict], max_new_tokens: int, temperature: float = 0.3, top_p: float = 0.8) -> tuple[str, str]:

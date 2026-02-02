@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=90:00:00
+#SBATCH --time=99:00:00
 #SBATCH --job-name=response
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -24,17 +24,17 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-  # "gpt-5.1"
-  # "claude_4.5_sonnet"
+  # "gpt-5.1" # DONE
+  # "claude_4.5_sonnet" # DONE
   # "deepseek_distill-qwen32B"
   # "deepseek_distill-llama70B"
-  # "qwen3-4B"
-  "qwen3_thinking-4B"
-  # "qwen3-30B"
+  # "qwen3-4B" # DONE
+  # "qwen3_thinking-4B" # DONE
+  "qwen3-30B" # IN PROGRESS
   # "qwen3_thinking-30B"
-  # "llama3.3_instruct_70B"
-  # "huatuo-7B"
-  "huatuo-8B"
+  # "llama3.3_instruct_70B" # DONE
+  # "huatuo-7B" # DONE
+  # "huatuo-8B" # DONE
   # "huatuo-70B"
 )
 
@@ -43,7 +43,8 @@ for model in "${models[@]}"; do
     python3 ../code/generate_responses.py \
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/responses/$model/question_responses.json"
+        --output_path "../code/outputs/responses/$model/question_responses.json" \
+        --debug
 done
 
 conda deactivate
