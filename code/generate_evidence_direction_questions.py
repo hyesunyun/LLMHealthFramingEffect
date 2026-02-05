@@ -88,14 +88,16 @@ class Generator:
             else:
                 response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
 
-            example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
-            example["EvidenceDirectionQuestion"] = response
+            keys_to_remove = ["Inputs", "NumInputs", "Year", "Keywords", "NumIncludedStudies", "Questions", "MedReadMeScores"]
+            updated_example = {key: value for key, value in example.items() if key not in keys_to_remove}
+            # updated_example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
+            updated_example["EvidenceDirectionQuestion"] = response
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 # add some default time gap to avoid rate limiting
                 time.sleep(REQ_TIME_GAP)
 
-            results.append(example)
+            results.append(updated_example)
         # end of loop through the dataset
 
         # saving outputs to file

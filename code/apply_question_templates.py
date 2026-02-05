@@ -58,7 +58,7 @@ class Templater:
 
     def apply_template(self) -> None:
         """
-        This method uses the extracted intervention and condition to generate questions using the templates
+        This method uses the extracted intervention and condition to ReadabilityScorergenerate questions using the templates
 
         :return None
         """

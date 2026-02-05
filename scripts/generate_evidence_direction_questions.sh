@@ -6,7 +6,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -26,7 +26,8 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 model="qwen3_thinking-4B"
 
 python3 ../code/generate_evidence_direction_questions.py \
-    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
+    --model "$model" \
+    --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
     --output_path "../code/outputs/questions/$model/evidence_direction_questions.json" \
     --debug
 

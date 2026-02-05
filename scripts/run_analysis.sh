@@ -24,10 +24,6 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 # python3 ../code/run_analysis.py \
-#     --file_path ../code/outputs/responses/gpt-5.1/question_responses.json \
-#     --output_path ../code/outputs/analysis/gpt-5.1_analysis_results.json
-
-# python3 ../code/run_analysis.py \
 #     --file_path ../code/outputs/responses/claude_4.5_sonnet/question_responses.json \
 #     --output_path ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
 
@@ -36,7 +32,7 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 #     --output_path ../code/outputs/analysis/qwen3-4B_analysis_results.json
 
 python3 ../code/run_analysis.py \
-    --file_path ../code/outputs/responses/sample_for_analysis_test.json \
-    --output_path ../code/outputs/analysis/sample_analysis_results.json
+    --file_path ../code/outputs/responses/gpt-5.1/question_responses.json \
+    --output_path ../code/outputs/analysis/gpt-5.1_analysis_results.json
 
 conda deactivate

@@ -55,14 +55,12 @@ class Gemini(Model):
     def submit_batch(
         self,
         inputs: dict[str, str],
-        max_new_tokens: int,
         temperature: float = 1.0,
     ) -> str:
         """
         Submits a batch job and returns the batch job name (batches/your-batch-id)
 
         :param inputs: dict[str, str] string of input text for each request
-        :param max_new_tokens: maximum number of tokens to generate
         :param temperature: temperature for generation. default to 1.0
 
         :return batch name
@@ -70,7 +68,6 @@ class Gemini(Model):
 
         batch_requests = self._build_batch_requests(
             inputs,
-            max_new_tokens,
             temperature
         )
 
@@ -93,7 +90,6 @@ class Gemini(Model):
             metadata = {
                 "model": self.model_name,
                 "num_requests": len(batch_requests),
-                "max_new_tokens": max_new_tokens,
                 "temperature": temperature,
                 "created_at": timestamp,
             }
