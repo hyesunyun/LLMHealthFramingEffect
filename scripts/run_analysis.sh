@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --time=1:00:00
-#SBATCH --partition=sharing
+#SBATCH --time=4:00:00
+#SBATCH --partition=frink
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=eval
@@ -23,16 +23,17 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-# python3 ../code/run_analysis.py \
-#     --file_path ../code/outputs/responses/claude_4.5_sonnet/question_responses.json \
-#     --output_path ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
 
-# python3 ../code/run_analysis.py \
-#     --file_path ../code/outputs/responses/qwen3-4B/question_responses.json \
-#     --output_path ../code/outputs/analysis/qwen3-4B_analysis_results.json
+models=(
+  # "gpt-5.1" # DONE
+  # "claude_4.5_sonnet"
+  "api_llama-3.3"
+)
 
-python3 ../code/run_analysis.py \
-    --file_path ../code/outputs/responses/gpt-5.1/question_responses.json \
-    --output_path ../code/outputs/analysis/gpt-5.1_analysis_results.json
+for model in "${models[@]}"; do
+    python3 ../code/run_analysis.py \
+        --file_path "../code/outputs/responses/${model}/question_responses.json" \
+        --output_path "../code/outputs/analysis/${model}_analysis_results.json"
+done
 
 conda deactivate

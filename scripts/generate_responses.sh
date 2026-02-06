@@ -30,8 +30,8 @@ models=(
   # "deepseek_distill-llama70B"
   # "qwen3-4B" # DONE
   # "qwen3_thinking-4B" # DONE
-  "qwen3-30B" # IN PROGRESS
-  "qwen3_thinking-30B" # IN PROGRESS
+  "qwen3-30B"
+  "qwen3_thinking-30B"
   # "llama3.3_instruct_70B" # DONE
   # "huatuo-7B" # DONE
   # "huatuo-8B" # DONE
