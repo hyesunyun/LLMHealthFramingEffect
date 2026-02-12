@@ -8,9 +8,7 @@ import textstat
 from tqdm import tqdm
 import argparse
 from models.gemini import Gemini
-import torch
 from utils import render_prompt, load_json_file
-import ast
 from score_readability import ReadabilityScorer
 
 EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
@@ -191,8 +189,8 @@ class Evaluator:
         formatted_input_for_model_evaluator = {}
 
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
-            positive_answer = pairs['positive_answer']
-            negative_answer = pairs['negative_answer']
+            positive_answer = self.extract_full_answer(pairs['positive_answer'])
+            negative_answer = self.extract_full_answer(pairs['negative_answer'])
             analysis_results[uid] = self.evaluate_pair(positive_answer, negative_answer)
             
             # evidence direction
