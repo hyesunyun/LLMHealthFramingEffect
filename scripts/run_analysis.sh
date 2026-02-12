@@ -24,10 +24,12 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 
+# MAKE SURE TO UNCOMMENT the part about sending requests to GEMINI in run_analysis.py if you want to run LLM as a Judge stuff
+
 models=(
-  "gpt-5.1"
+  # "gpt-5.1"
   # "claude_4.5_sonnet"
-  "api_llama-3.3"
+  # "api_llama-3.3"
   # "api_llama-4"
   # "huatuo-7B"
   # "huatuo-8B"
