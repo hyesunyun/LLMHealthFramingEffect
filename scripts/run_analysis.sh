@@ -4,9 +4,9 @@
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=eval
-#SBATCH --cpus-per-task=28
+#SBATCH --cpus-per-task=8
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=80G
+#SBATCH --mem=40G
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 

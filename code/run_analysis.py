@@ -2,7 +2,6 @@ from utils import load_json_file, save_dataset_to_json
 import json
 import spacy
 import re
-from transformers import pipeline
 from sentence_transformers import SentenceTransformer, util
 import textstat
 from tqdm import tqdm
