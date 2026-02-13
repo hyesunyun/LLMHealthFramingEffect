@@ -5,8 +5,9 @@ import logging
 from dotenv import load_dotenv
 import os
 from models.model_utils import set_global_seed
+from constants import SEED
 
-SEED = 42
+# TODO: can consider batching/distributed inference to speed up generation.
 
 class Llama3(Model):
     def __init__(self) -> None:

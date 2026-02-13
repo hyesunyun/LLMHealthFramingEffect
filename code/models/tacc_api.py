@@ -3,9 +3,6 @@ from openai import OpenAI
 import os
 import logging
 from dotenv import load_dotenv
-import json
-
-SEED = 42
 BASE_URL = "https://ai.tejas.tacc.utexas.edu/v1"
 
 class TACC(Model):
