@@ -32,10 +32,10 @@ models=(
   # "api_llama-3.3"
   # "api_llama-4"
   # "huatuo-7B"
-  # "huatuo-8B"
-  # "qwen3_thinking-4B"
-  # "qwen3-4B"
-  # "qwen3-30B"
+  "huatuo-8B"
+  "qwen3_thinking-4B"
+  "qwen3-4B"
+  "qwen3-30B"
 )
 
 for model in "${models[@]}"; do

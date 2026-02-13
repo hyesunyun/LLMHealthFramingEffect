@@ -38,3 +38,5 @@ File Path:        ../code/outputs/responses/gpt-5.1/question_responses.json
 Output Path:       ../code/outputs/analysis/gpt-5.1_analysis_results.json
 
 Loading models (this may take a minute on first run)...
+Uploaded batch input file: files/lm8okgr4olfh
+Created batch: batches/5fy46pj9ilcop3vuefkj5drufi8hw5flb5ih

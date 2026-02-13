@@ -271,8 +271,8 @@ if __name__ == '__main__':
     evaluator = Evaluator()
     final_report = evaluator.process_batch(formatted_data)
 
-    print("\n--- FINAL EVALUATION REPORT ---")
-    print(json.dumps(final_report, indent=2))
+    # print("\n--- FINAL EVALUATION REPORT ---")
+    # print(json.dumps(final_report, indent=2))
 
     # Save to file
     save_dataset_to_json(final_report, output_path, jsonl=False)
