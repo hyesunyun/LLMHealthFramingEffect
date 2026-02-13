@@ -38,3 +38,21 @@ File Path:        ../code/outputs/responses/huatuo-8B/question_responses.json
 Output Path:       ../code/outputs/analysis/huatuo-8B_analysis_results.json
 
 Loading models (this may take a minute on first run)...
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3_thinking-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3_thinking-4B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-4B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-30B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-30B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
