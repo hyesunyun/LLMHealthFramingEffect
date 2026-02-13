@@ -44,6 +44,10 @@ class Generator:
         if self.is_debug:
             dataset = dataset[:3] # use only first 3 examples for debugging
 
+        # TODO: remove once it is done!!!
+        if self.model_name == "qwen3_thinking-4B":
+            dataset = dataset[300:]
+
         self.dataset = dataset
 
     def __load_model(self) -> None:

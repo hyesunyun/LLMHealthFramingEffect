@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=10-00:00:00
+#SBATCH --time=12-00:00:00
 #SBATCH --job-name=response
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
@@ -29,8 +29,8 @@ models=(
   # "deepseek_distill-qwen32B"
   # "deepseek_distill-llama70B"
   # "qwen3-4B" # DONE
-  # "qwen3_thinking-4B" # DONE
-  "qwen3-30B"
+  "qwen3_thinking-4B" # DONE
+  # "qwen3-30B" # DONE
   "qwen3_thinking-30B"
   # "llama3.3_instruct_70B" # DONE
   # "huatuo-7B" # DONE
@@ -38,13 +38,23 @@ models=(
   # "huatuo-70B"
 )
 
-echo "Running LLM response generation"
-for model in "${models[@]}"; do
-    python3 ../code/generate_responses.py \
-        --model "$model" \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/responses/$model/question_responses.json" 
+# echo "Running LLM response generation"
+# for model in "${models[@]}"; do
+#     python3 ../code/generate_responses.py \
+#         --model "$model" \
+#         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
+#         --output_path "../code/outputs/responses/$model/question_responses.json" 
       
-done
+# done
+
+python3 ../code/generate_responses.py \
+        --model qwen3_thinking-4B \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
+        --output_path ../code/outputs/responses/qwen3_thinking-4B/question_responses_1.json
+
+python3 ../code/generate_responses.py \
+        --model qwen3_thinking-30B \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
+        --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json
 
 conda deactivate

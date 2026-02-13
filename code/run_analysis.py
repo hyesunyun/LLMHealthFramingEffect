@@ -11,7 +11,7 @@ from utils import render_prompt, load_json_file
 from score_readability import ReadabilityScorer
 
 EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
-HEDGING_PROMPT_TEMPLATE_NAMES = "hedging_question"
+# HEDGING_PROMPT_TEMPLATE_NAMES = "hedging_question"
 EVAL_MODEL_TEMPERATURE = 0.0
 
 class Evaluator:
@@ -202,12 +202,13 @@ class Evaluator:
                 formatted_input_for_model_evaluator[f"{uid}_positive_direction"] = pos_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_negative_direction"] = neg_eval_direction_input
 
+                # REMOVED from the pipeline for now as this is more complicated than we thought
                 # hedging
-                pos_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=positive_answer)
-                neg_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=negative_answer)
+                # pos_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=positive_answer)
+                # neg_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=negative_answer)
 
-                formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
-                formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
+                # formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
+                # formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
 
         # TODO: uncomment when we are all ready to use GEMINI as LLM as evaluator in scale
         # self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
