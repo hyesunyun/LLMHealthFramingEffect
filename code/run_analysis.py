@@ -61,7 +61,7 @@ class Evaluator:
 
         :return: dict of dicts
         """
-        questions_data = load_json_file("../code/outputs/questions/qwen3_thinking-4B/evidence_direction_questions.json")
+        questions_data = load_json_file("../code/outputs/questions/qwen3_thinking-4B/evidence_direction_questions_final.json")
         # Convert the list to a dict using a dictionary comprehension
         # This is for easy retrieval
         return {item['ReviewID']: item["EvidenceDirectionQuestion"] for item in questions_data}
