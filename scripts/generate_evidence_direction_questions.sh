@@ -28,7 +28,6 @@ model="qwen3_thinking-4B"
 python3 ../code/generate_evidence_direction_questions.py \
     --model "$model" \
     --input_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
-    --output_path "../code/outputs/questions/$model/evidence_direction_questions.json" \
-    --debug
+    --output_path "../code/outputs/questions/$model/evidence_direction_questions.json"
 
 conda deactivate

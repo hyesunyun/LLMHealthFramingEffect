@@ -63,7 +63,7 @@ class Generator:
         """
         This method takes in the treatment and condition information as well as the review abstract to generate evidence direction questions.
         The question formatting is the same as what was used in 
-        Polzak, Christopher, et al. "Can Large Language Models Match the Conclusions of Systematic Reviews?." arXiv preprint arXiv:2505.22787 (2025).
+        Polzak, Christopher, et al. "Can Large Language Models Match the Conclusions of Systematic Reviews?" arXiv preprint arXiv:2505.22787 (2025).
 
         :return None
         """
