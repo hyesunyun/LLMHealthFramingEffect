@@ -36,7 +36,7 @@ class Generator:
             dataset = load_json_file(self.input_path)
 
         if self.is_debug:
-            dataset = dataset[:3]
+            dataset = dataset[:4]
 
         return dataset
 
@@ -120,6 +120,7 @@ class Generator:
         """Collect all non-multiturn questions across all examples for batched processing."""
         all_questions = []
         for i, example in enumerate(self.dataset):
+            review_id = example["ReviewID"]
             rct_inputs = self.__format_rct_inputs(example["Inputs"])
             for key, q_dict in example["Questions"].items():
                 if key == "multiturn":
@@ -127,7 +128,7 @@ class Generator:
                 for q_type in ["positive", "negative"]:
                     messages = self.__build_messages(q_dict[f"{q_type}_question"], rct_inputs)
                     all_questions.append({
-                        'example_index': i,
+                        'review_id': review_id,
                         'question_key': key,
                         'q_type': q_type,
                         'messages': messages,
@@ -149,7 +150,7 @@ class Generator:
                     result = response[0]
                 else:
                     result = response
-                results[(q['example_index'], q['question_key'], q['q_type'])] = result.strip()
+                results[(q['review_id'], q['question_key'], q['q_type'])] = result.strip()
 
         return results
 
@@ -170,6 +171,7 @@ class Generator:
         for i, example in enumerate(tqdm(self.dataset, desc="Assembling results + multiturn")):
             rct_inputs = self.__format_rct_inputs(example["Inputs"])
             questions = example["Questions"]
+            review_id = example["ReviewID"]
 
             # Fill in single-turn answers from batch results
             for key in questions:
@@ -177,7 +179,7 @@ class Generator:
                     continue
                 for q_type in ["positive", "negative"]:
                     questions[key][f"{q_type}_answer"] = single_turn_results.get(
-                        (i, key, q_type), "Error: batch result not found"
+                        (review_id, key, q_type), "Error: batch result not found"
                     )
 
             # Run multiturn sequentially
@@ -197,7 +199,7 @@ class Generator:
 
     # ── API batch ────────────────────────────────────────────────────────
 
-    def _submit_api_batch(self) -> None:
+    def __submit_api_batch(self) -> None:
         """Submit non-multiturn questions as an API batch job."""
         inputs = {}
         for i, example in enumerate(tqdm(self.dataset, desc="Formatting inputs for batch submission")):
@@ -233,7 +235,7 @@ class Generator:
         # API batch models: submit batch + run multiturn sequentially
         if self.model_name in BATCH_API_MODELS:
             print(f"Submitting API batch job for model - {self.model_name}")
-            self._submit_api_batch()
+            self.__submit_api_batch()
 
         # HuggingFace batched inference (two-pass: batch single-turn, then sequential multiturn)
         if self.model_name in HF_BATCH_MODELS and self.batch_size > 1:
@@ -278,7 +280,7 @@ if __name__ == '__main__':
     parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the answers.")
     parser.add_argument("--batch_size", default=1, type=int, help="batch size for HuggingFace model inference. Only used for local GPU models.")
     # do --no-debug for explicit False
-    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will only run 3 instances from the dataset.")
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will only run 4 samples from the dataset.")
 
     args = parser.parse_args()
 
