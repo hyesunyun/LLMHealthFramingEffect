@@ -6,7 +6,7 @@ import random
 
 from score_readability import ReadabilityScorer
 
-from utils import load_json_file, load_jsonl_file, save_dataset_to_json, remove_columns
+from utils import load_json_file, load_jsonl_file, save_dataset_to_json
 from constants import SEED
 
 class Templater:

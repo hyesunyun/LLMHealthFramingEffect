@@ -48,9 +48,15 @@ models=(
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
 #         --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json
 
+# python3 ../code/generate_responses.py \
+#         --model huatuo-70B \
+#         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
+#         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json
+
 python3 ../code/generate_responses.py \
-        --model huatuo-70B \
+        --model qwen3-4B \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path ../code/outputs/responses/huatuo-70B/question_responses.json
+        --output_path ../code/outputs/responses/qwen3-4B/test.json \
+        --batch_size 8
 
 conda deactivate

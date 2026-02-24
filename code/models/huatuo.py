@@ -6,8 +6,6 @@ from models.model_utils import set_global_seed
 
 SEED = 42
 
-# TODO: can consider batching/distributed inference to speed up generation.
-
 class Huatuo(Model):
     def __init__(self, model_type: str = "7B") -> None:
         super().__init__()
@@ -42,7 +40,7 @@ class Huatuo(Model):
 
     def __load_tokenizer(self):
         tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        if self.model_name == "FreedomIntelligence/HuatuoGPT-o1-8B" or self.model_name == "FreedomIntelligence/HuatuoGPT-o1-70B":
+        if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
         return tokenizer
 
@@ -95,4 +93,70 @@ class Huatuo(Model):
         except Exception as e:
             logging.error("[ERROR] %s", e)
             return f'{{"error": "Error: {e}"}}', ""
+
+    def generate_batch_output(self, messages_list: list[list[dict]], max_new_tokens: int, temperature: float = 0.3, top_p: float = 0.8) -> list[tuple[str, str]]:
+        """
+        Generate outputs for a batch of message lists using left-padded batched inference.
+        Parses out thinking content per sequence, returning only the final response.
+
+        :param messages_list: list of message lists, one per request
+        :param max_new_tokens: maximum number of tokens to generate
+        :param temperature: temperature for generation
+        :param top_p: top_p for generation
+
+        :return: list of tuples (thinking_content, content), one per input
+        """
+        original_padding_side = self.tokenizer.padding_side
+        try:
+            self.tokenizer.padding_side = "left"
+
+            texts = [
+                self.tokenizer.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
+                for msgs in messages_list
+            ]
+
+            model_inputs = self.tokenizer(
+                texts, return_tensors="pt", padding=True, truncation=True
+            ).to(self.model.device)
+
+            do_sample = True if temperature > 0 else False
+
+            with torch.no_grad():
+                generated_ids = self.model.generate(
+                    **model_inputs,
+                    max_new_tokens=max_new_tokens,
+                    do_sample=do_sample,
+                    temperature=temperature,
+                    top_p=top_p,
+                )
+
+            input_length = model_inputs.input_ids.shape[1]
+
+            responses = []
+            for i in range(generated_ids.shape[0]):
+                output_ids = generated_ids[i, input_length:].tolist()
+
+                # Remove padding tokens from output
+                if self.tokenizer.pad_token_id is not None:
+                    output_ids = [t for t in output_ids if t != self.tokenizer.pad_token_id]
+
+                output_text = self.tokenizer.decode(output_ids, skip_special_tokens=True)
+
+                # Parse "## Thinking" / "## Final Response" markers
+                try:
+                    thinking_start = output_text.index("## Thinking") + len("## Thinking")
+                    response_start = output_text.index("## Final Response")
+                    thinking_content = output_text[thinking_start:response_start].strip()
+                    content = output_text[response_start + len("## Final Response"):].strip()
+                except ValueError:
+                    content = output_text.strip()
+
+                responses.append((thinking_content, content))
+            self.tokenizer.padding_side = original_padding_side
+            return responses
+
+        except Exception as e:
+            logging.error("[ERROR] %s", e)
+            self.tokenizer.padding_side = original_padding_side
+            return [f'{{"error": "Error: {e}"}}'] * len(messages_list)
 
