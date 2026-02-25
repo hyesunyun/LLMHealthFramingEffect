@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --time=12-00:00:00
 #SBATCH --job-name=response
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=12
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
 #SBATCH --partition=177huntington
@@ -27,9 +27,9 @@ models=(
   # "gpt-5.1"
   # "claude_4.5_sonnet"
   # "qwen3-4B"
-#   "qwen3_thinking-4B"
+  # "qwen3_thinking-4B"
   # "qwen3-30B"
-#   "qwen3_thinking-30B"
+  # "qwen3_thinking-30B"
   # "llama3.3_instruct_70B"
   # "huatuo-7B"
   # "huatuo-8B"
@@ -43,20 +43,18 @@ models=(
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
 #         --output_path "../code/outputs/responses/$model/question_responses.json" 
 
-# python3 ../code/generate_responses.py \
-#         --model qwen3_thinking-30B \
-#         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-#         --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json
+
+# RUNNING THESE TWO MODELS with the large dataset
+python3 ../code/generate_responses.py \
+        --model qwen3_thinking-30B \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
+        --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json \
+        --batch_size 8
 
 # python3 ../code/generate_responses.py \
 #         --model huatuo-70B \
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-#         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json
-
-python3 ../code/generate_responses.py \
-        --model qwen3-4B \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path ../code/outputs/responses/qwen3-4B/test.json \
-        --batch_size 8
+#         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
+#         --batch_size 4
 
 conda deactivate
