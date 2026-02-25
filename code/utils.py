@@ -1,6 +1,7 @@
 
 import csv
 import json
+import sys
 from jinja2 import Environment, FileSystemLoader
 import os
 import re
@@ -14,6 +15,7 @@ def load_csv_file(file_path: str) -> list[dict]:
 
     :return data as a list of dictionaries
     """
+    csv.field_size_limit(sys.maxsize) # this is needed for long text in the csv file, such as the review abstract
     with open(file_path, "r", encoding="utf-8-sig") as file:
         reader = csv.DictReader(file)
         data = [row for row in reader]

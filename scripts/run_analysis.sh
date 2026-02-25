@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=12:00:00
+#SBATCH --time=30:00:00
 #SBATCH --partition=frink
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
@@ -23,19 +23,16 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-
-# MAKE SURE TO UNCOMMENT the part about sending requests to GEMINI in run_analysis.py if you want to run LLM as a Judge stuff
-
 models=(
-  # "gpt-5.1"
+  "gpt-5.1"
   # "claude_4.5_sonnet"
-  # "api_llama-3.3"
+  "api_llama-3.3"
   # "api_llama-4"
   # "huatuo-7B"
-  "huatuo-8B"
-  "qwen3_thinking-4B"
-  "qwen3-4B"
-  "qwen3-30B"
+  # "huatuo-8B"
+  # "qwen3_thinking-4B"
+  # "qwen3-4B"
+  # "qwen3-30B"
 )
 
 for model in "${models[@]}"; do

@@ -1,5 +1,4 @@
 from utils import load_json_file, save_dataset_to_json
-import json
 import spacy
 import re
 from sentence_transformers import SentenceTransformer, util
@@ -210,8 +209,7 @@ class Evaluator:
                 # formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
                 # formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
 
-        # TODO: uncomment when we are all ready to use GEMINI as LLM as evaluator in scale
-        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
+        self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
         return analysis_results
 
 def format_outputs(raw_data: list[dict]) -> dict:
