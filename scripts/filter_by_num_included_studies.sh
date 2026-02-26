@@ -16,8 +16,6 @@ source activate base
 source activate llm_health_framing_effect
 conda activate llm_health_framing_effect
 
-conda info
-
 echo "Run on all data"
 python3 ../code/find_num_included_studies.py \
  --input_path ../data/cochrane_review_data.jsonl \

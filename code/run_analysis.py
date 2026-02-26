@@ -15,8 +15,6 @@ EVAL_MODEL_TEMPERATURE = 0.0
 
 class Evaluator:
     def __init__(self):
-        print("Loading models (this may take a minute on first run)...")
-        
         # Semantic Similarity Model
         self.semantic_model = SentenceTransformer('all-MiniLM-L6-v2')
         
@@ -214,8 +212,8 @@ class Evaluator:
         # TODO: remove this print statement after checking the total number of tokens we will be sending to the eval model
         total_words = sum(len(input.split()) for input in formatted_input_for_model_evaluator.values())
         print(f"Total number of words in formatted input for model evaluator: {total_words}")
-        estimated_total_tokens = total_words / 70
-        print(f"Estimated total number of tokens in formatted input for model evaluator: {estimated_total_tokens}")
+        estimated_total_tokens = (total_words / 60) * 100
+        print(f"Estimated total number of tokens in formatted input for model evaluator: {round(estimated_total_tokens)}")
         # TODO: uncomment this when ready to run gemini api
         # self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
         return analysis_results

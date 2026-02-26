@@ -17,8 +17,6 @@ source activate base
 source activate llm_health_framing_effect
 conda activate llm_health_framing_effect
 
-conda info
-
 export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
