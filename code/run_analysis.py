@@ -268,7 +268,6 @@ if __name__ == '__main__':
     print(f"File Path:        {file_path}")
     print(f"Output Path:       {output_path}")
     print()
-
     data = load_json_file(file_path)
     formatted_data = format_outputs(data)
 
@@ -280,4 +279,5 @@ if __name__ == '__main__':
     # print(json.dumps(final_report, indent=2))
 
     # Save to file
-    save_dataset_to_json(final_report, output_path, jsonl=False)
+    # TODO: uncomment when ready to run things
+    # save_dataset_to_json(final_report, output_path, jsonl=False)

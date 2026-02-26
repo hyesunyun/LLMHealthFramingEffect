@@ -1,0 +1,63 @@
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/gpt-5.1/question_responses.json
+Output Path:       ../code/outputs/analysis/gpt-5.1_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2592364
+Estimated total number of tokens in formatted input for model evaluator: 4320607
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/api_llama-3.3/question_responses.json
+Output Path:       ../code/outputs/analysis/api_llama-3.3_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2522443
+Estimated total number of tokens in formatted input for model evaluator: 4204072
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/claude_4.5_sonnet/question_responses.json
+Output Path:       ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2637426
+Estimated total number of tokens in formatted input for model evaluator: 4395710
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/api_llama-4/question_responses.json
+Output Path:       ../code/outputs/analysis/api_llama-4_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2368856
+Estimated total number of tokens in formatted input for model evaluator: 3948093
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/huatuo-7B/question_responses.json
+Output Path:       ../code/outputs/analysis/huatuo-7B_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2090197
+Estimated total number of tokens in formatted input for model evaluator: 3483662
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/huatuo-8B/question_responses.json
+Output Path:       ../code/outputs/analysis/huatuo-8B_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 3249902
+Estimated total number of tokens in formatted input for model evaluator: 5416503
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3_thinking-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3_thinking-4B_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2088282
+Estimated total number of tokens in formatted input for model evaluator: 3480470
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-4B_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2048379
+Estimated total number of tokens in formatted input for model evaluator: 3413965
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-30B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-30B_analysis_results.json
+
+Total number of words in formatted input for model evaluator: 2177964
+Estimated total number of tokens in formatted input for model evaluator: 3629940
