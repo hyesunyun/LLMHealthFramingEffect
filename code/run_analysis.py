@@ -31,7 +31,7 @@ class Evaluator:
         self.eval_questions = self.load_eval_questions()
 
         # Evaluation Model for Evidence Direction (lower, higher, same)
-        self.eval_model = Gemini("2.5")
+        self.eval_model = Gemini("flash") # can do pro or lite
 
     def load_hedges(self) -> list[str]:
         """

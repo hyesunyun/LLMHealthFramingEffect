@@ -140,17 +140,29 @@ class Generator:
         results = {}
         total = len(all_questions)
 
-        for batch_start in tqdm(range(0, total, self.batch_size), desc="Batched single-turn generation"):
+        for batch_num, batch_start in enumerate(tqdm(range(0, total, self.batch_size), desc="Batched single-turn generation")):
             batch = all_questions[batch_start:min(batch_start + self.batch_size, total)]
             messages_list = [q['messages'] for q in batch]
             responses = self.model.generate_batch_output(messages_list, max_new_tokens=self.max_new_tokens)
 
             for q, response in zip(batch, responses):
-                if isinstance(response, tuple):
-                    result = response[0]
-                else:
-                    result = response
+                result = response[0] if isinstance(response, tuple) else response
                 results[(q['review_id'], q['question_key'], q['q_type'])] = result.strip()
+
+            if (batch_num + 1) % 50 == 0:
+                # Checkpoint intermediate results every 50 batches to avoid losing progress and for easier debugging
+                # Need to reformat as list of dict for saving just the responses
+                # Each dict will be for one review and will contain different question_key with each having positive and negative answer
+                results_by_review = {}
+                for (rid, question_key, q_type), response in results.items():
+                    if rid not in results_by_review:
+                        results_by_review[rid] = {"review_id": rid, "ModelGeneratedAnswersWithQuestions": {}}
+                    if question_key not in results_by_review[rid]["ModelGeneratedAnswersWithQuestions"]:
+                        results_by_review[rid]["ModelGeneratedAnswersWithQuestions"][question_key] = {}
+                    results_by_review[rid]["ModelGeneratedAnswersWithQuestions"][question_key][f"{q_type}_answer"] = response
+                results_list = list(results_by_review.values())
+                print(f"Saving intermediate batch single-turn outputs at batch {batch_num + 1} - {self.model_name}")
+                save_dataset_to_json(results_list, f"{self.output_path.split('.')[0]}_intermediate_batch_{batch_num + 1}.json", jsonl=False)
 
         return results
 

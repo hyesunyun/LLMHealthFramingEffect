@@ -9,13 +9,15 @@ from datetime import datetime
 from pathlib import Path
 
 class Gemini(Model):
-    def __init__(self, model_type: str = "2.5") -> None:
+    def __init__(self, model_type: str = "flash") -> None:
         super().__init__()
         
-        if model_type == "2.5":
+        if model_type == "flash":
             self.model_name = "gemini-2.5-flash"
-        else:
-            self.model_name = "gemini-3-flash-preview"
+        elif model_type == "pro":
+            self.model_name = "gemini-2.5-pro"
+        elif model_type == "lite":
+            self.model_name = "gemini-2.5-flash-lite"
         logging.basicConfig(level=logging.ERROR)
         load_dotenv(override=True)
         gemini_api_key = os.getenv("GEMINI_API_KEY")
