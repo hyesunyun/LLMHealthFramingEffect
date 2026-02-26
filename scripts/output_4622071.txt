@@ -1,0 +1,106 @@
+
+     active environment : llm_health_framing_effect
+    active env location : /home/yun.hy/.conda/envs/llm_health_framing_effect
+            shell level : 2
+       user config file : /home/yun.hy/.condarc
+ populated config files : 
+          conda version : 24.5.0
+    conda-build version : 24.5.1
+         python version : 3.12.4.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=zen2
+                          __conda=24.5.0=0
+                          __cuda=12.8=0
+                          __glibc=2.34=0
+                          __linux=5.14.0=0
+                          __unix=0=0
+       base environment : /shared/EL9/explorer/anaconda3/2024.06  (read only)
+      conda av data dir : /shared/EL9/explorer/anaconda3/2024.06/etc/conda
+  conda av metadata url : None
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /shared/EL9/explorer/anaconda3/2024.06/pkgs
+                          /home/yun.hy/.conda/pkgs
+       envs directories : /home/yun.hy/.conda/envs
+                          /shared/EL9/explorer/anaconda3/2024.06/envs
+               platform : linux-64
+             user-agent : conda/24.5.0 requests/2.32.5 CPython/3.12.4 Linux/5.14.0-362.13.1.el9_3.x86_64 rocky/9.3 glibc/2.34 solver/libmamba conda-libmamba-solver/24.1.0 libmambapy/1.5.8 aau/0.4.4 c/. s/. e/.
+                UID:GID : 1825635949:100
+             netrc file : /home/yun.hy/.netrc
+           offline mode : False
+
+
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/gpt-5.1/question_responses.json
+Output Path:       ../code/outputs/analysis/gpt-5.1_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2592364
+Estimated total number of tokens in formatted input for model evaluator: 37033.77142857143
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/api_llama-3.3/question_responses.json
+Output Path:       ../code/outputs/analysis/api_llama-3.3_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2522443
+Estimated total number of tokens in formatted input for model evaluator: 36034.9
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/claude_4.5_sonnet/question_responses.json
+Output Path:       ../code/outputs/analysis/claude_4.5_sonnet_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2637426
+Estimated total number of tokens in formatted input for model evaluator: 37677.514285714286
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/api_llama-4/question_responses.json
+Output Path:       ../code/outputs/analysis/api_llama-4_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2368856
+Estimated total number of tokens in formatted input for model evaluator: 33840.8
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/huatuo-7B/question_responses.json
+Output Path:       ../code/outputs/analysis/huatuo-7B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2090197
+Estimated total number of tokens in formatted input for model evaluator: 29859.957142857143
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/huatuo-8B/question_responses.json
+Output Path:       ../code/outputs/analysis/huatuo-8B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 3249902
+Estimated total number of tokens in formatted input for model evaluator: 46427.171428571426
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3_thinking-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3_thinking-4B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2088282
+Estimated total number of tokens in formatted input for model evaluator: 29832.6
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-4B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-4B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2048379
+Estimated total number of tokens in formatted input for model evaluator: 29262.557142857142
+
+Arguments Provided for Evaluation:
+File Path:        ../code/outputs/responses/qwen3-30B/question_responses.json
+Output Path:       ../code/outputs/analysis/qwen3-30B_analysis_results.json
+
+Loading models (this may take a minute on first run)...
+Total number of words in formatted input for model evaluator: 2177964
+Estimated total number of tokens in formatted input for model evaluator: 31113.77142857143
