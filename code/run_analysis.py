@@ -189,7 +189,9 @@ class Evaluator:
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
             positive_answer = self.extract_full_answer(pairs['positive_answer'])
             negative_answer = self.extract_full_answer(pairs['negative_answer'])
-            analysis_results[uid] = self.evaluate_pair(positive_answer, negative_answer)
+            # TOOD: uncomment this when ready to run the full pipeline with the eval model
+            analysis_results = None
+            # analysis_results[uid] = self.evaluate_pair(positive_answer, negative_answer)
             
             # evidence direction
             review_id = uid.split("_")[0]
@@ -209,7 +211,13 @@ class Evaluator:
                 # formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
                 # formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
 
-        self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
+        # TODO: remove this print statement after checking the total number of tokens we will be sending to the eval model
+        total_words = sum(len(input.split()) for input in formatted_input_for_model_evaluator.values())
+        print(f"Total number of words in formatted input for model evaluator: {total_words}")
+        estimated_total_tokens = total_words / 70
+        print(f"Estimated total number of tokens in formatted input for model evaluator: {estimated_total_tokens}")
+        # TODO: uncomment this when ready to run gemini api
+        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
         return analysis_results
 
 def format_outputs(raw_data: list[dict]) -> dict:

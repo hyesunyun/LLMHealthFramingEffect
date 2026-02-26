@@ -26,13 +26,13 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 models=(
   "gpt-5.1"
   "api_llama-3.3"
-  # "claude_4.5_sonnet"
-  # "api_llama-4"
-  # "huatuo-7B"
-  # "huatuo-8B"
-  # "qwen3_thinking-4B"
-  # "qwen3-4B"
-  # "qwen3-30B"
+  "claude_4.5_sonnet"
+  "api_llama-4"
+  "huatuo-7B"
+  "huatuo-8B"
+  "qwen3_thinking-4B"
+  "qwen3-4B"
+  "qwen3-30B"
 )
 
 for model in "${models[@]}"; do
