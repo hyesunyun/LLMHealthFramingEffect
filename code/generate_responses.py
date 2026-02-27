@@ -146,7 +146,9 @@ class Generator:
             responses = self.model.generate_batch_output(messages_list, max_new_tokens=self.max_new_tokens)
 
             for q, response in zip(batch, responses):
-                result = response[0] if isinstance(response, tuple) else response
+                result = response[1] if isinstance(response, tuple) else response
+                # TODO: remove after debugging
+                print(f"This is result from batched generation: {result}")
                 results[(q['review_id'], q['question_key'], q['q_type'])] = result.strip()
 
             if (batch_num + 1) % 50 == 0:
@@ -162,7 +164,7 @@ class Generator:
                     results_by_review[rid]["ModelGeneratedAnswersWithQuestions"][question_key][f"{q_type}_answer"] = response
                 results_list = list(results_by_review.values())
                 print(f"Saving intermediate batch single-turn outputs at batch {batch_num + 1} - {self.model_name}")
-                save_dataset_to_json(results_list, f"{self.output_path.split('.')[0]}_intermediate_batch_{batch_num + 1}.json", jsonl=False)
+                save_dataset_to_json(results_list, f"{self.output_path.removesuffix(".json")}_intermediate.json", jsonl=False)
 
         return results
 
