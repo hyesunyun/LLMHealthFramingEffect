@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer, util
 import textstat
 from tqdm import tqdm
 import argparse
-from models.gpt5 import GPT5
+from models.gemini import Gemini
 from utils import render_prompt, load_json_file
 from score_readability import ReadabilityScorer
 
@@ -30,7 +30,7 @@ class Evaluator:
         self.eval_questions = self.load_eval_questions()
 
         # Evaluation Model for Evidence Direction (lower, higher, same)
-        self.eval_model = GPT5("mini") # can do nano as well to reduce cost
+        self.eval_model = Gemini("flash") # can do lite as well to reduce cost
 
     def load_hedges(self) -> list[str]:
         """

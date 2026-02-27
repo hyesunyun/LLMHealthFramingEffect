@@ -5,11 +5,9 @@ from dotenv import load_dotenv
 import json
 from datetime import datetime
 from pathlib import Path
-
-import fsspec
 from google import genai
 from google.cloud import storage
-from google.genai.types import CreateBatchJobConfig
+from google.genai.types import CreateBatchJobConfig, GenerateContentConfig
 
 class Gemini(Model):
     def __init__(self, model_type: str = "flash") -> None:
@@ -37,7 +35,7 @@ class Gemini(Model):
     def get_context_length(self) -> int:
         return 1000000
 
-    def __upload_file_to_gcs(bucket_name: str, source_file_path: str, destination_blob_name: str) -> str:
+    def __upload_file_to_gcs(self, bucket_name: str, source_file_path: str, destination_blob_name: str) -> str:
         """Upload a file to a Cloud Storage bucket."""
         bucket = self.storage_client.bucket(bucket_name)
         blob = bucket.blob(destination_blob_name)
@@ -48,7 +46,7 @@ class Gemini(Model):
         print(f"File {source_file_path} uploaded to gs://{bucket_name}/{destination_blob_name}")
         return f"gs://{bucket_name}/{destination_blob_name}"
 
-    def _build_batch_requests(
+    def _build_gemini_batch_requests(
         self,
         inputs: dict[str, str],
         temperature: float = 1.0,
@@ -76,6 +74,34 @@ class Gemini(Model):
 
         return requests
     
+    def _build_vertex_batch_requests(
+        self,
+        inputs: dict[str, str],
+        temperature: float = 1.0,
+    ) -> list[dict]:
+        """
+        Method for creating batch requests for Vertex AI (Gen AI)
+        
+        :param inputs: dict[str, str] string of input text for each request
+        :param temperature: temperature for generation. default to 1.0.
+
+        :return list of requests for single model
+        """
+        requests = []
+
+        for id, input in inputs.items():
+
+            requests.append({
+                "key": f"req-{id}",
+                "request": {
+                    "contents": [{"role": "user", "parts": [{"text": input}]}],
+                    "generation_config": {"temperature": temperature}
+                }
+                
+            })
+
+        return requests
+    
     def submit_batch(
         self,
         inputs: dict[str, str],
@@ -89,8 +115,9 @@ class Gemini(Model):
 
         :return batch name
         """
-
-        batch_requests = self._build_batch_requests(
+        
+        # TODO: if using GEMINI API, change this to _build_gemini_batch_requests
+        batch_requests = self._build_vertex_batch_requests(
             inputs,
             temperature
         )
@@ -139,16 +166,18 @@ class Gemini(Model):
 
             # ---------- Generative AI on Vertex AI  ----------
             bucket_name = os.getenv("BUCKET_NAME")
+            print(f"Uploading batch input file to GCS bucket: {bucket_name}")
             input_data = self.__upload_file_to_gcs(
                 bucket_name,
                 source_file_path=jsonl_path,
                 destination_blob_name=f"{self.model_name}_batch_input_{timestamp}.jsonl"
             )
             
-            gcs_batch_job = client.batches.create(
+            print("Submitting batch job to Vertex AI...")
+            gcs_batch_job = self.batch_client.batches.create(
                 model=self.model_name,
                 src=input_data,
-                config=CreateBatchJobConfig(dest=bucket_name),
+                config=CreateBatchJobConfig(dest=f"gs://{bucket_name}")
             )
             
             return gcs_batch_job.name
@@ -172,7 +201,7 @@ class Gemini(Model):
             response = self.client.models.generate_content(
                 model=self.model_name,
                 contents=input,
-                config=types.GenerateContentConfig(
+                config=GenerateContentConfig(
                     temperature=temperature,
                     max_output_tokens=max_new_tokens
                 )
