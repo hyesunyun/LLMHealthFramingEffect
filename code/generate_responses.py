@@ -147,8 +147,6 @@ class Generator:
 
             for q, response in zip(batch, responses):
                 result = response[1] if isinstance(response, tuple) else response
-                # TODO: remove after debugging
-                print(f"This is result from batched generation: {result}")
                 results[(q['review_id'], q['question_key'], q['q_type'])] = result.strip()
 
             if (batch_num + 1) % 50 == 0:

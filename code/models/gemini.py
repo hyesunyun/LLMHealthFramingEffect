@@ -1,12 +1,15 @@
 from .model import Model
-from google import genai
-from google.genai import types
 import os
 import logging
 from dotenv import load_dotenv
 import json
 from datetime import datetime
 from pathlib import Path
+
+import fsspec
+from google import genai
+from google.cloud import storage
+from google.genai.types import CreateBatchJobConfig
 
 class Gemini(Model):
     def __init__(self, model_type: str = "flash") -> None:
@@ -20,12 +23,31 @@ class Gemini(Model):
             self.model_name = "gemini-2.5-flash-lite"
         logging.basicConfig(level=logging.ERROR)
         load_dotenv(override=True)
+
+        # GENAI VERTEX AI
+        project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
+        location = os.getenv("GOOGLE_CLOUD_REGION")
+        self.batch_client = genai.Client(vertexai=True, project=project_id, location=location)
+        self.storage_client = storage.Client(project=project_id)
+        
+        # GEMINI API
         gemini_api_key = os.getenv("GEMINI_API_KEY")
         self.client = genai.Client(api_key=gemini_api_key)
 
     def get_context_length(self) -> int:
         return 1000000
-    
+
+    def __upload_file_to_gcs(bucket_name: str, source_file_path: str, destination_blob_name: str) -> str:
+        """Upload a file to a Cloud Storage bucket."""
+        bucket = self.storage_client.bucket(bucket_name)
+        blob = bucket.blob(destination_blob_name)
+
+        # Upload the file
+        blob.upload_from_filename(source_file_path)
+
+        print(f"File {source_file_path} uploaded to gs://{bucket_name}/{destination_blob_name}")
+        return f"gs://{bucket_name}/{destination_blob_name}"
+
     def _build_batch_requests(
         self,
         inputs: dict[str, str],
@@ -98,23 +120,38 @@ class Gemini(Model):
             with open(meta_path, "w", encoding="utf-8") as f:
                 json.dump(metadata, f, indent=2)
 
+            # ---------- for GEMINI API ----------
+            # GEMINI API has rate limits unlike Generative AI on Vertex AI 
             # Upload the file to the File API
-            uploaded_file = self.client.files.upload(
-                file=jsonl_path,
-                config=types.UploadFileConfig(display_name=f"batch_requests_{timestamp}", mime_type='jsonl')
-            )
-
-            print(f"Uploaded batch input file: {uploaded_file.name}")
+            # uploaded_file = self.client.files.upload(
+            #     file=jsonl_path,
+            #     config=types.UploadFileConfig(display_name=f"batch_requests_{timestamp}", mime_type='jsonl')
+            # )
+            # print(f"Uploaded batch input file: {uploaded_file.name}")
 
             # Create batch
-            batch = self.client.batches.create(
-                model=self.model_name,
-                src=uploaded_file.name
+            # batch = self.client.batches.create(
+            #     model=self.model_name,
+            #     src=uploaded_file.name
+            # )
+            # print(f"Created batch: {batch.name}")
+            # return batch.name
+
+            # ---------- Generative AI on Vertex AI  ----------
+            bucket_name = os.getenv("BUCKET_NAME")
+            input_data = self.__upload_file_to_gcs(
+                bucket_name,
+                source_file_path=jsonl_path,
+                destination_blob_name=f"{self.model_name}_batch_input_{timestamp}.jsonl"
             )
-
-            print(f"Created batch: {batch.name}")
-
-            return batch.name
+            
+            gcs_batch_job = client.batches.create(
+                model=self.model_name,
+                src=input_data,
+                config=CreateBatchJobConfig(dest=bucket_name),
+            )
+            
+            return gcs_batch_job.name
         except Exception as e:
             logging.error(e)
             return None

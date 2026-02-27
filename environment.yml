@@ -12,6 +12,7 @@ dependencies:
   - conda-forge::python-dotenv
   - conda-forge::pandas
   - conda-forge::google-genai
+  - main::google-cloud-storage
   - pip:
     - torch
     - torchvision

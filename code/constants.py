@@ -4,7 +4,6 @@ from models.claude import Claude
 from models.llama3 import Llama3
 from models.qwen3 import Qwen3
 from models.qwen3_thinking import Qwen3Thinking
-from models.gemini import Gemini
 from models.huatuo import Huatuo
 from models.tacc_api import TACC
 

@@ -11,7 +11,6 @@ from score_readability import ReadabilityScorer
 
 EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
 # HEDGING_PROMPT_TEMPLATE_NAMES = "hedging_question"
-EVAL_MODEL_TEMPERATURE = 0.0
 
 class Evaluator:
     def __init__(self):
@@ -207,7 +206,7 @@ class Evaluator:
                 # formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
                 # formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
 
-        self.eval_model.submit_batch(formatted_input_for_model_evaluator, EVAL_MODEL_TEMPERATURE)
+        self.eval_model.submit_batch(formatted_input_for_model_evaluator)
         return analysis_results
 
 def format_outputs(raw_data: list[dict]) -> dict:

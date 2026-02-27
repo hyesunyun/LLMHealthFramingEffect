@@ -28,7 +28,7 @@ class GPT5(Model):
     def _build_batch_requests(
         self,
         all_messages: dict[str, list[dict]],
-        max_new_tokens: int,
+        max_new_tokens: int = 2048,
         reasoning: str = "medium",
         verbosity: str = "medium",
         temperature: float = 1.0,
@@ -76,7 +76,7 @@ class GPT5(Model):
     def submit_batch(
         self,
         all_messages: dict[str, list[dict]],
-        max_new_tokens: int,
+        max_new_tokens: int = 2048,
         reasoning: str = "medium",
         verbosity: str = "medium",
         temperature: float = 1.0,

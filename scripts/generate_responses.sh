@@ -36,20 +36,19 @@ models=(
 
 # echo "Running LLM response generation"
 # for model in "${models[@]}"; do
-#     python3 ../code/generate_responses.py \
+#     python3 -u ../code/generate_responses.py \
 #         --model "$model" \
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
 #         --output_path "../code/outputs/responses/$model/question_responses.json" 
 
-
 # RUNNING THESE TWO MODELS with the large dataset
-python3 ../code/generate_responses.py \
+python3 -u ../code/generate_responses.py \
         --model qwen3_thinking-30B \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json \
         --batch_size 16
 
-# python3 ../code/generate_responses.py \
+# python3 -u ../code/generate_responses.py \
 #         --model huatuo-70B \
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
 #         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
