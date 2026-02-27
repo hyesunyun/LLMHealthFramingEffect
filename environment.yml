@@ -13,6 +13,7 @@ dependencies:
   - conda-forge::pandas
   - conda-forge::google-genai
   - main::google-cloud-storage
+  - main::gcsfs
   - pip:
     - torch
     - torchvision
