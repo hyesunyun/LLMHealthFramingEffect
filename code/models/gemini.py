@@ -179,6 +179,8 @@ class Gemini(Model):
                 src=input_data,
                 config=CreateBatchJobConfig(dest=f"gs://{bucket_name}")
             )
+
+            print(f"Created batch: {gcs_batch_job.name}")
             
             return gcs_batch_job.name
         except Exception as e:

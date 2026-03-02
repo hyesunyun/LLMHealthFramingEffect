@@ -1,9 +1,0 @@
-{
-  "model": "gpt-5.1-2025-11-13",
-  "num_requests": 8832,
-  "reasoning": "medium",
-  "verbosity": "medium",
-  "max_new_tokens": 8000,
-  "temperature": 1.0,
-  "created_at": "20260113_160240"
-}
