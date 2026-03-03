@@ -23,8 +23,8 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 models=(
   # "gpt-5.1"
   # "claude_4.5_sonnet"
-  # "api_llama-3.3"
-  "api_llama-4"
+  # "api-llama3.3"
+  "api-llama4"
 )
 
 echo "Running LLM response generation"

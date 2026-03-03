@@ -24,14 +24,14 @@ export GOOGLE_APPLICATION_CREDENTIALS="/scratch/yun.hy/question-framing-fd103043
 
 models=(
   # "gpt-5.1"
-  # "api_llama-3.3"
+  # "api-llama3.3"
   # "claude_4.5_sonnet"
-  "api_llama-4"
-  "huatuo-7B"
-  "huatuo-8B"
-  "qwen3-4B"
-  "qwen3-30B"
-  "qwen3_thinking-4B"
+  # "api-llama4"
+  # "huatuo-7B"
+  # "huatuo-8B"
+  # "qwen3-4B"
+  # "qwen3-30B"
+  # "qwen3_thinking-4B"
   # "qwen3_thinking-30B"
   # "huatuo-70B"
 )

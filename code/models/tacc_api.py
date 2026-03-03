@@ -6,12 +6,14 @@ from dotenv import load_dotenv
 BASE_URL = "https://ai.tejas.tacc.utexas.edu/v1"
 
 class TACC(Model):
-    def __init__(self, model_type: str = "3.3") -> None:
+    def __init__(self, model_type: str = "llama3.3") -> None:
         super().__init__()
-        if model_type == "3.3":
+        if model_type == "llama3.3":
             self.model_name = "Meta-Llama-3.3-70B-Instruct"
-        elif model_type == "4":
+        elif model_type == "llama4":
             self.model_name = "Llama-4-Maverick-17B-128E-Instruct"
+        elif model_type == "mistral":
+            self.model_name = "E5-Mistral-7B-Instruct"
         logging.basicConfig(level=logging.ERROR)
         load_dotenv(override=True)
         api_key = os.getenv("TACC_API_KEY")
