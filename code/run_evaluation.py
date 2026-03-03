@@ -104,6 +104,21 @@ class Evaluator:
         matches = re.findall(pattern, text)
         
         return matches
+    
+    def get_num_percentage_symbol_instances(self, text: str) -> list[int]:
+        """
+        Gets the number of percentage symbol instances in a text
+
+        :param text: string of text to analyze 
+
+        :return: list of instances
+        """
+        pattern = r'%'
+        
+        # Find all matches
+        matches = re.findall(pattern, text)
+        
+        return len(matches)
 
     def get_references(self, text: str) -> list[str]:
         """
@@ -139,6 +154,7 @@ class Evaluator:
             "medical_jargon_score": medical_jargon_score,
             "length_words": len(text.split()),
             "numerical_instances": self.get_numerical_instances(text),
+            "num_percentage_symbol_instances": self.get_num_percentage_symbol_instances(text),
             "unique_references": self.get_references(text)
         }
 
@@ -149,7 +165,7 @@ class Evaluator:
         :param text_a: string of positive/first text to analyze 
         :param text_b: string of negative/second text to analyze 
 
-        :return: dictionary with all statistics between positive and negative texts
+        :return: dictionary with all statistics between first and second texts
         """
         # Semantic Similarity
         emb1 = self.semantic_model.encode(text_a, convert_to_tensor=True)
@@ -168,55 +184,71 @@ class Evaluator:
                 "entity_overlap": f"{ne_overlap:.2%}",
                 "common_entities": list(intersection)
             },
-            "response_positive_metrics": self.get_text_stats(text_a),
-            "response_negative_metrics": self.get_text_stats(text_b)
+            "first_response_metrics": self.get_text_stats(text_a),
+            "second_response_metrics": self.get_text_stats(text_b)
         }
 
-    def process_batch(self, input_data: list[dict]) -> dict:
+    def process_batch(self, input_data: list[dict], data_type: str) -> dict:
         """
         Processes the texts in data
 
         :param input_data: list of dictionary of data
+        :param data_type: string of the type of data (framing or baseline)
 
         :return: dictionary with results of analysis
         """
+        if data_type == "framing":
+            first_answer_key = "positive"
+            second_answer_key = "negative"
+        elif data_type == "baseline":
+            first_answer_key = "positive1"
+            second_answer_key = "positive2"
+    
         analysis_results = {}
         formatted_input_for_model_evaluator = {}
 
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
-            positive_answer = self.extract_full_answer(pairs['positive_answer'])
-            negative_answer = self.extract_full_answer(pairs['negative_answer'])
-            analysis_results[uid] = self.evaluate_pair(positive_answer, negative_answer)
+            first_answer = self.extract_full_answer(pairs[f'{first_answer_key}_answer'])
+            second_answer = self.extract_full_answer(pairs[f'{second_answer_key}_answer'])
+            analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
             
             # evidence direction
             review_id = uid.split("_")[0]
             eval_question = self.eval_questions[review_id] if review_id in self.eval_questions else None
             if eval_question:
-                pos_eval_direction_input = render_prompt(EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", question=eval_question, context=positive_answer)
-                neg_eval_direction_input = render_prompt(EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", question=eval_question, context=negative_answer)
+                first_eval_direction_input = render_prompt(EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", question=eval_question, context=first_answer)
+                second_eval_direction_input = render_prompt(EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", question=eval_question, context=second_answer)
 
-                formatted_input_for_model_evaluator[f"{uid}_positive_direction"] = pos_eval_direction_input
-                formatted_input_for_model_evaluator[f"{uid}_negative_direction"] = neg_eval_direction_input
+                formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
+                formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
 
                 # REMOVED from the pipeline for now as this is more complicated than we thought
                 # hedging
-                # pos_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=positive_answer)
-                # neg_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=negative_answer)
+                # first_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=first_answer)
+                # second_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=second_answer)
 
-                # formatted_input_for_model_evaluator[f"{uid}_positive_hedging"] = pos_eval_hedging_input
-                # formatted_input_for_model_evaluator[f"{uid}_negative_hedging"] = neg_eval_hedging_input
+                # formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_hedging"] = first_eval_hedging_input
+                # formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_hedging"] = second_eval_hedging_input
 
         self.eval_model.submit_batch(formatted_input_for_model_evaluator)
         return analysis_results
 
-def format_outputs(raw_data: list[dict]) -> dict:
+def format_outputs(raw_data: list[dict], data_type: str) -> dict:
     """
     Formatting the data to work with the evaluator
 
     :param input_data: list of dictionary of data
+    :param data_type: string of the type of data (framing or baseline)
 
     :return: dictionary of dictionary
     """
+    if data_type == "framing":
+        first_answer_key = "positive_answer"
+        second_answer_key = "negative_answer"
+    elif data_type == "baseline":
+        first_answer_key = "positive1_answer"
+        second_answer_key = "positive2_answer"
+        
     grouped = {}
     
     for item in raw_data:
@@ -228,18 +260,18 @@ def format_outputs(raw_data: list[dict]) -> dict:
                 pair_key = f"{review_id}_{k}"
                 if pair_key not in grouped:
                     grouped[pair_key] = {}
-                grouped[pair_key]["positive_answer"] = v["positive_answer"]
-                grouped[pair_key]["negative_answer"] = v["negative_answer"]
+                grouped[pair_key][first_answer_key] = v[first_answer_key]
+                grouped[pair_key][second_answer_key] = v[second_answer_key]
             else: # multiturn situation
-                pos_answers = v["positive_answer"]
-                neg_answers = v["negative_answer"]
+                first_answers = v[first_answer_key]
+                second_answers = v[second_answer_key]
                 pair_key = f"{review_id}_{k}"
-                for index, item in enumerate(list(zip(pos_answers, neg_answers))):
+                for index, item in enumerate(list(zip(first_answers, second_answers))):
                     multiturn_pair_key = f"{pair_key}-{index}"
                     if multiturn_pair_key not in grouped:
                         grouped[multiturn_pair_key] = {}
-                    grouped[multiturn_pair_key]["positive_answer"] = item[0]
-                    grouped[multiturn_pair_key]["negative_answer"] = item[1]
+                    grouped[multiturn_pair_key][first_answer_key] = item[0]
+                    grouped[multiturn_pair_key][second_answer_key] = item[1]
 
     return grouped
 
@@ -248,19 +280,22 @@ if __name__ == '__main__':
 
     parser.add_argument("--file_path", default="./inputs", help="path to the file with outputs to analzye")
     parser.add_argument("--output_path", default="./outputs", help="path/file name of where the results should be saved.")
+    parser.add_argument("--data_type", default="framing", help="type of the file to analyze (framing or baseline)")
     
     args = parser.parse_args()
 
     file_path = args.file_path
     output_path = args.output_path
+    data_type = args.data_type
 
     print()
     print("Arguments Provided for Evaluation:")
-    print(f"File Path:        {file_path}")
-    print(f"Output Path:       {output_path}")
+    print(f"File Path:   {file_path}")
+    print(f"Output Path: {output_path}")
+    print(f"Data Type:   {data_type}")
     print()
     data = load_json_file(file_path)
-    formatted_data = format_outputs(data)
+    formatted_data = format_outputs(data, data_type)
 
     # Run
     evaluator = Evaluator()
