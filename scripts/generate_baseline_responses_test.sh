@@ -4,8 +4,8 @@
 #SBATCH --job-name=test
 #SBATCH --cpus-per-task=16
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=180G
-#SBATCH --partition=short
+#SBATCH --mem=5G
+#SBATCH --partition=frink
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 

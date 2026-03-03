@@ -215,9 +215,10 @@ class Generator:
 
             # Run multiturn sequentially
             if "multiturn" in questions:
+                positive_question = questions["multiturn"]["positive_question"]
                 for sample_num in [1, 2]:
                     split_qs, responses = self.__process_multiturn(
-                            questions["multiturn"]["positive_question"], rct_inputs
+                            positive_question, rct_inputs
                         )
                     questions["multiturn"]["positive_question"] = split_qs
                     questions["multiturn"][f"positive{sample_num}_answer"] = responses
@@ -283,9 +284,10 @@ class Generator:
                 if self.model_name in BATCH_API_MODELS:
                     # API batch handles single-turn; only run multiturn here
                     if "multiturn" in questions:
+                        positive_question = questions["multiturn"]["positive_question"]
                         for sample_num in [1, 2]:
                             split_qs, responses = self.__process_multiturn(
-                                    questions["multiturn"]["positive_question"], rct_inputs
+                                    positive_question, rct_inputs
                                 )
                             questions["multiturn"]["positive_question"] = split_qs
                             questions["multiturn"][f"positive{sample_num}_answer"] = responses
