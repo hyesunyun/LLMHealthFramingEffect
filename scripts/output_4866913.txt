@@ -1,0 +1,68 @@
+
+Arguments Provided for Answer Generation:
+Model:             huatuo-7B
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/baseline_responses/huatuo-7B/positive_question_responses.json
+Max Output Tokens: 8000
+Batch Size:        16
+Is Debug:          None
+
+Loading the dataset...
+Loading the model...
+Model's dtype: torch.bfloat16
+Model's device: cuda:0
+Model's device map: {'': 0}
+
+Running batched HuggingFace inference (batch_size=16)
+Pass 1: Collecting and batching single-turn questions...
+Collected 8832 single-turn questions.
+Saving intermediate batch single-turn outputs at batch 50 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 100 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 150 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 200 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 250 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 300 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 350 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 400 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 450 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 500 - huatuo-7B
+Saving intermediate batch single-turn outputs at batch 550 - huatuo-7B
+Completed batched inference.
+Pass 2: Assembling results and running multiturn...
+Saving intermediate outputs at instance 50 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 100 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 150 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 200 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 250 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 300 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving intermediate outputs at instance 350 from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+Saving outputs from model - huatuo-7B
+
+Arguments Provided for Answer Generation:
+Model:             huatuo-8B
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/baseline_responses/huatuo-8B/positive_question_responses.json
+Max Output Tokens: 8000
+Batch Size:        16
+Is Debug:          None
+
+Output directory path did not exist. Directory was created.
+Loading the dataset...
+Loading the model...
+Model's dtype: torch.bfloat16
+Model's device: cuda:0
+Model's device map: {'': 0}
+
+Running batched HuggingFace inference (batch_size=16)
+Pass 1: Collecting and batching single-turn questions...
+Collected 8832 single-turn questions.
+Saving intermediate batch single-turn outputs at batch 50 - huatuo-8B
+Saving intermediate batch single-turn outputs at batch 100 - huatuo-8B
+Saving intermediate batch single-turn outputs at batch 150 - huatuo-8B

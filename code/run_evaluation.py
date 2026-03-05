@@ -299,7 +299,7 @@ if __name__ == '__main__':
 
     # Run
     evaluator = Evaluator()
-    final_report = evaluator.process_batch(formatted_data)
+    final_report = evaluator.process_batch(formatted_data, data_type)
 
     # print("\n--- FINAL EVALUATION REPORT ---")
     # print(json.dumps(final_report, indent=2))

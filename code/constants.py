@@ -9,7 +9,7 @@ from models.tacc_api import TACC
 
 SEED = 42
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet", "api-llama3.3", "api-llama4"]
-REQ_TIME_GAP = 10
+REQ_TIME_GAP = 6
 MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "claude_4.5_sonnet", 
           "llama3.3_instruct_70B", "api-llama3.3", "api-llama4", 
           "qwen3-4B", "qwen3-30B", "qwen3_thinking-4B", "qwen3_thinking-30B",

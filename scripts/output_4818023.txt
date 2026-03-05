@@ -1,0 +1,79 @@
+
+Arguments Provided for Answer Generation:
+Model:             claude_4.5_sonnet
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/baseline_responses/claude_4.5_sonnet/positive_question_responses.json
+Max Output Tokens: 8000
+Batch Size:        1
+Is Debug:          None
+
+Output directory path did not exist. Directory was created.
+Loading the dataset...
+Loading the model...
+Submitting API batch job for model - claude_4.5_sonnet
+Created batch: MessageBatch(id='msgbatch_013f5SixFJMFrFXHuVkXVoLZ', archived_at=None, cancel_initiated_at=None, created_at=datetime.datetime(2026, 3, 3, 20, 57, 33, 907397, tzinfo=datetime.timezone.utc), ended_at=None, expires_at=datetime.datetime(2026, 3, 4, 20, 57, 33, 907397, tzinfo=datetime.timezone.utc), processing_status='in_progress', request_counts=MessageBatchRequestCounts(canceled=0, errored=0, expired=0, processing=8832, succeeded=0), results_url=None, type='message_batch')
+Submitted batch job with batch ID: msgbatch_013f5SixFJMFrFXHuVkXVoLZ
+Saving intermediate outputs at instance 50 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 100 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 150 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 200 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 250 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 300 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving intermediate outputs at instance 350 from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+Saving outputs from model - claude_4.5_sonnet
+
+Arguments Provided for Answer Generation:
+Model:             api-llama3.3
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/baseline_responses/api-llama3.3/positive_question_responses.json
+Max Output Tokens: 8000
+Batch Size:        1
+Is Debug:          None
+
+Loading the dataset...
+Loading the model...
+Saving intermediate outputs at instance 50 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 100 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 150 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 200 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 250 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 300 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 350 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+
+Arguments Provided for Answer Generation:
+Model:             api-llama4
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/baseline_responses/api-llama4/positive_question_responses.json
+Max Output Tokens: 8000
+Batch Size:        1
+Is Debug:          None
+
+Loading the dataset...
+Loading the model...
+Saving intermediate outputs at instance 50 from model - api-llama4
+Saving outputs from model - api-llama4
+Saving intermediate outputs at instance 100 from model - api-llama4
+Saving outputs from model - api-llama4
+Saving intermediate outputs at instance 150 from model - api-llama4
+Saving outputs from model - api-llama4
+Saving intermediate outputs at instance 200 from model - api-llama4
+Saving outputs from model - api-llama4
+Saving intermediate outputs at instance 250 from model - api-llama4
+Saving outputs from model - api-llama4
+Saving intermediate outputs at instance 300 from model - api-llama4
+Saving outputs from model - api-llama4
