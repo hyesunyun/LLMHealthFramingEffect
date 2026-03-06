@@ -41,17 +41,11 @@ models=(
 #         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
 #         --output_path "../code/outputs/responses/$model/question_responses.json" 
 
-# RUNNING THESE TWO MODELS with the large dataset
+# need two GPUs
 python3 -u ../code/generate_responses.py \
-        --model qwen3_thinking-30B \
+        --model huatuo-70B \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path ../code/outputs/responses/qwen3_thinking-30B/question_responses.json \
-        --batch_size 16
-
-# python3 -u ../code/generate_responses.py \
-#         --model huatuo-70B \
-#         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-#         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
-#         --batch_size 4
+        --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
+        --batch_size 4
 
 conda deactivate

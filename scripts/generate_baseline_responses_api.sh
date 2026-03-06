@@ -1,12 +1,11 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=90:00:00
-#SBATCH --job-name=baseline
-#SBATCH --cpus-per-task=12
+#SBATCH --time=8-00:00:00
+#SBATCH --job-name=response
+#SBATCH --cpus-per-task=4
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=80G
-#SBATCH --partition=177huntington
-#SBATCH --gres=gpu:2
+#SBATCH --mem=20G
+#SBATCH --partition=frink
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -26,22 +25,15 @@ models=(
   # "claude_4.5_sonnet"
   # "api-llama3.3"
   # "api-llama4"
-  # "huatuo-7B"
-  # "huatuo-8B"
-  # "qwen3-4B"
-  # "qwen3-30B"
-  # "qwen3_thinking-4B"
-  # "qwen3_thinking-30B"
-  # "huatuo-70B"
   "api-mistral7b"
 )
 
+echo "Running LLM response generation"
 for model in "${models[@]}"; do
     python3 -u ../code/generate_baseline_responses.py \
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/baseline_responses/$model/positive_question_responses.json" \
-        --batch_size 16
+        --output_path "../code/outputs/baseline_responses/$model/positive_question_responses.json"
 done
 
 conda deactivate
