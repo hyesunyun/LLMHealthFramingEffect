@@ -1,6 +1,0 @@
-
-Arguments Provided for Evaluation:
-File Path:   ../code/outputs/baseline_responses/huatuo-7B/positive_question_responses.json
-Output Path: ../code/outputs/baseline_evaluation/huatuo-7B_eval_results.json
-Data Type:   baseline
-

@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --time=1:00:00
-#SBATCH --partition=sharing
+#SBATCH --time=4:00:00
+#SBATCH --partition=frink
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=eval
@@ -26,8 +26,8 @@ models=(
   # "gpt-5.1"
   # "claude_4.5_sonnet"
   # "api-llama3.3"
-  # "api-llama4"
-  "huatuo-7B"
+  "api-llama4"
+  # "huatuo-7B"
   # "huatuo-8B"
   # "qwen3-4B"
   # "qwen3-30B"
