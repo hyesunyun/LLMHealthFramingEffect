@@ -25,7 +25,6 @@ models=(
   # "claude_4.5_sonnet"
   # "api-llama3.3"
   # "api-llama4"
-  "api-mistral7b"
 )
 
 echo "Running LLM response generation"
