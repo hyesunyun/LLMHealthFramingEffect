@@ -23,8 +23,8 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 models=(
   # "gpt-5.1"
   # "claude_4.5_sonnet"
-  # "api-llama3.3"
-  # "api-llama4"
+  "api-llama3.3"
+  "api-llama4"
 )
 
 echo "Running LLM response generation"
@@ -32,7 +32,7 @@ for model in "${models[@]}"; do
     python3 -u ../code/generate_baseline_responses.py \
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/baseline_responses/$model/positive_question_responses.json"
+        --output_path "../code/outputs/baseline_responses/$model/positive_question_responses_with_params.json"
 done
 
 conda deactivate

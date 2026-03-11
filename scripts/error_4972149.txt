@@ -1,0 +1,158 @@
+Fetching 30 files:   0%|          | 0/30 [00:00<?, ?it/s]Fetching 30 files:   3%|▎         | 1/30 [03:51<1:52:03, 231.84s/it]Fetching 30 files:   7%|▋         | 2/30 [04:56<1:02:11, 133.27s/it]Fetching 30 files:  27%|██▋       | 8/30 [05:06<08:37, 23.50s/it]   Fetching 30 files:  30%|███       | 9/30 [08:09<17:28, 49.93s/it]Fetching 30 files:  30%|███       | 9/30 [08:09<19:02, 54.38s/it]
+Traceback (most recent call last):
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connectionpool.py", line 773, in urlopen
+    self._prepare_proxy(conn)
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1042, in _prepare_proxy
+    conn.connect()
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connection.py", line 770, in connect
+    self._tunnel()
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/http/client.py", line 969, in _tunnel
+    (version, code, message) = response._read_status()
+                               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/socket.py", line 708, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connectionpool.py", line 775, in urlopen
+    self._raise_timeout(
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1546, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1463, in get_hf_file_metadata
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 286, in _request_wrapper
+    response = _request_wrapper(
+               ^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 309, in _request_wrapper
+    response = http_backoff(method=method, url=url, **params, retry_on_exceptions=(), retry_on_status_codes=(429,))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 310, in http_backoff
+    response = session.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/requests/adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ca8fb611-107a-4bb8-8778-997f58de8f02)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/utils/hub.py", line 494, in cached_files
+    snapshot_download(
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 332, in snapshot_download
+    thread_map(
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 69, in thread_map
+    return _executor_map(ThreadPoolExecutor, fn, *iterables, **tqdm_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/tqdm/contrib/concurrent.py", line 51, in _executor_map
+    return list(tqdm_class(ex.map(fn, *iterables, chunksize=chunksize), **kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+               ^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 306, in _inner_hf_hub_download
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1117, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1661, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/yun.hy/LLMHealthFramingEffect/scripts/../code/generate_responses.py", line 346, in <module>
+    generator = Generator(model_name, input_path, output_path, max_new_tokens, batch_size=batch_size, is_debug=is_debug)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/yun.hy/LLMHealthFramingEffect/scripts/../code/generate_responses.py", line 27, in __init__
+    self.model = self.__load_model()
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/yun.hy/LLMHealthFramingEffect/scripts/../code/generate_responses.py", line 48, in __load_model
+    return model_class(model_type=model_type)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/yun.hy/LLMHealthFramingEffect/code/models/huatuo.py", line 22, in __init__
+    self.model = self.__load_model()
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/scratch/yun.hy/LLMHealthFramingEffect/code/models/huatuo.py", line 29, in __load_model
+    model = AutoModelForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4900, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/modeling_utils.py", line 1200, in _get_resolved_checkpoint_files
+    checkpoint_files, sharded_metadata = get_checkpoint_shard_files(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/utils/hub.py", line 1084, in get_checkpoint_shard_files
+    cached_filenames = cached_files(
+                       ^^^^^^^^^^^^^
+  File "/home/yun.hy/.conda/envs/llm_health_framing_effect/lib/python3.12/site-packages/transformers/utils/hub.py", line 553, in cached_files
+    raise OSError(
+OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.

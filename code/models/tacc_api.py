@@ -25,13 +25,17 @@ class TACC(Model):
     def generate_output(
         self, 
         messages: list[dict], 
-        max_new_tokens: int
+        max_new_tokens: int,
+        temperature: float = 0.6,
+        top_p: float = 0.9
     ) -> str:
         """
         This method generates the output given the input
 
         :param messages: messages with input for the model
         :param max_new_tokens: maximum number of tokens to generate (this isn't really used)
+        :param temperature: using the default temperature value for llama models (0.6)
+        :param top_p: using the default top_p value for llama models (0.9)
 
         :return output of the model
         """
@@ -39,7 +43,9 @@ class TACC(Model):
         try:
             response = self.client.chat.completions.create(
                 model=self.model_name,
-                messages=messages
+                messages=messages,
+                temperature=temperature,
+                top_p=top_p
             )
 
         except Exception as e:

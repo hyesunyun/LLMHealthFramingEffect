@@ -1,0 +1,12 @@
+
+Arguments Provided for Answer Generation:
+Model:             huatuo-70B
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/responses/huatuo-70B/question_responses.json
+Max Output Tokens: 8000
+Batch Size:        4
+Is Debug:          None
+
+Output directory path did not exist. Directory was created.
+Loading the dataset...
+Loading the model...

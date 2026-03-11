@@ -1,0 +1,18 @@
+Running LLM response generation
+
+Arguments Provided for Answer Generation:
+Model:             api-llama3.3
+Input Path:        ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json
+Output Path:       ../code/outputs/responses/api-llama3.3/question_responses_with_params.json
+Max Output Tokens: 8000
+Batch Size:        1
+Is Debug:          None
+
+Loading the dataset...
+Loading the model...
+Saving intermediate outputs at instance 50 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 100 from model - api-llama3.3
+Saving outputs from model - api-llama3.3
+Saving intermediate outputs at instance 150 from model - api-llama3.3
+Saving outputs from model - api-llama3.3

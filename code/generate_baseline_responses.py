@@ -140,14 +140,15 @@ class Generator:
         total = len(all_questions)
 
         # TODO: remove when not using intermediate results for check pointing.
-        # intermediate_file = f"{self.output_path.removesuffix(".json")}_intermediate.json"
-        # if os.path.exists(intermediate_file):
-        #     intermediate_results = load_json_file(intermediate_file)
-        #     for example in intermediate_results:
-        #         for q_key, q_dict in example["ModelGeneratedAnswersWithQuestions"].items():
-        #             for sample_num in [1, 2]:
-        #                 if f"positive{sample_num}_answer" in q_dict:
-        #                     results[(example["review_id"], q_key, f"positive{sample_num}")] = q_dict[f"positive{sample_num}_answer"]
+        if self.model_name == "huatuo-8B":
+            intermediate_file = f"{self.output_path.removesuffix(".json")}_intermediate.json"
+            if os.path.exists(intermediate_file):
+                intermediate_results = load_json_file(intermediate_file)
+                for example in intermediate_results:
+                    for q_key, q_dict in example["ModelGeneratedAnswersWithQuestions"].items():
+                        for sample_num in [1, 2]:
+                            if f"positive{sample_num}_answer" in q_dict:
+                                results[(example["review_id"], q_key, f"positive{sample_num}")] = q_dict[f"positive{sample_num}_answer"]
         ############## END ##############
 
         # have the loop start from batch index 450 (i.e., batch_num 449) so that it will continue from where it left off and avoid repeating the same batches again
@@ -156,8 +157,9 @@ class Generator:
             batch = all_questions[batch_start:min(batch_start + self.batch_size, total)]
 
             # TODO: remove when not using intermediate results for check pointing.
-            # if batch_num < 449:
-            #     continue
+            if self.model_name == "huatuo-8B":
+                if batch_num < 300:
+                    continue
             ############## END ##############
 
             messages_list = [q['messages'] for q in batch]
