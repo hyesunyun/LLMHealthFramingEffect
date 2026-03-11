@@ -230,7 +230,7 @@ class Evaluator:
                 # formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_hedging"] = first_eval_hedging_input
                 # formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_hedging"] = second_eval_hedging_input
 
-        self.eval_model.submit_batch(formatted_input_for_model_evaluator)
+        self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
         return analysis_results
 
 def format_outputs(raw_data: list[dict], data_type: str) -> dict:
