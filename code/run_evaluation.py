@@ -210,7 +210,8 @@ class Evaluator:
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
             first_answer = self.extract_full_answer(pairs[f'{first_answer_key}_answer'])
             second_answer = self.extract_full_answer(pairs[f'{second_answer_key}_answer'])
-            analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
+            # TODO: uncomment for full eval run
+            # analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
             
             # evidence direction
             review_id = uid.split("_")[0]

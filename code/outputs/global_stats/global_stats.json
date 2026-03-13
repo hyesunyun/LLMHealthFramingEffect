@@ -641,6 +641,220 @@
             }
         }
     },
+    "api-llama3.3_second": {
+        "framing": {
+            "mean_similarity": 91.66,
+            "mean_entity_overlap": 68.88,
+            "mean_reference_overlap": 62.83,
+            "mean_numerical_instances_overlap": 35.47,
+            "mean_percentage_symbol_instances_diff": 0.39,
+            "flesch_reading_ease": {
+                "first_mean": 25.655,
+                "second_mean": 26.594,
+                "difference": -0.938
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.809,
+                "second_mean": 4.8,
+                "difference": 0.01
+            },
+            "length": {
+                "first_mean": 122.526,
+                "second_mean": 123.623,
+                "difference": -1.097
+            },
+            "hedges_text_count": {
+                "first_mean": 4.703,
+                "second_mean": 5.038,
+                "difference": -0.335
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 70.91,
+                "singleturn_agreement": 70.58,
+                "multiturn_agreement": 71.88,
+                "question_category_agreement": {
+                    "ai": 69.57,
+                    "cost": 68.48,
+                    "doctor": 70.92,
+                    "effectiveness1": 68.48,
+                    "effectiveness2": 70.92,
+                    "family": 72.55,
+                    "friend": 72.55,
+                    "journals": 67.66,
+                    "multiturn-0": 68.21,
+                    "multiturn-1": 63.86,
+                    "multiturn-2": 74.73,
+                    "multiturn-3": 80.71,
+                    "safety": 72.28,
+                    "studies": 69.29,
+                    "testimonials": 71.47,
+                    "timepressure": 72.83
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 73.72,
+                    "Ear, Nose, Throat & Dental": 66.11,
+                    "Endocrine & Metabolic": 49.24,
+                    "Gastrointestinal & Hepatology": 71.46,
+                    "Infectious Diseases & Dermatology": 74.49,
+                    "Mental Health & Behavioural": 67.97,
+                    "Musculoskeletal & Orthopaedic": 70.48,
+                    "Neurology & Pain": 73.76,
+                    "Oncology": 75.71,
+                    "Ophthalmology": 68.75,
+                    "Other / General": 66.67,
+                    "Pregnancy, Childbirth & Gynaecology": 69.44,
+                    "Respiratory": 68.96,
+                    "Urology & Nephrology": 58.33
+                },
+                "condition_category_agreement_multiturn": {
+                    "Cardiovascular": 69.23,
+                    "Ear, Nose, Throat & Dental": 65.0,
+                    "Endocrine & Metabolic": 75.0,
+                    "Gastrointestinal & Hepatology": 71.97,
+                    "Infectious Diseases & Dermatology": 70.45,
+                    "Mental Health & Behavioural": 71.09,
+                    "Musculoskeletal & Orthopaedic": 79.29,
+                    "Neurology & Pain": 73.13,
+                    "Oncology": 66.43,
+                    "Ophthalmology": 75.0,
+                    "Other / General": 60.0,
+                    "Pregnancy, Childbirth & Gynaecology": 75.0,
+                    "Respiratory": 73.12,
+                    "Urology & Nephrology": 50.0
+                },
+                "overall_year_level_agreement_pct": {
+                    "1998": 85.42,
+                    "1999": 61.72,
+                    "2000": 76.04,
+                    "2001": 67.19,
+                    "2002": 65.0,
+                    "2003": 70.0,
+                    "2004": 63.28,
+                    "2005": 84.56,
+                    "2006": 69.0,
+                    "2007": 70.09,
+                    "2008": 73.75,
+                    "2009": 66.58,
+                    "2010": 70.92,
+                    "2011": 71.61,
+                    "2012": 73.23,
+                    "2013": 74.31,
+                    "2014": 60.42,
+                    "2015": 66.48,
+                    "2016": 72.66,
+                    "2017": 75.0,
+                    "2018": 68.75,
+                    "2019": 70.83
+                }
+            }
+        },
+        "baseline": {
+            "mean_similarity": 99.87,
+            "mean_entity_overlap": 99.6,
+            "mean_reference_overlap": 88.55,
+            "mean_numerical_instances_overlap": 71.21,
+            "mean_percentage_symbol_instances_diff": 0.01,
+            "flesch_reading_ease": {
+                "first_mean": 25.653,
+                "second_mean": 25.666,
+                "difference": -0.012
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.809,
+                "second_mean": 4.809,
+                "difference": 0.0
+            },
+            "length": {
+                "first_mean": 122.543,
+                "second_mean": 122.543,
+                "difference": 0.001
+            },
+            "hedges_text_count": {
+                "first_mean": 4.706,
+                "second_mean": 4.705,
+                "difference": 0.001
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 92.83,
+                "singleturn_agreement": 92.1,
+                "multiturn_agreement": 95.04,
+                "question_category_agreement": {
+                    "ai": 91.85,
+                    "cost": 89.95,
+                    "doctor": 91.03,
+                    "effectiveness1": 92.93,
+                    "effectiveness2": 92.66,
+                    "family": 92.93,
+                    "friend": 94.57,
+                    "journals": 91.58,
+                    "multiturn-0": 91.85,
+                    "multiturn-1": 92.93,
+                    "multiturn-2": 96.74,
+                    "multiturn-3": 98.64,
+                    "safety": 92.66,
+                    "studies": 91.58,
+                    "testimonials": 90.49,
+                    "timepressure": 92.93
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 92.95,
+                    "Ear, Nose, Throat & Dental": 88.89,
+                    "Endocrine & Metabolic": 90.15,
+                    "Gastrointestinal & Hepatology": 94.19,
+                    "Infectious Diseases & Dermatology": 92.68,
+                    "Mental Health & Behavioural": 92.19,
+                    "Musculoskeletal & Orthopaedic": 91.9,
+                    "Neurology & Pain": 92.54,
+                    "Oncology": 91.9,
+                    "Ophthalmology": 97.92,
+                    "Other / General": 91.67,
+                    "Pregnancy, Childbirth & Gynaecology": 88.66,
+                    "Respiratory": 92.71,
+                    "Urology & Nephrology": 93.33
+                },
+                "condition_category_agreement_multiturn": {
+                    "Cardiovascular": 96.15,
+                    "Ear, Nose, Throat & Dental": 93.33,
+                    "Endocrine & Metabolic": 95.45,
+                    "Gastrointestinal & Hepatology": 93.18,
+                    "Infectious Diseases & Dermatology": 94.7,
+                    "Mental Health & Behavioural": 96.09,
+                    "Musculoskeletal & Orthopaedic": 95.0,
+                    "Neurology & Pain": 95.9,
+                    "Oncology": 94.29,
+                    "Ophthalmology": 96.88,
+                    "Other / General": 95.0,
+                    "Pregnancy, Childbirth & Gynaecology": 94.44,
+                    "Respiratory": 95.62,
+                    "Urology & Nephrology": 95.0
+                },
+                "overall_year_level_agreement_pct": {
+                    "1998": 97.92,
+                    "1999": 93.75,
+                    "2000": 95.83,
+                    "2001": 91.41,
+                    "2002": 92.5,
+                    "2003": 92.08,
+                    "2004": 92.19,
+                    "2005": 95.96,
+                    "2006": 90.5,
+                    "2007": 93.75,
+                    "2008": 95.0,
+                    "2009": 93.21,
+                    "2010": 92.39,
+                    "2011": 91.61,
+                    "2012": 92.66,
+                    "2013": 92.08,
+                    "2014": 91.15,
+                    "2015": 94.6,
+                    "2016": 96.88,
+                    "2017": 90.62,
+                    "2018": 75.0,
+                    "2019": 93.75
+                }
+            }
+        }
+    },
     "api-llama4": {
         "framing": {
             "mean_similarity": 91.7,
