@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=90:00:00
+#SBATCH --time=8-00:00:00
 #SBATCH --job-name=baseline
 #SBATCH --cpus-per-task=12
 #SBATCH --ntasks-per-node=1
@@ -27,10 +27,10 @@ models=(
   # "api-llama3.3"
   # "api-llama4"
   # "huatuo-7B"
-  "huatuo-8B"
+  # "huatuo-8B"
   # "qwen3-4B"
-  "qwen3-30B"
-  # "huatuo-70B"
+  # "qwen3-30B"
+  "huatuo-70B"
 )
 
 for model in "${models[@]}"; do
@@ -38,7 +38,7 @@ for model in "${models[@]}"; do
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/baseline_responses/$model/positive_question_responses.json" \
-        --batch_size 16
+        --batch_size 4
 done
 
 conda deactivate

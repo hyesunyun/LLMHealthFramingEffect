@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=4:00:00
+#SBATCH --time=80:00:00
 #SBATCH --partition=frink
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
@@ -23,16 +23,14 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 export GOOGLE_APPLICATION_CREDENTIALS="/scratch/yun.hy/question-framing-fd1030433dda.json"
 
 models=(
-  # "gpt-5.1"
-  # "claude_4.5_sonnet"
+  "gpt-5.1"
+  "claude_4.5_sonnet"
   "api-llama3.3"
-  # "api-llama4"
-  # "huatuo-7B"
-  # "huatuo-8B"
-  # "qwen3-4B"
-  # "qwen3-30B"
-  # "qwen3_thinking-4B"
-  # "qwen3_thinking-30B"
+  "api-llama4"
+  "huatuo-7B"
+  "huatuo-8B"
+  "qwen3-4B"
+  "qwen3-30B"
   # "huatuo-70B"
 )
 
@@ -45,11 +43,11 @@ for model in "${models[@]}"; do
 done
 
 # FOR BASELINE (TWO SAMPLES OF POSITIVE)
-# for model in "${models[@]}"; do
-#     python3 -u ../code/run_evaluation.py \
-#         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
-#         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
-#         --data_type "baseline"
-# done
+for model in "${models[@]}"; do
+    python3 -u ../code/run_evaluation.py \
+        --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
+        --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
+        --data_type "baseline"
+done
 
 conda deactivate
