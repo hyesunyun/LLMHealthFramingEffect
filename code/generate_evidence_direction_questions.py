@@ -13,10 +13,11 @@ PROMPT_TEMPLATE_NAME = "generate_evidence_direction_question"
 
 class Generator:
     
-    def __init__(self, model_name: str, input_path: str, output_path: str, max_new_tokens: int, is_debug: bool = False) -> None:
+    def __init__(self, model_name: str, input_path: str, output_path: str, intervention_condition_key: str, max_new_tokens: int, is_debug: bool = False) -> None:
         self.model_name = model_name
         self.input_path = input_path
         self.output_path = output_path
+        self.intervention_condition_key = intervention_condition_key
         self.is_debug = is_debug
 
         self.is_reasoning_model = model_name in REASONING_MODELS
@@ -73,7 +74,7 @@ class Generator:
             review_title = example["ReviewTitle"]
             review_abstract_sections = example["ReviewAbstract"]
             formatted_abstract = format_review_abstract(review_abstract_sections)
-            extracted_info = example["ExtractedText"]
+            extracted_info = example[self.intervention_condition_key]
             intervention = extracted_info["intervention"]
             condition = extracted_info["condition"]
             input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
@@ -117,6 +118,7 @@ if __name__ == '__main__':
                         required=True)
     parser.add_argument("--input_path", default="./outputs", help="path to the input json file containing Cochrane Reviews and extracted intervention and condition information.")
     parser.add_argument("--output_path", default="./outputs", help="directory of where the outputs/results should be saved.")
+    parser.add_argument("--intervention_condition_key", default="ExtractedText", help="the key in the input json file that contains the intervention and condition information.")
     parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the key question.")
     # do --no-debug for explicit False
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run first 10 rows of data.")
@@ -126,15 +128,17 @@ if __name__ == '__main__':
     model_name = args.model
     input_path = args.input_path
     output_path = args.output_path
+    intervention_condition_key = args.intervention_condition_key
     max_new_tokens = args.max_new_tokens
     is_debug = args.debug
 
     print("Arguments Provided for Generator:")
-    print(f"Model:             {model_name}")
-    print(f"Input Path:        {input_path}")
-    print(f"Output Path:       {output_path}")
-    print(f"Max Output Tokens: {max_new_tokens}")
-    print(f"Is Debug:          {is_debug}")
+    print(f"Model:                      {model_name}")
+    print(f"Input Path:                 {input_path}")
+    print(f"Output Path:                {output_path}")
+    print(f"Intervention/Condition Key: {intervention_condition_key}")
+    print(f"Max Output Tokens:          {max_new_tokens}")
+    print(f"Is Debug:                   {is_debug}")
     print()
 
     # Get the directory name
@@ -143,5 +147,5 @@ if __name__ == '__main__':
         os.makedirs(directory_path)
         print("Output directory path did not exist. Directory was created.")
     
-    generator = Generator(model_name, input_path, output_path, max_new_tokens, is_debug)
+    generator = Generator(model_name, input_path, output_path, intervention_condition_key, max_new_tokens, is_debug)
     generator.generate_evidence_direction_questions()

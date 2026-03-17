@@ -23,17 +23,28 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 model="qwen3_thinking-4B"
 
+##### DEFAULT QUESTIONS #####
 # Step 1: Extract Interventions and Conditions
-python3 ../code/extract_intervention_condition.py \
-    --model "$model" \
-    --input_path ../data/cochrane_review_data_cleaned.jsonl \
-    --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json"
-    # --debug
+# python3 ../code/extract_intervention_condition.py \
+#     --model "$model" \
+#     --input_path ../data/cochrane_review_data_cleaned.jsonl \
+#     --output_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json"
 
 # Step 2: Generate Questions using the extracted interventions and conditions
+# python3 ../code/apply_question_templates.py \
+#     --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
+#     --output_path "../code/outputs/questions/$model/extracted/cochrane_review_data_final_with_questions.json" \
+#     --run_scoring
+
+##### END - DEFAULT QUESTIONS #####
+
+##### SIMPLIFIED QUESTIONS #####
 python3 ../code/apply_question_templates.py \
     --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
-    --output_path "../code/outputs/questions/$model/cochrane_review_data_final_with_questions.json" \
+    --output_path "../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
+    --intervention_condition_key "SimplifiedExtractedText" \
+    --question_types "effectiveness" "efficacy" \
     --run_scoring
+##### END - SIMPLIFIED QUESTIONS #####
 
 conda deactivate

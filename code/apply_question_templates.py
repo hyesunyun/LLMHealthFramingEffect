@@ -9,11 +9,19 @@ from score_readability import ReadabilityScorer
 from utils import load_json_file, load_jsonl_file, save_dataset_to_json
 from constants import SEED
 
+FULL_QUESTION_TYPES = [
+        "effectiveness", "efficacy", "safety", "studies", 
+        "timepressure", "cost", "family", "friend", 
+        "testimonials", "journals", "ai", "doctor", "multiturn"
+    ]
+
 class Templater:
     
-    def __init__(self, input_path: str, output_path: str, run_scoring: bool = False, is_debug: bool = False) -> None:
+    def __init__(self, input_path: str, output_path: str, intervention_condition_key: str, question_types: list = FULL_QUESTION_TYPES, run_scoring: bool = False, is_debug: bool = False) -> None:
         self.input_path = input_path
         self.output_path = output_path
+        self.intervention_condition_key = intervention_condition_key
+        self.question_types = question_types
         self.run_scoring = run_scoring
         self.is_debug = is_debug
 
@@ -65,23 +73,23 @@ class Templater:
         results = []
         pbar = tqdm(self.dataset, desc="Running applying template to each sample in the dataset")
         for _, example in enumerate(pbar):
-            if "ExtractedText" not in example:
+            if self.intervention_condition_key not in example:
                 continue
-            
-            extracted_text = example["ExtractedText"]
 
-            if isinstance(extracted_text, str):
+            intervention_condition = example[self.intervention_condition_key]
+
+            if isinstance(intervention_condition, str):
                 print(f"[{example['ReviewID']}]: LLM extracted text is not in the correct format.")
                 continue
-            elif isinstance(extracted_text, dict) and "intervention" in extracted_text and "condition" in extracted_text:
-                intervention = extracted_text["intervention"]
-                condition = extracted_text["condition"]
+            elif isinstance(intervention_condition, dict) and "intervention" in intervention_condition and "condition" in intervention_condition:
+                intervention = intervention_condition["intervention"]
+                condition = intervention_condition["condition"]
 
                 if intervention is None or condition is None:
                     print(f"[{example['ReviewID']}]: intervention or condition is None.")
                     continue
             else:
-                print(f"[{example['ReviewID']}]: error with LLM extracted text.")
+                print(f"[{example['ReviewID']}]: error with LLM extracted text/simplified text.")
                 continue
 
             # loop through each key value pair in the template
@@ -115,7 +123,10 @@ class Templater:
         # end of loop through the dataset
 
         # cleaning up
-        columns_to_drop = ["LLMThinkingContext", "LLMRawResponse"]
+        if self.intervention_condition_key == "ExtractedText":
+            columns_to_drop = ["LLMThinkingContext", "LLMRawResponse"]
+        else:
+            columns_to_drop = None
 
         # saving outputs to file
         print(f"Saving outputs")
@@ -130,6 +141,8 @@ if __name__ == '__main__':
     # TODO: potentially can make template file a parameter
     parser.add_argument("--input_path", default="./outputs", help="path to the input json file containing intervention and condition for each Cochrane Review.")
     parser.add_argument("--output_path", default="./outputs", help="directory of where the outputs/results should be saved.")
+    parser.add_argument("--intervention_condition_key", default="ExtractedText", help="the key in the input json file that contains the intervention and condition information to use. Default is 'ExtractedText'.")
+    parser.add_argument("--question_types", nargs="+", default=FULL_QUESTION_TYPES, help="the types of questions to create from question_templates.json.")
     # do --no-run_scoring for explicit False
     parser.add_argument("--run_scoring", action=argparse.BooleanOptionalAction, help="whether to run readability scoring after applying templates.")
     # do --no-debug for explicit False
@@ -139,14 +152,18 @@ if __name__ == '__main__':
 
     input_path = args.input_path
     output_path = args.output_path
+    intervention_condition_key = args.intervention_condition_key
+    question_types = args.question_types
     run_scoring = args.run_scoring
     is_debug = args.debug
 
     print("Arguments Provided for Templater:")
-    print(f"Input Path:              {input_path}")
-    print(f"Output Path:             {output_path}")
-    print(f"Run Readability Scoring: {run_scoring}")
-    print(f"Is Debug:                {is_debug}")
+    print(f"Input Path:                 {input_path}")
+    print(f"Output Path:                {output_path}")
+    print(f"Intervention/Condition Key: {intervention_condition_key}")
+    print(f"Question Types:             {question_types}")
+    print(f"Run Readability Scoring:    {run_scoring}")
+    print(f"Is Debug:                   {is_debug}")
     print()
 
     # Get the directory name
@@ -155,5 +172,5 @@ if __name__ == '__main__':
         os.makedirs(directory_path)
         print("Output directory path did not exist. Directory was created.")
     
-    templater = Templater(input_path, output_path, run_scoring, is_debug)
+    templater = Templater(input_path, output_path, intervention_condition_key, question_types, run_scoring, is_debug)
     templater.apply_template()
