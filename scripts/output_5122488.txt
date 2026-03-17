@@ -25,3 +25,6 @@ Saving intermediate batch single-turn outputs at batch 300 - huatuo-70B
 Saving intermediate batch single-turn outputs at batch 350 - huatuo-70B
 Saving intermediate batch single-turn outputs at batch 400 - huatuo-70B
 Saving intermediate batch single-turn outputs at batch 450 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 500 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 550 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 600 - huatuo-70B
