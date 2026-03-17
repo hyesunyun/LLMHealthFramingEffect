@@ -25,9 +25,7 @@ models=(
   # "gpt-5.1"
   # "claude_4.5_sonnet"
   # "qwen3-4B"
-  # "qwen3_thinking-4B"
   # "qwen3-30B"
-  # "qwen3_thinking-30B"
   # "llama3.3_instruct_70B"
   # "huatuo-7B"
   # "huatuo-8B"
@@ -46,6 +44,6 @@ python3 -u ../code/generate_responses.py \
         --model huatuo-70B \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
-        --batch_size 4
+        --batch_size 2
 
 conda deactivate

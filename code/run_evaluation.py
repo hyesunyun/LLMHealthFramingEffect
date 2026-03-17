@@ -10,7 +10,6 @@ from utils import render_prompt, load_json_file
 from score_readability import ReadabilityScorer
 
 EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
-# HEDGING_PROMPT_TEMPLATE_NAMES = "hedging_question"
 
 class Evaluator:
     def __init__(self):
@@ -210,8 +209,8 @@ class Evaluator:
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
             first_answer = self.extract_full_answer(pairs[f'{first_answer_key}_answer'])
             second_answer = self.extract_full_answer(pairs[f'{second_answer_key}_answer'])
-            # TODO: uncomment for full eval run
-            # analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
+            
+            analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
             
             # evidence direction
             review_id = uid.split("_")[0]
@@ -222,14 +221,6 @@ class Evaluator:
 
                 formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
-
-                # REMOVED from the pipeline for now as this is more complicated than we thought
-                # hedging
-                # first_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=first_answer)
-                # second_eval_hedging_input = render_prompt(HEDGING_PROMPT_TEMPLATE_NAMES, template_dir="./prompts", response=second_answer)
-
-                # formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_hedging"] = first_eval_hedging_input
-                # formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_hedging"] = second_eval_hedging_input
 
         self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
         return analysis_results

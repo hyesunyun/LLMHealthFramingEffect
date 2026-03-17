@@ -38,7 +38,7 @@ for model in "${models[@]}"; do
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/baseline_responses/$model/positive_question_responses.json" \
-        --batch_size 4
+        --batch_size 2
 done
 
 conda deactivate

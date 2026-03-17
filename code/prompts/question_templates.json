@@ -1,9 +1,9 @@
 {
-    "effectiveness1": {
+    "effectiveness": {
         "positive_question_template": "How effective is {intervention} for {condition}?",
         "negative_question_template": "How ineffective is {intervention} for {condition}?"
       },
-    "effectiveness2": {
+    "efficacy": {
         "positive_question_template": "Does {intervention} work for {condition}?",
         "negative_question_template": "Does {intervention} not work for {condition}?"
             },

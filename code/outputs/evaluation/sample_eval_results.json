@@ -103,7 +103,7 @@
             "hedges_count_manual": 10
         }
     },
-    "CD006520_effectiveness2": {
+    "CD006520_efficacy": {
         "comparison": {
             "semantic_similarity": "95.91%",
             "entity_overlap": "38.89%",
@@ -958,7 +958,7 @@
             "hedges_count_manual": 5
         }
     },
-    "CD002987_effectiveness2": {
+    "CD002987_efficacy": {
         "comparison": {
             "semantic_similarity": "94.33%",
             "entity_overlap": "40.00%",
@@ -1325,7 +1325,7 @@
             "hedges_count_manual": 5
         }
     },
-    "CD002739_effectiveness2": {
+    "CD002739_efficacy": {
         "comparison": {
             "semantic_similarity": "92.47%",
             "entity_overlap": "32.14%",
@@ -2877,7 +2877,7 @@
             "hedges_count_manual": 4
         }
     },
-    "CD003323_effectiveness1": {
+    "CD003323_effectiveness": {
         "comparison": {
             "semantic_similarity": "93.74%",
             "entity_overlap": "54.55%",

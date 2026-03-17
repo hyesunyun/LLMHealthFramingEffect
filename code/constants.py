@@ -11,7 +11,7 @@ SEED = 42
 MODELS_WITH_RATE_LIMIT = ["claude_4.5_sonnet", "api-llama3.3", "api-llama4"]
 REQ_TIME_GAP = 6
 MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "claude_4.5_sonnet", 
-          "llama3.3_instruct_70B", "api-llama3.3", "api-llama4", # "api-mistral7b",
+          "llama3.3_instruct_70B", "api-llama3.3", "api-llama4",
           "qwen3-4B", "qwen3-30B", "qwen3_thinking-4B", "qwen3_thinking-30B",
           "huatuo-7B", "huatuo-8B", "huatuo-70B"]
 REASONING_MODELS = ["gpt-5.1", "gpt5-mini", "gpt5-nano", "qwen3_thinking-4B", "qwen3_thinking-30B", "huatuo-7B", "huatuo-8B", "huatuo-70B"]
@@ -36,6 +36,5 @@ MODEL_CLASS_MAPPING = {
         "huatuo-8B": Huatuo,
         "huatuo-70B": Huatuo,
         "api-llama3.3": TACC, 
-        "api-llama4": TACC,
-        # "api-mistral7b": TACC
+        "api-llama4": TACC
     }

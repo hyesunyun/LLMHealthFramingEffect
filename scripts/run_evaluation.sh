@@ -35,19 +35,19 @@ models=(
 )
 
 # FOR POSITIVE vs NEGATIVE
-for model in "${models[@]}"; do
-    python3 -u ../code/run_evaluation.py \
-        --file_path "../code/outputs/responses/${model}/question_responses.json" \
-        --output_path "../code/outputs/evaluation/${model}_eval_results.json" \
-        --data_type "framing"
-done
+# for model in "${models[@]}"; do
+#     python3 -u ../code/run_evaluation.py \
+#         --file_path "../code/outputs/responses/${model}/question_responses.json" \
+#         --output_path "../code/outputs/evaluation/${model}_eval_results.json" \
+#         --data_type "framing"
+# done
 
 # FOR BASELINE (TWO SAMPLES OF POSITIVE)
-for model in "${models[@]}"; do
-    python3 -u ../code/run_evaluation.py \
-        --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
-        --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
-        --data_type "baseline"
-done
+# for model in "${models[@]}"; do
+#     python3 -u ../code/run_evaluation.py \
+#         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
+#         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
+#         --data_type "baseline"
+# done
 
 conda deactivate

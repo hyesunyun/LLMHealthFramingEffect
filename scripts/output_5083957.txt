@@ -1,0 +1,172 @@
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/gpt-5.1/question_responses.json
+Output Path: ../code/outputs/evaluation/gpt-5.1_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155144.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155144.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/3342096434508857344
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/claude_4.5_sonnet/question_responses.json
+Output Path: ../code/outputs/evaluation/claude_4.5_sonnet_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155211.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155211.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/5368716266825580544
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/api-llama3.3/question_responses.json
+Output Path: ../code/outputs/evaluation/api-llama3.3_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155248.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155248.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/7575480084237123584
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/api-llama4/question_responses.json
+Output Path: ../code/outputs/evaluation/api-llama4_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155316.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155316.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/1878426555613446144
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/huatuo-7B/question_responses.json
+Output Path: ../code/outputs/evaluation/huatuo-7B_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155353.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155353.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/3062873257611886592
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/huatuo-8B/question_responses.json
+Output Path: ../code/outputs/evaluation/huatuo-8B_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155425.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155425.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/7674559276039274496
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/qwen3-4B/question_responses.json
+Output Path: ../code/outputs/evaluation/qwen3-4B_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155509.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155509.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/630929458831818752
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/responses/qwen3-30B/question_responses.json
+Output Path: ../code/outputs/evaluation/qwen3-30B_eval_results.json
+Data Type:   framing
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155536.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155536.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/6215392996771233792
+
+
+
+
+
+
+
+
+
+
+
+
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/gpt-5.1/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/gpt-5.1_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155612.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155612.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/2288254121704161280
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/claude_4.5_sonnet/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/claude_4.5_sonnet_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155639.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155639.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/4801262713776898048
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/api-llama3.3/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/api-llama3.3_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155733.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155733.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/1063275023059386368
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/api-llama4/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/api-llama4_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155800.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155800.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/437274674854887424
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/huatuo-7B/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/huatuo-7B_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155836.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155836.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/5048960693282275328
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/huatuo-8B/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/huatuo-8B_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155902.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155902.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/468799872246480896
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/qwen3-4B/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/qwen3-4B_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_155937.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_155937.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/7944775253681504256
+
+Arguments Provided for Evaluation:
+File Path:   ../code/outputs/baseline_responses/qwen3-30B/positive_question_responses.json
+Output Path: ../code/outputs/baseline_evaluation/qwen3-30B_eval_results.json
+Data Type:   baseline
+
+Uploading batch input file to GCS bucket: gemini-eval-outputs
+File /scratch/yun.hy/LLMHealthFramingEffect/code/outputs/batch_requests/gemini-2.5-flash_batch_20260315_160003.jsonl uploaded to gs://gemini-eval-outputs/gemini-2.5-flash_batch_input_20260315_160003.jsonl
+Submitting batch job to Vertex AI...
+Created batch: projects/2409567398/locations/global/batchPredictionJobs/6791853749074657280
