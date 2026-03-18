@@ -39,6 +39,7 @@ models=(
 #     python3 -u ../code/run_evaluation.py \
 #         --file_path "../code/outputs/responses/${model}/question_responses.json" \
 #         --output_path "../code/outputs/evaluation/${model}_eval_results.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
 #         --data_type "framing"
 # done
 
@@ -47,6 +48,26 @@ models=(
 #     python3 -u ../code/run_evaluation.py \
 #         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
 #         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
+#         --data_type "baseline"
+# done
+
+
+# FOR POSITIVE vs NEGATIVE
+# for model in "${models[@]}"; do
+#     python3 -u ../code/run_evaluation.py \
+#         --file_path "../code/outputs/responses/${model}/question_responses.json" \
+#         --output_path "../code/outputs/evaluation/${model}_eval_results.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_final.json" \
+#         --data_type "framing"
+# done
+
+# FOR BASELINE (TWO SAMPLES OF POSITIVE)
+# for model in "${models[@]}"; do
+#     python3 -u ../code/run_evaluation.py \
+#         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
+#         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_final.json" \
 #         --data_type "baseline"
 # done
 

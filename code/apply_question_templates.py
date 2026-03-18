@@ -50,7 +50,9 @@ class Templater:
         if self.is_debug:
             random.seed(SEED)
             dataset = random.sample(dataset, 10)
-
+        
+        # only include rows that are relevant for this task
+        dataset = [row for row in dataset if self.intervention_condition_key in row]
         self.dataset = dataset
 
     def __load_template(self) -> str:
@@ -62,7 +64,9 @@ class Templater:
         # TODO: can add template file path as a parameter
         template_file_path = os.path.join(os.path.dirname(__file__), "./prompts/question_templates.json")
         # for each question type, there is positive_question_template and negative_question_template
-        self.template = load_json_file(template_file_path)
+        templates = load_json_file(template_file_path)
+        # filtering to only question types we want
+        self.template = {key: templates[key] for key in self.question_types if key in templates}
 
     def apply_template(self) -> None:
         """

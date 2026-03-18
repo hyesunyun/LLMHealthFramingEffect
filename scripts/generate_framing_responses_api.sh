@@ -21,8 +21,6 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-  # "gpt-5.1"
-  # "claude_4.5_sonnet"
   "api-llama3.3"
   "api-llama4"
 )
@@ -40,7 +38,7 @@ for model in "${models[@]}"; do
     python3 -u ../code/generate_responses.py \
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/responses/$model/simplified_question_responses.json" 
+        --output_path "../code/outputs/responses/$model/simplified_question_responses.json"
 done
 
 conda deactivate

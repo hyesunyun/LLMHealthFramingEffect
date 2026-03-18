@@ -12,8 +12,6 @@ class TACC(Model):
             self.model_name = "Meta-Llama-3.3-70B-Instruct"
         elif model_type == "llama4":
             self.model_name = "Llama-4-Maverick-17B-128E-Instruct"
-        # elif model_type == "mistral7B":
-        #     self.model_name = "E5-Mistral-7B-Instruct"
         logging.basicConfig(level=logging.ERROR)
         load_dotenv(override=True)
         api_key = os.getenv("TACC_API_KEY")

@@ -21,7 +21,7 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-  # "gpt-5.1"
+  "gpt-5.1"
   "claude_4.5_sonnet"
 )
 

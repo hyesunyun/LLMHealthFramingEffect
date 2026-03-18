@@ -12,7 +12,7 @@ from score_readability import ReadabilityScorer
 EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
 
 class Evaluator:
-    def __init__(self):
+    def __init__(self, eval_path: str):
         # Semantic Similarity Model
         self.semantic_model = SentenceTransformer('all-MiniLM-L6-v2')
         
@@ -26,7 +26,7 @@ class Evaluator:
         self.hedge_words = self.load_hedges()
 
         # Questions for Evidence Direction
-        self.eval_questions = self.load_eval_questions()
+        self.eval_questions = self.load_eval_questions(eval_path)
 
         # Evaluation Model for Evidence Direction (lower, higher, same)
         self.eval_model = Gemini("flash") # can do other 2.5 models
@@ -50,14 +50,15 @@ class Evaluator:
                 lines.append(clean_line)
         return lines
 
-    def load_eval_questions(self) -> dict:
+    def load_eval_questions(self, eval_path: str) -> dict:
         """
         Loads the evidence direction evaluation questions for the eval model
 
+        :param eval_path: file to load
+
         :return: dict of dicts
         """
-        questions_data = load_json_file("../code/outputs/questions/qwen3_thinking-4B/evidence_direction_questions_final.json")
-        # Convert the list to a dict using a dictionary comprehension
+        questions_data = load_json_file(eval_path)
         # This is for easy retrieval
         return {item['ReviewID']: item["EvidenceDirectionQuestion"] for item in questions_data}
 
@@ -97,12 +98,16 @@ class Evaluator:
 
         :return: list of instances
         """
-        pattern = r'(?<!\[)\b-?(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d+)?\b(?!\])'
+        # Pattern breakdown:
+        # \[.*?\]             -> Matches anything in brackets (ignored)
+        # |                   -> OR
+        # (-?\d+\.\d+|-?\d+)  -> Capture group for negative/positive floats or integers
+        pattern = r'\[.*?\]|(-?\d+\.\d+|-?\d+)'
+
+        # Extract only the non-empty strings from the capture group
+        numbers = [n for n in re.findall(pattern, text) if n]
         
-        # Find all matches
-        matches = re.findall(pattern, text)
-        
-        return matches
+        return numbers
     
     def get_num_percentage_symbol_instances(self, text: str) -> list[int]:
         """
@@ -127,7 +132,7 @@ class Evaluator:
 
         :return: list of references
         """
-        pattern = r'(?<=\[)-?(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d+)?(?=\])'
+        pattern = r'\d+(?=[^\[]*\])'
         # Find all matches
         matches = re.findall(pattern, text)
 
@@ -222,7 +227,8 @@ class Evaluator:
                 formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
 
-        self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
+        # TODO: uncomment to run the full evaluation
+        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
         return analysis_results
 
 def format_outputs(raw_data: list[dict], data_type: str) -> dict:
@@ -272,25 +278,28 @@ if __name__ == '__main__':
 
     parser.add_argument("--file_path", default="./inputs", help="path to the file with outputs to analzye")
     parser.add_argument("--output_path", default="./outputs", help="path/file name of where the results should be saved.")
+    parser.add_argument("--eval_path", default="./outputs", help="path/file name of the evaluation (evidence direction) questions")
     parser.add_argument("--data_type", default="framing", help="type of the file to analyze (framing or baseline)")
     
     args = parser.parse_args()
 
     file_path = args.file_path
     output_path = args.output_path
+    eval_path = args.eval_path
     data_type = args.data_type
 
     print()
     print("Arguments Provided for Evaluation:")
     print(f"File Path:   {file_path}")
     print(f"Output Path: {output_path}")
+    print(f"Eval Path:   {eval_path}")
     print(f"Data Type:   {data_type}")
     print()
     data = load_json_file(file_path)
     formatted_data = format_outputs(data, data_type)
 
     # Run
-    evaluator = Evaluator()
+    evaluator = Evaluator(eval_path)
     final_report = evaluator.process_batch(formatted_data, data_type)
 
     # print("\n--- FINAL EVALUATION REPORT ---")

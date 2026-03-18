@@ -9,7 +9,8 @@ from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MO
 
 DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens, higher due to some models being reasoning models
-PROMPT_TEMPLATE_NAME = "generate_evidence_direction_question"
+DEFAULT_PROMPT_TEMPLATE_NAME = "generate_evidence_direction_question"
+SIMPLIFIED_PROMPT_TEMPLATE_NAME = "generate_simplified_evidence_direction_question"
 
 class Generator:
     
@@ -18,6 +19,10 @@ class Generator:
         self.input_path = input_path
         self.output_path = output_path
         self.intervention_condition_key = intervention_condition_key
+        if intervention_condition_key == "SimplifiedExtractedText":
+            self.prompt_template_name = SIMPLIFIED_PROMPT_TEMPLATE_NAME
+        else:
+            self.prompt_template_name = DEFAULT_PROMPT_TEMPLATE_NAME
         self.is_debug = is_debug
 
         self.is_reasoning_model = model_name in REASONING_MODELS
@@ -42,7 +47,7 @@ class Generator:
             dataset = load_json_file(self.input_path)
 
         if self.is_debug:
-            dataset = dataset[:10] # use only first 10 examples for debugging
+            dataset = dataset[:3] # use only first 10 examples for debugging
 
         self.dataset = dataset
 
@@ -77,7 +82,7 @@ class Generator:
             extracted_info = example[self.intervention_condition_key]
             intervention = extracted_info["intervention"]
             condition = extracted_info["condition"]
-            input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
+            input = render_prompt(self.prompt_template_name, template_dir="./prompts",
                                   review_title=review_title, review_abstract=formatted_abstract,
                                   intervention=intervention, condition=condition)
 
@@ -89,7 +94,7 @@ class Generator:
             else:
                 response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
 
-            keys_to_remove = ["Inputs", "NumInputs", "Year", "Keywords", "NumIncludedStudies", "Questions", "MedReadMeScores"]
+            keys_to_remove = ["Inputs", "NumInputs", "Year", "Keywords", "NumIncludedStudies", "Questions", "MedReadMeScores", "ConditionCategory"]
             updated_example = {key: value for key, value in example.items() if key not in keys_to_remove}
             # updated_example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
             updated_example["EvidenceDirectionQuestion"] = response
@@ -121,7 +126,7 @@ if __name__ == '__main__':
     parser.add_argument("--intervention_condition_key", default="ExtractedText", help="the key in the input json file that contains the intervention and condition information.")
     parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the key question.")
     # do --no-debug for explicit False
-    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run first 10 rows of data.")
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run first 3 rows of data.")
     
     args = parser.parse_args()
 
