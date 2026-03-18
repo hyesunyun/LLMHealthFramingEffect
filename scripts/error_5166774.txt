@@ -304,3 +304,4 @@ ERROR:root:[ERROR] CUDA out of memory. Tried to allocate 1.43 GiB. GPU 1 has a t
 Batched single-turn generation:  23%|██▎       | 999/4416 [9:29:21<96:44:54, 101.93s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
 Batched single-turn generation:  23%|██▎       | 1000/4416 [9:30:48<92:34:06, 97.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
 Batched single-turn generation:  23%|██▎       | 1001/4416 [9:32:28<93:08:33, 98.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Batched single-turn generation:  23%|██▎       | 1002/4416 [9:34:35<101:25:08, 106.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
