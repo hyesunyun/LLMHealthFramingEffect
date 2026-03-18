@@ -123,10 +123,7 @@ class Templater:
         # end of loop through the dataset
 
         # cleaning up
-        if self.intervention_condition_key == "ExtractedText":
-            columns_to_drop = ["LLMThinkingContext", "LLMRawResponse"]
-        else:
-            columns_to_drop = None
+        columns_to_drop = ["LLMThinkingContext", "LLMRawResponse"]
 
         # saving outputs to file
         print(f"Saving outputs")

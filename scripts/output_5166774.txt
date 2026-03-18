@@ -17,3 +17,9 @@ Model's device map: {'model.embed_tokens': 0, 'model.layers.0': 0, 'model.layers
 Running batched HuggingFace inference (batch_size=2)
 Pass 1: Collecting and batching single-turn questions...
 Collected 8832 single-turn questions.
+Saving intermediate batch single-turn outputs at batch 750 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 800 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 850 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 900 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 950 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 1000 - huatuo-70B

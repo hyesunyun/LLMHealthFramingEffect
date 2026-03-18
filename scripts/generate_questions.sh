@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
-#SBATCH --partition=177huntington
-#SBATCH --gres=gpu:2
+#SBATCH --partition=frink
+#SBATCH --gres=gpu:1
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -40,7 +40,7 @@ model="qwen3_thinking-4B"
 
 ##### SIMPLIFIED QUESTIONS #####
 python3 ../code/apply_question_templates.py \
-    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions.json" \
+    --input_path "../code/outputs/extracted_text/$model/extracted_interventions_conditions_with_simplified.json" \
     --output_path "../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
     --intervention_condition_key "SimplifiedExtractedText" \
     --question_types "effectiveness" "efficacy" \
