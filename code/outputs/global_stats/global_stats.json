@@ -3,8 +3,8 @@
         "framing": {
             "mean_similarity": 89.25,
             "mean_entity_overlap": 29.63,
-            "mean_reference_overlap": 76.3,
-            "mean_numerical_instances_overlap": 23.73,
+            "mean_reference_overlap": 92.59,
+            "mean_numerical_instances_overlap": 24.65,
             "mean_percentage_symbol_instances_diff": 0.69,
             "flesch_reading_ease": {
                 "first_mean": 33.315,
@@ -132,8 +132,8 @@
         "baseline": {
             "mean_similarity": 90.6,
             "mean_entity_overlap": 30.86,
-            "mean_reference_overlap": 76.55,
-            "mean_numerical_instances_overlap": 26.3,
+            "mean_reference_overlap": 93.33,
+            "mean_numerical_instances_overlap": 27.41,
             "mean_percentage_symbol_instances_diff": 0.58,
             "flesch_reading_ease": {
                 "first_mean": 33.117,
@@ -263,8 +263,8 @@
         "framing": {
             "mean_similarity": 90.03,
             "mean_entity_overlap": 39.39,
-            "mean_reference_overlap": 77.58,
-            "mean_numerical_instances_overlap": 33.2,
+            "mean_reference_overlap": 87.23,
+            "mean_numerical_instances_overlap": 34.71,
             "mean_percentage_symbol_instances_diff": 0.81,
             "flesch_reading_ease": {
                 "first_mean": 18.437,
@@ -392,8 +392,8 @@
         "baseline": {
             "mean_similarity": 92.34,
             "mean_entity_overlap": 44.69,
-            "mean_reference_overlap": 77.81,
-            "mean_numerical_instances_overlap": 41.09,
+            "mean_reference_overlap": 87.79,
+            "mean_numerical_instances_overlap": 42.79,
             "mean_percentage_symbol_instances_diff": 0.65,
             "flesch_reading_ease": {
                 "first_mean": 18.427,
@@ -523,8 +523,8 @@
         "framing": {
             "mean_similarity": 91.56,
             "mean_entity_overlap": 67.67,
-            "mean_reference_overlap": 62.85,
-            "mean_numerical_instances_overlap": 34.1,
+            "mean_reference_overlap": 92.14,
+            "mean_numerical_instances_overlap": 18.46,
             "mean_percentage_symbol_instances_diff": 0.39,
             "flesch_reading_ease": {
                 "first_mean": 25.549,
@@ -652,8 +652,8 @@
         "baseline": {
             "mean_similarity": 93.92,
             "mean_entity_overlap": 74.19,
-            "mean_reference_overlap": 66.31,
-            "mean_numerical_instances_overlap": 42.34,
+            "mean_reference_overlap": 93.28,
+            "mean_numerical_instances_overlap": 24.1,
             "mean_percentage_symbol_instances_diff": 0.32,
             "flesch_reading_ease": {
                 "first_mean": 25.479,
@@ -783,8 +783,8 @@
         "framing": {
             "mean_similarity": 91.72,
             "mean_entity_overlap": 51.56,
-            "mean_reference_overlap": 66.77,
-            "mean_numerical_instances_overlap": 29.59,
+            "mean_reference_overlap": 82.73,
+            "mean_numerical_instances_overlap": 29.28,
             "mean_percentage_symbol_instances_diff": 0.64,
             "flesch_reading_ease": {
                 "first_mean": 26.134,
@@ -912,8 +912,8 @@
         "baseline": {
             "mean_similarity": 93.72,
             "mean_entity_overlap": 58.56,
-            "mean_reference_overlap": 69.71,
-            "mean_numerical_instances_overlap": 35.87,
+            "mean_reference_overlap": 85.04,
+            "mean_numerical_instances_overlap": 35.34,
             "mean_percentage_symbol_instances_diff": 0.53,
             "flesch_reading_ease": {
                 "first_mean": 26.131,
@@ -1043,8 +1043,8 @@
         "framing": {
             "mean_similarity": 90.94,
             "mean_entity_overlap": 53.24,
-            "mean_reference_overlap": 65.59,
-            "mean_numerical_instances_overlap": 20.73,
+            "mean_reference_overlap": 78.54,
+            "mean_numerical_instances_overlap": 20.69,
             "mean_percentage_symbol_instances_diff": 0.49,
             "flesch_reading_ease": {
                 "first_mean": 38.781,
@@ -1172,8 +1172,8 @@
         "baseline": {
             "mean_similarity": 94.25,
             "mean_entity_overlap": 62.24,
-            "mean_reference_overlap": 71.36,
-            "mean_numerical_instances_overlap": 26.34,
+            "mean_reference_overlap": 82.96,
+            "mean_numerical_instances_overlap": 25.25,
             "mean_percentage_symbol_instances_diff": 0.36,
             "flesch_reading_ease": {
                 "first_mean": 38.722,
@@ -1303,8 +1303,8 @@
         "framing": {
             "mean_similarity": 90.97,
             "mean_entity_overlap": 46.43,
-            "mean_reference_overlap": 74.08,
-            "mean_numerical_instances_overlap": 22.81,
+            "mean_reference_overlap": 82.73,
+            "mean_numerical_instances_overlap": 23.89,
             "mean_percentage_symbol_instances_diff": 0.46,
             "flesch_reading_ease": {
                 "first_mean": 36.387,
@@ -1432,8 +1432,8 @@
         "baseline": {
             "mean_similarity": 94.2,
             "mean_entity_overlap": 52.28,
-            "mean_reference_overlap": 76.79,
-            "mean_numerical_instances_overlap": 26.89,
+            "mean_reference_overlap": 85.34,
+            "mean_numerical_instances_overlap": 28.4,
             "mean_percentage_symbol_instances_diff": 0.36,
             "flesch_reading_ease": {
                 "first_mean": 36.34,
@@ -1563,8 +1563,8 @@
         "framing": {
             "mean_similarity": 90.92,
             "mean_entity_overlap": 39.5,
-            "mean_reference_overlap": 18.17,
-            "mean_numerical_instances_overlap": 6.13,
+            "mean_reference_overlap": 35.74,
+            "mean_numerical_instances_overlap": 6.99,
             "mean_percentage_symbol_instances_diff": 0.13,
             "flesch_reading_ease": {
                 "first_mean": 22.12,
@@ -1692,8 +1692,8 @@
         "baseline": {
             "mean_similarity": 92.36,
             "mean_entity_overlap": 40.88,
-            "mean_reference_overlap": 19.07,
-            "mean_numerical_instances_overlap": 8.28,
+            "mean_reference_overlap": 38.47,
+            "mean_numerical_instances_overlap": 8.4,
             "mean_percentage_symbol_instances_diff": 0.13,
             "flesch_reading_ease": {
                 "first_mean": 22.241,
@@ -1823,8 +1823,8 @@
         "framing": {
             "mean_similarity": 91.71,
             "mean_entity_overlap": 54.32,
-            "mean_reference_overlap": 52.96,
-            "mean_numerical_instances_overlap": 8.91,
+            "mean_reference_overlap": 66.61,
+            "mean_numerical_instances_overlap": 10.49,
             "mean_percentage_symbol_instances_diff": 0.3,
             "flesch_reading_ease": {
                 "first_mean": 19.309,
@@ -1952,8 +1952,8 @@
         "baseline": {
             "mean_similarity": 92.9,
             "mean_entity_overlap": 56.17,
-            "mean_reference_overlap": 53.67,
-            "mean_numerical_instances_overlap": 10.06,
+            "mean_reference_overlap": 66.7,
+            "mean_numerical_instances_overlap": 11.52,
             "mean_percentage_symbol_instances_diff": 0.29,
             "flesch_reading_ease": {
                 "first_mean": 18.979,

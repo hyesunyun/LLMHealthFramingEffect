@@ -159,7 +159,7 @@ class Generator:
 
             # TODO: remove when not using intermediate results for check pointing.
             if self.model_name == "huatuo-70B":
-                if batch_num < 1000:
+                if batch_num < 1200:
                     continue
             ############## END ##############
 

@@ -20,3 +20,4 @@ Collected 8832 single-turn questions.
 Saving intermediate batch single-turn outputs at batch 1050 - huatuo-70B
 Saving intermediate batch single-turn outputs at batch 1100 - huatuo-70B
 Saving intermediate batch single-turn outputs at batch 1150 - huatuo-70B
+Saving intermediate batch single-turn outputs at batch 1200 - huatuo-70B

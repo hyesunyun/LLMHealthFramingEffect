@@ -41,7 +41,7 @@
             "intervention": "medicine for fatigue",
             "condition": "fatigue in MS"
         },
-        "EvidenceDirectionQuestion": "Is the percentage of patients with fatigue improvement higher, lower, or the same when comparing amantadine to placebo?"
+        "EvidenceDirectionQuestion": "Is the percentage of patients with fatigue improvement higher, lower, or the same when comparing medicine for fatigue to dummy treatment?"
     },
     {
         "DOI": "10.1002/14651858.CD008234.pub2",
@@ -85,7 +85,7 @@
             "intervention": "medicine in the ear",
             "condition": "dizziness from ear disease"
         },
-        "EvidenceDirectionQuestion": "Is the severity of vertigo lower, higher, or the same when comparing intratympanic gentamicin to placebo?"
+        "EvidenceDirectionQuestion": "Is the percentage of patients with improvement in vertigo complaints higher, lower, or the same when comparing medicine in the ear to dummy treatment?"
     },
     {
         "DOI": "10.1002/14651858.CD008341",
@@ -129,6 +129,6 @@
             "intervention": "medicine for arthritis",
             "condition": "arthritis"
         },
-        "EvidenceDirectionQuestion": "Is the ACR50 response rate higher, lower, or the same when comparing golimumab to placebo?"
+        "EvidenceDirectionQuestion": "Is the percentage of people who saw at least a 50% improvement of symptoms higher, lower, or the same when comparing medicine for arthritis to dummy treatment?"
     }
 ]
