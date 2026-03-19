@@ -23,7 +23,7 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 export GOOGLE_APPLICATION_CREDENTIALS="/scratch/yun.hy/question-framing-fd1030433dda.json"
 
 models=(
-  # "gpt-5.1"
+  "gpt-5.1"
   "claude_4.5_sonnet"
   "api-llama3.3"
   "api-llama4"
