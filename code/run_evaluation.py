@@ -13,8 +13,8 @@ EVIDENCE_DIRECTION_PROMPT_TEMPLATE_NAMES = "evidence_direction_question"
 
 class Evaluator:
     def __init__(self, eval_path: str):
-        # Semantic Similarity Model
-        self.semantic_model = SentenceTransformer('all-MiniLM-L6-v2')
+        # For Semantic Cosine Similarity
+        self.embedding_model = SentenceTransformer('NeuML/pubmedbert-base-embeddings')
         
         # NLP for Entities
         self.nlp = spacy.load("en_core_web_sm")
@@ -171,12 +171,12 @@ class Evaluator:
 
         :return: dictionary with all statistics between first and second texts
         """
-        # Semantic Similarity
-        emb1 = self.semantic_model.encode(text_a, convert_to_tensor=True)
-        emb2 = self.semantic_model.encode(text_b, convert_to_tensor=True)
-        sem_sim = util.pytorch_cos_sim(emb1, emb2).item()
+        # Semantic - Cosine Similarity
+        emb1 = self.embedding_model.encode(text_a, convert_to_tensor=True)
+        emb2 = self.embedding_model.encode(text_b, convert_to_tensor=True)
+        cos_sim = util.pytorch_cos_sim(emb1, emb2).item()
 
-        # Entity Overlap
+        # Entity Overlap (Jaccard Similarity)
         ent_a = self.get_entities(text_a)
         ent_b = self.get_entities(text_b)
         intersection = ent_a.intersection(ent_b)
@@ -184,8 +184,8 @@ class Evaluator:
 
         return {
             "comparison": {
-                "semantic_similarity": f"{sem_sim:.2%}",
-                "entity_overlap": f"{ne_overlap:.2%}",
+                "cosine_similarity": cos_sim,
+                "entity_jaccard_similarity": ne_overlap,
                 "common_entities": list(intersection)
             },
             "first_response_metrics": self.get_text_stats(text_a),
