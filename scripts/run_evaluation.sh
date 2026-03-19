@@ -23,10 +23,10 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 export GOOGLE_APPLICATION_CREDENTIALS="/scratch/yun.hy/question-framing-fd1030433dda.json"
 
 models=(
-  "gpt-5.1"
-  "claude_4.5_sonnet"
-  "api-llama3.3"
-  "api-llama4"
+  # "gpt-5.1"
+  # "claude_4.5_sonnet"
+  # "api-llama3.3"
+  # "api-llama4"
   "huatuo-7B"
   "huatuo-8B"
   "qwen3-4B"
@@ -44,13 +44,13 @@ models=(
 # done
 
 # FOR BASELINE (TWO SAMPLES OF POSITIVE)
-# for model in "${models[@]}"; do
-#     python3 -u ../code/run_evaluation.py \
-#         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
-#         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
-#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
-#         --data_type "baseline"
-# done
+for model in "${models[@]}"; do
+    python3 -u ../code/run_evaluation.py \
+        --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
+        --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
+        --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
+        --data_type "baseline"
+done
 
 # FOR POSITIVE vs NEGATIVE
 # for model in "${models[@]}"; do
