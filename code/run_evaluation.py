@@ -227,8 +227,7 @@ class Evaluator:
                 formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
 
-        # TODO: uncomment when running the full thing
-        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
+        self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
         return analysis_results
 
 def format_outputs(raw_data: list[dict], data_type: str) -> dict:
