@@ -6,7 +6,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=180G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -22,9 +22,9 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 models=(
-  "huatuo-7B"
+  # "huatuo-7B"
   "huatuo-8B"
-  "qwen3-4B"
+  # "qwen3-4B"
   # "qwen3-30B"
   # "huatuo-70B"
 )
@@ -46,11 +46,5 @@ for model in "${models[@]}"; do
         --output_path "../code/outputs/responses/$model/simplified_question_responses.json" \
         --batch_size 16
 done
-
-# python3 -u ../code/generate_responses.py \
-#     --model huatuo-70B \
-#     --input_path ../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
-#     --output_path ../code/outputs/responses/huatuo-70B/question_responses.json \
-#     --batch_size 2
 
 conda deactivate

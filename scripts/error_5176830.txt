@@ -1,223 +1,0 @@
-Loading checkpoint shards:   0%|          | 0/30 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/30 [00:00<00:25,  1.13it/s]Loading checkpoint shards:   7%|▋         | 2/30 [00:01<00:24,  1.16it/s]Loading checkpoint shards:  10%|█         | 3/30 [00:02<00:24,  1.11it/s]Loading checkpoint shards:  13%|█▎        | 4/30 [00:03<00:23,  1.10it/s]Loading checkpoint shards:  17%|█▋        | 5/30 [00:04<00:22,  1.11it/s]Loading checkpoint shards:  20%|██        | 6/30 [00:05<00:21,  1.12it/s]Loading checkpoint shards:  23%|██▎       | 7/30 [00:06<00:20,  1.12it/s]Loading checkpoint shards:  27%|██▋       | 8/30 [00:07<00:20,  1.09it/s]Loading checkpoint shards:  30%|███       | 9/30 [00:08<00:19,  1.06it/s]Loading checkpoint shards:  33%|███▎      | 10/30 [00:09<00:19,  1.04it/s]Loading checkpoint shards:  37%|███▋      | 11/30 [00:10<00:18,  1.05it/s]Loading checkpoint shards:  40%|████      | 12/30 [00:11<00:17,  1.04it/s]Loading checkpoint shards:  43%|████▎     | 13/30 [00:12<00:16,  1.04it/s]Loading checkpoint shards:  47%|████▋     | 14/30 [00:13<00:15,  1.04it/s]Loading checkpoint shards:  50%|█████     | 15/30 [00:13<00:14,  1.07it/s]Loading checkpoint shards:  53%|█████▎    | 16/30 [00:14<00:13,  1.07it/s]Loading checkpoint shards:  57%|█████▋    | 17/30 [00:15<00:11,  1.09it/s]Loading checkpoint shards:  60%|██████    | 18/30 [00:16<00:11,  1.08it/s]Loading checkpoint shards:  63%|██████▎   | 19/30 [00:17<00:10,  1.10it/s]Loading checkpoint shards:  67%|██████▋   | 20/30 [00:18<00:08,  1.12it/s]Loading checkpoint shards:  70%|███████   | 21/30 [00:19<00:08,  1.12it/s]Loading checkpoint shards:  73%|███████▎  | 22/30 [00:20<00:07,  1.13it/s]Loading checkpoint shards:  77%|███████▋  | 23/30 [00:21<00:06,  1.11it/s]Loading checkpoint shards:  80%|████████  | 24/30 [00:22<00:05,  1.09it/s]Loading checkpoint shards:  83%|████████▎ | 25/30 [00:22<00:04,  1.12it/s]Loading checkpoint shards:  87%|████████▋ | 26/30 [00:23<00:03,  1.13it/s]Loading checkpoint shards:  90%|█████████ | 27/30 [00:24<00:02,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 28/30 [00:25<00:01,  1.10it/s]Loading checkpoint shards:  97%|█████████▋| 29/30 [00:26<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 30/30 [00:26<00:00,  1.32it/s]Loading checkpoint shards: 100%|██████████| 30/30 [00:26<00:00,  1.11it/s]
-Batched single-turn generation:   0%|          | 0/4416 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1001/4416 [01:33<05:20, 10.67it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1001/4416 [01:50<05:20, 10.67it/s]Batched single-turn generation:  23%|██▎       | 1002/4416 [03:52<16:34,  3.43it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1003/4416 [06:12<32:43,  1.74it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1004/4416 [08:21<53:46,  1.06it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1005/4416 [10:33<1:24:25,  1.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1006/4416 [12:33<2:03:45,  2.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1007/4416 [14:38<3:01:43,  3.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1008/4416 [16:42<4:21:41,  4.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1009/4416 [18:04<5:34:37,  5.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1010/4416 [20:33<8:40:55,  9.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1011/4416 [22:09<11:16:28, 11.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1012/4416 [23:40<14:30:39, 15.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1013/4416 [25:06<18:24:29, 19.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1014/4416 [27:01<25:18:46, 26.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1015/4416 [28:52<33:11:06, 35.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1016/4416 [30:58<43:52:27, 46.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1017/4416 [33:21<57:28:29, 60.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1018/4416 [35:17<66:45:24, 70.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1019/4416 [37:39<80:18:23, 85.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1020/4416 [39:47<89:23:03, 94.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1021/4416 [41:12<87:03:52, 92.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1022/4416 [42:49<88:14:45, 93.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1023/4416 [44:18<86:50:02, 92.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1024/4416 [45:41<84:36:45, 89.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1025/4416 [47:15<85:40:51, 90.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1026/4416 [49:00<89:18:36, 94.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1027/4416 [50:44<92:00:04, 97.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1028/4416 [53:22<108:31:42, 115.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1029/4416 [55:27<111:11:37, 118.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1030/4416 [57:21<110:03:06, 117.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1031/4416 [59:01<105:15:57, 111.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1032/4416 [1:01:12<110:36:37, 117.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1033/4416 [1:03:22<113:56:39, 121.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1034/4416 [1:05:39<118:16:39, 125.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1035/4416 [1:07:37<116:13:23, 123.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1036/4416 [1:09:26<111:52:56, 119.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  23%|██▎       | 1037/4416 [1:11:04<106:05:25, 113.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1038/4416 [1:13:21<112:39:08, 120.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1039/4416 [1:15:49<120:31:22, 128.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1040/4416 [1:18:16<125:44:15, 134.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1041/4416 [1:20:57<133:15:37, 142.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1042/4416 [1:23:33<136:55:09, 146.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1043/4416 [1:25:50<134:19:54, 143.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1044/4416 [1:27:56<129:30:37, 138.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1045/4416 [1:29:15<112:58:56, 120.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1046/4416 [1:31:06<109:58:09, 117.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1047/4416 [1:32:23<98:46:03, 105.54s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▎       | 1048/4416 [1:34:09<98:43:52, 105.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1049/4416 [1:35:39<94:27:49, 101.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1050/4416 [1:37:49<102:38:38, 109.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1051/4416 [1:39:35<101:31:55, 108.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1052/4416 [1:41:25<101:40:08, 108.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1053/4416 [1:43:30<106:25:07, 113.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1054/4416 [1:45:19<104:46:29, 112.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1055/4416 [1:47:12<105:00:26, 112.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1056/4416 [1:48:50<100:56:38, 108.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1057/4416 [1:50:07<92:19:33, 98.95s/it]  Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1058/4416 [1:51:44<91:36:39, 98.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1059/4416 [1:52:55<84:07:15, 90.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1060/4416 [1:54:11<80:10:40, 86.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1061/4416 [1:55:22<75:46:52, 81.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1062/4416 [1:56:53<78:28:42, 84.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1063/4416 [1:58:28<81:37:20, 87.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1064/4416 [1:59:59<82:26:13, 88.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1065/4416 [2:01:48<88:11:19, 94.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1066/4416 [2:03:35<91:21:46, 98.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1067/4416 [2:05:15<91:50:26, 98.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1068/4416 [2:06:46<89:48:33, 96.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1069/4416 [2:08:30<91:53:47, 98.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1070/4416 [2:11:15<110:07:17, 118.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1071/4416 [2:12:58<105:49:27, 113.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1072/4416 [2:14:57<107:11:00, 115.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1073/4416 [2:16:38<103:10:44, 111.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1074/4416 [2:19:06<113:26:55, 122.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1075/4416 [2:21:50<124:59:01, 134.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1076/4416 [2:24:40<134:58:06, 145.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1077/4416 [2:27:30<141:41:07, 152.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1078/4416 [2:30:09<143:27:31, 154.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1079/4416 [2:32:42<142:51:39, 154.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1080/4416 [2:35:00<138:24:17, 149.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  24%|██▍       | 1081/4416 [2:36:39<124:11:56, 134.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1082/4416 [2:38:41<120:56:31, 130.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1083/4416 [2:40:07<108:34:41, 117.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1084/4416 [2:41:30<99:02:56, 107.02s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1085/4416 [2:43:06<95:56:38, 103.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1086/4416 [2:45:05<100:03:00, 108.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1087/4416 [2:46:58<101:26:31, 109.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1088/4416 [2:48:52<102:28:11, 110.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1089/4416 [2:50:44<102:46:31, 111.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1090/4416 [2:52:45<105:26:47, 114.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1091/4416 [2:54:30<102:58:51, 111.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1092/4416 [2:56:09<99:29:17, 107.75s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1093/4416 [2:57:46<96:29:48, 104.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1094/4416 [2:59:35<97:44:03, 105.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1095/4416 [3:01:03<92:40:53, 100.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1096/4416 [3:02:49<94:13:40, 102.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1097/4416 [3:04:02<86:04:15, 93.36s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1098/4416 [3:05:25<83:06:25, 90.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1099/4416 [3:07:18<89:24:14, 97.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1100/4416 [3:09:10<93:33:40, 101.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1101/4416 [3:11:08<98:00:17, 106.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1102/4416 [3:13:16<103:56:14, 112.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▍       | 1103/4416 [3:15:01<101:54:01, 110.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1104/4416 [3:16:52<101:47:02, 110.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1105/4416 [3:18:59<106:11:22, 115.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1106/4416 [3:22:08<126:42:32, 137.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1107/4416 [3:23:34<112:21:45, 122.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1108/4416 [3:25:21<107:59:31, 117.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1109/4416 [3:27:29<110:56:59, 120.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1110/4416 [3:30:09<121:45:15, 132.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1111/4416 [3:32:49<129:10:57, 140.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1112/4416 [3:35:20<132:00:03, 143.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1113/4416 [3:38:03<137:11:46, 149.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1114/4416 [3:41:13<148:15:47, 161.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1115/4416 [3:44:03<150:38:15, 164.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1116/4416 [3:46:27<144:53:14, 158.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1117/4416 [3:48:10<129:47:52, 141.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1118/4416 [3:53:08<172:43:49, 188.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1119/4416 [3:54:41<146:14:03, 159.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1120/4416 [3:56:38<134:30:09, 146.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1121/4416 [3:58:13<120:12:49, 131.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1122/4416 [4:00:55<128:41:27, 140.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1123/4416 [4:03:46<136:57:10, 149.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1124/4416 [4:06:20<138:02:01, 150.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1125/4416 [4:10:01<157:21:06, 172.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  25%|██▌       | 1126/4416 [4:12:42<154:12:43, 168.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1127/4416 [4:15:43<157:29:50, 172.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1128/4416 [4:18:37<157:54:44, 172.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1129/4416 [4:20:11<136:06:13, 149.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1130/4416 [4:22:08<127:28:35, 139.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1131/4416 [4:23:38<113:49:40, 124.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1132/4416 [4:25:10<104:50:52, 114.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1133/4416 [4:26:38<97:18:04, 106.70s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1134/4416 [4:28:41<101:42:47, 111.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1135/4416 [4:30:31<101:18:32, 111.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1136/4416 [4:32:25<102:09:38, 112.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1137/4416 [4:34:25<104:19:07, 114.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1138/4416 [4:36:33<107:43:56, 118.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1139/4416 [4:38:49<112:33:40, 123.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1140/4416 [4:40:38<108:31:18, 119.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1141/4416 [4:42:34<107:43:38, 118.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1142/4416 [4:44:37<108:55:32, 119.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1143/4416 [4:46:13<102:31:40, 112.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1144/4416 [4:47:44<96:24:03, 106.06s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1145/4416 [4:49:26<95:15:45, 104.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1146/4416 [4:51:43<103:54:44, 114.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1147/4416 [4:53:47<106:40:46, 117.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1148/4416 [4:56:14<114:33:56, 126.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1149/4416 [4:58:27<116:29:55, 128.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1150/4416 [5:00:37<116:48:49, 128.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1151/4416 [5:02:31<112:53:27, 124.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1152/4416 [5:04:36<112:53:43, 124.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1153/4416 [5:06:11<104:55:13, 115.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1154/4416 [5:07:59<102:34:22, 113.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1155/4416 [5:09:20<93:54:37, 103.67s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1156/4416 [5:10:51<90:23:05, 99.81s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1157/4416 [5:12:29<90:02:41, 99.47s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1158/4416 [5:14:26<94:46:46, 104.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▌       | 1159/4416 [5:16:18<96:40:18, 106.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1160/4416 [5:18:13<98:41:13, 109.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1161/4416 [5:20:05<99:29:48, 110.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1162/4416 [5:22:05<102:09:05, 113.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1163/4416 [5:24:01<102:51:37, 113.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1164/4416 [5:25:43<99:45:27, 110.43s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1165/4416 [5:27:25<97:19:12, 107.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1166/4416 [5:29:33<102:59:33, 114.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1167/4416 [5:31:09<98:04:21, 108.67s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1168/4416 [5:32:37<92:18:28, 102.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1169/4416 [5:34:16<91:22:20, 101.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  26%|██▋       | 1170/4416 [5:36:15<96:12:45, 106.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1171/4416 [5:38:11<98:43:22, 109.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1172/4416 [5:40:30<106:42:11, 118.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1173/4416 [5:42:40<109:43:04, 121.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1174/4416 [5:44:50<111:49:00, 124.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1175/4416 [5:46:55<112:02:24, 124.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1176/4416 [5:49:35<121:40:42, 135.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1177/4416 [5:51:09<110:33:12, 122.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1178/4416 [5:53:10<109:58:07, 122.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1179/4416 [5:54:30<98:25:41, 109.47s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1180/4416 [5:55:49<90:09:42, 100.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1181/4416 [5:57:12<85:34:54, 95.24s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1182/4416 [5:59:08<91:04:41, 101.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1183/4416 [6:01:09<96:20:08, 107.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1184/4416 [6:02:46<93:41:03, 104.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1185/4416 [6:04:29<93:13:20, 103.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1186/4416 [6:06:25<96:18:03, 107.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1187/4416 [6:08:11<95:55:20, 106.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1188/4416 [6:10:19<101:36:06, 113.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1189/4416 [6:11:41<93:16:22, 104.05s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1190/4416 [6:13:37<96:31:14, 107.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1191/4416 [6:15:16<93:57:46, 104.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1192/4416 [6:16:50<91:09:06, 101.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1193/4416 [6:18:21<88:04:42, 98.38s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1194/4416 [6:20:17<92:53:50, 103.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1195/4416 [6:22:05<93:48:50, 104.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1196/4416 [6:24:18<101:33:48, 113.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1197/4416 [6:26:12<101:34:07, 113.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1198/4416 [6:28:15<104:06:00, 116.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1199/4416 [6:30:18<105:41:35, 118.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1200/4416 [6:33:35<126:49:54, 141.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1201/4416 [6:35:14<115:10:16, 128.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1202/4416 [6:38:08<127:20:15, 142.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1203/4416 [6:39:46<115:14:11, 129.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1204/4416 [6:41:34<109:31:30, 122.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1205/4416 [6:43:09<102:05:31, 114.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1206/4416 [6:46:01<117:24:52, 131.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1207/4416 [6:48:15<118:05:28, 132.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1208/4416 [6:50:38<120:54:47, 135.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1209/4416 [6:52:52<120:23:56, 135.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1210/4416 [6:56:25<141:06:16, 158.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1211/4416 [6:59:37<150:07:17, 168.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1212/4416 [7:02:39<153:34:24, 172.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1213/4416 [7:04:14<132:57:03, 149.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  27%|██▋       | 1214/4416 [7:06:10<123:47:47, 139.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1215/4416 [7:07:40<110:48:40, 124.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1216/4416 [7:09:10<101:24:25, 114.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1217/4416 [7:10:38<94:33:44, 106.42s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1218/4416 [7:12:28<95:18:19, 107.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1219/4416 [7:14:14<95:01:53, 107.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-Batched single-turn generation:  28%|██▊       | 1220/4416 [7:15:51<92:16:47, 103.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
-slurmstepd: error: *** JOB 5176830 ON d3204 CANCELLED AT 2026-03-18T15:17:31 ***

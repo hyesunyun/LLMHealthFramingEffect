@@ -21,6 +21,7 @@ class Generator:
         self.intervention_condition_key = intervention_condition_key
         if intervention_condition_key == "SimplifiedExtractedText":
             self.prompt_template_name = SIMPLIFIED_PROMPT_TEMPLATE_NAME
+            self.__load_extracted_evidence_direction_questions()
         else:
             self.prompt_template_name = DEFAULT_PROMPT_TEMPLATE_NAME
         self.is_debug = is_debug
@@ -33,6 +34,20 @@ class Generator:
 
         self.__load_dataset()
         self.__load_model()
+
+    def __load_extracted_evidence_direction_questions(self) -> None:
+        """
+        This method loads the original/extracted version fo the evidence direction questions to simplify.
+
+        :return dictionary of the question with key being ReviewID
+        """
+        data = load_json_file(os.path.join(os.path.dirname(__file__), "./outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json"))
+        formatted_output = {}
+        for item in data:
+            review_id = item["ReviewID"]
+            evidence_direction_question = item["EvidenceDirectionQuestion"]
+            formatted_output[review_id] = evidence_direction_question
+        self.extracted_evidence_direction_questions = formatted_output
 
     def __load_dataset(self) -> None:
         """
@@ -48,6 +63,12 @@ class Generator:
 
         if self.is_debug:
             dataset = dataset[:3] # use only first 10 examples for debugging
+
+        # add the extracted evidence direction questions to dataset if this is for simplificatoin
+        if self.intervention_condition_key == "SimplifiedExtractedText":
+            for item in dataset:
+                review_id = item["ReviewID"]
+                item["ExtractedEvidenceDirectionQuestion"] = self.extracted_evidence_direction_questions[review_id]
 
         self.dataset = dataset
 
@@ -76,15 +97,33 @@ class Generator:
         results = []
         pbar = tqdm(self.dataset, desc="Running eval question generation on the dataset")
         for _, example in enumerate(pbar):
-            review_title = example["ReviewTitle"]
-            review_abstract_sections = example["ReviewAbstract"]
-            formatted_abstract = format_review_abstract(review_abstract_sections)
-            extracted_info = example[self.intervention_condition_key]
-            intervention = extracted_info["intervention"]
-            condition = extracted_info["condition"]
-            input = render_prompt(self.prompt_template_name, template_dir="./prompts",
-                                  review_title=review_title, review_abstract=formatted_abstract,
-                                  intervention=intervention, condition=condition)
+            
+
+            if self.intervention_condition_key == "SimplifiedExtractedText":
+                original_evidence_direction_question = example["ExtractedEvidenceDirectionQuestion"]
+
+                original_extracted_info = example["ExtractedText"]
+                original_intervention = original_extracted_info["intervention"]
+                original_condition = original_extracted_info["condition"]
+                
+                simplified_extracted_info = example[self.intervention_condition_key]
+                simplified_intervention = simplified_extracted_info["intervention"]
+                simplified_condition = simplified_extracted_info["condition"]
+    
+                input = render_prompt(self.prompt_template_name, template_dir="./prompts",
+                                    original_question=original_evidence_direction_question,
+                                    intervention=original_intervention, condition=original_condition,
+                                    simplified_intervention=simplified_intervention, simplified_condition=simplified_condition)
+            elif self.intervention_condition_key == "ExtractedText":
+                review_title = example["ReviewTitle"]
+                review_abstract_sections = example["ReviewAbstract"]
+                formatted_abstract = format_review_abstract(review_abstract_sections)
+                extracted_info = example[self.intervention_condition_key]
+                intervention = extracted_info["intervention"]
+                condition = extracted_info["condition"]
+                input = render_prompt(self.prompt_template_name, template_dir="./prompts",
+                                    review_title=review_title, review_abstract=formatted_abstract,
+                                    intervention=intervention, condition=condition)
 
             # format messages
             messages = format_messages(self.model_name, input)
