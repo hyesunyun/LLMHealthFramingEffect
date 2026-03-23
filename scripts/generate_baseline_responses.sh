@@ -4,9 +4,9 @@
 #SBATCH --job-name=baseline
 #SBATCH --cpus-per-task=12
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=80G
+#SBATCH --mem=100G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -24,8 +24,8 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 models=(
   # "huatuo-7B"
   "huatuo-8B"
-  "qwen3-4B"
-  "qwen3-30B"
+  # "qwen3-4B"
+  # "qwen3-30B"
   # "huatuo-70B"
 )
 
@@ -44,7 +44,7 @@ for model in "${models[@]}"; do
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/baseline_responses/$model/positive_simplified_question_responses.json" \
-        --batch_size 16
+        --batch_size 8
 done
 
 conda deactivate
