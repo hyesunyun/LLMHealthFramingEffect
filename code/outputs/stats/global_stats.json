@@ -1,6 +1,6 @@
 {
     "gpt-5.1": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.92,
             "mean_entity_overlap": 0.3,
             "mean_reference_overlap": 0.93,
@@ -129,7 +129,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.93,
             "mean_entity_overlap": 0.31,
             "mean_reference_overlap": 0.93,
@@ -257,10 +257,210 @@
                     "33": 100.0
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.92,
+            "mean_entity_overlap": 0.29,
+            "mean_reference_overlap": 0.94,
+            "mean_numerical_instances_overlap": 0.27,
+            "mean_percentage_symbol_instances_diff": 0.84,
+            "flesch_reading_ease": {
+                "first_mean": 36.199,
+                "second_mean": 37.615,
+                "difference": -1.417
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.609,
+                "second_mean": 4.574,
+                "difference": 0.036
+            },
+            "length": {
+                "first_mean": 127.362,
+                "second_mean": 126.787,
+                "difference": 0.576
+            },
+            "hedges_text_count": {
+                "first_mean": 5.923,
+                "second_mean": 5.986,
+                "difference": -0.063
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 71.63,
+                "singleturn_agreement": 71.63,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 72.45,
+                    "efficacy": 70.8
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 65.38,
+                    "Ear, Nose, Throat & Dental": 76.67,
+                    "Endocrine & Metabolic": 59.09,
+                    "Gastrointestinal & Hepatology": 62.12,
+                    "Infectious Diseases & Dermatology": 63.64,
+                    "Mental Health & Behavioural": 66.13,
+                    "Musculoskeletal & Orthopaedic": 67.14,
+                    "Neurology & Pain": 78.03,
+                    "Oncology": 72.86,
+                    "Ophthalmology": 75.0,
+                    "Other / General": 80.0,
+                    "Pregnancy, Childbirth & Gynaecology": 80.0,
+                    "Respiratory": 77.63,
+                    "Urology & Nephrology": 70.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 81.25,
+                    "2000": 75.0,
+                    "2001": 62.5,
+                    "2002": 60.0,
+                    "2003": 73.33,
+                    "2004": 50.0,
+                    "2005": 75.0,
+                    "2006": 75.0,
+                    "2007": 76.79,
+                    "2008": 70.0,
+                    "2009": 69.57,
+                    "2010": 68.18,
+                    "2011": 63.24,
+                    "2012": 79.35,
+                    "2013": 61.36,
+                    "2014": 83.33,
+                    "2015": 79.55,
+                    "2016": 87.5,
+                    "2017": 87.5,
+                    "2018": 100.0,
+                    "2019": 83.33
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 79.52,
+                    "3": 73.17,
+                    "4": 68.42,
+                    "5": 66.18,
+                    "6": 67.24,
+                    "7": 62.5,
+                    "8": 75.0,
+                    "9": 75.0,
+                    "10": 75.0,
+                    "11": 83.33,
+                    "12": 50.0,
+                    "14": 30.0,
+                    "15": 50.0,
+                    "16": 100.0,
+                    "17": 50.0,
+                    "18": 50.0,
+                    "19": 75.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 0.0,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.93,
+            "mean_entity_overlap": 0.3,
+            "mean_reference_overlap": 0.94,
+            "mean_numerical_instances_overlap": 0.31,
+            "mean_percentage_symbol_instances_diff": 0.63,
+            "flesch_reading_ease": {
+                "first_mean": 36.083,
+                "second_mean": 36.132,
+                "difference": -0.048
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.602,
+                "second_mean": 4.609,
+                "difference": -0.006
+            },
+            "length": {
+                "first_mean": 130.201,
+                "second_mean": 129.89,
+                "difference": 0.311
+            },
+            "hedges_text_count": {
+                "first_mean": 6.242,
+                "second_mean": 6.07,
+                "difference": 0.172
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 74.38,
+                "singleturn_agreement": 74.38,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 77.13,
+                    "efficacy": 71.63
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 65.38,
+                    "Ear, Nose, Throat & Dental": 66.67,
+                    "Endocrine & Metabolic": 81.82,
+                    "Gastrointestinal & Hepatology": 71.21,
+                    "Infectious Diseases & Dermatology": 75.76,
+                    "Mental Health & Behavioural": 75.81,
+                    "Musculoskeletal & Orthopaedic": 61.43,
+                    "Neurology & Pain": 78.03,
+                    "Oncology": 78.57,
+                    "Ophthalmology": 87.5,
+                    "Other / General": 70.0,
+                    "Pregnancy, Childbirth & Gynaecology": 85.71,
+                    "Respiratory": 69.74,
+                    "Urology & Nephrology": 60.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 81.25,
+                    "2000": 50.0,
+                    "2001": 62.5,
+                    "2002": 80.0,
+                    "2003": 73.33,
+                    "2004": 68.75,
+                    "2005": 71.88,
+                    "2006": 72.92,
+                    "2007": 76.79,
+                    "2008": 66.67,
+                    "2009": 80.43,
+                    "2010": 75.0,
+                    "2011": 73.53,
+                    "2012": 72.83,
+                    "2013": 70.45,
+                    "2014": 87.5,
+                    "2015": 79.55,
+                    "2016": 81.25,
+                    "2017": 87.5,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 79.05,
+                    "3": 71.34,
+                    "4": 76.32,
+                    "5": 73.53,
+                    "6": 72.41,
+                    "7": 67.86,
+                    "8": 68.75,
+                    "9": 75.0,
+                    "10": 83.33,
+                    "11": 83.33,
+                    "12": 83.33,
+                    "14": 60.0,
+                    "15": 0.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 100.0,
+                    "20": 0.0,
+                    "21": 100.0,
+                    "22": 25.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "claude_4.5_sonnet": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.93,
             "mean_entity_overlap": 0.39,
             "mean_reference_overlap": 0.87,
@@ -389,7 +589,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.95,
             "mean_entity_overlap": 0.45,
             "mean_reference_overlap": 0.88,
@@ -517,10 +717,210 @@
                     "33": 100.0
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.94,
+            "mean_entity_overlap": 0.43,
+            "mean_reference_overlap": 0.94,
+            "mean_numerical_instances_overlap": 0.42,
+            "mean_percentage_symbol_instances_diff": 0.85,
+            "flesch_reading_ease": {
+                "first_mean": 21.109,
+                "second_mean": 19.765,
+                "difference": 1.344
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.693,
+                "second_mean": 4.688,
+                "difference": 0.005
+            },
+            "length": {
+                "first_mean": 123.496,
+                "second_mean": 121.477,
+                "difference": 2.019
+            },
+            "hedges_text_count": {
+                "first_mean": 4.001,
+                "second_mean": 4.021,
+                "difference": -0.019
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 0,
+                "singleturn_agreement": 0,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 0,
+                    "efficacy": 0
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 0,
+                    "Ear, Nose, Throat & Dental": 0,
+                    "Endocrine & Metabolic": 0,
+                    "Gastrointestinal & Hepatology": 0,
+                    "Infectious Diseases & Dermatology": 0,
+                    "Mental Health & Behavioural": 0,
+                    "Musculoskeletal & Orthopaedic": 0,
+                    "Neurology & Pain": 0,
+                    "Oncology": 0,
+                    "Ophthalmology": 0,
+                    "Other / General": 0,
+                    "Pregnancy, Childbirth & Gynaecology": 0,
+                    "Respiratory": 0,
+                    "Urology & Nephrology": 0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 0,
+                    "1999": 0,
+                    "2000": 0,
+                    "2001": 0,
+                    "2002": 0,
+                    "2003": 0,
+                    "2004": 0,
+                    "2005": 0,
+                    "2006": 0,
+                    "2007": 0,
+                    "2008": 0,
+                    "2009": 0,
+                    "2010": 0,
+                    "2011": 0,
+                    "2012": 0,
+                    "2013": 0,
+                    "2014": 0,
+                    "2015": 0,
+                    "2016": 0,
+                    "2017": 0,
+                    "2018": 0,
+                    "2019": 0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "8": 0,
+                    "9": 0,
+                    "10": 0,
+                    "11": 0,
+                    "12": 0,
+                    "14": 0,
+                    "15": 0,
+                    "16": 0,
+                    "17": 0,
+                    "18": 0,
+                    "19": 0,
+                    "20": 0,
+                    "21": 0,
+                    "22": 0,
+                    "33": 0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.95,
+            "mean_entity_overlap": 0.45,
+            "mean_reference_overlap": 0.95,
+            "mean_numerical_instances_overlap": 0.45,
+            "mean_percentage_symbol_instances_diff": 0.75,
+            "flesch_reading_ease": {
+                "first_mean": 20.903,
+                "second_mean": 20.859,
+                "difference": 0.044
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.686,
+                "second_mean": 4.69,
+                "difference": -0.004
+            },
+            "length": {
+                "first_mean": 123.809,
+                "second_mean": 122.937,
+                "difference": 0.872
+            },
+            "hedges_text_count": {
+                "first_mean": 4.0,
+                "second_mean": 4.039,
+                "difference": -0.039
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 73.69,
+                "singleturn_agreement": 73.69,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 75.21,
+                    "efficacy": 72.18
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 61.54,
+                    "Ear, Nose, Throat & Dental": 76.67,
+                    "Endocrine & Metabolic": 68.18,
+                    "Gastrointestinal & Hepatology": 74.24,
+                    "Infectious Diseases & Dermatology": 84.85,
+                    "Mental Health & Behavioural": 70.97,
+                    "Musculoskeletal & Orthopaedic": 62.86,
+                    "Neurology & Pain": 78.03,
+                    "Oncology": 77.14,
+                    "Ophthalmology": 56.25,
+                    "Other / General": 50.0,
+                    "Pregnancy, Childbirth & Gynaecology": 75.71,
+                    "Respiratory": 75.0,
+                    "Urology & Nephrology": 70.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 66.67,
+                    "1999": 81.25,
+                    "2000": 58.33,
+                    "2001": 56.25,
+                    "2002": 80.0,
+                    "2003": 83.33,
+                    "2004": 71.88,
+                    "2005": 84.38,
+                    "2006": 83.33,
+                    "2007": 69.64,
+                    "2008": 80.0,
+                    "2009": 69.57,
+                    "2010": 65.91,
+                    "2011": 66.18,
+                    "2012": 70.65,
+                    "2013": 72.73,
+                    "2014": 58.33,
+                    "2015": 86.36,
+                    "2016": 81.25,
+                    "2017": 100.0,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 84.29,
+                    "3": 67.68,
+                    "4": 69.74,
+                    "5": 66.18,
+                    "6": 63.79,
+                    "7": 67.86,
+                    "8": 75.0,
+                    "9": 87.5,
+                    "10": 66.67,
+                    "11": 83.33,
+                    "12": 66.67,
+                    "14": 90.0,
+                    "15": 50.0,
+                    "16": 100.0,
+                    "17": 50.0,
+                    "18": 100.0,
+                    "19": 75.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 75.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "api-llama3.3": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.94,
             "mean_entity_overlap": 0.68,
             "mean_reference_overlap": 0.92,
@@ -649,7 +1049,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.96,
             "mean_entity_overlap": 0.74,
             "mean_reference_overlap": 0.93,
@@ -777,10 +1177,210 @@
                     "33": 87.5
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.94,
+            "mean_entity_overlap": 0.67,
+            "mean_reference_overlap": 0.95,
+            "mean_numerical_instances_overlap": 0.22,
+            "mean_percentage_symbol_instances_diff": 0.51,
+            "flesch_reading_ease": {
+                "first_mean": 28.511,
+                "second_mean": 28.737,
+                "difference": -0.226
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.806,
+                "second_mean": 4.773,
+                "difference": 0.033
+            },
+            "length": {
+                "first_mean": 121.73,
+                "second_mean": 121.967,
+                "difference": -0.237
+            },
+            "hedges_text_count": {
+                "first_mean": 4.618,
+                "second_mean": 4.785,
+                "difference": -0.167
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 71.9,
+                "singleturn_agreement": 71.9,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 71.07,
+                    "efficacy": 72.73
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 73.08,
+                    "Ear, Nose, Throat & Dental": 60.0,
+                    "Endocrine & Metabolic": 63.64,
+                    "Gastrointestinal & Hepatology": 75.76,
+                    "Infectious Diseases & Dermatology": 78.79,
+                    "Mental Health & Behavioural": 66.13,
+                    "Musculoskeletal & Orthopaedic": 64.29,
+                    "Neurology & Pain": 73.48,
+                    "Oncology": 77.14,
+                    "Ophthalmology": 68.75,
+                    "Other / General": 70.0,
+                    "Pregnancy, Childbirth & Gynaecology": 78.57,
+                    "Respiratory": 71.05,
+                    "Urology & Nephrology": 50.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 93.75,
+                    "2000": 75.0,
+                    "2001": 56.25,
+                    "2002": 90.0,
+                    "2003": 70.0,
+                    "2004": 62.5,
+                    "2005": 78.12,
+                    "2006": 75.0,
+                    "2007": 73.21,
+                    "2008": 50.0,
+                    "2009": 80.43,
+                    "2010": 68.18,
+                    "2011": 75.0,
+                    "2012": 71.74,
+                    "2013": 71.59,
+                    "2014": 58.33,
+                    "2015": 72.73,
+                    "2016": 81.25,
+                    "2017": 75.0,
+                    "2018": 100.0,
+                    "2019": 50.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 80.48,
+                    "3": 67.07,
+                    "4": 72.37,
+                    "5": 54.41,
+                    "6": 60.34,
+                    "7": 78.57,
+                    "8": 75.0,
+                    "9": 75.0,
+                    "10": 83.33,
+                    "11": 66.67,
+                    "12": 100.0,
+                    "14": 80.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 50.0,
+                    "19": 75.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 0.0,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.96,
+            "mean_entity_overlap": 0.74,
+            "mean_reference_overlap": 0.95,
+            "mean_numerical_instances_overlap": 0.31,
+            "mean_percentage_symbol_instances_diff": 0.4,
+            "flesch_reading_ease": {
+                "first_mean": 28.48,
+                "second_mean": 28.59,
+                "difference": -0.11
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.805,
+                "second_mean": 4.797,
+                "difference": 0.007
+            },
+            "length": {
+                "first_mean": 121.986,
+                "second_mean": 122.14,
+                "difference": -0.154
+            },
+            "hedges_text_count": {
+                "first_mean": 4.567,
+                "second_mean": 4.547,
+                "difference": 0.021
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 77.55,
+                "singleturn_agreement": 77.55,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 75.76,
+                    "efficacy": 79.34
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 80.77,
+                    "Ear, Nose, Throat & Dental": 76.67,
+                    "Endocrine & Metabolic": 68.18,
+                    "Gastrointestinal & Hepatology": 74.24,
+                    "Infectious Diseases & Dermatology": 80.3,
+                    "Mental Health & Behavioural": 77.42,
+                    "Musculoskeletal & Orthopaedic": 68.57,
+                    "Neurology & Pain": 87.12,
+                    "Oncology": 75.71,
+                    "Ophthalmology": 81.25,
+                    "Other / General": 80.0,
+                    "Pregnancy, Childbirth & Gynaecology": 85.71,
+                    "Respiratory": 67.11,
+                    "Urology & Nephrology": 60.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 100.0,
+                    "1999": 68.75,
+                    "2000": 50.0,
+                    "2001": 75.0,
+                    "2002": 100.0,
+                    "2003": 76.67,
+                    "2004": 65.62,
+                    "2005": 78.12,
+                    "2006": 81.25,
+                    "2007": 85.71,
+                    "2008": 66.67,
+                    "2009": 73.91,
+                    "2010": 70.45,
+                    "2011": 85.29,
+                    "2012": 75.0,
+                    "2013": 80.68,
+                    "2014": 66.67,
+                    "2015": 81.82,
+                    "2016": 75.0,
+                    "2017": 87.5,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 84.29,
+                    "3": 71.95,
+                    "4": 76.32,
+                    "5": 77.94,
+                    "6": 65.52,
+                    "7": 75.0,
+                    "8": 81.25,
+                    "9": 87.5,
+                    "10": 91.67,
+                    "11": 66.67,
+                    "12": 83.33,
+                    "14": 80.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 75.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 25.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "api-llama4": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.94,
             "mean_entity_overlap": 0.52,
             "mean_reference_overlap": 0.83,
@@ -909,7 +1509,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.95,
             "mean_entity_overlap": 0.59,
             "mean_reference_overlap": 0.85,
@@ -1037,10 +1637,210 @@
                     "33": 87.5
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.94,
+            "mean_entity_overlap": 0.54,
+            "mean_reference_overlap": 0.86,
+            "mean_numerical_instances_overlap": 0.39,
+            "mean_percentage_symbol_instances_diff": 0.81,
+            "flesch_reading_ease": {
+                "first_mean": 28.601,
+                "second_mean": 29.768,
+                "difference": -1.167
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.85,
+                "second_mean": 4.83,
+                "difference": 0.02
+            },
+            "length": {
+                "first_mean": 113.49,
+                "second_mean": 113.226,
+                "difference": 0.264
+            },
+            "hedges_text_count": {
+                "first_mean": 3.426,
+                "second_mean": 3.657,
+                "difference": -0.231
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 73.14,
+                "singleturn_agreement": 73.14,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 73.83,
+                    "efficacy": 72.45
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 76.92,
+                    "Ear, Nose, Throat & Dental": 66.67,
+                    "Endocrine & Metabolic": 63.64,
+                    "Gastrointestinal & Hepatology": 69.7,
+                    "Infectious Diseases & Dermatology": 65.15,
+                    "Mental Health & Behavioural": 75.81,
+                    "Musculoskeletal & Orthopaedic": 77.14,
+                    "Neurology & Pain": 72.73,
+                    "Oncology": 78.57,
+                    "Ophthalmology": 68.75,
+                    "Other / General": 60.0,
+                    "Pregnancy, Childbirth & Gynaecology": 81.43,
+                    "Respiratory": 73.68,
+                    "Urology & Nephrology": 60.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 75.0,
+                    "2000": 75.0,
+                    "2001": 75.0,
+                    "2002": 60.0,
+                    "2003": 73.33,
+                    "2004": 78.12,
+                    "2005": 71.88,
+                    "2006": 75.0,
+                    "2007": 69.64,
+                    "2008": 76.67,
+                    "2009": 80.43,
+                    "2010": 70.45,
+                    "2011": 79.41,
+                    "2012": 73.91,
+                    "2013": 70.45,
+                    "2014": 45.83,
+                    "2015": 68.18,
+                    "2016": 68.75,
+                    "2017": 100.0,
+                    "2018": 100.0,
+                    "2019": 83.33
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 80.48,
+                    "3": 66.46,
+                    "4": 80.26,
+                    "5": 69.12,
+                    "6": 58.62,
+                    "7": 73.21,
+                    "8": 81.25,
+                    "9": 75.0,
+                    "10": 83.33,
+                    "11": 58.33,
+                    "12": 83.33,
+                    "14": 80.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 75.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 0.0,
+                    "33": 0.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.96,
+            "mean_entity_overlap": 0.6,
+            "mean_reference_overlap": 0.89,
+            "mean_numerical_instances_overlap": 0.44,
+            "mean_percentage_symbol_instances_diff": 0.63,
+            "flesch_reading_ease": {
+                "first_mean": 28.481,
+                "second_mean": 28.731,
+                "difference": -0.25
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.853,
+                "second_mean": 4.855,
+                "difference": -0.002
+            },
+            "length": {
+                "first_mean": 113.669,
+                "second_mean": 113.054,
+                "difference": 0.616
+            },
+            "hedges_text_count": {
+                "first_mean": 3.438,
+                "second_mean": 3.445,
+                "difference": -0.007
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 78.79,
+                "singleturn_agreement": 78.79,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 79.34,
+                    "efficacy": 78.24
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 65.38,
+                    "Ear, Nose, Throat & Dental": 76.67,
+                    "Endocrine & Metabolic": 77.27,
+                    "Gastrointestinal & Hepatology": 78.79,
+                    "Infectious Diseases & Dermatology": 80.3,
+                    "Mental Health & Behavioural": 82.26,
+                    "Musculoskeletal & Orthopaedic": 80.0,
+                    "Neurology & Pain": 78.03,
+                    "Oncology": 85.71,
+                    "Ophthalmology": 81.25,
+                    "Other / General": 70.0,
+                    "Pregnancy, Childbirth & Gynaecology": 77.14,
+                    "Respiratory": 75.0,
+                    "Urology & Nephrology": 90.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 100.0,
+                    "1999": 81.25,
+                    "2000": 83.33,
+                    "2001": 75.0,
+                    "2002": 90.0,
+                    "2003": 73.33,
+                    "2004": 78.12,
+                    "2005": 71.88,
+                    "2006": 79.17,
+                    "2007": 82.14,
+                    "2008": 63.33,
+                    "2009": 84.78,
+                    "2010": 77.27,
+                    "2011": 76.47,
+                    "2012": 78.26,
+                    "2013": 81.82,
+                    "2014": 83.33,
+                    "2015": 79.55,
+                    "2016": 75.0,
+                    "2017": 87.5,
+                    "2018": 50.0,
+                    "2019": 83.33
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 79.52,
+                    "3": 73.78,
+                    "4": 86.84,
+                    "5": 75.0,
+                    "6": 74.14,
+                    "7": 83.93,
+                    "8": 87.5,
+                    "9": 81.25,
+                    "10": 75.0,
+                    "11": 75.0,
+                    "12": 83.33,
+                    "14": 80.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 100.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 75.0,
+                    "33": 50.0
+                }
+            }
         }
     },
     "qwen3-4B": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.92,
             "mean_entity_overlap": 0.53,
             "mean_reference_overlap": 0.79,
@@ -1169,7 +1969,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.95,
             "mean_entity_overlap": 0.62,
             "mean_reference_overlap": 0.83,
@@ -1297,10 +2097,210 @@
                     "33": 100.0
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.93,
+            "mean_entity_overlap": 0.56,
+            "mean_reference_overlap": 0.84,
+            "mean_numerical_instances_overlap": 0.25,
+            "mean_percentage_symbol_instances_diff": 0.54,
+            "flesch_reading_ease": {
+                "first_mean": 39.906,
+                "second_mean": 39.818,
+                "difference": 0.087
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.639,
+                "second_mean": 4.611,
+                "difference": 0.028
+            },
+            "length": {
+                "first_mean": 84.798,
+                "second_mean": 84.248,
+                "difference": 0.55
+            },
+            "hedges_text_count": {
+                "first_mean": 2.493,
+                "second_mean": 2.463,
+                "difference": 0.03
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 69.83,
+                "singleturn_agreement": 69.83,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 65.29,
+                    "efficacy": 74.38
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 69.23,
+                    "Ear, Nose, Throat & Dental": 86.67,
+                    "Endocrine & Metabolic": 81.82,
+                    "Gastrointestinal & Hepatology": 72.73,
+                    "Infectious Diseases & Dermatology": 75.76,
+                    "Mental Health & Behavioural": 70.97,
+                    "Musculoskeletal & Orthopaedic": 65.71,
+                    "Neurology & Pain": 68.94,
+                    "Oncology": 77.14,
+                    "Ophthalmology": 81.25,
+                    "Other / General": 60.0,
+                    "Pregnancy, Childbirth & Gynaecology": 65.71,
+                    "Respiratory": 52.63,
+                    "Urology & Nephrology": 70.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 50.0,
+                    "1999": 75.0,
+                    "2000": 75.0,
+                    "2001": 75.0,
+                    "2002": 60.0,
+                    "2003": 70.0,
+                    "2004": 81.25,
+                    "2005": 65.62,
+                    "2006": 68.75,
+                    "2007": 73.21,
+                    "2008": 66.67,
+                    "2009": 73.91,
+                    "2010": 72.73,
+                    "2011": 72.06,
+                    "2012": 65.22,
+                    "2013": 62.5,
+                    "2014": 75.0,
+                    "2015": 75.0,
+                    "2016": 75.0,
+                    "2017": 75.0,
+                    "2018": 0.0,
+                    "2019": 66.67
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 78.57,
+                    "3": 60.98,
+                    "4": 73.68,
+                    "5": 72.06,
+                    "6": 55.17,
+                    "7": 71.43,
+                    "8": 68.75,
+                    "9": 43.75,
+                    "10": 75.0,
+                    "11": 83.33,
+                    "12": 66.67,
+                    "14": 70.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 75.0,
+                    "20": 0.0,
+                    "21": 50.0,
+                    "22": 75.0,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.95,
+            "mean_entity_overlap": 0.64,
+            "mean_reference_overlap": 0.88,
+            "mean_numerical_instances_overlap": 0.31,
+            "mean_percentage_symbol_instances_diff": 0.46,
+            "flesch_reading_ease": {
+                "first_mean": 39.447,
+                "second_mean": 39.924,
+                "difference": -0.477
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.635,
+                "second_mean": 4.634,
+                "difference": 0.001
+            },
+            "length": {
+                "first_mean": 84.689,
+                "second_mean": 84.981,
+                "difference": -0.292
+            },
+            "hedges_text_count": {
+                "first_mean": 2.47,
+                "second_mean": 2.455,
+                "difference": 0.015
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 76.45,
+                "singleturn_agreement": 76.45,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 77.41,
+                    "efficacy": 75.48
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 84.62,
+                    "Ear, Nose, Throat & Dental": 73.33,
+                    "Endocrine & Metabolic": 63.64,
+                    "Gastrointestinal & Hepatology": 80.3,
+                    "Infectious Diseases & Dermatology": 81.82,
+                    "Mental Health & Behavioural": 82.26,
+                    "Musculoskeletal & Orthopaedic": 71.43,
+                    "Neurology & Pain": 75.76,
+                    "Oncology": 90.0,
+                    "Ophthalmology": 81.25,
+                    "Other / General": 60.0,
+                    "Pregnancy, Childbirth & Gynaecology": 70.0,
+                    "Respiratory": 68.42,
+                    "Urology & Nephrology": 60.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 66.67,
+                    "1999": 75.0,
+                    "2000": 66.67,
+                    "2001": 75.0,
+                    "2002": 60.0,
+                    "2003": 83.33,
+                    "2004": 93.75,
+                    "2005": 75.0,
+                    "2006": 79.17,
+                    "2007": 66.07,
+                    "2008": 56.67,
+                    "2009": 91.3,
+                    "2010": 77.27,
+                    "2011": 79.41,
+                    "2012": 77.17,
+                    "2013": 70.45,
+                    "2014": 79.17,
+                    "2015": 75.0,
+                    "2016": 81.25,
+                    "2017": 87.5,
+                    "2018": 50.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 82.38,
+                    "3": 75.61,
+                    "4": 75.0,
+                    "5": 75.0,
+                    "6": 74.14,
+                    "7": 75.0,
+                    "8": 93.75,
+                    "9": 50.0,
+                    "10": 50.0,
+                    "11": 83.33,
+                    "12": 83.33,
+                    "14": 60.0,
+                    "15": 50.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 0.0,
+                    "19": 75.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 50.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "qwen3-30B": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.93,
             "mean_entity_overlap": 0.46,
             "mean_reference_overlap": 0.83,
@@ -1429,7 +2429,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.96,
             "mean_entity_overlap": 0.52,
             "mean_reference_overlap": 0.85,
@@ -1557,10 +2557,210 @@
                     "33": 100.0
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.94,
+            "mean_entity_overlap": 0.5,
+            "mean_reference_overlap": 0.85,
+            "mean_numerical_instances_overlap": 0.3,
+            "mean_percentage_symbol_instances_diff": 0.47,
+            "flesch_reading_ease": {
+                "first_mean": 37.055,
+                "second_mean": 36.059,
+                "difference": 0.996
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.649,
+                "second_mean": 4.648,
+                "difference": 0.001
+            },
+            "length": {
+                "first_mean": 94.14,
+                "second_mean": 92.623,
+                "difference": 1.518
+            },
+            "hedges_text_count": {
+                "first_mean": 3.28,
+                "second_mean": 3.207,
+                "difference": 0.073
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 73.28,
+                "singleturn_agreement": 73.28,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 70.25,
+                    "efficacy": 76.31
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 65.38,
+                    "Ear, Nose, Throat & Dental": 73.33,
+                    "Endocrine & Metabolic": 77.27,
+                    "Gastrointestinal & Hepatology": 71.21,
+                    "Infectious Diseases & Dermatology": 75.76,
+                    "Mental Health & Behavioural": 75.81,
+                    "Musculoskeletal & Orthopaedic": 70.0,
+                    "Neurology & Pain": 79.55,
+                    "Oncology": 80.0,
+                    "Ophthalmology": 68.75,
+                    "Other / General": 80.0,
+                    "Pregnancy, Childbirth & Gynaecology": 75.71,
+                    "Respiratory": 60.53,
+                    "Urology & Nephrology": 40.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 87.5,
+                    "2000": 58.33,
+                    "2001": 75.0,
+                    "2002": 60.0,
+                    "2003": 76.67,
+                    "2004": 84.38,
+                    "2005": 68.75,
+                    "2006": 83.33,
+                    "2007": 75.0,
+                    "2008": 70.0,
+                    "2009": 63.04,
+                    "2010": 65.91,
+                    "2011": 70.59,
+                    "2012": 81.52,
+                    "2013": 65.91,
+                    "2014": 62.5,
+                    "2015": 75.0,
+                    "2016": 68.75,
+                    "2017": 100.0,
+                    "2018": 50.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 80.95,
+                    "3": 71.34,
+                    "4": 67.11,
+                    "5": 72.06,
+                    "6": 67.24,
+                    "7": 78.57,
+                    "8": 62.5,
+                    "9": 56.25,
+                    "10": 66.67,
+                    "11": 75.0,
+                    "12": 66.67,
+                    "14": 50.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 50.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 50.0,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.96,
+            "mean_entity_overlap": 0.56,
+            "mean_reference_overlap": 0.88,
+            "mean_numerical_instances_overlap": 0.37,
+            "mean_percentage_symbol_instances_diff": 0.43,
+            "flesch_reading_ease": {
+                "first_mean": 36.675,
+                "second_mean": 36.9,
+                "difference": -0.224
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.658,
+                "second_mean": 4.656,
+                "difference": 0.002
+            },
+            "length": {
+                "first_mean": 95.569,
+                "second_mean": 95.354,
+                "difference": 0.215
+            },
+            "hedges_text_count": {
+                "first_mean": 3.328,
+                "second_mean": 3.255,
+                "difference": 0.073
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 77.82,
+                "singleturn_agreement": 77.82,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 77.96,
+                    "efficacy": 77.69
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 57.69,
+                    "Ear, Nose, Throat & Dental": 56.67,
+                    "Endocrine & Metabolic": 68.18,
+                    "Gastrointestinal & Hepatology": 72.73,
+                    "Infectious Diseases & Dermatology": 83.33,
+                    "Mental Health & Behavioural": 80.65,
+                    "Musculoskeletal & Orthopaedic": 78.57,
+                    "Neurology & Pain": 81.82,
+                    "Oncology": 85.71,
+                    "Ophthalmology": 87.5,
+                    "Other / General": 70.0,
+                    "Pregnancy, Childbirth & Gynaecology": 81.43,
+                    "Respiratory": 73.68,
+                    "Urology & Nephrology": 80.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 66.67,
+                    "1999": 87.5,
+                    "2000": 58.33,
+                    "2001": 93.75,
+                    "2002": 80.0,
+                    "2003": 80.0,
+                    "2004": 87.5,
+                    "2005": 84.38,
+                    "2006": 75.0,
+                    "2007": 78.57,
+                    "2008": 60.0,
+                    "2009": 80.43,
+                    "2010": 72.73,
+                    "2011": 76.47,
+                    "2012": 77.17,
+                    "2013": 76.14,
+                    "2014": 83.33,
+                    "2015": 79.55,
+                    "2016": 62.5,
+                    "2017": 100.0,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 83.81,
+                    "3": 75.61,
+                    "4": 77.63,
+                    "5": 72.06,
+                    "6": 68.97,
+                    "7": 76.79,
+                    "8": 100.0,
+                    "9": 68.75,
+                    "10": 91.67,
+                    "11": 75.0,
+                    "12": 66.67,
+                    "14": 50.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 50.0,
+                    "18": 100.0,
+                    "19": 100.0,
+                    "20": 50.0,
+                    "21": 100.0,
+                    "22": 50.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "huatuo-7B": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.92,
             "mean_entity_overlap": 0.39,
             "mean_reference_overlap": 0.36,
@@ -1689,7 +2889,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.93,
             "mean_entity_overlap": 0.41,
             "mean_reference_overlap": 0.38,
@@ -1817,10 +3017,210 @@
                     "33": 93.75
                 }
             }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.91,
+            "mean_entity_overlap": 0.38,
+            "mean_reference_overlap": 0.5,
+            "mean_numerical_instances_overlap": 0.09,
+            "mean_percentage_symbol_instances_diff": 0.15,
+            "flesch_reading_ease": {
+                "first_mean": 23.057,
+                "second_mean": 24.86,
+                "difference": -1.802
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.687,
+                "second_mean": 4.618,
+                "difference": 0.069
+            },
+            "length": {
+                "first_mean": 89.72,
+                "second_mean": 84.165,
+                "difference": 5.555
+            },
+            "hedges_text_count": {
+                "first_mean": 3.847,
+                "second_mean": 3.975,
+                "difference": -0.128
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 0,
+                "singleturn_agreement": 0,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 0,
+                    "efficacy": 0
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 0,
+                    "Ear, Nose, Throat & Dental": 0,
+                    "Endocrine & Metabolic": 0,
+                    "Gastrointestinal & Hepatology": 0,
+                    "Infectious Diseases & Dermatology": 0,
+                    "Mental Health & Behavioural": 0,
+                    "Musculoskeletal & Orthopaedic": 0,
+                    "Neurology & Pain": 0,
+                    "Oncology": 0,
+                    "Ophthalmology": 0,
+                    "Other / General": 0,
+                    "Pregnancy, Childbirth & Gynaecology": 0,
+                    "Respiratory": 0,
+                    "Urology & Nephrology": 0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 0,
+                    "1999": 0,
+                    "2000": 0,
+                    "2001": 0,
+                    "2002": 0,
+                    "2003": 0,
+                    "2004": 0,
+                    "2005": 0,
+                    "2006": 0,
+                    "2007": 0,
+                    "2008": 0,
+                    "2009": 0,
+                    "2010": 0,
+                    "2011": 0,
+                    "2012": 0,
+                    "2013": 0,
+                    "2014": 0,
+                    "2015": 0,
+                    "2016": 0,
+                    "2017": 0,
+                    "2018": 0,
+                    "2019": 0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 0,
+                    "3": 0,
+                    "4": 0,
+                    "5": 0,
+                    "6": 0,
+                    "7": 0,
+                    "8": 0,
+                    "9": 0,
+                    "10": 0,
+                    "11": 0,
+                    "12": 0,
+                    "14": 0,
+                    "15": 0,
+                    "16": 0,
+                    "17": 0,
+                    "18": 0,
+                    "19": 0,
+                    "20": 0,
+                    "21": 0,
+                    "22": 0,
+                    "33": 0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 0.93,
+            "mean_entity_overlap": 0.4,
+            "mean_reference_overlap": 0.5,
+            "mean_numerical_instances_overlap": 0.1,
+            "mean_percentage_symbol_instances_diff": 0.18,
+            "flesch_reading_ease": {
+                "first_mean": 22.97,
+                "second_mean": 22.456,
+                "difference": 0.514
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.671,
+                "second_mean": 4.671,
+                "difference": 0.0
+            },
+            "length": {
+                "first_mean": 88.309,
+                "second_mean": 88.382,
+                "difference": -0.073
+            },
+            "hedges_text_count": {
+                "first_mean": 3.822,
+                "second_mean": 3.796,
+                "difference": 0.026
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 73.55,
+                "singleturn_agreement": 73.55,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 71.9,
+                    "efficacy": 75.21
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 69.23,
+                    "Ear, Nose, Throat & Dental": 73.33,
+                    "Endocrine & Metabolic": 81.82,
+                    "Gastrointestinal & Hepatology": 75.76,
+                    "Infectious Diseases & Dermatology": 71.21,
+                    "Mental Health & Behavioural": 79.03,
+                    "Musculoskeletal & Orthopaedic": 75.71,
+                    "Neurology & Pain": 78.79,
+                    "Oncology": 74.29,
+                    "Ophthalmology": 75.0,
+                    "Other / General": 70.0,
+                    "Pregnancy, Childbirth & Gynaecology": 58.57,
+                    "Respiratory": 72.37,
+                    "Urology & Nephrology": 60.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 75.0,
+                    "2000": 75.0,
+                    "2001": 81.25,
+                    "2002": 50.0,
+                    "2003": 83.33,
+                    "2004": 68.75,
+                    "2005": 71.88,
+                    "2006": 70.83,
+                    "2007": 58.93,
+                    "2008": 73.33,
+                    "2009": 80.43,
+                    "2010": 77.27,
+                    "2011": 79.41,
+                    "2012": 69.57,
+                    "2013": 77.27,
+                    "2014": 83.33,
+                    "2015": 70.45,
+                    "2016": 68.75,
+                    "2017": 75.0,
+                    "2018": 100.0,
+                    "2019": 66.67
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 71.9,
+                    "3": 69.51,
+                    "4": 82.89,
+                    "5": 57.35,
+                    "6": 81.03,
+                    "7": 76.79,
+                    "8": 87.5,
+                    "9": 75.0,
+                    "10": 58.33,
+                    "11": 75.0,
+                    "12": 100.0,
+                    "14": 90.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 75.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 75.0,
+                    "33": 100.0
+                }
+            }
         }
     },
     "huatuo-8B": {
-        "framing": {
+        "extracted_framing": {
             "mean_similarity": 0.94,
             "mean_entity_overlap": 0.54,
             "mean_reference_overlap": 0.67,
@@ -1949,7 +3349,7 @@
                 }
             }
         },
-        "baseline": {
+        "extracted_baseline": {
             "mean_similarity": 0.95,
             "mean_entity_overlap": 0.56,
             "mean_reference_overlap": 0.67,
@@ -2074,6 +3474,206 @@
                     "20": 100.0,
                     "21": 100.0,
                     "22": 65.62,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_framing": {
+            "mean_similarity": 0.94,
+            "mean_entity_overlap": 0.56,
+            "mean_reference_overlap": 0.79,
+            "mean_numerical_instances_overlap": 0.12,
+            "mean_percentage_symbol_instances_diff": 0.39,
+            "flesch_reading_ease": {
+                "first_mean": 21.285,
+                "second_mean": 21.945,
+                "difference": -0.66
+            },
+            "medical_jargon_score": {
+                "first_mean": 4.704,
+                "second_mean": 4.692,
+                "difference": 0.012
+            },
+            "length": {
+                "first_mean": 205.804,
+                "second_mean": 205.804,
+                "difference": 0.0
+            },
+            "hedges_text_count": {
+                "first_mean": 7.489,
+                "second_mean": 7.989,
+                "difference": -0.5
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 69.7,
+                "singleturn_agreement": 69.7,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 66.12,
+                    "efficacy": 73.28
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 57.69,
+                    "Ear, Nose, Throat & Dental": 63.33,
+                    "Endocrine & Metabolic": 63.64,
+                    "Gastrointestinal & Hepatology": 71.21,
+                    "Infectious Diseases & Dermatology": 68.18,
+                    "Mental Health & Behavioural": 75.81,
+                    "Musculoskeletal & Orthopaedic": 75.71,
+                    "Neurology & Pain": 69.7,
+                    "Oncology": 67.14,
+                    "Ophthalmology": 75.0,
+                    "Other / General": 80.0,
+                    "Pregnancy, Childbirth & Gynaecology": 68.57,
+                    "Respiratory": 71.05,
+                    "Urology & Nephrology": 50.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 83.33,
+                    "1999": 75.0,
+                    "2000": 66.67,
+                    "2001": 50.0,
+                    "2002": 50.0,
+                    "2003": 70.0,
+                    "2004": 71.88,
+                    "2005": 78.12,
+                    "2006": 60.42,
+                    "2007": 75.0,
+                    "2008": 76.67,
+                    "2009": 76.09,
+                    "2010": 59.09,
+                    "2011": 69.12,
+                    "2012": 76.09,
+                    "2013": 69.32,
+                    "2014": 58.33,
+                    "2015": 65.91,
+                    "2016": 56.25,
+                    "2017": 75.0,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 72.86,
+                    "3": 66.46,
+                    "4": 69.74,
+                    "5": 58.82,
+                    "6": 67.24,
+                    "7": 69.64,
+                    "8": 81.25,
+                    "9": 87.5,
+                    "10": 75.0,
+                    "11": 66.67,
+                    "12": 66.67,
+                    "14": 80.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 50.0,
+                    "18": 0.0,
+                    "19": 75.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 75.0,
+                    "33": 100.0
+                }
+            }
+        },
+        "simplified_baseline": {
+            "mean_similarity": 1.0,
+            "mean_entity_overlap": 1.0,
+            "mean_reference_overlap": 0.0,
+            "mean_numerical_instances_overlap": 0.0,
+            "mean_percentage_symbol_instances_diff": 0.0,
+            "flesch_reading_ease": {
+                "first_mean": 83.32,
+                "second_mean": 83.32,
+                "difference": 0.0
+            },
+            "medical_jargon_score": {
+                "first_mean": 3.424,
+                "second_mean": 3.424,
+                "difference": 0.0
+            },
+            "length": {
+                "first_mean": 5.0,
+                "second_mean": 5.0,
+                "difference": 0.0
+            },
+            "hedges_text_count": {
+                "first_mean": 1.0,
+                "second_mean": 1.0,
+                "difference": 0.0
+            },
+            "evidence_direction": {
+                "overall_agreement_pct": 100.0,
+                "singleturn_agreement": 100.0,
+                "multiturn_agreement": 0,
+                "question_category_agreement": {
+                    "effectiveness": 100.0,
+                    "efficacy": 100.0
+                },
+                "condition_category_agreement_singleturn": {
+                    "Cardiovascular": 100.0,
+                    "Ear, Nose, Throat & Dental": 100.0,
+                    "Endocrine & Metabolic": 100.0,
+                    "Gastrointestinal & Hepatology": 100.0,
+                    "Infectious Diseases & Dermatology": 100.0,
+                    "Mental Health & Behavioural": 100.0,
+                    "Musculoskeletal & Orthopaedic": 100.0,
+                    "Neurology & Pain": 100.0,
+                    "Oncology": 100.0,
+                    "Ophthalmology": 100.0,
+                    "Other / General": 100.0,
+                    "Pregnancy, Childbirth & Gynaecology": 100.0,
+                    "Respiratory": 100.0,
+                    "Urology & Nephrology": 100.0
+                },
+                "condition_category_agreement_multiturn": {},
+                "overall_year_level_agreement_pct": {
+                    "1998": 100.0,
+                    "1999": 100.0,
+                    "2000": 100.0,
+                    "2001": 100.0,
+                    "2002": 100.0,
+                    "2003": 100.0,
+                    "2004": 100.0,
+                    "2005": 100.0,
+                    "2006": 100.0,
+                    "2007": 100.0,
+                    "2008": 100.0,
+                    "2009": 100.0,
+                    "2010": 100.0,
+                    "2011": 100.0,
+                    "2012": 100.0,
+                    "2013": 100.0,
+                    "2014": 100.0,
+                    "2015": 100.0,
+                    "2016": 100.0,
+                    "2017": 100.0,
+                    "2018": 100.0,
+                    "2019": 100.0
+                },
+                "overall_num_sources_agreement_pct": {
+                    "2": 100.0,
+                    "3": 100.0,
+                    "4": 100.0,
+                    "5": 100.0,
+                    "6": 100.0,
+                    "7": 100.0,
+                    "8": 100.0,
+                    "9": 100.0,
+                    "10": 100.0,
+                    "11": 100.0,
+                    "12": 100.0,
+                    "14": 100.0,
+                    "15": 100.0,
+                    "16": 100.0,
+                    "17": 100.0,
+                    "18": 100.0,
+                    "19": 100.0,
+                    "20": 100.0,
+                    "21": 100.0,
+                    "22": 100.0,
                     "33": 100.0
                 }
             }
