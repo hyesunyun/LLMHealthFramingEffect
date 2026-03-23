@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --time=80:00:00
-#SBATCH --partition=frink
+#SBATCH --partition=177huntington
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --job-name=eval
 #SBATCH --cpus-per-task=8
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=20G
+#SBATCH --mem=40G
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
@@ -28,9 +28,9 @@ models=(
   "api-llama3.3"
   "api-llama4"
   "huatuo-7B"
-  # "huatuo-8B"
-  # "qwen3-4B"
-  # "qwen3-30B"
+  "huatuo-8B"
+  "qwen3-4B"
+  "qwen3-30B"
   # "huatuo-70B"
 )
 
@@ -53,21 +53,21 @@ models=(
 # done
 
 # FOR POSITIVE vs NEGATIVE
-for model in "${models[@]}"; do
-    python3 -u ../code/run_evaluation.py \
-        --file_path "../code/outputs/responses/${model}/simplified_question_responses.json" \
-        --output_path "../code/outputs/evaluation/${model}_eval_results_simplified.json" \
-        --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_final.json" \
-        --data_type "framing"
-done
-
-# FOR BASELINE (TWO SAMPLES OF POSITIVE)
 # for model in "${models[@]}"; do
 #     python3 -u ../code/run_evaluation.py \
-#         --file_path "../code/outputs/baseline_responses/${model}/positive_simplified_question_responses.json" \
-#         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results_simplified.json" \
-#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_final.json" \
-#         --data_type "baseline"
+#         --file_path "../code/outputs/responses/${model}/simplified_question_responses.json" \
+#         --output_path "../code/outputs/evaluation/${model}_eval_results_simplified.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
+#         --data_type "framing"
 # done
+
+# FOR BASELINE (TWO SAMPLES OF POSITIVE)
+for model in "${models[@]}"; do
+    python3 -u ../code/run_evaluation.py \
+        --file_path "../code/outputs/baseline_responses/${model}/positive_simplified_question_responses.json" \
+        --output_path "../code/outputs/baseline_evaluation/${model}_eval_results_simplified.json" \
+        --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
+        --data_type "baseline"
+done
 
 conda deactivate
