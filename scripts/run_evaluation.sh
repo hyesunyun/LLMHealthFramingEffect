@@ -24,11 +24,11 @@ export GOOGLE_APPLICATION_CREDENTIALS="/scratch/yun.hy/question-framing-fd103043
 
 models=(
   # "gpt-5.1"
-  "claude_4.5_sonnet"
+  # "claude_4.5_sonnet"
   # "api-llama3.3"
   # "api-llama4"
-  "huatuo-7B"
-  # "huatuo-8B"
+  # "huatuo-7B"
+  "huatuo-8B"
   # "qwen3-4B"
   # "qwen3-30B"
   # "huatuo-70B"
@@ -53,13 +53,13 @@ models=(
 # done
 
 # FOR POSITIVE vs NEGATIVE
-for model in "${models[@]}"; do
-    python3 -u ../code/run_evaluation.py \
-        --file_path "../code/outputs/responses/${model}/simplified_question_responses.json" \
-        --output_path "../code/outputs/evaluation/${model}_eval_results_simplified.json" \
-        --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
-        --data_type "framing"
-done
+# for model in "${models[@]}"; do
+#     python3 -u ../code/run_evaluation.py \
+#         --file_path "../code/outputs/responses/${model}/simplified_question_responses.json" \
+#         --output_path "../code/outputs/evaluation/${model}_eval_results_simplified.json" \
+#         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
+#         --data_type "framing"
+# done
 
 # FOR BASELINE (TWO SAMPLES OF POSITIVE)
 # for model in "${models[@]}"; do

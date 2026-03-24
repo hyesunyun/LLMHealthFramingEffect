@@ -6,7 +6,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=100G
 #SBATCH --partition=177huntington
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
 
