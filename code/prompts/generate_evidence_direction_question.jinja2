@@ -1,0 +1,57 @@
+Act as a medical research assistant. Analyze the provided Systematic Review metadata and generate a specific comparative question.
+
+Instructions:
+- Identify the Control: Search the Abstract (Objectives/Results) to identify the primary comparator used against the Target Intervention (e.g., placebo, standard care, or a specific drug).
+- Identify the Outcome Measure: Translate the broad "Target Condition" into a specific "quantity of medical outcome" found in the Main Results. Prioritize validated clinical scales (e.g., ACR50, mortality rates, pain scores) and the primary outcome related to the Target Condition.
+- Construct a single question in the following format: "Is [quantity of medical outcome] higher, lower, or the same when comparing [intervention] to [control]?"
+
+Example 1:
+- Title: "Golimumab for rheumatoid arthritis"
+- Abstract: "Background: Golimumab is a humanized inhibitor of Tumor necrosis factor-alpha, recently approved by the Food and Drug Administration (FDA) for the treatment of Rheumatoid arthritis (RA).
+Objectives: The objective of this systematic review was to compare the efficacy and safety of golimumab (alone or in combination with DMARDs or biologics) to placebo (alone or in combination with DMARDs or biologics) in randomized or quasi-randomized clinical trials in adults with RA.
+Search methods: An expert librarian searched six databases for any clinical trials of golimumab in RA, including the Cochrane Central Register of Controlled Trials (CENTRAL), OVID MEDLINE, CINAHL, EMBASE, Science Citation Index (Web of Science) and Current Controlled Trials databases.
+Selection criteria: Studies were included if they used golimumab in adults with RA, were randomized or quasi-randomized and provided clinical outcomes.
+Data collection and analysis: Two review authors (JS, SN) independently reviewed all titles and abstracts, selected appropriate studies for full review and reviewed the full-text articles for the final selection of included studies. For each study, they independently abstracted study characteristics, safety and efficacy data and performed risk of bias assessment. Disagreements were resolved by consensus. For continuous measures, we calculated mean differences or standardized mean differences and for categorical measures, relative risks. 95% confidence intervals were calculated.
+Main results: Four RCTs with 1,231 patients treated with golimumab and 483 patients treated with placebo were included. Of these, 436 were treated with the FDA-approved dose of golimumab 50 mg every four weeks. Compared to patients treated with placebo+methotrexate, patients treated with the FDA-approved dose of golimumab+methotrexate were 2.6 times more likely to reach ACR50 (95% confidence interval (CI) 1.3 to 4.9; P=0.005 and NNT= 5, 95% confidence interval 2 to 20), no more likely to have any adverse event (relative risk 1.1, 95% Cl 0.9 to 1.2; P=0.44), and 0.5 times as likely to have overall withdrawals (95% Cl 0.3 to 0.8; P=0.005). Golimumab-treated patients were significantly more likely to achieve remission, low disease activity and improvement in functional ability compared to placebo (all statistically significant). No significant differences were noted between golimumab and placebo regarding serious adverse events, infections, serious infections, lung infections, tuberculosis, cancer, withdrawals due to adverse events and inefficacy and deaths. No radiographic data were reported.
+Authors' conclusions: With an overall high grade of evidence, at the FDA-approved dose, golimumab is significantly more efficacious than placebo in treatment of patients with active RA , when used in combination with methotrexate. The short-term safety profile, based on short-term RCTs, is reasonable with no differences in total adverse events, serious infections, cancer, tuberculosis or deaths. Long-term surveillance studies are needed for safety assessment."
+- Target Intervention: "golimumab"
+- Target Condition: "rheumatoid arthritis"
+Generated Question:
+Is the ACR50 response rate higher, lower, or the same when comparing golimumab to placebo?
+
+Example 2:
+- Title: "Amantadine for fatigue in multiple sclerosis"
+- Abstract: "Background: atigue is one of the most common and disabling symptoms of people with Multiple Sclerosis (MS). The effective management of fatigue has an important impact on the patient's functioning, abilities, and quality of life. Although a number of strategies have been devised for reducing fatigue, treatment recommendations are based on a limited amount of scientific evidence. Many textbooks report amantadine as a first-choice drug for MS-related fatigue because of published randomised controlled trials (RCTs) showing some benefit.
+Objectives: To determine the effectiveness and safety of amantadine in treating fatigue in people with MS.
+Search methods: AWe searched The Cochrane MS Group Trials Register (July 2006), The Cochrane Central Register of Controlled Trials (The Cochrane Library Issue 1, 2006), MEDLINE (January 1966 to July 2006), EMBASE (January 1974 to July 2006), bibliographies of relevant articles and handsearched relevant journals. We also contacted drug companies and researchers in the field.
+Selection criteria: Randomised, placebo or other drugs-controlled, double-blind trials of amantadine in MS people with fatigue.
+Data collection and analysis: Three reviewers selected studies for inclusion in the review and they extracted the data reported in the original articles. We requested missing and unclear data by correspondence with the trial's principal investigator. A meta-analysis was not performed due to the inadequacy of available data and heterogeneity of outcome measures.
+Main results: Out of 13 pertinent publications, 5 trials met the criteria for inclusion in this review: one study was a parallel arms study, and 4 were crossover trials. The number of randomised participants ranged between 10 and 115, and a total of 272 MS patients were studied. Overall the quality of the studies considered was poor and all trials were open to bias. All studies reported small and inconsistent improvements in fatigue, whereas the clinical relevance of these findings and the impact on patient's functioning and health related quality of life remained undetermined. The number of participants reporting side effects during amantadine therapy ranged from 10% to 57%.
+Authors' conclusions: The efficacy of amantadine in reducing fatigue in people with MS is poorly documented, as well as its tolerability. It is advisable to: (1) improve knowledge on the underlying mechanisms of MS-related fatigue; (2) achieve an agreement on accurate, reliable and responsive outcome measures of fatigue; (3) perform good quality RCTs."
+- Target Intervention: "amantadine"
+- Target Condition: "fatigue in multiple sclerosis"
+Generated Question:
+Is the percentage of patients with fatigue improvement higher, lower, or the same when comparing amantadine to placebo?
+
+Example 3:
+- Title: "Intranasal corticosteroids for nasal airway obstruction in children with moderate to severe adenoidal hypertrophy"
+- Abstract: "Background: This is an update of a Cochrane Review first published in The Cochrane Library in Issue 3, 2008. Adenoidal hypertrophy is generally considered a common condition of childhood. When obstructive sleep apnoea or cardio-respiratory syndrome occurs, adenoidectomy is generally indicated. In less severe cases, non-surgical interventions may be considered, however few medical alternatives are currently available. Intranasal steroids may be used to reduce nasal airway obstruction.
+Objectives: To assess the efficacy of intranasal corticosteroids for improving nasal airway obstruction in children with moderate to severe adenoidal hypertrophy.
+Search methods: We searched the Cochrane Ear, Nose and Throat Disorders Group Trials Register; the Cochrane Central Register of Controlled Trials (CENTRAL); MEDLINE; EMBASE; ISI Web of Science; Cambridge Scientific Abstracts; ISRCTN and additional sources for published and unpublished trials. The date of the most recent search was 4 May 2010.
+Selection criteria: Randomised controlled trials comparing intranasal corticosteroids with placebo, no intervention or other treatment in children aged 0 to 12 years with moderate to severe adenoidal hypertrophy.
+Data collection and analysis: Two authors independently extracted data from the included trials and assessed trial quality. Meta-analysis was not applicable and we summarised data in a narrative format.
+Main results: Six randomised trials involving a total of 394 patients were included. Five of the six trials demonstrated a significant efficacy of intranasal corticosteroids in improving nasal obstruction symptoms and in reducing adenoid size.\nThe first eight-week cross-over study showed that treatment with beclomethasone (336 mcg/day) yielded a greater improvement in mean symptom scores than placebo (-18.5 versus -8.5, P < 0.05) and a larger reduction in mean adenoid/choana ratio than placebo (right, -14% versus +0.4%, P = 0.002; left, -15% versus -2.0%, P = 0.0006) between week 0 and week 4. The second four-week cross-over study showed that the Nasal Obstruction Index decreased by at least 50% from baseline in 38% of patients treated with beclomethasone (400 mcg/day) between week 0 and week 2, whereas none of the patients treated with placebo had such improvement (P < 0.01). The third parallel-group trial showed that 77.7% of patients treated with mometasone (100 mcg/day) for 40 days demonstrated an improvement in nasal obstruction symptoms and a decrease in adenoid size, such that adenoidectomy could be avoided, whereas no significant improvement was observed in the placebo group. The fourth parallel-group trial showed that eight weeks of treatment with flunisolide (500 mcg/day) was associated with a larger reduction in adenoid size than isotonic saline solution (P < 0.05). The fifth parallel-group trial demonstrated that eight weeks of treatment with fluticasone (400 mcg/day) significantly reduced nasal obstruction symptoms and adenoid size, and adenoidectomy was avoided in 76% of these patients compared with 20% of the patients treated with normal saline (P < 0.05). In contrast, one parallel-group trial did not find a significant improvement in nasal obstruction symptoms nor adenoid size after eight weeks of treatment with beclomethasone (200 mcg/day).
+Authors' conclusions: Current evidence suggests that intranasal corticosteroids may significantly improve nasal obstruction symptoms in children with moderate to severe adenoidal hypertrophy, and this improvement may be associated with a reduction in adenoid size. The long-term efficacy of intranasal corticosteroids in these patients remains to be defined."
+- Target Intervention: "intranasal corticosteroids"
+- Target Condition: "nasal airway obstruction"
+Generated Question:
+Is the severity of nasal airway obstruction higher, lower, or the same when comparing intranasal corticosteroids to placebo?
+
+Constraint: Do not include extra commentary. Only provide the final question.
+
+Input Data:
+- Title: {{review_title}}
+- Abstract: {{review_abstract}}
+- Target Intervention: {{intervention}}
+- Target Condition: {{condition}}
+Generated Question:

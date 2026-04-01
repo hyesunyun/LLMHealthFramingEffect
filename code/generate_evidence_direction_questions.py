@@ -1,0 +1,195 @@
+import argparse
+import os
+
+from tqdm import tqdm
+import time
+
+from utils import load_jsonl_file, load_json_file, save_dataset_to_json, render_prompt, format_review_abstract, format_messages
+from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
+
+DATA_FOLDER_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+DEFAULT_MAX_NEW_TOKENS = 8000 # arbitrary number for default max tokens, higher due to some models being reasoning models
+DEFAULT_PROMPT_TEMPLATE_NAME = "generate_evidence_direction_question"
+SIMPLIFIED_PROMPT_TEMPLATE_NAME = "generate_simplified_evidence_direction_question"
+
+class Generator:
+    
+    def __init__(self, model_name: str, input_path: str, output_path: str, intervention_condition_key: str, max_new_tokens: int, is_debug: bool = False) -> None:
+        self.model_name = model_name
+        self.input_path = input_path
+        self.output_path = output_path
+        self.intervention_condition_key = intervention_condition_key
+        if intervention_condition_key == "SimplifiedExtractedText":
+            self.prompt_template_name = SIMPLIFIED_PROMPT_TEMPLATE_NAME
+            self.__load_extracted_evidence_direction_questions()
+        else:
+            self.prompt_template_name = DEFAULT_PROMPT_TEMPLATE_NAME
+        self.is_debug = is_debug
+
+        self.is_reasoning_model = model_name in REASONING_MODELS
+
+        self.dataset = None
+        self.model = None
+        self.max_new_tokens = max_new_tokens
+
+        self.__load_dataset()
+        self.__load_model()
+
+    def __load_extracted_evidence_direction_questions(self) -> None:
+        """
+        This method loads the original/extracted version fo the evidence direction questions to simplify.
+
+        :return dictionary of the question with key being ReviewID
+        """
+        data = load_json_file(os.path.join(os.path.dirname(__file__), "./outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json"))
+        formatted_output = {}
+        for item in data:
+            review_id = item["ReviewID"]
+            evidence_direction_question = item["EvidenceDirectionQuestion"]
+            formatted_output[review_id] = evidence_direction_question
+        self.extracted_evidence_direction_questions = formatted_output
+
+    def __load_dataset(self) -> None:
+        """
+        This method loads the dataset
+
+        :return dataset as a list of dictionaries
+        """
+        print("Loading the dataset...")
+        if self.input_path.endswith(".jsonl"):
+            dataset = load_jsonl_file(self.input_path)
+        elif self.input_path.endswith(".json"):
+            dataset = load_json_file(self.input_path)
+
+        if self.is_debug:
+            dataset = dataset[:3] # use only first 10 examples for debugging
+
+        # add the extracted evidence direction questions to dataset if this is for simplificatoin
+        if self.intervention_condition_key == "SimplifiedExtractedText":
+            for item in dataset:
+                review_id = item["ReviewID"]
+                item["ExtractedEvidenceDirectionQuestion"] = self.extracted_evidence_direction_questions[review_id]
+
+        self.dataset = dataset
+
+    def __load_model(self) -> None:
+        """
+        This method loads the model requested for the task based on the model size.
+
+        :return Model object
+        """
+        print("Loading the model...")
+        model_class = MODEL_CLASS_MAPPING[self.model_name]
+        if "-" in self.model_name:
+            type = model_name.split("-")[-1]
+            self.model = model_class(model_type=type)
+        else:
+            self.model = model_class()
+
+    def generate_evidence_direction_questions(self) -> None:
+        """
+        This method takes in the treatment and condition information as well as the review abstract to generate evidence direction questions.
+        The question formatting is the same as what was used in 
+        Polzak, Christopher, et al. "Can Large Language Models Match the Conclusions of Systematic Reviews?" arXiv preprint arXiv:2505.22787 (2025).
+
+        :return None
+        """
+        results = []
+        pbar = tqdm(self.dataset, desc="Running eval question generation on the dataset")
+        for _, example in enumerate(pbar):
+            
+
+            if self.intervention_condition_key == "SimplifiedExtractedText":
+                original_evidence_direction_question = example["ExtractedEvidenceDirectionQuestion"]
+
+                original_extracted_info = example["ExtractedText"]
+                original_intervention = original_extracted_info["intervention"]
+                original_condition = original_extracted_info["condition"]
+                
+                simplified_extracted_info = example[self.intervention_condition_key]
+                simplified_intervention = simplified_extracted_info["intervention"]
+                simplified_condition = simplified_extracted_info["condition"]
+    
+                input = render_prompt(self.prompt_template_name, template_dir="./prompts",
+                                    original_question=original_evidence_direction_question,
+                                    intervention=original_intervention, condition=original_condition,
+                                    simplified_intervention=simplified_intervention, simplified_condition=simplified_condition)
+            elif self.intervention_condition_key == "ExtractedText":
+                review_title = example["ReviewTitle"]
+                review_abstract_sections = example["ReviewAbstract"]
+                formatted_abstract = format_review_abstract(review_abstract_sections)
+                extracted_info = example[self.intervention_condition_key]
+                intervention = extracted_info["intervention"]
+                condition = extracted_info["condition"]
+                input = render_prompt(self.prompt_template_name, template_dir="./prompts",
+                                    review_title=review_title, review_abstract=formatted_abstract,
+                                    intervention=intervention, condition=condition)
+
+            # format messages
+            messages = format_messages(self.model_name, input)
+
+            if self.is_reasoning_model:
+                response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+            else:
+                response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+
+            keys_to_remove = ["Inputs", "NumInputs", "Year", "Keywords", "NumIncludedStudies", "Questions", "MedReadMeScores", "ConditionCategory"]
+            updated_example = {key: value for key, value in example.items() if key not in keys_to_remove}
+            # updated_example["LLMThinkingContext"] = thinking_context if self.is_reasoning_model else ""
+            updated_example["EvidenceDirectionQuestion"] = response
+
+            if self.model_name in MODELS_WITH_RATE_LIMIT:
+                # add some default time gap to avoid rate limiting
+                time.sleep(REQ_TIME_GAP)
+
+            results.append(updated_example)
+        # end of loop through the dataset
+
+        # saving outputs to file
+        print(f"Saving outputs from model - {self.model_name}")
+        if self.output_path.endswith(".jsonl"):
+            save_dataset_to_json(results, self.output_path, jsonl=True)
+        elif self.output_path.endswith(".json"):
+            save_dataset_to_json(results, self.output_path)
+        
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Running Generation of Evidence Direction Questions from Cochrane Reviews Using LLMs")
+
+    parser.add_argument("--model", default="llama3.3_instruct_70B", 
+                        choices=MODELS, 
+                        help="what model to run", 
+                        required=True)
+    parser.add_argument("--input_path", default="./outputs", help="path to the input json file containing Cochrane Reviews and extracted intervention and condition information.")
+    parser.add_argument("--output_path", default="./outputs", help="directory of where the outputs/results should be saved.")
+    parser.add_argument("--intervention_condition_key", default="ExtractedText", help="the key in the input json file that contains the intervention and condition information.")
+    parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the key question.")
+    # do --no-debug for explicit False
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will run first 3 rows of data.")
+    
+    args = parser.parse_args()
+
+    model_name = args.model
+    input_path = args.input_path
+    output_path = args.output_path
+    intervention_condition_key = args.intervention_condition_key
+    max_new_tokens = args.max_new_tokens
+    is_debug = args.debug
+
+    print("Arguments Provided for Generator:")
+    print(f"Model:                      {model_name}")
+    print(f"Input Path:                 {input_path}")
+    print(f"Output Path:                {output_path}")
+    print(f"Intervention/Condition Key: {intervention_condition_key}")
+    print(f"Max Output Tokens:          {max_new_tokens}")
+    print(f"Is Debug:                   {is_debug}")
+    print()
+
+    # Get the directory name
+    directory_path = os.path.dirname(output_path)
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
+        print("Output directory path did not exist. Directory was created.")
+    
+    generator = Generator(model_name, input_path, output_path, intervention_condition_key, max_new_tokens, is_debug)
+    generator.generate_evidence_direction_questions()

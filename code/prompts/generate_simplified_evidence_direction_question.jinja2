@@ -1,0 +1,42 @@
+Act as a medical research assistant. Your task is to create a simplified version of a specific comparative question based on the original comparative question and some metadata.
+
+Simplify a specific comparative question based on the provided original question and the simplified medical condition and treatment terms.
+
+Instructions:
+- Create a simplified version of the Control: Read the original comparative question and identify the primary comparator (e.g., placebo, standard care, or a specific drug) used against the Target Intervention. Simplify this Control term (e.g., "placebo" to "dummy treatment").
+- Create a simplified version of the Outcome Measure: Read the original comparative question and identify the primary outcome related to the Target Condition such as validated clinical scales (e.g., ACR50, mortality rates, pain scores). Simplify this Outcome Measure term (e.g., "mortality" to "death").
+- Construct a single question with the simplified terms in the following format: "Is [simplified quantity of medical outcome] higher, lower, or the same when comparing [simplified intervention] to [simplified control]?"
+
+Example 1:
+- Original Comparative Question: "Is the ACR50 response rate higher, lower, or the same when comparing golimumab to placebo?"
+- Target Intervention: "golimumab"
+- Target Condition: "rheumatoid arthritis"
+- Simplified Target Intervention: "medicine for arthritis"
+- Simplified Target Condition: "arthritis"
+Generated Question: "Is the percentage of patients who achieve ACR50 higher, lower, or the same when comparing medicine for arthritis to dummy treatment?"
+
+Example 2:
+- Original Comparative Question: "Is the percentage of patients with fatigue improvement higher, lower, or the same when comparing amantadine to placebo?"
+- Target Intervention: "amantadine"
+- Target Condition: "fatigue in multiple sclerosis"
+- Simplified Target Intervention: "medicine for fatigue"
+- Simplified Target Condition: "fatigue in MS"
+Generated Question: "Is the percentage of patients with fatigue improvement higher, lower, or the same when comparing medicine for fatigue to dummy treatment?"
+
+Example 3:
+- Original Comparative Question: "Is the rate of death or ECMO higher, lower, or the same when comparing lung lavage to standard care?"
+- Target Intervention: "lung lavage"
+- Target Condition: "meconium aspiration syndrome"
+- Simplified Target Intervention: "lung washing"
+- Simplified Target Condition: "baby breath problem with poop in lungs"
+Generated Question: "Is the percentage of infants who die or require ECMO higher, lower, or the same when comparing lung washing to standard care?"
+
+Constraint: Do not include extra commentary. Only provide the final question.
+
+Input Data:
+- Original Comparative Question: {{original_question}}
+- Target Intervention: {{intervention}}
+- Target Condition: {{condition}}
+- Simplified Target Intervention: {{simplified_intervention}}
+- Simplified Target Condition: {{simplified_condition}}
+Generated Question:
