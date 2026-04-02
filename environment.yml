@@ -1,4 +1,4 @@
-name: llm_health_framing_effect
+name: LLMHealthFramingEffect
 channels:
   - defaults
   - conda-forge

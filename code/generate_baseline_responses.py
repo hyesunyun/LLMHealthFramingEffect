@@ -26,8 +26,7 @@ class Generator:
         self.dataset = self.__load_dataset()
         self.model = self.__load_model()
 
-    # ── Setup ────────────────────────────────────────────────────────────
-
+    # Setup
     def __load_dataset(self) -> list[dict]:
         print("Loading the dataset...")
         if self.input_path.endswith(".jsonl"):
@@ -36,7 +35,7 @@ class Generator:
             dataset = load_json_file(self.input_path)
 
         if self.is_debug:
-            dataset = dataset[:2]
+            dataset = dataset[:4]
 
         return dataset
 
@@ -48,8 +47,7 @@ class Generator:
             return model_class(model_type=model_type)
         return model_class()
 
-    # ── Formatting helpers ───────────────────────────────────────────────
-
+    # Formatting helpers
     def __format_rct_inputs(self, rct_inputs: list[dict]) -> list[dict]:
         """Format RCT inputs (e.g., for chat template) - currently just extracts title and abstract."""
         return [{"title": rct["Title"], "abstract": rct["Abstract"]} for rct in rct_inputs]
@@ -60,8 +58,7 @@ class Generator:
                                    question=question, abstracts=rct_inputs)
         return format_messages(self.model_name, input_text)
 
-    # ── Model interaction ────────────────────────────────────────────────
-
+    # Model interaction
     def __call_model(self, messages: list[dict]) -> str:
         """Call model and return only the response text. Handles reasoning models (which return tuples) transparently."""
         output = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
@@ -69,8 +66,7 @@ class Generator:
             return output[0]
         return output
 
-    # ── Question processing ──────────────────────────────────────────────
-
+    # Question processing
     def __process_single_turn(self, question: str, rct_inputs: list[dict]) -> str:
         """Get answer for a single non-multiturn question."""
         messages = self.__build_messages(question, rct_inputs)
@@ -113,8 +109,7 @@ class Generator:
 
         return questions
 
-    # ── HuggingFace batched inference ────────────────────────────────────
-
+    # HuggingFace batched inference
     def __collect_single_turn_questions(self) -> list[dict]:
         """Collect all non-multiturn questions across all examples for batched processing."""
         all_questions = []
@@ -231,8 +226,7 @@ class Generator:
 
         self.__save_outputs(results)
 
-    # ── API batch ────────────────────────────────────────────────────────
-
+    # API batch
     def __submit_api_batch(self) -> None:
         """Submit non-multiturn questions as an API batch job."""
         inputs = {}
@@ -251,8 +245,7 @@ class Generator:
         batch_id = self.model.submit_batch(inputs, self.max_new_tokens)
         print(f"Submitted batch job with batch ID: {batch_id}")
 
-    # ── Output ───────────────────────────────────────────────────────────
-
+    # Output
     def __save_outputs(self, results: list[dict]) -> None:
         print(f"Saving outputs from model - {self.model_name}")
         if self.output_path.endswith(".jsonl"):
@@ -265,8 +258,7 @@ class Generator:
             print(f"Saving intermediate outputs at instance {index + 1} from model - {self.model_name}")
             self.__save_outputs(results)
 
-    # ── Main entry point ─────────────────────────────────────────────────
-
+    # Main entry point
     def generate_answers(self) -> None:
         # API batch models: submit batch + run multiturn sequentially
         if self.model_name in BATCH_API_MODELS:
@@ -318,7 +310,7 @@ if __name__ == '__main__':
     parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int, help="maximum number of tokens to generate for the answers.")
     parser.add_argument("--batch_size", default=1, type=int, help="batch size for HuggingFace model inference. Only used for local GPU models.")
     # do --no-debug for explicit False
-    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will only run 2 samples from the dataset.")
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, help="used for debugging purposes. This option will only run 4 samples from the dataset.")
 
     args = parser.parse_args()
 
