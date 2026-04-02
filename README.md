@@ -16,9 +16,25 @@ Create conda environment from the environment.yml: `conda env create -f environm
 
 Activate the conda environment: `conda activate LLMHealthFramingEffect`
 
+### Environment Variables
+
+Create a `.env` file in the same directory as this README.md file.
+The `.env` file should include the following environment variables:
+```bash
+HUGGINGFACE_TOKEN=<YOUR TOKEN/KEY GOES HERE>
+ANTHROPIC_API_KEY=<YOUR TOKEN/KEY GOES HERE>
+OPENAI_API_KEY=<YOUR TOKEN/KEY GOES HERE>
+ENTREZ_EMAIL=<YOUR TOKEN/KEY GOES HERE>
+GEMINI_API_KEY=<YOUR TOKEN/KEY GOES HERE>
+GOOGLE_CLOUD_PROJECT="question-framing" # can be whatever name you create in Google Cloud
+GOOGLE_CLOUD_REGION="global"
+BUCKET_NAME="gemini-eval-outputs" # can be whatever name you create in Google Cloud
+GOOGLE_CLOUD_STORAGE_REGION="us-central1"
+```
+
 ## DATA
 
-The project uses a custom, curated dataset from [Cochrane systematic reviews](https://www.cochrane.org/), which are widely recognized as the ``gold standard'' for evidence-based healthcare. We merged the 4,500 medical systematic reviews from [Wallace et al. (2021)](https://github.com/bwallace/RCT-summarization-data) and their corresponding RCT abstracts (all sourced from PubMed) with full review abstracts from [Devaraj et al. (2021)](https://github.com/AshOlogn/Paragraph-level-Simplification-of-Medical-Texts), yielding a dataset that pairs technical clinical abstracts with expert-level systematic summaries.
+The project uses a custom, curated dataset from [Cochrane systematic reviews](https://www.cochrane.org/), which are widely recognized as the "gold standard" for evidence-based healthcare. We merged the 4,500 medical systematic reviews from [Wallace et al. (2021)](https://github.com/bwallace/RCT-summarization-data) and their corresponding RCT abstracts (all sourced from PubMed) with full review abstracts from [Devaraj et al. (2021)](https://github.com/AshOlogn/Paragraph-level-Simplification-of-Medical-Texts), yielding a dataset that pairs technical clinical abstracts with expert-level systematic summaries.
 
 Our pre-processing pipeline involves: (1) filtering reviews to retain those with between 2 and 50 trials (n=3,913); (2) removing non-patient-relevant reviews (e.g., healthcare system interventions) by cross-referencing against Cochrane Library's catalog of intervention reviews published prior to December 1, 2025 (n=3,430); (3) validating data integrity by comparing clinical trial counts against Cochrane Library references and excluding any mismatches (n=746); and (4) removing any reviews with any missing trial abstracts. The pre-processed dataset comprises of 629 high-quality reviews.
 
@@ -208,5 +224,13 @@ Then, run `code/run_analysis_in_R.ipynb` for statistical testing (regressions an
 ## CITATION
 
 ```bibtex
-
+@misc{yun2026evaluating,
+      title={This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA}, 
+      author={Hye Sun Yun and Geetika Kapoor and Michael Mackert and Ramez Kouzy and Wei Xu and Junyi Jessy Li and Byron C. Wallace},
+      year={2025},
+      eprint={},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/}, 
+}
 ```
