@@ -5,9 +5,7 @@ Code, Data, and Model Outputs for the paper ["This Treatment Works, Right? Evalu
 Our research questions are:
 
 - **RQ1: Framing Sensitivity.** How does positive versus negative framing of patient medical queries affect the consistency of LLM responses when grounded in the same RCT evidence?
-
 - **RQ2: Single-turn vs. Multi-turn Susceptibility.** Are LLMs more susceptible to framing effects under repeated persuasive multi-turn conversations than in single-turn interactions?
-
 - **RQ3: Technical vs. Plain Language Susceptibility.** Are LLMs more susceptible to framing effects in plain language queries than in technical ones?
 
 ## SETUP
@@ -21,11 +19,11 @@ Activate the conda environment: `conda activate LLMHealthFramingEffect`
 Create a `.env` file in the same directory as this README.md file.
 The `.env` file should include the following environment variables:
 ```bash
-HUGGINGFACE_TOKEN=<YOUR TOKEN/KEY GOES HERE>
-ANTHROPIC_API_KEY=<YOUR TOKEN/KEY GOES HERE>
-OPENAI_API_KEY=<YOUR TOKEN/KEY GOES HERE>
-ENTREZ_EMAIL=<YOUR TOKEN/KEY GOES HERE>
-GEMINI_API_KEY=<YOUR TOKEN/KEY GOES HERE>
+HUGGINGFACE_TOKEN=<YOUR TOKEN GOES HERE>
+ANTHROPIC_API_KEY=<YOUR API KEY GOES HERE>
+OPENAI_API_KEY=<YOUR API KEY GOES HERE>
+ENTREZ_EMAIL=<YOUR FULL EMAIL ADDRESS GOES HERE>
+GEMINI_API_KEY=<YOUR API KEY GOES HERE>
 GOOGLE_CLOUD_PROJECT="question-framing" # can be whatever name you create in Google Cloud
 GOOGLE_CLOUD_REGION="global"
 BUCKET_NAME="gemini-eval-outputs" # can be whatever name you create in Google Cloud

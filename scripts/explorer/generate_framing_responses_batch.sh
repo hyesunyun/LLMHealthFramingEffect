@@ -27,18 +27,18 @@ models=(
 
 # echo "Running LLM response generation for default questions"
 # for model in "${models[@]}"; do
-#     python3 -u ../code/generate_framing_responses.py \
+#     python3 -u ../../code/generate_framing_responses.py \
 #         --model "$model" \
-#         --input_path ../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
-#         --output_path "../code/outputs/responses/$model/question_responses.json"
+#         --input_path ../../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
+#         --output_path "../../code/outputs/responses/$model/question_responses.json"
 # done
 
 echo "Running LLM response generation for simplified questions"
 for model in "${models[@]}"; do
-    python3 -u ../code/generate_framing_responses.py \
+    python3 -u ../../code/generate_framing_responses.py \
         --model "$model" \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
-        --output_path "../code/outputs/responses/$model/simplified_question_responses.json"
+        --input_path ../../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
+        --output_path "../../code/outputs/responses/$model/simplified_question_responses.json"
 done
 
 conda deactivate

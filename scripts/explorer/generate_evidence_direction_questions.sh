@@ -24,16 +24,16 @@ export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 model="qwen3_thinking-4B"
 
 # for default questions
-# python3 ../code/generate_evidence_direction_questions.py \
+# python3 ../../code/generate_evidence_direction_questions.py \
 #     --model "$model" \
-#     --input_path "../code/outputs/questions/$model/extracted/cochrane_review_data_final_with_questions.json" \
-#     --output_path "../code/outputs/questions/$model/extracted/evidence_direction_questions_raw.json"
+#     --input_path "../../code/outputs/questions/$model/extracted/cochrane_review_data_final_with_questions.json" \
+#     --output_path "../../code/outputs/questions/$model/extracted/evidence_direction_questions_raw.json"
 
 # for simplified questions
-python3 ../code/generate_evidence_direction_questions.py \
+python3 ../../code/generate_evidence_direction_questions.py \
     --model "$model" \
-    --input_path "../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
-    --output_path "../code/outputs/questions/$model/simplified/evidence_direction_questions_raw.json" \
+    --input_path "../../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
+    --output_path "../../code/outputs/questions/$model/simplified/evidence_direction_questions_raw.json" \
     --intervention_condition_key "SimplifiedExtractedText"
 
 conda deactivate

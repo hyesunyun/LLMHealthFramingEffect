@@ -21,17 +21,17 @@ export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
 # for default questions
-# python3 -u ../code/generate_baseline_responses.py \
+# python3 -u ../../code/generate_baseline_responses.py \
 #         --model gpt-5.1 \
-#         --input_path ../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
-#         --output_path ../code/outputs/baseline_responses/gpt-5.1/TEST_positive_question_responses.json \
+#         --input_path ../../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
+#         --output_path ../../code/outputs/baseline_responses/gpt-5.1/TEST_positive_question_responses.json \
 #         --debug
 
 # for simplified questions
-python3 -u ../code/generate_baseline_responses.py \
+python3 -u ../../code/generate_baseline_responses.py \
         --model gpt-5.1 \
-        --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
-        --output_path ../code/outputs/baseline_responses/gpt-5.1/TEST_positive_simplified_question_responses.json \
+        --input_path ../../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
+        --output_path ../../code/outputs/baseline_responses/gpt-5.1/TEST_positive_simplified_question_responses.json \
         --debug
 
 conda deactivate

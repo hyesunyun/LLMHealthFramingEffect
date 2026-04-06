@@ -17,13 +17,13 @@ source activate llm_health_framing_effect
 conda activate llm_health_framing_effect
 
 echo "Run on all data"
-python3 ../code/find_num_included_studies.py \
- --input_path ../data/cochrane_review_data.jsonl \
- --output_path ../code/outputs/find_num_studies/cochrane_review_data_webscraping.json
+python3 ../../code/find_num_included_studies.py \
+ --input_path ../../data/cochrane_review_data.jsonl \
+ --output_path ../../code/outputs/find_num_studies/cochrane_review_data_webscraping.json
 
 echo "Filter reviews with mismatched studies"
-python ../code/filter_reviews_with_mismatched_studies.py \
- --input_path ../code/outputs/find_num_studies/cochrane_review_data_webscraping.json \
- --output_path ../data/cochrane_review_data_cleaned.jsonl
+python ../../code/filter_reviews_with_mismatched_studies.py \
+ --input_path ../../code/outputs/find_num_studies/cochrane_review_data_webscraping.json \
+ --output_path ../../data/cochrane_review_data_cleaned.jsonl
 
 conda deactivate
