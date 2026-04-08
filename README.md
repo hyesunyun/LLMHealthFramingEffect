@@ -1,6 +1,6 @@
 # Evaluating LLM Sensitivity to Patient Question Framing in Medical QA
 
-Code, Data, and Model Outputs for the paper ["This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA"](add arxiv link)
+Code, Data, and Model Outputs for the paper ["This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA"](https://arxiv.org/abs/2604.05051)
 
 Our research questions are:
 
@@ -222,13 +222,13 @@ Then, run `code/run_analysis_in_R.ipynb` for statistical testing (regressions an
 ## CITATION
 
 ```bibtex
-@misc{yun2026evaluating,
+@misc{yun2026treatmentworksrightevaluating,
       title={This Treatment Works, Right? Evaluating LLM Sensitivity to Patient Question Framing in Medical QA}, 
       author={Hye Sun Yun and Geetika Kapoor and Michael Mackert and Ramez Kouzy and Wei Xu and Junyi Jessy Li and Byron C. Wallace},
-      year={2025},
-      eprint={},
+      year={2026},
+      eprint={2604.05051},
       archivePrefix={arXiv},
       primaryClass={cs.CL},
-      url={https://arxiv.org/abs/}, 
+      url={https://arxiv.org/abs/2604.05051}, 
 }
 ```
