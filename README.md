@@ -48,6 +48,8 @@ python code/filter_reviews_with_mismatched_studies.py \
     --output_path data/cochrane_review_data_cleaned.jsonl
 ```
 
+The final pre-processed dataset of 629 reviews can be found in `data/cochrane_review_data_cleaned.jsonl` file.
+
 ### Technical Question Generation
 
 To generate the technical questions, we used `Qwen3 Thinking 4B` model to extract treatment-condition pair terms from each review in our dataset. After extracting the relevant terms, we apply them to each of our question templates. The `--run_scoring` argument enables the python script to score each question on readability (or level of medical jargon).
@@ -65,6 +67,8 @@ python3 code/apply_question_templates.py \
     --output_path code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
     --run_scoring
 ```
+
+**The final dataset of 368 reviews with all technical questions can be found in `code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json` file.**
 
 ### Plain Language Question Generation
 
@@ -84,6 +88,8 @@ python3 code/apply_question_templates.py \
     --question_types "effectiveness" "efficacy" \
     --run_scoring
 ```
+
+**The final dataset of 363 reviews with plain questions can be found in `code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json` file.**
 
 ## MODELS
 
@@ -181,6 +187,11 @@ python3 code/generate_evidence_direction_questions.py \
 > - `--intervention_condition_key`: the key in the input json file that contains the intervention and condition information. ("ExtractedText" or "SimplifiedExtractedText")
 > - `--max_new_tokens`: maximum number of tokens to generate for the key question. (DEFAULT is `8000`)
 > - `--debug`: adding this flag will only run 3 samples from dataset. This is for debugging purposes.
+
+The evidence direction question files for the technical questions can be found in `code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json` and 
+
+**The final evidence direction questions for technical questions can be found in `code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json` file.
+For plain language questions, please refer to `code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json` file.**
 
 #### Running Evaluation with LLM Responses
 
