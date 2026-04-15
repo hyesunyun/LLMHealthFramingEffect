@@ -1,6 +1,5 @@
 import argparse
 import os
-
 from tqdm import tqdm
 import time
 import json
@@ -14,7 +13,7 @@ DEFAULT_MAX_NEW_TOKENS = 5000
 PROMPT_TEMPLATE_NAME = "generate_simplified_terms"
 
 
-class Extractor:
+class Simplifier:
 
     def __init__(self, model_name: str, input_path: str, output_path: str, max_new_tokens: int,
                  is_debug: bool = False) -> None:
@@ -38,6 +37,8 @@ class Extractor:
             dataset = load_jsonl_file(self.input_path)
         elif self.input_path.endswith(".json"):
             dataset = load_json_file(self.input_path)
+        else:
+            raise ValueError("Input file must be .json or .jsonl")
 
         if self.is_debug:
             dataset = dataset[:10]
@@ -48,26 +49,30 @@ class Extractor:
         print("Loading the model...")
         model_class = MODEL_CLASS_MAPPING[self.model_name]
         if "-" in self.model_name:
-            type = self.model_name.split("-")[-1]
-            self.model = model_class(model_type=type)
+            m_type = self.model_name.split("-")[-1]
+            self.model = model_class(model_type=m_type)
         else:
             self.model = model_class()
 
-    def extract_simplified_terms(self) -> None:
+    def simplify_terms(self) -> None:
         results = []
-        pbar = tqdm(self.dataset, desc="Running extraction on the dataset")
+        pbar = tqdm(self.dataset, desc="Running simplification on the dataset")
         for _, example in enumerate(pbar):
-            review_title = example["title"]
-            review_abstract_sections = example["abstract"]
+            review_title = example["ReviewTitle"]
+            review_abstract_sections = example["ReviewAbstract"]
             formatted_abstract = format_review_abstract(review_abstract_sections)
 
-            input = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
-                                  review_title=review_title,
-                                  review_abstract=formatted_abstract,
-                                  intervention=example["intervention"],
-                                  condition=example["condition"])
+            extracted_terms = example["ExtractedText"]
+            intervention = extracted_terms["intervention"]
+            condition = extracted_terms["condition"]
 
-            messages = format_messages(self.model_name, input)
+            input_text = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
+                                       review_title=review_title,
+                                       review_abstract=formatted_abstract,
+                                       intervention=intervention,
+                                       condition=condition)
+
+            messages = format_messages(self.model_name, input_text)
 
             if self.is_reasoning_model:
                 response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
@@ -79,9 +84,9 @@ class Extractor:
             example["LLMRawResponse"] = response
 
             try:
-                example["ExtractedSimplifiedTerms"] = json.loads(extract_json_string(response))
-            except:
-                example["ExtractedSimplifiedTerms"] = {"simplified_intervention": None, "simplified_condition": None}
+                example["SimplifiedExtractedText"] = json.loads(extract_json_string(response))
+            except Exception:
+                example["SimplifiedExtractedText"] = {"simplified_intervention": None, "simplified_condition": None}
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 time.sleep(REQ_TIME_GAP)
@@ -91,47 +96,32 @@ class Extractor:
         print(f"Saving outputs from model - {self.model_name}")
         if self.output_path.endswith(".jsonl"):
             save_dataset_to_json(results, self.output_path, jsonl=True)
-        elif self.output_path.endswith(".json"):
+        else:
             save_dataset_to_json(results, self.output_path)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description="Running Extraction of Simplified Terms from Cochrane Reviews Using LLMs")
+        description="Running Simplification of Intervention and Condition Terms from Cochrane Reviews Using LLMs")
 
-    parser.add_argument("--model", default="Qwen3-4B-Instruct-2507",
+    parser.add_argument("--model", default="qwen3-4B",
                         choices=MODELS,
                         help="what model to run",
                         required=True)
-    parser.add_argument("--input_path", default="./outputs",
-                        help="path to the input json file containing Cochrane Reviews.")
-    parser.add_argument("--output_path", default="./outputs",
-                        help="directory of where the outputs/results should be saved.")
+    parser.add_argument("--input_path", required=True,
+                        help="path to the input json file.")
+    parser.add_argument("--output_path", default="./outputs/simplified_results.json",
+                        help="path where results should be saved.")
     parser.add_argument("--max_new_tokens", default=DEFAULT_MAX_NEW_TOKENS, type=int,
-                        help="maximum number of tokens to generate for the key question")
+                        help="maximum number of tokens to generate")
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction,
-                        help="used for debugging purposes. This option will run first 10 rows of data.")
+                        help="run first 10 rows of data.")
 
     args = parser.parse_args()
 
-    model_name = args.model
-    input_path = args.input_path
-    output_path = args.output_path
-    max_new_tokens = args.max_new_tokens
-    is_debug = args.debug
-
-    print("Arguments Provided for Extractor:")
-    print(f"Model:             {model_name}")
-    print(f"Input Path:        {input_path}")
-    print(f"Output Path:       {output_path}")
-    print(f"Max Output Tokens: {max_new_tokens}")
-    print(f"Is Debug:          {is_debug}")
-    print()
-
-    directory_path = os.path.dirname(output_path)
+    directory_path = os.path.dirname(args.output_path)
     if directory_path and not os.path.exists(directory_path):
         os.makedirs(directory_path)
-        print("Output directory path did not exist. Directory was created.")
 
-    extractor = Extractor(model_name, input_path, output_path, max_new_tokens, is_debug)
-    extractor.extract_simplified_terms()
+    simplifier = Simplifier(args.model, args.input_path, args.output_path, args.max_new_tokens, args.debug)
+    simplifier.simplify_terms()
