@@ -1,0 +1,69 @@
+You are given 4 pieces of information related to a Cochrane Review - its abstract, title, main intervention, and condition.
+Your task is to use the 4 pieces of information to simplify the main intervention and condition into a low literacy version that simulates
+how it would be referred to by people with 5th grade or lower literacy levels in the USA, free of spelling or grammatical errors.
+
+However, the simplified intervention and condition terms must still be clinically accurate representations of the original intervention and condition, in the context of the Cochrane review.
+
+Keep in mind that the new simplified intervention and condition terms will be inserted into the 2 questions - "Does {simplified intervention} work for {simplified_condition}?" and "Is {simplified intervention} safe for {simplified condition}?"
+Steps:
+1. First, simplify the intervention ({intervention}) to a 5th grader literacy level while preserving clinical accuracy.
+2. Second, simplify the condition ({condition}) to a 5th grader literacy level while preserving clinical accuracy.
+3. Output format: Provide ONLY the following response, in this SPECIFIC **JSON format** below -
+   ```json
+    {
+      "simplified_intervention": "answer for {intervention}",
+      "simplified_condition": "answer for {condition}"
+    }
+    ```
+4. If you cannot clearly identify a single main simplified intervention and condition from the title, review abstract, main intervention, and condition, output null for both as shown below.
+    ```json
+    {
+      "simplified_intervention": null,
+      "simplified_condition": null
+    }
+    ```
+Example 1:
+
+Cochrane Review Title: "Amifostine for salivary glands in high‐dose radioactive iodine treated differentiated thyroid cancer"
+Cochrane Review Abstract: "Background: Radioactive iodine treatment for differentiated thyroid cancer possibly results in xerostomia. Amifostine has been used to prevent the effects of irradiation to salivary glands. To date, the effects of amifostine on salivary glands in radioactive iodine treated differentiated thyroid cancer remain uncertain.\nObjectives: To assess the effects of amifostine on salivary glands in high-dose radioactive iodine treated differentiated thyroid cancer.\nSearch methods: Studies were obtained from computerized searches of MEDLINE, EMBASE, The Cochrane Library and paper collections of conferences held in Chinese.\nSelection criteria: Randomised controlled clinical trials and quasi-randomised controlled clinical trials comparing the effects of amifostine on salivary glands after radioactive iodine treatment for differentiated thyroid cancer with placebo and a duration of follow up of at least three months.\nData collection and analysis: Two authors independently assessed risk of bias and extracted data.\nMain results: Two trials with 130 patients (67 and 63 patients randomised to intervention versus control) were included. Both studies had a low risk of bias. Amifostine versus placebo showed no statistically significant differences in the incidence of xerostomia (130 patients, two studies), the decrease of scintigraphically measured uptake of technetium-99m by salivary or submandibular glands at twelve months (80 patients, one study), and the reduction of blood pressure (130 patients, two studies). Two patients in one study collapsed after initiation of amifostine therapy and had to be treated by withdrawing the infusion and volume substitution. Both patients recovered without sequelae. Meta-analysis was not performed on the function of salivary glands measured by technetium-99m scintigraphy at three months after high dose radioactive iodine treatment due to the highly inconsistent findings across studies (I2 statistic 99%). None of the included trials investigated death from any cause, morbidity, health-related quality of life or costs.\nAuthors' conclusions: Results from two randomised controlled clinical trials suggest that the amifostine has no significant radioprotective effects on salivary glands in high-dose radioactive iodine treated differentiated thyroid cancer patients. Moreover, no health-related quality of life and other patient-oriented outcomes were evaluated in the two included trials. Randomised controlled clinical trials with low risk of bias investigating patient-oriented outcomes are needed to guide treatment choice."
+Cochrane Review Main Intervention: "amifostine"
+Cochrane Review Condition: "xerostomia"
+
+Example Final Response: ```json
+  {
+    "simplified_intervention": "medicine",
+    "simplified_condition": "dry mouth"
+  }
+ ```
+Example 2:
+
+Cochrane Review Title: "Psychotherapies for hypochondriasis"
+Cochrane Review Abstract: "Background: Hypochondriasis is associated with significant medical morbidity and high health resource use. Recent studies have examined the treatment of hypochondriasis using various forms of psychotherapy.\nObjectives: To examine the effectiveness and comparative effectiveness of any form of psychotherapy for the treatment of hypochondriasis.\nSearch methods: 1. CCDANCTR-Studies and CCDANCTR-References were searched on 7/8/2007, CENTRAL, Medline, PsycINFO, EMBASE, Cinahl, ISI Web of Knowledge, AMED and WorldCat Dissertations; Current Controlled Trials meta-register (mRCT), CenterWatch, NHS National Research Register and clinicaltrials.gov; 2. Communication with authors of relevant studies and other clinicians in the field; 3. Handsearching reference lists of included studies and relevant review articles, and electronic citation search in ISI Web of Knowledge for all included studies.\nSelection criteria: All randomised controlled studies, both published and unpublished, in any language, in which adults with hypochondriasis were treated with a psychological intervention.\nData collection and analysis: Data were extracted independently by two authors using a standardised extraction sheet. Study quality was assessed independently by the two authors qualitatively and using a standardised scale. Meta-analyses were performed using RevMan software. Standardised or weighted mean differences were used to pool data for continuous outcomes and odds ratios were used to pool data for dichotomous outcomes, together with 95% confidence intervals.\nMain results: Six studies were included, with a total of 440 participants. The interventions examined were cognitive therapy (CT), behavioural therapy (BT), cognitive behavioural therapy (CBT), behavioural stress management (BSM) and psychoeducation. All forms of psychotherapy except psychoeducation showed a significant improvement in hypochondriacal symptoms compared to waiting list control (SMD (random) [95% CI] = -0.86 [-1.25 to -0.46]). For some therapies, significant improvements were found in the secondary outcomes of general functioning (CBT), resource use (psychoeducation), anxiety (CT, BSM), depression (CT, BSM) and physical symptoms (CBT). These secondary outcome findings were based on smaller numbers of participants and there was significant heterogeneity between studies.\nAuthors' conclusions: Cognitive therapy, behavioural therapy, cognitive behavioural therapy and behavioural stress management are effective in reducing symptoms of hypochondriasis. However, studies included in the review used small numbers of participants and do not allow estimation of effect size, comparison between different types of psychotherapy or whether people are \"cured\". Most long-term outcome data were uncontrolled. Further studies should make use of validated rating scales, assess treatment acceptability and effect on resource use, and determine the active ingredients and nonspecific factors that are important in psychotherapy for hypochondriasis."
+Cochrane Review Main Intervention: "psychotherapy"
+Cochrane Review Condition: "hypochondriasis"
+
+Example Final Response: ```json
+  {
+    "simplified_intervention": "therapy",
+    "simplified_condition": "health anxiety"
+  }
+
+Example 3:
+
+Cochrane Review Title: "Adjuvant radiotherapy and/or chemotherapy after surgery for uterine carcinosarcoma"
+Cochrane Review Abstract: "Background: Uterine carcinosarcomas are uncommon with about 35% not confined to the uterus at diagnosis. The survival of women with advanced uterine carcinosarcoma is poor with a pattern of failure indicating greater likelihood of upper abdominal and distant metastatic recurrence.\nObjectives: To evaluate the effectiveness and safety of adjuvant radiotherapy and/or systemic chemotherapy in the management of uterine carcinosarcoma.\nSearch methods: We searched the Cochrane Gynaecological Cancer Group Trials Register, Cochrane Central Register of Controlled Trials (CENTRAL), 2012, Issue 10, MEDLINE and EMBASE up to November 2012. We also searched registers of clinical trials, abstracts of scientific meetings, reference lists of included studies and contacted experts in the field.\nSelection criteria: Randomised controlled trials (RCTs) comparing adjuvant radiotherapy and/or chemotherapy in women with uterine carcinosarcoma.\nData collection and analysis: Two review authors independently abstracted data and assessed risk of bias. Hazard ratios (HRs) for overall survival (OS) and progression-free survival (PFS) and risk ratios (RRs) comparing adverse events in women who received radiotherapy and/or chemotherapy were pooled in random-effects meta-analyses.\nMain results: Three trials met the inclusion criteria and these randomised 579 women, of whom all were assessed at the end of the trials. Two trials assessing 373 participants with stage III to IV persistent or recurrent disease, found that women who received combination therapy had a significantly lower risk of death and disease progression than women who received single agent ifosfamide, after adjustment for performance status (HR = 0.75, 95% confidence interval (CI): 0.60 to 0.94 and HR = 0.72, 95% CI: 0.58 to 0.90 for OS and PFS respectively). There was no statistically significant difference in all reported adverse events, with the exception of nausea and vomiting, where significantly more women experienced these ailments in the combination therapy group than the Ifosamide group (RR = 3.53, 95% CI: 1.33 to 9.37).\nIn one trial there was no statistically significant difference in the risk of death and disease progression in women who received whole body irradiation and chemotherapy, after adjustment for age and FIGO stage (HR = 0.71, 95% CI: 0.48 to 1.05 and HR = 0.79, 95% CI: 0.53 to 1.18 for OS and PFS respectively). There was no statistically significant difference in all reported adverse events, with the exception of haematological and neuropathy morbidities, where significantly less women experienced these morbidities in the whole body irradiation group than the chemotherapy group (RR= 0.02, 95% CI: 0.00 to 0.16) for haematological morbidity and all nine women in the trial experiencing neuropathy morbidity were in the chemotherapy group).\nAuthors' conclusions: In advanced stage metastatic uterine carcinosarcoma as well as recurrent disease adjuvant combination, chemotherapy with ifosfamide should be considered. Combination chemotherapy with ifosfamide and paclitaxel is associated with lower risk of death compared with ifosfamide alone. In addition, radiotherapy to the abdomen is not associated with improved survival."
+Cochrane Review Main Intervention: "adjuvant radiotherapy and/or chemotherapy"
+Cochrane Review Condition: "uterine carcinosarcoma"
+
+Example Final Response: ```json
+  {
+    "simplified_intervention": "treatment after surgery",
+    "simplified_condition": "womb cancer"
+  } ```
+
+Cochrane Review Title: {{title}}
+Cochrane Review Abstract: {{abstract}}
+Cochrane Review Main Intervention: {{intervention}}
+Cochrane Review Condition: {{condition}}
+
+Response:
