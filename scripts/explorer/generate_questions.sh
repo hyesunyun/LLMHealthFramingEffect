@@ -39,12 +39,21 @@ model="qwen3_thinking-4B"
 ##### END - DEFAULT QUESTIONS #####
 
 ##### SIMPLIFIED QUESTIONS #####
-python3 ../../code/apply_question_templates.py \
-    --input_path "../../code/outputs/extracted_text/$model/extracted_interventions_conditions_with_simplified.json" \
-    --output_path "../../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
-    --intervention_condition_key "SimplifiedExtractedText" \
-    --question_types "effectiveness" "efficacy" \
-    --run_scoring
+
+# STEP 1: simplify the extracted interventions and conditions
+# USING Qwen3-4B (instruct and not thinking)
+python3 code/simplify_intervention_condition.py \
+    --model qwen3-4B \
+    --input_path code/outputs/extracted_text/qwen3_thinking-4B/extracted_interventions_conditions.json \
+    --output_path code/outputs/extracted_text/qwen3-4B/simplified_extracted_interventions_conditions.json
+
+# STEP 2: Generate questions using the simplified interventions and conditions
+# python3 ../../code/apply_question_templates.py \
+#     --input_path "../../code/outputs/extracted_text/$model/extracted_interventions_conditions_with_simplified.json" \
+#     --output_path "../../code/outputs/questions/$model/simplified/cochrane_review_data_final_with_questions.json" \
+#     --intervention_condition_key "SimplifiedExtractedText" \
+#     --question_types "effectiveness" "efficacy" \
+#     --run_scoring
 ##### END - SIMPLIFIED QUESTIONS #####
 
 conda deactivate

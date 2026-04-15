@@ -75,14 +75,19 @@ python3 code/apply_question_templates.py \
 For the plain language questions, we simplify the treatment and condition terms from the original (technical) questions using `Qwen3 Instruct 4B` and manual editing. In our study, we only evaluated models on two question types ("effectiveness" and "efficacy") so we focus on only generating these two types. However, you can generate plain language versions for all question template types if needed.
 
 ```bash
-# TODO: add script for simplification
 # Step 1: Use model for initial simplification of terms
+python3 code/simplify_intervention_condition.py \
+    --model qwen3-4B \
+    --input_path code/outputs/extracted_text/qwen3_thinking-4B/extracted_interventions_conditions.json \
+    --output_path code/outputs/extracted_text/qwen3-4B/simplified_extracted_interventions_conditions.json
 
 # Step 2: Manual intervention
+# We did a manual review and changes to ensure high quality which resulted in code/outputs/extracted_text/simplified_interventions_conditions.csv
+# Then, we created extracted_interventions_conditions_with_simplified.json using code/outputs/extracted_text/add_simplified_extracted_interventions_conditions.ipynb
 
 # Step 3: Generate questions using the simplified treatments/interventions and conditions
 python3 code/apply_question_templates.py \
-    --input_path code/outputs/extracted_text/qwen3_thinking-4B/extracted_interventions_conditions_with_simplified.json \
+    --input_path code/outputs/extracted_text/extracted_interventions_conditions_with_simplified.json \
     --output_path code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
     --intervention_condition_key "SimplifiedExtractedText" \
     --question_types "effectiveness" "efficacy" \
