@@ -66,27 +66,31 @@ class Simplifier:
             intervention = extracted_terms["intervention"]
             condition = extracted_terms["condition"]
 
-            input_text = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
-                                       review_title=review_title,
-                                       review_abstract=formatted_abstract,
-                                       intervention=intervention,
-                                       condition=condition)
-
-            messages = format_messages(self.model_name, input_text)
-
-            if self.is_reasoning_model:
-                response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
-            else:
-                response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
-                thinking_context = ""
-
-            example["LLMThinkingContext"] = thinking_context
-            example["LLMRawResponse"] = response
-
-            try:
-                example["SimplifiedExtractedText"] = json.loads(extract_json_string(response))
-            except Exception:
+            # skip model inference if the extracted values are null/None
+            if intervention is None or condition is None:
                 example["SimplifiedExtractedText"] = {"simplified_intervention": None, "simplified_condition": None}
+            else:
+                input_text = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
+                                        review_title=review_title,
+                                        review_abstract=formatted_abstract,
+                                        intervention=intervention,
+                                        condition=condition)
+
+                messages = format_messages(self.model_name, input_text)
+
+                if self.is_reasoning_model:
+                    response, thinking_context = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+                else:
+                    response = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
+                    thinking_context = ""
+
+                example["LLMThinkingContext"] = thinking_context
+                example["LLMRawResponse"] = response
+
+                try:
+                    example["SimplifiedExtractedText"] = json.loads(extract_json_string(response))
+                except Exception:
+                    example["SimplifiedExtractedText"] = {"simplified_intervention": None, "simplified_condition": None}
 
             if self.model_name in MODELS_WITH_RATE_LIMIT:
                 time.sleep(REQ_TIME_GAP)

@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=60:00:00
+#SBATCH --time=24:00:00
 #SBATCH --job-name=q_gen
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=4
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=180G
-#SBATCH --partition=frink
+#SBATCH --mem=50G
+#SBATCH --partition=177huntington
 #SBATCH --gres=gpu:1
 #SBATCH -o output_%j.txt                     # Standard output file
 #SBATCH -e error_%j.txt                      # Standard error file
@@ -42,10 +42,10 @@ model="qwen3_thinking-4B"
 
 # STEP 1: simplify the extracted interventions and conditions
 # USING Qwen3-4B (instruct and not thinking)
-python3 code/simplify_intervention_condition.py \
+python3 ../../code/simplify_intervention_condition.py \
     --model qwen3-4B \
-    --input_path code/outputs/extracted_text/qwen3_thinking-4B/extracted_interventions_conditions.json \
-    --output_path code/outputs/extracted_text/qwen3-4B/simplified_extracted_interventions_conditions.json
+    --input_path ../../code/outputs/extracted_text/qwen3_thinking-4B/extracted_interventions_conditions.json \
+    --output_path ../../code/outputs/extracted_text/qwen3-4B/simplified_extracted_interventions_conditions.json
 
 # STEP 2: Generate questions using the simplified interventions and conditions
 # python3 ../../code/apply_question_templates.py \
