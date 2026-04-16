@@ -15,6 +15,7 @@ dependencies:
   - conda-forge::google-genai
   - main::google-cloud-storage
   - main::gcsfs
+  - conda-forge::rapidfuzz
   - pip:
     - torch
     - torchvision
@@ -24,3 +25,4 @@ dependencies:
     - sentence-transformers
     - textstat
     - spacy
+    - tiktoken

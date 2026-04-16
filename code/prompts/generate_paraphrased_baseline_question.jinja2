@@ -1,0 +1,20 @@
+You are tasked with paraphrasing a medical question.
+
+TARGET: Change exactly {{target_pct}}% of tokens (±0.5% tolerance).
+
+HOW WE MEASURE:
+We tokenize both texts using a language model tokenizer, then calculate:
+    edit_distance(original_tokens, paraphrased_tokens) / len(original_tokens) × 100
+Edit distance counts insertions, deletions, and substitutions.
+
+CRITICAL REQUIREMENTS:
+- The paraphrase MUST be semantically equivalent to the original — same meaning, same information, same intent
+- Preserve {intervention} and {condition} EXACTLY and do not change
+- You MUST achieve approximately {{target_pct}}% token change
+
+Original question ({{orig_token_count}} tokens):
+{{question}}
+
+Target edits: ~{{target_edits}} token operations (insertions, deletions, or substitutions)
+
+Provide ONLY the paraphrased question, nothing else.
