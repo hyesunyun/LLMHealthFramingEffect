@@ -148,12 +148,11 @@ class Generator:
         #                         results[(example["review_id"], q_key, q_type)] = q_dict[f"{q_type}_answer"]
         ############## END ##############
 
-        # have the loop start from batch index 450 (i.e., batch_num 449) so that it will continue from where it left off and avoid repeating the same batches again
-
         for batch_num, batch_start in enumerate(tqdm(range(0, total, self.batch_size), desc="Batched single-turn generation")):
             batch = all_questions[batch_start:min(batch_start + self.batch_size, total)]
 
             # TODO: remove when not using intermediate results for check pointing.
+            # have the loop start from batch index 450 (i.e., batch_num 449) so that it will continue from where it left off and avoid repeating the same batches again
             # if self.model_name == "huatuo-70B":
             #     if batch_num < 1800:
             #         continue

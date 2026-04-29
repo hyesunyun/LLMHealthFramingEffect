@@ -207,6 +207,9 @@ class Evaluator:
         elif data_type == "baseline":
             first_answer_key = "positive1"
             second_answer_key = "positive2"
+        elif data_type == "para_baseline":
+            first_answer_key = "positive"
+            second_answer_key = "paraphrased_positive"
     
         analysis_results = {}
         formatted_input_for_model_evaluator = {}
@@ -242,9 +245,12 @@ def format_outputs(raw_data: list[dict], data_type: str) -> dict:
     if data_type == "framing":
         first_answer_key = "positive_answer"
         second_answer_key = "negative_answer"
-    elif data_type == "baseline":
+    elif data_type == "basic_baseline":
         first_answer_key = "positive1_answer"
         second_answer_key = "positive2_answer"
+    elif data_type == "para_baseline":
+        first_answer_key = "positive_answer"
+        second_answer_key = "paraphrased_positive_answer"
         
     grouped = {}
     
@@ -278,7 +284,7 @@ if __name__ == '__main__':
     parser.add_argument("--file_path", default="./inputs", help="path to the file with outputs to analzye")
     parser.add_argument("--output_path", default="./outputs", help="path/file name of where the results should be saved.")
     parser.add_argument("--eval_path", default="./outputs", help="path/file name of the evaluation (evidence direction) questions")
-    parser.add_argument("--data_type", default="framing", help="type of the file to analyze (framing or baseline)")
+    parser.add_argument("--data_type", default="framing", choices=["framing", "basic_baseline", "para_baseline"], help="type of the file to analyze (options: framing, basic_baseline, para_baseline)")
     
     args = parser.parse_args()
 

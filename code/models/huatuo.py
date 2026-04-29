@@ -84,7 +84,7 @@ class Huatuo(Model):
                 response_start = output_text.index("## Final Response")
                 thinking_content = output_text[thinking_start:response_start].strip()
                 content = output_text[response_start + len("## Final Response"):].strip()
-            except ValueError:
+            except ValueError as e:
                 thinking_content = ""
                 content = output_text.strip()
             
@@ -148,7 +148,8 @@ class Huatuo(Model):
                     response_start = output_text.index("## Final Response")
                     thinking_content = output_text[thinking_start:response_start].strip()
                     content = output_text[response_start + len("## Final Response"):].strip()
-                except ValueError:
+                except ValueError as e:
+                    thinking_content = ""
                     content = output_text.strip()
 
                 responses.append((thinking_content, content))

@@ -21,13 +21,22 @@ for model in "${models[@]}"; do
         --data_type "framing"
 done
 
-echo "Running evaluation for BASELINE CONDITION (technical questions)"
+echo "Running evaluation for BASIC BASELINE CONDITION (technical questions)"
 for model in "${models[@]}"; do
     python3 -u ../code/run_evaluation.py \
         --file_path "../code/outputs/baseline_responses/${model}/positive_question_responses.json" \
         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results.json" \
         --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
-        --data_type "baseline"
+        --data_type "basic_baseline"
+done
+
+echo "Running evaluation for PARAPHRASED BASELINE CONDITION (technical questions)"
+for model in "${models[@]}"; do
+    python3 -u ../code/run_evaluation.py \
+        --file_path "../code/outputs/paraphrased_baseline_responses/${model}/positive_question_responses.json" \
+        --output_path "../code/outputs/paraphrased_baseline_evaluation/${model}_eval_results.json" \
+        --eval_path "../code/outputs/questions/qwen3_thinking-4B/extracted/evidence_direction_questions_final.json" \
+        --data_type "para_baseline"
 done
 
 echo "Running evaluation for FRAMED CONDITION (plain language questions)"
@@ -39,13 +48,22 @@ for model in "${models[@]}"; do
         --data_type "framing"
 done
 
-echo "Running evaluation for BASELINE CONDITION (plain language questions)"
+echo "Running evaluation for BASIC BASELINE CONDITION (plain language questions)"
 for model in "${models[@]}"; do
     python3 -u ../code/run_evaluation.py \
         --file_path "../code/outputs/baseline_responses/${model}/positive_simplified_question_responses.json" \
         --output_path "../code/outputs/baseline_evaluation/${model}_eval_results_simplified.json" \
         --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
-        --data_type "baseline"
+        --data_type "basic_baseline"
+done
+
+echo "Running evaluation for PARAPHRASED BASELINE CONDITION (plain language questions)"
+for model in "${models[@]}"; do
+    python3 -u ../code/run_evaluation.py \
+        --file_path "../code/outputs/paraphrased_baseline_responses/${model}/positive_simplified_question_responses.json" \
+        --output_path "../code/outputs/paraphrased_baseline_evaluation/${model}_eval_results_simplified.json" \
+        --eval_path "../code/outputs/questions/qwen3_thinking-4B/simplified/evidence_direction_questions_raw.json" \
+        --data_type "para_baseline"
 done
 
 conda deactivate

@@ -63,7 +63,7 @@ class Templater:
         """
         # TODO: can add template file path as a parameter
         template_file_path = os.path.join(os.path.dirname(__file__), "./prompts/question_templates.json")
-        # for each question type, there is positive_question_template and negative_question_template
+        # for each question type, there is positive_question_template, negative_question_template, and paraphrased_positive_question_template
         templates = load_json_file(template_file_path)
         # filtering to only question types we want
         self.template = {key: templates[key] for key in self.question_types if key in templates}
@@ -100,27 +100,32 @@ class Templater:
             for question_type, templates in self.template.items():
                 positive_template = templates["positive_question_template"]
                 negative_template = templates["negative_question_template"]
+                paraphrased_positive_template = templates["paraphrased_positive_question_template"]
 
                 positive_question = positive_template.format(intervention=intervention, condition=condition)
                 negative_question = negative_template.format(intervention=intervention, condition=condition)
+                paraphrased_positive_question = paraphrased_positive_template.format(intervention=intervention, condition=condition)
 
                 if "Questions" not in example:
                     example["Questions"] = {}
                 example["Questions"][question_type] = {
                     "positive_question": positive_question,
-                    "negative_question": negative_question
+                    "negative_question": negative_question,
+                    "paraphrased_positive_question": paraphrased_positive_question
                 }
 
                 # add readability (MedReadMe) scoring if specified
                 if self.run_scoring:
                     positive_question_score = self.scorer.score(positive_question)
                     negative_question_score = self.scorer.score(negative_question)
+                    paraphrased_positive_question_score = self.scorer.score(paraphrased_positive_question)
 
                     if "MedReadMeScores" not in example:
                         example["MedReadMeScores"] = {}
                     example["MedReadMeScores"][question_type] = {
                         "positive_question": positive_question_score,
-                        "negative_question": negative_question_score
+                        "negative_question": negative_question_score,
+                        "paraphrased_positive_question": paraphrased_positive_question_score
                     }
             
             results.append(example)

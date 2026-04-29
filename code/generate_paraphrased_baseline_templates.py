@@ -6,7 +6,7 @@ from tqdm import tqdm
 import time
 import torch, gc
 
-from utils import load_jsonl_file, load_json_file, render_prompt
+from utils import load_jsonl_file, load_json_file, render_prompt, format_messages
 from constants import REQ_TIME_GAP, MODELS_WITH_RATE_LIMIT, REASONING_MODELS, MODEL_CLASS_MAPPING, MODELS
 
 import tiktoken
@@ -23,23 +23,21 @@ class Paraphraser:
         self.output_path = output_path
         self.is_debug = is_debug
         self.is_reasoning_model = model_name in REASONING_MODELS
-        self.max_new_tokens = 1000 if self.is_reasoning_model else 100
+        self.max_new_tokens = 4000 if self.is_reasoning_model else 100
 
         self.question_templates = self.__load_templates()
         self.model = self.__load_model()
 
     # Setup
     def __load_templates(self) -> list[dict]:
-        print("Loading the dataset...")
-        if self.input_path.endswith(".jsonl"):
-            dataset = load_jsonl_file(self.input_path)
-        elif self.input_path.endswith(".json"):
-            dataset = load_json_file(self.input_path)
+        print("Loading the templates...")
+        with open(self.input_path, 'r') as file:
+            templates = json.load(file)
 
         if self.is_debug:
-            dataset = dataset[:3]
+            templates = templates[:3]
 
-        return dataset
+        return templates
 
     def __load_model(self):
         print("Loading the model...")
@@ -50,7 +48,7 @@ class Paraphraser:
         return model_class()
 
     # Helpers
-    def _get_gpt_token_distance(question1: str, question2: str, model="gpt-5.1"):
+    def _get_gpt_token_distance(self, question1: str, question2: str, model="gpt-5.1"):
         # Get the correct encoding for the model
         # Note: gpt-5.1 uses the o200k_base encoding
         try:
@@ -70,11 +68,10 @@ class Paraphraser:
 
     # Main entry point
     def paraphrase_templates(self) -> None:
-        for template_name in enumerate(tqdm(self.question_templates.keys(), desc="Running paraphrasing")):
+        for _, template_name in enumerate(tqdm(self.question_templates.keys(), desc="Running paraphrasing")):
             pos_template = self.question_templates[template_name]["positive_question_template"]
             neg_template = self.question_templates[template_name]["negative_question_template"]
             distance, tokens_pos, tokens_neg = self._get_gpt_token_distance(pos_template, neg_template)
-            print(f"Distance between:\n'{pos_template}'\nand\n'{neg_template}'\nis: {distance}\n")
             percentage_distance = distance / len(tokens_pos) * 100
             self.question_templates[template_name]["token_level_levenshtein_distance"] = distance
             self.question_templates[template_name]["positive_question_template_token_count"] = len(tokens_pos)
@@ -83,8 +80,9 @@ class Paraphraser:
 
             input_text = render_prompt(PROMPT_TEMPLATE_NAME, template_dir="./prompts",
                                    question=pos_template, target_pct=percentage_distance, orig_token_count=len(tokens_pos), target_edits_count=distance)
-            
-            output = self.model.generate_output(input_text, max_new_tokens=self.max_new_tokens)
+            messages = format_messages(self.model_name, input_text)
+
+            output = self.model.generate_output(messages, max_new_tokens=self.max_new_tokens)
             if isinstance(output, tuple):
                 output = output[0]
             self.question_templates[template_name]["positive_question_template_paraphrased"] = output

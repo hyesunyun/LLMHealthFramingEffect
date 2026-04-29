@@ -52,8 +52,8 @@ for model in "${local_models[@]}"; do
 done
 
 
-##### BASELINE CONDITION #####
-echo "Running LLM response generation for BASELINE CONDITION"
+##### BASIC BASELINE CONDITION (positive question sampling twice) #####
+echo "Running LLM response generation for BASIC BASELINE CONDITION"
 
 echo "Running LLM response generation for technical questions (API)"
 for model in "${api_models[@]}"; do
@@ -86,6 +86,45 @@ for model in "${local_models[@]}"; do
         --model "$model" \
         --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
         --output_path "../code/outputs/baseline_responses/$model/positive_simplified_question_responses.json" \
+        --batch_size 8
+done
+
+
+
+##### PARAPHRASED BASELINE CONDITION (positive question and paraphrased positive question) #####
+echo "Running LLM response generation for PARAPHRASED BASELINE CONDITION"
+
+echo "Running LLM response generation for technical questions (API)"
+for model in "${api_models[@]}"; do
+    python3 -u ../code/generate_paraphrased_baseline_responses.py \
+        --model "$model" \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
+        --output_path "../code/outputs/paraphrased_baseline_responses/$model/positive_question_responses.json"
+done
+
+echo "Running LLM response generation for plain language questions (API)"
+for model in "${api_models[@]}"; do
+    python3 -u ../code/generate_paraphrased_baseline_responses.py \
+        --model "$model" \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
+        --output_path "../code/outputs/paraphrased_baseline_responses/$model/positive_simplified_question_responses.json"
+done
+
+echo "Running LLM baseline response generation for technical questions (LOCAL)"
+for model in "${local_models[@]}"; do
+    python3 -u ../code/generate_paraphrased_baseline_responses.py \
+        --model "$model" \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/extracted/cochrane_review_data_final_with_questions.json \
+        --output_path "../code/outputs/paraphrased_baseline_responses/$model/positive_question_responses.json" \
+        --batch_size 2 # change this based on the model size and GPU memory
+done
+
+echo "Running LLM baseline response generation for plain language questions (LOCAL)"
+for model in "${local_models[@]}"; do
+    python3 -u ../code/generate_paraphrased_baseline_responses.py \
+        --model "$model" \
+        --input_path ../code/outputs/questions/qwen3_thinking-4B/simplified/cochrane_review_data_final_with_questions.json \
+        --output_path "../code/outputs/paraphrased_baseline_responses/$model/positive_simplified_question_responses.json" \
         --batch_size 8
 done
 

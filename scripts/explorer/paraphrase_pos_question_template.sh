@@ -20,11 +20,9 @@ export HF_HOME="/scratch/yun.hy/.cache"
 export HUGGINGFACE_HUB_CACHE="/scratch/yun.hy/.cache"
 export XDG_CACHE_HOME="/scratch/yun.hy/.cache"
 
-for model in "${models[@]}"; do
-    python3 -u ../../code/generate_paraphrased_baseline_templates.py \
-        --model qwen3_thinking-4B \
-        --input_path ../../code/prompts/question_templates.json \
-        --output_path ../../code/outputs/questions/qwen3_thinking-4B/paraphrased/paraphrased_question_templates.json
-done
+python3 -u ../../code/generate_paraphrased_baseline_templates.py \
+    --model gpt-5.1 \
+    --input_path ../../code/prompts/question_templates.json \
+    --output_path ../../code/outputs/questions/gpt-5.1/paraphrased/paraphrased_question_templates_initial.json
 
 conda deactivate

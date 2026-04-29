@@ -124,4 +124,7 @@ class Claude(Model):
         if completion is None:
             return "Error: Anthropic Claude API call failed."
         else:
-            return completion.content[0].text
+            try:
+                return completion.content[0].text
+            except:
+                return completion.content # in the rare case of index out of range
