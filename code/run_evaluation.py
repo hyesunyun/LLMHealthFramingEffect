@@ -4,6 +4,7 @@ import re
 import numpy as np
 from sentence_transformers import SentenceTransformer, util
 import textstat
+from diff_match_patch import diff_match_patch
 from tqdm import tqdm
 import argparse
 from models.gemini import Gemini
@@ -31,6 +32,9 @@ class Evaluator:
 
         # Evaluation Model for Evidence Direction (lower, higher, same)
         self.eval_model = Gemini("flash") # can do other 2.5 models
+
+        # Diff Match Patch for Levenshtein Distance
+        self.dmp = diff_match_patch()
 
     def load_hedges(self) -> list[str]:
         """
@@ -79,6 +83,18 @@ class Evaluator:
             return parts[1].strip()
         
         return text
+    
+    def get_levenshtein_distance(self, text1: str, text2: str) -> int:
+        """
+        Gets the Levenshtein distance between two texts
+
+        :param text1: string of first text
+        :param text2: string of second text
+
+        :return: int of distance
+        """
+        text_diff = self.dmp.diff_main(text1, text2)
+        return self.dmp.diff_levenshtein(text_diff)
 
     def get_entities(self, text: str) -> list[str]:
         """
@@ -185,10 +201,14 @@ class Evaluator:
         intersection = ent_a.intersection(ent_b)
         ne_overlap = len(intersection) / len(ent_a.union(ent_b)) if ent_a.union(ent_b) else 1.0
 
+        # Levenshtein Distance
+        levenshtein_distance = self.get_levenshtein_distance(text_a, text_b)
+
         stats = {
             "comparison": {
                 "cosine_similarity": cos_sim,
                 "entity_jaccard_similarity": ne_overlap,
+                "levenshtein_distance": levenshtein_distance,
                 "common_entities": list(intersection)
             },
             "first_response_metrics": self.get_text_stats(text_a),
@@ -330,8 +350,7 @@ if __name__ == '__main__':
     final_report, embeddings = evaluator.process_batch(formatted_data, data_type)
 
     # Save analysis results
-    # TODO: uncomment after running all embeddings
-    # save_dataset_to_json(final_report, output_path, jsonl=False)
+    save_dataset_to_json(final_report, output_path, jsonl=False)
 
     # Save embeddings if a path was provided
     if embedding_path:

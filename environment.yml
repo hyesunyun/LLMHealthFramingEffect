@@ -27,3 +27,4 @@ dependencies:
     - textstat
     - spacy
     - tiktoken
+    - diff-match-patch
