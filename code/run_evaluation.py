@@ -208,7 +208,7 @@ class Evaluator:
         if data_type == "framing":
             first_answer_key = "positive"
             second_answer_key = "negative"
-        elif data_type == "baseline":
+        elif data_type == "basic_baseline":
             first_answer_key = "positive1"
             second_answer_key = "positive2"
         elif data_type == "para_baseline":
