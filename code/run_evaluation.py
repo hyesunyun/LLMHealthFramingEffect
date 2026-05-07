@@ -1,6 +1,7 @@
 from utils import load_json_file, save_dataset_to_json
 import spacy
 import re
+import numpy as np
 from sentence_transformers import SentenceTransformer, util
 import textstat
 from tqdm import tqdm
@@ -162,18 +163,20 @@ class Evaluator:
             "unique_references": self.get_references(text)
         }
 
-    def evaluate_pair(self, text_a: str, text_b: str) -> dict:
+    def evaluate_pair(self, text_a: str, text_b: str) -> tuple[dict, tuple]:
         """
         Evaluates a given pair of text for a review and returns some statistics (analysis)
+        and the raw embeddings for each text.
 
-        :param text_a: string of positive/first text to analyze 
-        :param text_b: string of negative/second text to analyze 
+        :param text_a: string of positive/first text to analyze
+        :param text_b: string of negative/second text to analyze
 
-        :return: dictionary with all statistics between first and second texts
+        :return: tuple of (dict with statistics, (emb_a, emb_b) as numpy arrays)
         """
-        # Semantic - Cosine Similarity
         emb1 = self.embedding_model.encode(text_a, convert_to_tensor=True)
         emb2 = self.embedding_model.encode(text_b, convert_to_tensor=True)
+
+        # Semantic - Cosine Similarity
         cos_sim = util.pytorch_cos_sim(emb1, emb2).item()
 
         # Entity Overlap (Jaccard Similarity)
@@ -182,7 +185,7 @@ class Evaluator:
         intersection = ent_a.intersection(ent_b)
         ne_overlap = len(intersection) / len(ent_a.union(ent_b)) if ent_a.union(ent_b) else 1.0
 
-        return {
+        stats = {
             "comparison": {
                 "cosine_similarity": cos_sim,
                 "entity_jaccard_similarity": ne_overlap,
@@ -191,15 +194,16 @@ class Evaluator:
             "first_response_metrics": self.get_text_stats(text_a),
             "second_response_metrics": self.get_text_stats(text_b)
         }
+        return stats, (emb1.cpu().numpy(), emb2.cpu().numpy())
 
-    def process_batch(self, input_data: list[dict], data_type: str) -> dict:
+    def process_batch(self, input_data: list[dict], data_type: str) -> tuple[dict, dict]:
         """
         Processes the texts in data
 
         :param input_data: list of dictionary of data
         :param data_type: string of the type of data (framing or baseline)
 
-        :return: dictionary with results of analysis
+        :return: tuple of (analysis results dict, embeddings dict keyed by ReviewID_Category_Type)
         """
         if data_type == "framing":
             first_answer_key = "positive"
@@ -210,16 +214,20 @@ class Evaluator:
         elif data_type == "para_baseline":
             first_answer_key = "positive"
             second_answer_key = "paraphrased_positive"
-    
+
         analysis_results = {}
+        embeddings = {}
         formatted_input_for_model_evaluator = {}
 
         for uid, pairs in tqdm(input_data.items(), desc="Processing Items"):
             first_answer = self.extract_full_answer(pairs[f'{first_answer_key}_answer'])
             second_answer = self.extract_full_answer(pairs[f'{second_answer_key}_answer'])
-            
-            analysis_results[uid] = self.evaluate_pair(first_answer, second_answer)
-            
+
+            stats, (emb1, emb2) = self.evaluate_pair(first_answer, second_answer)
+            analysis_results[uid] = stats
+            embeddings[f"{uid}_{first_answer_key}"] = emb1
+            embeddings[f"{uid}_{second_answer_key}"] = emb2
+
             # evidence direction
             review_id = uid.split("_")[0]
             eval_question = self.eval_questions[review_id] if review_id in self.eval_questions else None
@@ -230,8 +238,19 @@ class Evaluator:
                 formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
 
-        self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
-        return analysis_results
+        # TODO: uncomment after running all embeddings
+        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
+        return analysis_results, embeddings
+
+    def save_embeddings(self, embeddings: dict, path: str):
+        """
+        Saves embeddings to a compressed .npz file. Each array is keyed by its ID
+        (e.g., CD002818_efficacy_positive).
+
+        :param embeddings: dict mapping ID string to numpy embedding array
+        :param path: output file path (without extension; .npz will be appended by numpy)
+        """
+        np.savez_compressed(path, **embeddings)
 
 def format_outputs(raw_data: list[dict], data_type: str) -> dict:
     """
@@ -284,6 +303,7 @@ if __name__ == '__main__':
     parser.add_argument("--file_path", default="./inputs", help="path to the file with outputs to analzye")
     parser.add_argument("--output_path", default="./outputs", help="path/file name of where the results should be saved.")
     parser.add_argument("--eval_path", default="./outputs", help="path/file name of the evaluation (evidence direction) questions")
+    parser.add_argument("--embedding_path", default=None, help="path/file name (without .npz) to save sentence embeddings; skipped if not provided")
     parser.add_argument("--data_type", default="framing", choices=["framing", "basic_baseline", "para_baseline"], help="type of the file to analyze (options: framing, basic_baseline, para_baseline)")
     
     args = parser.parse_args()
@@ -291,24 +311,29 @@ if __name__ == '__main__':
     file_path = args.file_path
     output_path = args.output_path
     eval_path = args.eval_path
+    embedding_path = args.embedding_path
     data_type = args.data_type
 
     print()
     print("Arguments Provided for Evaluation:")
-    print(f"File Path:   {file_path}")
-    print(f"Output Path: {output_path}")
-    print(f"Eval Path:   {eval_path}")
-    print(f"Data Type:   {data_type}")
+    print(f"File Path:      {file_path}")
+    print(f"Output Path:    {output_path}")
+    print(f"Eval Path:      {eval_path}")
+    print(f"Embedding Path: {embedding_path if embedding_path else '(not saving embeddings)'}")
+    print(f"Data Type:      {data_type}")
     print()
     data = load_json_file(file_path)
     formatted_data = format_outputs(data, data_type)
 
     # Run
     evaluator = Evaluator(eval_path)
-    final_report = evaluator.process_batch(formatted_data, data_type)
+    final_report, embeddings = evaluator.process_batch(formatted_data, data_type)
 
-    # print("\n--- FINAL EVALUATION REPORT ---")
-    # print(json.dumps(final_report, indent=2))
+    # Save analysis results
+    # TODO: uncomment after running all embeddings
+    # save_dataset_to_json(final_report, output_path, jsonl=False)
 
-    # Save to file
-    save_dataset_to_json(final_report, output_path, jsonl=False)
+    # Save embeddings if a path was provided
+    if embedding_path:
+        evaluator.save_embeddings(embeddings, embedding_path)
+        print(f"Embeddings saved to {embedding_path}.npz ({len(embeddings)} entries)")

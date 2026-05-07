@@ -16,6 +16,7 @@ dependencies:
   - main::google-cloud-storage
   - main::gcsfs
   - conda-forge::rapidfuzz
+  - conda-forge::plotly
   - pip:
     - torch
     - torchvision
