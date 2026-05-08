@@ -258,8 +258,7 @@ class Evaluator:
                 formatted_input_for_model_evaluator[f"{uid}_{first_answer_key}_direction"] = first_eval_direction_input
                 formatted_input_for_model_evaluator[f"{uid}_{second_answer_key}_direction"] = second_eval_direction_input
 
-        # TODO: uncomment after running all embeddings
-        # self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
+        self.eval_model.submit_batch(formatted_input_for_model_evaluator, temperature=0.0)
         return analysis_results, embeddings
 
     def save_embeddings(self, embeddings: dict, path: str):

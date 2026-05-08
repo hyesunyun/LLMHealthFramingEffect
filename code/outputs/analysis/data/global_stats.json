@@ -2,7 +2,7 @@
     "gpt-5.1": {
         "extracted_framing": {
             "mean_similarity": 0.92,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 760.4,
             "mean_entity_overlap": 0.3,
             "mean_reference_overlap": 0.93,
             "mean_numerical_instances_overlap": 0.25,
@@ -10,8 +10,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.92,
                 "mean_similarity_disagreement": 0.91,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 759.69,
+                "mean_levenshtein_disagreement": 762.26
             },
             "flesch_reading_ease": {
                 "first_mean": 33.315,
@@ -138,7 +138,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 743.04,
             "mean_entity_overlap": 0.31,
             "mean_reference_overlap": 0.93,
             "mean_numerical_instances_overlap": 0.27,
@@ -146,8 +146,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 739.81,
+                "mean_levenshtein_disagreement": 752.04
             },
             "flesch_reading_ease": {
                 "first_mean": 33.117,
@@ -274,7 +274,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.92,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 732.24,
             "mean_entity_overlap": 0.29,
             "mean_reference_overlap": 0.94,
             "mean_numerical_instances_overlap": 0.27,
@@ -282,8 +282,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 727.03,
+                "mean_levenshtein_disagreement": 745.37
             },
             "flesch_reading_ease": {
                 "first_mean": 36.199,
@@ -381,7 +381,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 727.44,
             "mean_entity_overlap": 0.3,
             "mean_reference_overlap": 0.94,
             "mean_numerical_instances_overlap": 0.31,
@@ -389,8 +389,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 722.83,
+                "mean_levenshtein_disagreement": 740.82
             },
             "flesch_reading_ease": {
                 "first_mean": 36.083,
@@ -490,7 +490,7 @@
     "claude_4.5_sonnet": {
         "extracted_framing": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 802.89,
             "mean_entity_overlap": 0.39,
             "mean_reference_overlap": 0.87,
             "mean_numerical_instances_overlap": 0.35,
@@ -498,8 +498,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 787.08,
+                "mean_levenshtein_disagreement": 842.01
             },
             "flesch_reading_ease": {
                 "first_mean": 18.437,
@@ -626,7 +626,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 762.99,
             "mean_entity_overlap": 0.45,
             "mean_reference_overlap": 0.88,
             "mean_numerical_instances_overlap": 0.43,
@@ -634,8 +634,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 763.34,
+                "mean_levenshtein_disagreement": 761.84
             },
             "flesch_reading_ease": {
                 "first_mean": 18.427,
@@ -762,7 +762,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 697.5,
             "mean_entity_overlap": 0.43,
             "mean_reference_overlap": 0.94,
             "mean_numerical_instances_overlap": 0.42,
@@ -770,8 +770,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.94,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 685.71,
+                "mean_levenshtein_disagreement": 732.01
             },
             "flesch_reading_ease": {
                 "first_mean": 21.109,
@@ -869,7 +869,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 661.29,
             "mean_entity_overlap": 0.45,
             "mean_reference_overlap": 0.95,
             "mean_numerical_instances_overlap": 0.45,
@@ -877,8 +877,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 654.06,
+                "mean_levenshtein_disagreement": 681.57
             },
             "flesch_reading_ease": {
                 "first_mean": 20.903,
@@ -978,7 +978,7 @@
     "api-llama3.3": {
         "extracted_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 603.73,
             "mean_entity_overlap": 0.68,
             "mean_reference_overlap": 0.92,
             "mean_numerical_instances_overlap": 0.18,
@@ -986,8 +986,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 596.71,
+                "mean_levenshtein_disagreement": 624.05
             },
             "flesch_reading_ease": {
                 "first_mean": 25.549,
@@ -1114,7 +1114,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.96,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 481.09,
             "mean_entity_overlap": 0.74,
             "mean_reference_overlap": 0.93,
             "mean_numerical_instances_overlap": 0.24,
@@ -1122,8 +1122,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.96,
                 "mean_similarity_disagreement": 0.96,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 472.25,
+                "mean_levenshtein_disagreement": 514.33
             },
             "flesch_reading_ease": {
                 "first_mean": 25.479,
@@ -1250,7 +1250,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 575.55,
             "mean_entity_overlap": 0.67,
             "mean_reference_overlap": 0.95,
             "mean_numerical_instances_overlap": 0.22,
@@ -1258,8 +1258,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 555.79,
+                "mean_levenshtein_disagreement": 626.1
             },
             "flesch_reading_ease": {
                 "first_mean": 28.511,
@@ -1357,7 +1357,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.96,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 451.9,
             "mean_entity_overlap": 0.74,
             "mean_reference_overlap": 0.95,
             "mean_numerical_instances_overlap": 0.31,
@@ -1365,8 +1365,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.96,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 429.64,
+                "mean_levenshtein_disagreement": 528.81
             },
             "flesch_reading_ease": {
                 "first_mean": 28.48,
@@ -1466,7 +1466,7 @@
     "api-llama4": {
         "extracted_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 525.58,
             "mean_entity_overlap": 0.52,
             "mean_reference_overlap": 0.83,
             "mean_numerical_instances_overlap": 0.29,
@@ -1474,8 +1474,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 516.08,
+                "mean_levenshtein_disagreement": 553.12
             },
             "flesch_reading_ease": {
                 "first_mean": 26.134,
@@ -1602,7 +1602,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 426.27,
             "mean_entity_overlap": 0.59,
             "mean_reference_overlap": 0.85,
             "mean_numerical_instances_overlap": 0.35,
@@ -1610,8 +1610,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 414.57,
+                "mean_levenshtein_disagreement": 469.11
             },
             "flesch_reading_ease": {
                 "first_mean": 26.131,
@@ -1738,7 +1738,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 516.79,
             "mean_entity_overlap": 0.54,
             "mean_reference_overlap": 0.86,
             "mean_numerical_instances_overlap": 0.39,
@@ -1746,8 +1746,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.94,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 504.93,
+                "mean_levenshtein_disagreement": 549.09
             },
             "flesch_reading_ease": {
                 "first_mean": 28.601,
@@ -1845,7 +1845,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.96,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 414.58,
             "mean_entity_overlap": 0.6,
             "mean_reference_overlap": 0.89,
             "mean_numerical_instances_overlap": 0.44,
@@ -1853,8 +1853,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.96,
                 "mean_similarity_disagreement": 0.96,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 403.47,
+                "mean_levenshtein_disagreement": 455.84
             },
             "flesch_reading_ease": {
                 "first_mean": 28.481,
@@ -1954,7 +1954,7 @@
     "qwen3-4B": {
         "extracted_framing": {
             "mean_similarity": 0.92,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 406.11,
             "mean_entity_overlap": 0.53,
             "mean_reference_overlap": 0.79,
             "mean_numerical_instances_overlap": 0.21,
@@ -1962,8 +1962,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 399.59,
+                "mean_levenshtein_disagreement": 422.73
             },
             "flesch_reading_ease": {
                 "first_mean": 38.781,
@@ -2090,7 +2090,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 329.77,
             "mean_entity_overlap": 0.62,
             "mean_reference_overlap": 0.83,
             "mean_numerical_instances_overlap": 0.25,
@@ -2098,8 +2098,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 326.06,
+                "mean_levenshtein_disagreement": 342.55
             },
             "flesch_reading_ease": {
                 "first_mean": 38.722,
@@ -2226,7 +2226,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 396.97,
             "mean_entity_overlap": 0.56,
             "mean_reference_overlap": 0.84,
             "mean_numerical_instances_overlap": 0.25,
@@ -2234,8 +2234,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 383.86,
+                "mean_levenshtein_disagreement": 427.32
             },
             "flesch_reading_ease": {
                 "first_mean": 39.906,
@@ -2333,7 +2333,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 332.9,
             "mean_entity_overlap": 0.64,
             "mean_reference_overlap": 0.88,
             "mean_numerical_instances_overlap": 0.31,
@@ -2341,8 +2341,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 325.91,
+                "mean_levenshtein_disagreement": 355.59
             },
             "flesch_reading_ease": {
                 "first_mean": 39.447,
@@ -2442,7 +2442,7 @@
     "qwen3-30B": {
         "extracted_framing": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 481.19,
             "mean_entity_overlap": 0.46,
             "mean_reference_overlap": 0.83,
             "mean_numerical_instances_overlap": 0.24,
@@ -2450,8 +2450,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 475.08,
+                "mean_levenshtein_disagreement": 496.6
             },
             "flesch_reading_ease": {
                 "first_mean": 36.387,
@@ -2578,7 +2578,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.96,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 399.54,
             "mean_entity_overlap": 0.52,
             "mean_reference_overlap": 0.85,
             "mean_numerical_instances_overlap": 0.28,
@@ -2586,8 +2586,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.96,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 396.12,
+                "mean_levenshtein_disagreement": 411.25
             },
             "flesch_reading_ease": {
                 "first_mean": 36.34,
@@ -2714,7 +2714,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 457.2,
             "mean_entity_overlap": 0.5,
             "mean_reference_overlap": 0.85,
             "mean_numerical_instances_overlap": 0.3,
@@ -2722,8 +2722,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.94,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 446.02,
+                "mean_levenshtein_disagreement": 487.87
             },
             "flesch_reading_ease": {
                 "first_mean": 37.055,
@@ -2821,7 +2821,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.96,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 392.06,
             "mean_entity_overlap": 0.56,
             "mean_reference_overlap": 0.88,
             "mean_numerical_instances_overlap": 0.37,
@@ -2829,8 +2829,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.96,
                 "mean_similarity_disagreement": 0.96,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 384.97,
+                "mean_levenshtein_disagreement": 416.94
             },
             "flesch_reading_ease": {
                 "first_mean": 36.675,
@@ -2930,7 +2930,7 @@
     "huatuo-7B": {
         "extracted_framing": {
             "mean_similarity": 0.92,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 490.34,
             "mean_entity_overlap": 0.39,
             "mean_reference_overlap": 0.36,
             "mean_numerical_instances_overlap": 0.07,
@@ -2938,8 +2938,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.92,
                 "mean_similarity_disagreement": 0.91,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 484.64,
+                "mean_levenshtein_disagreement": 503.24
             },
             "flesch_reading_ease": {
                 "first_mean": 22.12,
@@ -3066,7 +3066,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 457.47,
             "mean_entity_overlap": 0.41,
             "mean_reference_overlap": 0.38,
             "mean_numerical_instances_overlap": 0.08,
@@ -3074,8 +3074,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 454.34,
+                "mean_levenshtein_disagreement": 466.03
             },
             "flesch_reading_ease": {
                 "first_mean": 22.241,
@@ -3202,7 +3202,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.91,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 481.26,
             "mean_entity_overlap": 0.38,
             "mean_reference_overlap": 0.5,
             "mean_numerical_instances_overlap": 0.09,
@@ -3210,8 +3210,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.92,
                 "mean_similarity_disagreement": 0.91,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 475.53,
+                "mean_levenshtein_disagreement": 495.36
             },
             "flesch_reading_ease": {
                 "first_mean": 23.057,
@@ -3309,7 +3309,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.93,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 474.09,
             "mean_entity_overlap": 0.4,
             "mean_reference_overlap": 0.5,
             "mean_numerical_instances_overlap": 0.1,
@@ -3317,8 +3317,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.93,
                 "mean_similarity_disagreement": 0.92,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 469.92,
+                "mean_levenshtein_disagreement": 485.67
             },
             "flesch_reading_ease": {
                 "first_mean": 22.97,
@@ -3418,7 +3418,7 @@
     "huatuo-8B": {
         "extracted_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 1075.28,
             "mean_entity_overlap": 0.54,
             "mean_reference_overlap": 0.67,
             "mean_numerical_instances_overlap": 0.1,
@@ -3426,8 +3426,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.94,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 1086.98,
+                "mean_levenshtein_disagreement": 1046.89
             },
             "flesch_reading_ease": {
                 "first_mean": 19.309,
@@ -3554,7 +3554,7 @@
         },
         "extracted_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 1002.48,
             "mean_entity_overlap": 0.56,
             "mean_reference_overlap": 0.67,
             "mean_numerical_instances_overlap": 0.12,
@@ -3562,8 +3562,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.95,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 997.47,
+                "mean_levenshtein_disagreement": 1016.29
             },
             "flesch_reading_ease": {
                 "first_mean": 18.979,
@@ -3690,7 +3690,7 @@
         },
         "simplified_framing": {
             "mean_similarity": 0.94,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 1229.39,
             "mean_entity_overlap": 0.56,
             "mean_reference_overlap": 0.79,
             "mean_numerical_instances_overlap": 0.12,
@@ -3698,8 +3698,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.94,
                 "mean_similarity_disagreement": 0.93,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 1282.57,
+                "mean_levenshtein_disagreement": 1107.08
             },
             "flesch_reading_ease": {
                 "first_mean": 21.285,
@@ -3797,7 +3797,7 @@
         },
         "simplified_baseline": {
             "mean_similarity": 0.95,
-            "mean_levenshtein_distance": null,
+            "mean_levenshtein_distance": 1146.7,
             "mean_entity_overlap": 0.58,
             "mean_reference_overlap": 0.81,
             "mean_numerical_instances_overlap": 0.14,
@@ -3805,8 +3805,8 @@
             "by_agreement": {
                 "mean_similarity_agreement": 0.95,
                 "mean_similarity_disagreement": 0.94,
-                "mean_levenshtein_agreement": null,
-                "mean_levenshtein_disagreement": null
+                "mean_levenshtein_agreement": 1183.49,
+                "mean_levenshtein_disagreement": 1051.92
             },
             "flesch_reading_ease": {
                 "first_mean": 21.638,
