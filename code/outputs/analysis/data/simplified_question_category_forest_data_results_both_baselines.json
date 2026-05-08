@@ -1,0 +1,58 @@
+[
+  {
+    "baseline_version": "Basic Baseline",
+    "question_category": "effectiveness",
+    "term": "framingFramed",
+    "estimate": -0.2897,
+    "std.error": 0.0594,
+    "statistic": -4.8748,
+    "p.value": 1.0893e-06,
+    "conf.low": -0.4063,
+    "conf.high": -0.1733,
+    "OR": 0.7485,
+    "lower": 0.6661,
+    "upper": 0.8408
+  },
+  {
+    "baseline_version": "Basic Baseline",
+    "question_category": "efficacy",
+    "term": "framingFramed",
+    "estimate": -0.0848,
+    "std.error": 0.0601,
+    "statistic": -1.4116,
+    "p.value": 0.1581,
+    "conf.low": -0.2027,
+    "conf.high": 0.0329,
+    "OR": 0.9187,
+    "lower": 0.8165,
+    "upper": 1.0335
+  },
+  {
+    "baseline_version": "Paraphrased Baseline",
+    "question_category": "effectiveness",
+    "term": "framingFramed",
+    "estimate": -0.162,
+    "std.error": 0.0584,
+    "statistic": -2.7716,
+    "p.value": 0.0056,
+    "conf.low": -0.2766,
+    "conf.high": -0.0475,
+    "OR": 0.8504,
+    "lower": 0.7583,
+    "upper": 0.9536
+  },
+  {
+    "baseline_version": "Paraphrased Baseline",
+    "question_category": "efficacy",
+    "term": "framingFramed",
+    "estimate": -0.0592,
+    "std.error": 0.0599,
+    "statistic": -0.9882,
+    "p.value": 0.3231,
+    "conf.low": -0.1767,
+    "conf.high": 0.0582,
+    "OR": 0.9425,
+    "lower": 0.8381,
+    "upper": 1.0599
+  }
+]
